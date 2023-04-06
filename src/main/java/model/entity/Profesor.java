@@ -1,4 +1,4 @@
-package main.java.model;
+package main.java.model.entity;
 
 public class Profesor {
     private String nombre_profesor;
