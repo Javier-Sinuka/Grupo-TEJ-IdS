@@ -1,5 +1,6 @@
 package main.java.controller.gameManager;
-
+import main.java.controller.ui.DataPanel;
+import main.java.controller.ui.StartPanel;
 import main.java.model.entity.Student;
 import main.java.controller.ui.Window;
 import javax.swing.*;
@@ -10,59 +11,41 @@ import java.awt.event.MouseEvent;
 public class GameManager {
     private Student student;
     private Window window;
-    private JPanel startPanel;
-    private JPanel dataPanel;
+    private StartPanel startPanel;
+    private DataPanel dataPanel;
     private JPanel roomsPanels[] = new JPanel[5];
 
     public GameManager(){
         this.student = new Student("");
         this.window = new Window();
+        this.startPanel = new StartPanel(window,student);
+        this.dataPanel = new DataPanel(window,student);
 
-        setStartPanel();
-        setRommsPanels();
+        startButtonLabel();
+        window.add(startPanel.getStartPanele());
     }
-    public void setDataPlayer(String name){
-        //Setear los datos del jugador
-        student.setNameStudent(name);
-    }
-    public void setStartPanel(){
-
-        startPanel = new JPanel();
-        startPanel.setSize(window.getWIDTH(),400);
-        startPanel.setBackground(Color.GRAY);
-        startPanel.setVisible(true);
-        startPanel.setLayout(null);
-        Image background = Toolkit.getDefaultToolkit().createImage("res/fondo.jpg");
-        //startPanel.drawImage(background, 0, 0, null);
-
-        //Etiqueta del titulo
-        JLabel title = new JLabel("Game name");
-        title.setBounds(270,100,500,100);
-        title.setFont(new Font("Arial Black", Font.BOLD,50)); //(tipo de letra, estilo, tamaño)
-        startPanel.add(title);
-
-        //Etiqueta del textArea para agregar el nombre del jugador
-        JTextArea nameText = new JTextArea("Name..");
-        nameText.setBounds(350,200,200,50);
-        startPanel.add(nameText);
-
+    //Boton si o si en la window y no en el panle de start por la logica el el click
+    public void startButtonLabel(){
         //Etiqueta de botton de start
         JButton startButton = new JButton("Start game");
-        startButton.setBounds(350,300,150,50);
-        startButton.setFocusable(false);
-
+        startButton.setBounds(500,300,150,50);
+        window.add(startButton);
         //Logica click del boton
         startButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                String name = nameText.getText();
-                setDataPlayer(name);
+                String name = startPanel.getNameText().getText();
+                student.setNameStudent(name);
                 System.out.println(name);
-                setDataPanel();
-                startPanel.setVisible(false);
+
+                //Despues de apretar el boton tengo que setear los datos de los paneles
+                dataPanel.setDataPanel();
+                setRommsPanels();
+
+                startPanel.getStartPanele().setVisible(false);
                 roomsPanels[0].setVisible(true);
-                roomsPanels[0].add(dataPanel);
                 window.add(roomsPanels[0]);
+                startButton.setVisible(false);
             }
             @Override
             public void mousePressed(MouseEvent e) {
@@ -79,41 +62,6 @@ public class GameManager {
             }
         });
 
-        startPanel.add(startButton);
-
-        //Agrego el panel de start a la ventana
-        window.add(startPanel);
-    }
-    public void setDataPanel(){
-        dataPanel = new JPanel();
-        dataPanel.setSize(window.getWIDTH(),400);
-        dataPanel.setBackground(Color.gray);
-        dataPanel.setOpaque(false);
-        dataPanel.setVisible(true);
-        dataPanel.setLayout(null);
-
-        //Etiqueda con el nombre del jugador
-        String playerName = student.getNameStudent();
-        JLabel nameLabel = new JLabel(playerName);
-        nameLabel.setBounds(350,270,200,200);
-        nameLabel.setFont(new Font("Arial Black", Font.BOLD,50)); //(tipo de letra, estilo, tamaño)
-        dataPanel.add(nameLabel);
-
-        //Etiqueta de dogecoin
-        ImageIcon dogecoin = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/dogecoin.png"));
-        String coin = Integer.toString(student.getDogecoin());
-        JLabel dogecoinLabel = new JLabel(coin,dogecoin,0);
-        dogecoinLabel.setBounds(700,10,200,60);
-        dogecoinLabel.setFont(new Font("Arial Black",Font.BOLD,50));
-        dataPanel.add(dogecoinLabel);
-
-        //Etiqueta life
-        JProgressBar lifeBar = new JProgressBar(0,5);
-        lifeBar.setBounds(20,20,200,20);
-        dataPanel.add(lifeBar);
-
-        //Etiqueta knowledge
-
     }
     public void setRommsPanels(){
         for(int i = 0; i<5; i++){
@@ -122,14 +70,14 @@ public class GameManager {
             roomsPanels[i].setVisible(false);
             roomsPanels[i].setLayout(null);
         }
-        roomOne();
-        roomTwo();
         roomThree();
+        roomTwo();
+        roomOne();
     }
     public void roomOne(){
 
         roomsPanels[0].setBackground(Color.red); //Cambiar el fonde del room con la foto
-
+        roomsPanels[0].add(dataPanel.getDataPanel());
         //Etiqueta del boton a room2
         JButton buttonRoom2 = new JButton("Room 2");
         buttonRoom2.setBounds(100,300,150,50);
@@ -141,7 +89,7 @@ public class GameManager {
                 System.out.println("Going to Room 2");
                 roomsPanels[0].setVisible(false);
                 roomsPanels[1].setVisible(true);
-                roomsPanels[1].add(dataPanel);
+                roomsPanels[1].add(dataPanel.getDataPanel());
                 window.add(roomsPanels[1]);
             }
             @Override
@@ -169,7 +117,7 @@ public class GameManager {
                 System.out.println("Going to Room 3");
                 roomsPanels[0].setVisible(false);
                 roomsPanels[2].setVisible(true);
-                roomsPanels[2].add(dataPanel);
+                roomsPanels[2].add(dataPanel.getDataPanel());
                 window.add(roomsPanels[2]);
             }
             @Override
@@ -204,7 +152,7 @@ public class GameManager {
                 System.out.println("Going to Room 1");
                 roomsPanels[0].setVisible(true);
                 roomsPanels[1].setVisible(false);
-                roomsPanels[0].add(dataPanel);
+                roomsPanels[0].add(dataPanel.getDataPanel());
                 window.add(roomsPanels[0]);
             }
             @Override
@@ -237,7 +185,7 @@ public class GameManager {
                 System.out.println("Going to Room 1");
                 roomsPanels[0].setVisible(true);
                 roomsPanels[2].setVisible(false);
-                roomsPanels[0].add(dataPanel);
+                roomsPanels[0].add(dataPanel.getDataPanel());
                 window.add(roomsPanels[0]);
             }
             @Override
@@ -258,13 +206,7 @@ public class GameManager {
     public Student getStudent() {
         return student;
     }
-    public void setStudent(Student student) {
-        this.student = student;
-    }
     public Window getWindow() {
         return window;
-    }
-    public void setWindow(Window window) {
-        this.window = window;
     }
 }
