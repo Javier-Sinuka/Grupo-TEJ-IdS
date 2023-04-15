@@ -1,8 +1,8 @@
 package main.java.model.objects;
 
-public class DogueCoin {
+public class DogeCoin {
     private static final int VALUE = 1;
 
-    public DogueCoin() {
+    public DogeCoin() {
     }
 }
