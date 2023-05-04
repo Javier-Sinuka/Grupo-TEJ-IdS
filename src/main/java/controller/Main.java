@@ -2,6 +2,9 @@ package main.java.controller;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        GameManager gm=new GameManager();
+        gm.getWindow().revalidate();
+        gm.getWindow().repaint();
     }
 }

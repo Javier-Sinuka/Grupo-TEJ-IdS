@@ -1,4 +1,10 @@
 package main.java.model.entity;
 
-public class UIHallway {
+import javax.swing.*;
+
+public class UIHallway extends JPanel {
+
+    public UIHallway(){
+
+    }
 }
