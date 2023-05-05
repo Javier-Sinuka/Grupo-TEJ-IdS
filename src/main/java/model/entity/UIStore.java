@@ -1,4 +1,8 @@
 package main.java.model.entity;
 
-public class UIStore {
+import javax.swing.*;
+
+public class UIStore extends JPanel {
+
+
 }
