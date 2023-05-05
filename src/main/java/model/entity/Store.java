@@ -28,10 +28,10 @@ public class Store {
     public void getContent(){
         if (flag.equals("consumable")){
             System.out.println("El contenido almacenado es: consumibles");
-            System.out.println(iConsumables[0]);
+            System.out.println("Contenido actual: " + iConsumables.length);
         }else {
             System.out.println("El contenido almacenado es: item's");
-            System.out.println(iItemStore);
+            System.out.println("Contenido actual: " + iItemStore.length);
         }
     }
 }
