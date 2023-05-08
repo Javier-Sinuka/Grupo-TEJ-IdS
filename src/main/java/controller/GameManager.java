@@ -60,8 +60,6 @@ public class GameManager {
         }
     }
     public void setUpRooms(){
-        uiStudent.getDataPanel().setVisible(true);
-        window.add(uiStudent.getDataPanel());
         createMenu();   //0
         hallway1();     //1
         classRoom1();   //2
@@ -112,6 +110,7 @@ public class GameManager {
 
         rooms.get(1).setBackground(Color.gray);
         rooms.get(1).add(title);
+        rooms.get(1).add(uiStudent.getDataPanel());
         window.add(rooms.get(1));
     }
     //Aula 1
