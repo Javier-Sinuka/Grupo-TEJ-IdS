@@ -23,12 +23,8 @@ public class GameManager {
         textArea=new JTextArea();
         ArrayList<String>roomTypes=new ArrayList<>();
         roomTypes.add("");
-        //roomTypes.add("Classroom");
-        //roomTypes.add("Classroom");
-        //roomTypes.add("Classroom");
         createRooms(roomTypes);
         setUpRooms();
-
     }
 
     private void createRooms(ArrayList<String>roomType){
@@ -42,7 +38,7 @@ public class GameManager {
                     rooms.add(newClassroom);
                     break;
                 case "Hallway":
-                    UIHallway newHallway= new UIHallway();
+                    UIHallway newHallway= new UIHallway("asd",Color.gray);
                     rooms.add(newHallway);
                     break;
                 case "Store":
@@ -63,8 +59,8 @@ public class GameManager {
         createMenu();   //0
         hallway1();     //1
         classRoom1();   //2
-        store1();       //3
-        //roomThree();  //4
+        store1();       //4
+        hallway2();     //5
     }
     //Menu preincipal (inicio)
     private void createMenu(){
@@ -86,15 +82,12 @@ public class GameManager {
     }
     //Primer pasillo
     private void hallway1 (){
-        UIHallway newHallway= new UIHallway();
+        UIHallway newHallway= new UIHallway("Hallway 1",Color.gray);
         rooms.add(newHallway);
 
-        JLabel title = new JLabel("Hallway 1");
-        title.setBounds(640,300,100,50);
-
-        //Boton para ir al store
-        UIButton storeButton = new UIButton(500,0,150,50);
-        storeButton.setAsWindowButton(rooms,uiStudent,"Store",1,4);
+        //Boton para ir al Hallway2
+        UIButton hallway2Button = new UIButton(500,0,150,50);
+        hallway2Button.setAsWindowButton(rooms,uiStudent,"Hallway 2",1,5);
 
         //Boton para ir al classrom 1
         UIButton classroomButton1 = new UIButton(1130,300,150,50);
@@ -102,16 +95,28 @@ public class GameManager {
 
         //Boton para ir al classrom 2
         UIButton classroomButton2 = new UIButton(0,300,150,50);
-        classroomButton2.setAsWindowButton(rooms,uiStudent,"Classroom2",1,5);
+        classroomButton2.setAsWindowButton(rooms,uiStudent,"Classroom2",1,6);
 
         //Boton para ir al classrom 3
         UIButton classroomButton3 = new UIButton(500,630,150,50);
-        classroomButton3.setAsWindowButton(rooms,uiStudent,"Classroom3",1,6);
+        classroomButton3.setAsWindowButton(rooms,uiStudent,"Classroom3",1,7);
 
-        rooms.get(1).setBackground(Color.gray);
-        rooms.get(1).add(title);
-        rooms.get(1).add(uiStudent.getDataPanel());
         window.add(rooms.get(1));
+    }
+    //Segundo pasillo
+    private void hallway2 (){
+        UIHallway newHallway= new UIHallway("Hallway 2",Color.blue);
+        rooms.add(newHallway);
+
+        //Boton para ir al store
+        UIButton storeButton = new UIButton(500,0,150,50);
+        storeButton.setAsWindowButton(rooms,uiStudent,"Store",5,4);
+
+        //Boton para ir al hallway1
+        UIButton hallway1Button = new UIButton(500,630,150,50);
+        hallway1Button.setAsWindowButton(rooms,uiStudent,"Hallway 1",5,1);
+
+        window.add(rooms.get(5));
     }
     //Aula 1
     private void classRoom1(){
@@ -137,24 +142,16 @@ public class GameManager {
         button2.setAsOptionMenu(options,"Option 2",rooms.get(2),textArea);
 
     }
-    //Tienda
+    //Bar
     private void store1(){
-        UIStore uiStore = new UIStore(uiStudent,false);
+        UIStore uiStore = new UIStore(uiStudent,true);
         rooms.add(uiStore);
 
         //Boton para salir de la tienda
         UIButton exitButton = new UIButton(1100,620,150,50);
-        exitButton.setAsWindowButton(rooms,uiStudent,"Exit",4,1);
+        exitButton.setAsWindowButton(rooms,uiStudent,"Exit",4,5);
 
         window.add(rooms.get(4));
-    }
-    private void roomThree(){
-        //roomsPanels[3].add(student.getDataPanel());
-        rooms.get(3).setBackground(Color.blue); //Cambiar el fonde del room con la foto
-        UIButton button1= new UIButton(50,300,150,50);
-        button1.setAsWindowButton(rooms,uiStudent,"Room 1",3,1);
-        //roomsPanels[3].add(student.getDataPanel());
-        window.add(rooms.get(3));
     }
     public GameWindow getWindow(){
         return window;

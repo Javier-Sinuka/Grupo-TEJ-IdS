@@ -31,6 +31,7 @@ public class UIButton {
             public void mouseClicked(MouseEvent e) {
                 roomsPanels.get(roomID).setVisible(false);
                 roomsPanels.get(destinyRoom).setVisible(true);
+                roomsPanels.get(destinyRoom).add(student.getDataPanel());
             }
             @Override
             public void mousePressed(MouseEvent e) {}
