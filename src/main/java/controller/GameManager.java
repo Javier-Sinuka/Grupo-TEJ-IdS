@@ -1,19 +1,13 @@
 package main.java.controller;
-
 import main.java.model.entity.*;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class GameManager {
-
     private UIStudent uiStudent;
-
     private GameWindow window;
-
     private ArrayList<JPanel> rooms;
-
     private JTextArea textArea;
 
     public GameManager(){
@@ -26,7 +20,6 @@ public class GameManager {
         createRooms(roomTypes);
         setUpRooms();
     }
-
     private void createRooms(ArrayList<String>roomType){
 
         for(String room:roomType){
@@ -61,6 +54,7 @@ public class GameManager {
         classRoom1();   //2
         store1();       //4
         hallway2();     //5
+        store2();       //6
     }
     //Menu preincipal (inicio)
     private void createMenu(){
@@ -112,6 +106,11 @@ public class GameManager {
         UIButton storeButton = new UIButton(500,0,150,50);
         storeButton.setAsWindowButton(rooms,uiStudent,"Store",5,4);
 
+        //Boton para ir al store2
+        UIButton storeButton2 = new UIButton(0,300,150,50);
+        storeButton2.setAsWindowButton(rooms,uiStudent,"Store2",5,6);
+
+
         //Boton para ir al hallway1
         UIButton hallway1Button = new UIButton(500,630,150,50);
         hallway1Button.setAsWindowButton(rooms,uiStudent,"Hallway 1",5,1);
@@ -142,9 +141,8 @@ public class GameManager {
         button2.setAsOptionMenu(options,"Option 2",rooms.get(2),textArea);
 
     }
-    //Bar
     private void store1(){
-        UIStore uiStore = new UIStore(uiStudent,true);
+        UIStore uiStore = new UIStore(uiStudent,false);
         rooms.add(uiStore);
 
         //Boton para salir de la tienda
@@ -152,6 +150,16 @@ public class GameManager {
         exitButton.setAsWindowButton(rooms,uiStudent,"Exit",4,5);
 
         window.add(rooms.get(4));
+    }
+    private void store2(){
+        UIStore uiStore = new UIStore(uiStudent,true);
+        rooms.add(uiStore);
+
+        //Boton para salir de la tienda
+        UIButton exitButton = new UIButton(1100,620,150,50);
+        exitButton.setAsWindowButton(rooms,uiStudent,"Exit",6,5);
+
+        window.add(rooms.get(6));
     }
     public GameWindow getWindow(){
         return window;

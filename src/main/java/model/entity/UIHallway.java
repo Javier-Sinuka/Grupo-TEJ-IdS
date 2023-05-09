@@ -13,7 +13,7 @@ public class UIHallway extends JPanel {
         this.colorDeFondo = colorDeFondo;
 
        parametersHallway();
-       titleLael(hallwayName);
+       titleLael(this.hallwayName);
        randomObject();
     }
     public void parametersHallway(){

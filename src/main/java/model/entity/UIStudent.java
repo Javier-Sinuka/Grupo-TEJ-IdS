@@ -6,7 +6,7 @@ import java.awt.*;
 public class UIStudent {
     private Student student;
     private JPanel dataPanel;
-     int testDoge = 100;
+     int testDoge = 100; // DogeCoin para probar las funcionalidades del panel y tienda
 
     public UIStudent(){
         student=new Student();
@@ -50,5 +50,8 @@ public class UIStudent {
     public int getDogeCoin(){
         //student.getDogeCoin();
         return testDoge;
+    }
+    public void addPurchasedItem(String itemName){
+        //Agregar a la mochila del estudiante el item comprado
     }
 }
