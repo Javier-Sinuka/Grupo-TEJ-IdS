@@ -1,6 +1,6 @@
 package main.java.model.objects;
 
 public interface IItemStore {
-    String resistencia = "resistencia";
-    String mate = "mate";
+    public static final String RESISTENCIA = "resistencia";
+    public static final int RESISTENCI = 1;
 }
