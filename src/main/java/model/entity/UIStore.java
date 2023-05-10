@@ -45,6 +45,7 @@ public class UIStore extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
             if(uiStudent.getDogeCoin() <= 0){
+                messageLabel.setVisible(true);
                 messageLabel.setText("No tenes plata pobre :(");
             }else {
                 //Dependiendo del itemName es la cantidad de dogeCoin a restar
@@ -69,6 +70,9 @@ public class UIStore extends JPanel {
         uiStudent.removeDogeCoin(20);
         uiStudent.getDataPanel().removeAll();
         uiStudent.setDataPanel();
+        if(uiStudent.inventoryPanelOpen){
+            uiStudent.inventoryPanel.setVisible(true);
+        }
         uiStudent.addPurchasedItem(itemName);
 
         messageLabel.setText("Compraste " + itemName + ":)");
