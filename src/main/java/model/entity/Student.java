@@ -106,6 +106,20 @@ public class Student {
         this.backpack.add(usable);
     }
 
+    /**
+     * Metodo que elimina un objeto de la mochila.
+     * El objeto debe de tener el mismo nombre que el que se desea eliminar.
+     * @param usable
+     */
+    public void deleteUsableInBackpack(Usable usable){
+        for (int i = 0; i < backpack.size(); i++){
+            if(usable.getName().toLowerCase().equals(backpack.get(i).getName().toLowerCase())){
+                this.backpack.remove(i);
+                break;
+            }
+        }
+    }
+
     //*************************** METODOS PROPIOS *********************************
     /**
         Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
