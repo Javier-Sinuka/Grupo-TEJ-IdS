@@ -1,7 +1,4 @@
 package main.java.controller;
-
-import main.java.model.entity.Student;
-
 public class Main {
     public static void main(String[] args) {
 

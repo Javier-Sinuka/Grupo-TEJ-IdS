@@ -1,30 +1,44 @@
 package main.java.model.entity;
 
-import main.java.model.objects.DogeCoin;
-
-import javax.swing.*;
+import main.java.model.objects.IDogeCoin;
 
 public class Student {
-
-    private String studentName;
-    private JPanel dataPanel;
-    private DogeCoin dogecoin;
     private String nameStudent;
-
-    public Student(String nameStudent) {
+    private int lifeBar;
+    IDogeCoin iDogueCoins[];
+    //    public Student(String nameStudent, int lifeBar, int amountOfDogueCoin) {
+//        this.nameStudent = nameStudent;
+//        this.lifeBar = lifeBar;
+//        dogueCoin = new DogueCoin(amountOfDogueCoin);
+//    }
+    public Student(String nameStudent, int lifeBar, int amountOfDogueCoin) {
         this.nameStudent = nameStudent;
+        this.lifeBar = lifeBar;
+        this.iDogueCoins = new IDogeCoin[amountOfDogueCoin];
     }
 
     public Student() {
-        dataPanel=new JPanel();
-        dogecoin=new DogeCoin();
     }
 
+    //*************************** GETTERS *********************************
     public String getNameStudent() {
         return nameStudent;
     }
 
+    public int getLifeBar() {
+        return lifeBar;
+    }
+
+    public int getAmountDogueCoinInWallet(){
+        return iDogueCoins.length;
+    }
+
+    //*************************** SETTERS *********************************
     public void setNameStudent(String nameStudent) {
         this.nameStudent = nameStudent;
     }
+    public void setLifeBar(int lifeBar) {
+        this.lifeBar = lifeBar;
+    }
+
 }

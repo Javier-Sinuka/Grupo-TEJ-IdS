@@ -4,14 +4,14 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-    public class UIClassroom extends JPanel {
+public class UIClassroom extends JPanel {
 
-        Classroom classroom;
-        UIButton exitButton;
+    Classroom classroom;
+    UIButton exitButton;
 
-        UIButton optionMenu;
+    UIButton optionMenu;
 
-        JTextArea textArea;
+    JTextArea textArea;
 
 
     public UIClassroom(){
