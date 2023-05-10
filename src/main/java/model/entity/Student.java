@@ -1,7 +1,5 @@
 package main.java.model.entity;
 
-import main.java.model.objects.IDogeCoin;
-
 public class Student {
     private String nameStudent;
     private int lifeBar, coffeBar, walking, walkingB, credits;
@@ -86,8 +84,8 @@ public class Student {
 
     //*************************** METODOS PROPIOS *********************************
     /**
-    Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
-    Cuando llega a 0, se le resta uno de cafeina.
+        Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
+        Cuando llega a 0, se le resta uno de cafeina.
      **/
     public void modifedWalkCafein(){
         walking--;

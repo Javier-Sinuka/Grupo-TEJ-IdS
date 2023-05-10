@@ -1,7 +1,6 @@
 package main.java.model.entity;
 
 import main.java.model.objects.Consumable;
-import main.java.model.objects.IDogeCoin;
 import main.java.model.objects.Item;
 import main.java.model.objects.Usable;
 
@@ -32,12 +31,27 @@ public class Hallway {
     public int getRandomY(){
         return (int)(Math.random()*400+150);
     }
+    public Consumable getConsumable() {
+        return consumable;
+    }
+    public Item getItem() {
+        return item;
+    }
+
     public void setConsumable(String nameConsumable, String descriptionConsumable){
         this.consumable = new Consumable(nameConsumable,descriptionConsumable);
     }
     public void setItem(String nameItem, String descriptionItem){
         this.item = new Item(nameItem,descriptionItem);
     }
+
+    /**
+     * Metodo que retorna los elementos que tiene el pasillo, mientras estos no hayan
+     * sido agarrados con antelacion.
+     *
+     * @return Usable si tiene tiene objeto, NULL si ya fueron agarrados todos los
+     * objetos de dicho pasillo.
+     */
     public Usable getRandomUsable(){
         Usable usable = new Usable();
         try{
@@ -51,6 +65,8 @@ public class Hallway {
                     this.consumable.setTaken(true);
                     usable = consumable;
                 }
+            } else {
+                return null;
             }
         }catch (Exception e){
             System.out.println("Error al crear getRandomUsable: " + e);
