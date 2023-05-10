@@ -6,8 +6,8 @@ public class Classroom {
     public Classroom(){
     }
 
-
-
-
+    public Professor getProfessor() {
+        return professor;
+    }
 }
 
