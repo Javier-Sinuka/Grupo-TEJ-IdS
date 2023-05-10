@@ -6,6 +6,16 @@ import main.java.model.objects.Usable;
 
 import java.util.Random;
 
+/**
+ * Clase que genera los pasillos.
+ * Hallway() puede crearse vacia, o con paremetros.
+ * Los parametros necesarios son (solo uno por pasillo):
+ *                  - Tipo de Usable a contener
+ *                  - Nombre del Usable
+ *                  - Descripcion del Usable
+ * ES RECOMENDABLE CREARLA VACIA Y AGREGAR LOS USABLES POSTERIORMENTE
+ * PARA PODER INGRESAR MAS DE UNO Y CON LOS VALORES SETEADOS POR NOSOTROS.
+ */
 public class Hallway {
     private int x,y;
     private Consumable consumable;

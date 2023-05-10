@@ -1,9 +1,26 @@
 package main.java.model.entity;
 
+import main.java.model.objects.Usable;
+
+import java.util.ArrayList;
+
+/**
+ * Clase que genera al Estudiante.
+ *
+ * Puede generarse vacio o con nombre asociado, o sin nombre asociado.
+ *
+ * Es necesario especificar:
+ *          - Barra de vida (Siendo este el maximo especificado y el minimo "0")
+ *          - Barra de cafeina (Siendo este el maximo especificado y el minimo "0")
+ *          - Monto a poseer inicialmente en la billetera en DogeCoin (es un entero)
+ *          - Maximo a caminar antes de decrementar la cafeina en 1 (Ej: 10, si se mueve 10 veces entre
+ *          paneles, se le descuenta 1 de la barra de cafeina).
+ */
 public class Student {
     private String nameStudent;
-    private int lifeBar, coffeBar, walking, walkingB, credits;
-    private int dogeCoin;
+    private int lifeBar, coffeBar, walking,
+            walkingB, credits, dogeCoin;
+    private ArrayList<Usable> backpack;
 
     public Student(String nameStudent, int amountLifeBar, int amountCoffeBar, int amountToWalk, int amountOfDogueCoin) {
         this.nameStudent = nameStudent;
@@ -13,6 +30,7 @@ public class Student {
         this.walkingB = amountToWalk;
         this.credits = 0;
         this.dogeCoin = amountOfDogueCoin;
+        this.backpack = new ArrayList<>();
     }
     public Student(int amountLifeBar, int amountCoffeBar, int amountToWalk, int amountOfDogueCoin) {
         this.nameStudent = "";
@@ -22,9 +40,11 @@ public class Student {
         this.walkingB = amountToWalk;
         this.credits = 0;
         this.dogeCoin = amountOfDogueCoin;
+        this.backpack = new ArrayList<>();
     }
 
     public Student() {
+        this.backpack = new ArrayList<>();
     }
 
     //*************************** GETTERS *********************************
@@ -43,6 +63,7 @@ public class Student {
     public int getCredits(){
         return this.credits;
     }
+    public ArrayList<Usable> getBackpack(){return this.backpack;}
 
     //*************************** SETTERS *********************************
     public void setNameStudent(String nameStudent) {
@@ -81,6 +102,9 @@ public class Student {
         this.credits += credits;
     }
     public void setCredits(int credits){this.credits = credits;}
+    public void addUsableInBackpack(Usable usable){
+        this.backpack.add(usable);
+    }
 
     //*************************** METODOS PROPIOS *********************************
     /**

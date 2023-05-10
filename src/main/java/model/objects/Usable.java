@@ -1,5 +1,7 @@
 package main.java.model.objects;
-
+/**
+ * Clase Padre que especifica elementos de tipo Usable.
+ */
 public class Usable {
     private String name, description;
     private boolean isTaken;

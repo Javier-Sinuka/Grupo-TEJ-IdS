@@ -4,6 +4,16 @@ import main.java.model.objects.Usable;
 
 import java.util.ArrayList;
 
+/**
+ * Clase que genera los Store de Venta.
+ * Puede crearse vacia o con nombre.
+ *
+ * Posterior a crearse, es necesario agregarle los Usables mas un precio
+ * asosiado a dicho usable.
+ *
+ * Dato: Retorna una lista de usables almacenados (para obtener el precio hay que
+ * consultarlo al objeto Usable, ya que el mismo lo posee seteado).
+ */
 public class Store {
     String nameStore;
     ArrayList<Usable> listUsable;
