@@ -1,6 +1,7 @@
 package main.java.controller;
 
 import main.java.model.entity.Hallway;
+import main.java.model.objects.Item;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,6 +9,5 @@ public class Main {
 //        gm.getWindow().revalidate();
 //        gm.getWindow().repaint();
         Hallway hallway = new Hallway();
-        System.out.println(hallway.iItemStore());
     }
 }

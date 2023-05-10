@@ -1,16 +1,15 @@
 package main.java.model.entity;
 
-import main.java.model.objects.IConsumable;
-import main.java.model.objects.IItemStore;
-
-import java.util.Random;
+import main.java.model.objects.Consumable;
+import main.java.model.objects.IDogeCoin;
+import main.java.model.objects.Item;
 
 public class Hallway {
     private int x,y;
 
-    private IConsumable iConsumable;
+    private Consumable consumable;
 
-    private IItemStore iItemStore;
+    private Item item;
 
     public Hallway() {
         this.x = 0;
@@ -24,12 +23,5 @@ public class Hallway {
         return (int)(Math.random()*400+150);
     }
 
-    public IItemStore iItemStore(){
-//        Random random = new Random();
-//        int randomNumber = random.nextInt((1 - 0) + 1) + 0;
-//        if (randomNumber == 1){
-//            return iItemStore;
-//        }
-        return iItemStore;
-    }
+
 }
