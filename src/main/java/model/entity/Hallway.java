@@ -5,6 +5,8 @@ import main.java.model.objects.IDogeCoin;
 import main.java.model.objects.Item;
 import main.java.model.objects.Usable;
 
+import java.util.Random;
+
 public class Hallway {
     private int x,y;
     private Consumable consumable;
@@ -31,7 +33,10 @@ public class Hallway {
         return (int)(Math.random()*400+150);
     }
 //    public Usable getRandomUsable(){
-//
+//        if(this.item.getIsTaken()==false || this.consumable.getIsTaken()==false){
+//            Random random = new Random();
+//            int randomNumber = random.nextInt((1 - 0) + 1) +0;
+//        }
 //    }
 
 
