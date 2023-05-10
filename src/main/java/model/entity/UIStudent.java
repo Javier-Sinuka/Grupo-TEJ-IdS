@@ -145,6 +145,7 @@ public class UIStudent {
         testDoge = testDoge - dogeCoin;
     }
     public JPanel getDataPanel(){
+        //aumentar paso
         return dataPanel;
     }
     public int getDogeCoin(){
