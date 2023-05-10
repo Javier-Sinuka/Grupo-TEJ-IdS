@@ -28,11 +28,12 @@ public class GameManager {
     }
     //Menu preincipal (inicio)
     private void createMenu(){
-        MainMenu mainMenu = new MainMenu();
+        ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/Facultad.png"));
+        MainMenu mainMenu = new MainMenu(img);
         rooms.add(mainMenu);
 
         //Boton de comienzo
-        UIButton obj1=new UIButton(350,300,150,50);
+        UIButton obj1=new UIButton(440,360,400,100);
         obj1.setAsWindowButton(rooms,uiStudent,"START GAME",0,1);
 
         window.add(rooms.get(0));
@@ -84,14 +85,25 @@ public class GameManager {
     private void classRoom1(){
 
         //Se realiza downcasting para poder setear los botones
-        UIClassroom classroom1 = new UIClassroom();
+        ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/Facultad.png"));
+        UIClassroom classroom1 = new UIClassroom(img);
         rooms.add(classroom1);
+
+        this.textArea.setVisible(true);
+        this.textArea.setBounds(1,500,450,150);
+        this.textArea.setBackground(Color.BLACK);
+        this.textArea.setForeground(Color.white);
+        this.textArea.setOpaque(true);
+        this.textArea.setLineWrap(true);
+        this.textArea.setWrapStyleWord(true);
+        this.textArea.setFont(new Font("Book Antiqua",Font.PLAIN,18));
+        this.textArea.setText("HELLO THERE!");
+
+        classroom1.add(textArea);
 
         classroom1.createExitButton(rooms,uiStudent,2,1);
         classroom1.createOptionMenu(rooms,"Introduccion a la Matematica",2,textArea);
-
-
-        classroom1.addBackgroundImage(rooms,2,"main/assets/img/Mi proyecto.png");
+        //classroom1.addBackgroundImage(rooms,2,"main/assets/img/Mi proyecto.png");
 
         window.add(rooms.get(2));
 

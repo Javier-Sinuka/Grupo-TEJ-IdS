@@ -11,15 +11,18 @@ public class UIClassroom extends JPanel {
     UIButton exitButton;
     UIButton optionMenu;
     JTextArea textArea;
+    ImageIcon img;
 
 
-    public UIClassroom(){
+
+    public UIClassroom(ImageIcon img){
         super();
+        this.img = img;
         this.setSize(GameWindow.WIDTH,GameWindow.HEIGHT);
         this.setVisible(false);
         this.setLayout(null);
+        this.setOpaque(true);
 
-        this.textArea = new JTextArea();
         this.classroom = new Classroom();
 
         setTextArea();
@@ -53,20 +56,8 @@ public class UIClassroom extends JPanel {
 
     public void setTextArea(){
 
-        this.textArea.setVisible(true);
-        this.textArea.setBounds(1,500,450,150);
-        this.textArea.setBackground(Color.BLACK);
-        this.textArea.setForeground(Color.white);
-        this.textArea.setOpaque(true);
-        this.textArea.setLineWrap(true);
-        this.textArea.setWrapStyleWord(true);
-        this.textArea.setFont(new Font("Book Antiqua",Font.PLAIN,18));
-        this.textArea.setText("HELLO THERE!");
-
-        this.add(textArea);
-
     }
-
-
-
+    public void paintComponent(Graphics g){
+        g.drawImage(img.getImage(),0,0,getWidth(),getHeight(), this);
+    }
 }
