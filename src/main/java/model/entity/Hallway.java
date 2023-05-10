@@ -32,12 +32,31 @@ public class Hallway {
     public int getRandomY(){
         return (int)(Math.random()*400+150);
     }
-//    public Usable getRandomUsable(){
-//        if(this.item.getIsTaken()==false || this.consumable.getIsTaken()==false){
-//            Random random = new Random();
-//            int randomNumber = random.nextInt((1 - 0) + 1) +0;
-//        }
-//    }
+    public void setConsumable(String nameConsumable, String descriptionConsumable){
+        this.consumable = new Consumable(nameConsumable,descriptionConsumable);
+    }
+    public void setItem(String nameItem, String descriptionItem){
+        this.item = new Item(nameItem,descriptionItem);
+    }
+    public Usable getRandomUsable(){
+        Usable usable = new Usable();
+        try{
+            if(this.item.getIsTaken()==false || this.consumable.getIsTaken()==false){
+                Random random = new Random();
+                int randomNumber = random.nextInt((1 - 0) + 1) +0;
+                if(randomNumber==1 && this.item.getIsTaken()==false){
+                    this.item.setTaken(true);
+                    usable = item;
+                }else if (randomNumber==0 && this.consumable.getIsTaken()==false){
+                    this.consumable.setTaken(true);
+                    usable = consumable;
+                }
+            }
+        }catch (Exception e){
+            System.out.println("Error al crear getRandomUsable: " + e);
+        }
+        return usable;
+    }
 
 
 }
