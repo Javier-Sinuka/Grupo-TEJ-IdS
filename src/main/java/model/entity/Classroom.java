@@ -3,15 +3,11 @@ package main.java.model.entity;
 public class Classroom {
 
     private Professor professor;
+    public Classroom() {
 
-
-    public Classroom(){
-
-        professor=new Professor();
-
+        professor = new Professor();
     }
-
-    public Professor getProfessor(){ return professor;}
-
-
+    public Professor getProfessor(){
+        return professor;
+    }
 }

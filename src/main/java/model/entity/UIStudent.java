@@ -146,6 +146,7 @@ public class UIStudent {
     }
     public JPanel getDataPanel(){
         //aumentar paso
+        student.modifedWalkCafein(); //modifica el cafe dependiendo de cuanto se camine
         return dataPanel;
     }
     public int getDogeCoin(){
@@ -155,4 +156,5 @@ public class UIStudent {
     public void addPurchasedItem(String itemName){
         //Agregar a la mochila del estudiante el item comprado
     }
+
 }

@@ -1,37 +1,40 @@
 package main.java.model.entity;
 
-import main.java.model.objects.IConsumable;
-import main.java.model.objects.IDogeCoin;
-import main.java.model.objects.IItemStore;
+import main.java.model.objects.Usable;
 
+import java.util.ArrayList;
+
+/**
+ * Clase que genera los Store de Venta.
+ * Puede crearse vacia o con nombre.
+ *
+ * Posterior a crearse, es necesario agregarle los Usables mas un precio
+ * asosiado a dicho usable.
+ *
+ * Dato: Retorna una lista de usables almacenados (para obtener el precio hay que
+ * consultarlo al objeto Usable, ya que el mismo lo posee seteado).
+ */
 public class Store {
-    String name;
-
-    IDogeCoin iDogeCoin;
-    IConsumable iConsumables[];
-    IItemStore iItemStore[];
-
-    String flag, nameProduct;
-
-    public Store(String name, String type, int countStock){
-        if(type == "cafe" || type == "mate"){
-            this.iConsumables = new IConsumable[countStock];
-            this.nameProduct = type;
-            this.flag = "consumable";
-        }else{
-            this.iItemStore = new IItemStore[countStock];
-            this.flag = "item";
-            this.nameProduct = type;
-        }
+    String nameStore;
+    ArrayList<Usable> listUsable;
+    public Store(String nameStore){
+        this.nameStore = nameStore;
+        this.listUsable = new ArrayList<>();
     }
-
-    public void getContent(){
-        if (flag.equals("consumable")){
-            System.out.println("El contenido almacenado es: consumibles");
-            System.out.println("Contenido actual: " + iConsumables.length);
-        }else {
-            System.out.println("El contenido almacenado es: item's");
-            System.out.println("Contenido actual: " + iItemStore.length);
-        }
+    public Store(){
+        this.listUsable = new ArrayList<>();
+    }
+    public String getNameStore() {
+        return nameStore;
+    }
+    public ArrayList<Usable> getListUsable() {
+        return listUsable;
+    }
+    public void addUsableToList(Usable usable,int priceUsable){
+        usable.setPrice(priceUsable);
+        this.listUsable.add(usable);
+    }
+    public int getPriceUsable(Usable usable){
+        return usable.getPrice();
     }
 }
