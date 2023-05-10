@@ -3,19 +3,12 @@ package main.java.model.entity;
 import java.util.ArrayList;
 
 public class Professor {
-
     private String professorName;
-
-    // Métodos a crear:
-
-    // 3) metodo que cree el examen
-
     private ArrayList<String>questions;
     private ArrayList<ArrayList<String>> options;
     private ArrayList<String> correctOptions;
 
-    public Professor() {
-
+    public Professor(){
         questions=new ArrayList<>();
 
         options=new ArrayList<>();
@@ -41,7 +34,6 @@ public class Professor {
 
     }
     public  void introMateExam(){
-
         questions.add("question1");
         options.get(0).add("OptionA");
         options.get(0).add("OptionB");
