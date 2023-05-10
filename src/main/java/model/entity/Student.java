@@ -16,6 +16,15 @@ public class Student {
         this.credits = 0;
         this.dogeCoin = amountOfDogueCoin;
     }
+    public Student(int amountLifeBar, int amountCoffeBar, int amountToWalk, int amountOfDogueCoin) {
+        this.nameStudent = "";
+        this.lifeBar = amountLifeBar;
+        this.coffeBar = amountCoffeBar;
+        this.walking = amountToWalk;
+        this.walkingB = amountToWalk;
+        this.credits = 0;
+        this.dogeCoin = amountOfDogueCoin;
+    }
 
     public Student() {
     }
@@ -67,11 +76,8 @@ public class Student {
     public void decreaseCafein(){
         coffeBar--;
     }
-    /**
-     Decrementa un valor especifico de cafe
-     **/
-    public void incrementCafein(int i){
-        coffeBar+= i;
+    public void incrementCafein(int amountCafein){
+        coffeBar+= amountCafein;
     }
     public void addCredits(int credits){
         this.credits += credits;
@@ -79,7 +85,6 @@ public class Student {
     public void setCredits(int credits){this.credits = credits;}
 
     //*************************** METODOS PROPIOS *********************************
-
     /**
     Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
     Cuando llega a 0, se le resta uno de cafeina.
