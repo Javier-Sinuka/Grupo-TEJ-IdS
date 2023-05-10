@@ -21,14 +21,30 @@ public class GameManager {
         window=new GameWindow();
         rooms=new ArrayList<>();
         textArea=new JTextArea();
-        ArrayList<String>roomTypes=new ArrayList<>();
-        roomTypes.add("");
-        roomTypes.add("Classroom");
-        //roomTypes.add("Classroom");
-        //roomTypes.add("Classroom");
-        createRooms(roomTypes);
+        textArea=new JTextArea();
+        textArea.setVisible(true);
+        textArea.setBounds(1,500,450,150);
+        textArea.setBackground(Color.BLACK);
+        textArea.setForeground(Color.white);
+        textArea.setOpaque(true);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        textArea.setFont(new Font("Book Antiqua",Font.PLAIN,18));
+        textArea.setText("HELLO THERE!");
+        createRooms(createRoomTypeArray());
         setUpRooms();
 
+    }
+
+    private ArrayList<String> createRoomTypeArray(){
+
+        ArrayList<String>roomTypes=new ArrayList<>();
+        roomTypes.add("");
+        //roomTypes.add("Hallway");
+        roomTypes.add("Classroom");
+        //roomTypes.add("Classroom");
+
+        return roomTypes;
     }
 
     private void createRooms(ArrayList<String>roomType){
@@ -65,8 +81,6 @@ public class GameManager {
         roomOne();
         //roomTwo();
         //roomThree();
-
-
     }
 
     private void createMenu(){
@@ -88,17 +102,19 @@ public class GameManager {
 
     private void roomOne(){
 
-        rooms.get(1).setBackground(Color.BLACK);
-        //Se realiza downcasting para poder setear el boton
+        //Se realiza downcasting para poder setear los botones
         UIClassroom classroom1=(UIClassroom) rooms.get(1);
+        classroom1.add(textArea);
         classroom1.createExitButton(rooms,uiStudent,1,0);
+        classroom1.createOptionMenu(rooms,"Introduccion a la Matematica",1,textArea);
         classroom1.addBackgroundImage(rooms,1,"main/assets/img/Mi proyecto.png");
+
         rooms.add(classroom1);
         window.add(rooms.get(1));
-
     }
     private void roomTwo(){
 
+        /*
         rooms.get(2).add(textArea);
         UIButton button1= new UIButton(1000,300,150,50);
         button1.setAsWindowButton(rooms,uiStudent,"Room 1",2,1);
@@ -108,19 +124,19 @@ public class GameManager {
         options.add("Option2");
         options.add("Option3");
         //options.add("Option4");
-        button2.setAsOptionMenu(options,"Option 2",rooms.get(2),textArea);
-        window.add(rooms.get(2));
+        button2.setAsOptionMenu(options,1,rooms,textArea,2);
+        window.add(rooms.get(2));*/
     }
 
     private void roomThree(){
 
-
+/*
         //roomsPanels[3].add(student.getDataPanel());
         rooms.get(3).setBackground(Color.blue); //Cambiar el fonde del room con la foto
         UIButton button1= new UIButton(50,300,150,50);
         button1.setAsWindowButton(rooms,uiStudent,"Room 1",3,1);
         //roomsPanels[3].add(student.getDataPanel());
-        window.add(rooms.get(3));
+        window.add(rooms.get(3)); */
     }
     public GameWindow getWindow(){
         return window;

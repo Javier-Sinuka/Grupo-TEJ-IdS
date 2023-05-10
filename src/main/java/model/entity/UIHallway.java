@@ -4,7 +4,10 @@ import javax.swing.*;
 
 public class UIHallway extends JPanel {
 
+
+
     public UIHallway(){
+
 
     }
 }

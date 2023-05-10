@@ -19,17 +19,26 @@ import java.util.HashMap;
         this.setSize(GameWindow.WIDTH,GameWindow.HEIGHT);
         this.setVisible(false);
         this.setLayout(null);
-        //newRoom.add(title);
+        classroom=new Classroom();
     }
 
     public void createExitButton(ArrayList<JPanel>rooms, UIStudent uiStudent, int roomID,int destinyID){
         exitButton=new UIButton(50,100,150,50);
         exitButton.setAsWindowButton(rooms,uiStudent,"Salir del aula",roomID,destinyID);
     }
-    public void createExam(){
 
-        // work on this next thursday,use setAsOptionMenu()
+    public void createOptionMenu(ArrayList<JPanel> rooms,String subject,int roomID,JTextArea textArea){
+        this.textArea=textArea;
+        optionMenu=new UIButton(500,500,500,500);
+
+        classroom.getProfessor().createExam(subject);
+        ArrayList<String>questions=classroom.getProfessor().getQuestions();
+        ArrayList<ArrayList<String>>options=classroom.getProfessor().getOptions();
+        ArrayList<String>correctOptions=classroom.getProfessor().getCorrectOptions();
+
+        optionMenu.setAsExamMenu(questions,options,correctOptions,rooms,textArea,roomID);
     }
+
 
     public void addBackgroundImage(ArrayList<JPanel>rooms,int roomID,String imagePath){
         JLabel label=new JLabel();

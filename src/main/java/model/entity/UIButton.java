@@ -1,16 +1,20 @@
 package main.java.model.entity;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class UIButton {
+public class UIButton implements ActionListener {
 
     private int xpos;
     private int ypos;
     private int width;
     private int height;
+
+    int questionsCounter=1;
 
     public UIButton(int xpos,int ypos,int width,int height){
         this.xpos=xpos;
@@ -44,48 +48,87 @@ public class UIButton {
         roomsPanels.get(roomID).add(newButton);
     }
 
-    public void setAsOptionMenu(ArrayList<String> options, String correctOpt, JPanel roomPanel, JTextArea textLabel ){
+    public void setAsExamMenu(ArrayList<String> questions,ArrayList<ArrayList<String>> options, ArrayList<String> correctOpt,
+                              ArrayList<JPanel> roomsPanels, JTextArea textArea,int roomID ){
 
         JButton buttons[]=new JButton[3];
         int xpos=500;
         int ypos=500;
 
         for(int i = 0; i<3; i++) {
-            buttons[i] = new JButton(options.get(i));
+            buttons[i] = new JButton(options.get(0).get(i));
             buttons[i].setBounds(xpos,ypos,500, 50);
             buttons[i].setVisible(true);
             buttons[i].setFocusable(false);
             buttons[i].setVerticalTextPosition(JButton.TOP);
-            roomPanel.add(buttons[i]);
+            roomsPanels.get(roomID).add(buttons[i]);
             ypos+=50;
         }
-/*
-        JButton newButton = new JButton(buttonText);
 
-        newButton.setBounds(xpos,ypos,width,height);
-        newButton.setFocusable(false);
 
-        //Logica click del boton
-        newButton.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if(correct){ textLabel.setText("Correct!!"); }
-                else { textLabel.setText("Incorrect!");}
+        textArea.setText(questions.get(0));
+
+            for(int j=0;j<3;j++){
+                buttons[j].addMouseListener(new MouseListener() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        Object source=e.getSource();
+                        JButton button=(JButton)source;
+                        String buttonText=button.getText();
+                        System.out.println(buttonText);
+
+                        if(buttonText.equals(correctOpt.get(questionsCounter))){ textArea.setText("Correct!!"); }
+                        else { textArea.setText("Incorrect!");}
+                        setNewQuestion(buttons,questions,options,textArea);
+                    }
+                    @Override
+                    public void mousePressed(MouseEvent e) {}
+                    @Override
+                    public void mouseReleased(MouseEvent e) {}
+                    @Override
+                    public void mouseEntered(MouseEvent e) {}
+                    @Override
+                    public void mouseExited(MouseEvent e) {}
+                });
+
             }
-            @Override
-            public void mousePressed(MouseEvent e) {}
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            @Override
-            public void mouseExited(MouseEvent e) {}
-        });
-        roomPanel.add(newButton);
+
+        //}
+
+/*
+        buttons[i].addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if(buttonText.equals(correctOpt)){ textLabel.setText("Correct!!"); }
+                    else { textLabel.setText("Incorrect!");}
+
+                }
+                @Override
+                public void mousePressed(MouseEvent e) {}
+                @Override
+                public void mouseReleased(MouseEvent e) {}
+                @Override
+                public void mouseEntered(MouseEvent e) {}
+                @Override
+                public void mouseExited(MouseEvent e) {}
+            });
+
 */
+
+    }
+
+    public void setNewQuestion(JButton[] buttons,ArrayList<String>questions,ArrayList<ArrayList<String>>options,JTextArea textArea){
+        textArea.setText(questions.get(questionsCounter));
+        buttons[0].setText(options.get(questionsCounter).get(0));
+        buttons[1].setText(options.get(questionsCounter).get(1));
+        buttons[2].setText(options.get(questionsCounter).get(2));
+        questionsCounter++;
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
 
+    }
 }
