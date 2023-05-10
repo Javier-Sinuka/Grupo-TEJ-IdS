@@ -32,6 +32,7 @@ public class UIButton {
                 roomsPanels.get(roomID).setVisible(false);
                 roomsPanels.get(destinyRoom).setVisible(true);
                 roomsPanels.get(destinyRoom).add(student.getDataPanel());
+                //Descontar cafeina
             }
             @Override
             public void mousePressed(MouseEvent e) {}

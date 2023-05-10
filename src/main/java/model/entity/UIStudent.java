@@ -46,10 +46,13 @@ public class UIStudent {
         dataPanel.add(dogecoinLabel);
     }
     public void lifeBarLabel(JPanel panel, int x, int y, int width, int height){
-        JProgressBar lifeBar = new JProgressBar(0,5);
+        //Metodo con valor max
+        //Metodo con valor min
+        //Metodo con valor start
+        JProgressBar lifeBar = new JProgressBar(0,10);
         lifeBar.setBounds(x,y,width,height);
-        lifeBar.setForeground(Color.green);
-        lifeBar.setValue(4);
+        lifeBar.setForeground(Color.red);
+        lifeBar.setValue(1);
         panel.add(lifeBar);
 
     }

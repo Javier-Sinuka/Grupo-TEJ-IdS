@@ -25,6 +25,9 @@ public class UIHallway extends JPanel {
     public void randomObject(){
         int x = (int)(Math.random()*400+150);
         int y = (int)(Math.random()*400+150);
+        //Funcion valor random x
+        //Funcion valor random y
+        //Funcion valor random img
 
         JLabel object = new JLabel();
         object.setBounds(x,y,100,50);
