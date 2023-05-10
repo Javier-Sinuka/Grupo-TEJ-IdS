@@ -6,11 +6,7 @@ public class Student {
     private String nameStudent;
     private int lifeBar;
     IDogeCoin iDogueCoins[];
-    //    public Student(String nameStudent, int lifeBar, int amountOfDogueCoin) {
-//        this.nameStudent = nameStudent;
-//        this.lifeBar = lifeBar;
-//        dogueCoin = new DogueCoin(amountOfDogueCoin);
-//    }
+
     public Student(String nameStudent, int lifeBar, int amountOfDogueCoin) {
         this.nameStudent = nameStudent;
         this.lifeBar = lifeBar;
