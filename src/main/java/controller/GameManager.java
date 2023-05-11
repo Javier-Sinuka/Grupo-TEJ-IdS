@@ -74,7 +74,6 @@ public class GameManager {
         UIButton storeButton2 = new UIButton(0,300,150,50);
         storeButton2.setAsWindowButton(rooms,uiStudent,"Store2",4,5);
 
-
         //Boton para ir al hallway1
         UIButton hallway1Button = new UIButton(500,630,150,50);
         hallway1Button.setAsWindowButton(rooms,uiStudent,"Hallway 1",4,1);
@@ -86,27 +85,14 @@ public class GameManager {
 
         //Se realiza downcasting para poder setear los botones
         ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/Facultad.png"));
-        UIClassroom classroom1 = new UIClassroom(img);
+        UIClassroom classroom1 = new UIClassroom(img,uiStudent);
         rooms.add(classroom1);
 
-        this.textArea.setVisible(true);
-        this.textArea.setBounds(1,500,450,150);
-        this.textArea.setBackground(Color.BLACK);
-        this.textArea.setForeground(Color.white);
-        this.textArea.setOpaque(true);
-        this.textArea.setLineWrap(true);
-        this.textArea.setWrapStyleWord(true);
-        this.textArea.setFont(new Font("Book Antiqua",Font.PLAIN,18));
-        this.textArea.setText("HELLO THERE!");
-
-        classroom1.add(textArea);
-
+        classroom1.setTextArea(textArea,"HELLO THERE!");
         classroom1.createExitButton(rooms,uiStudent,2,1);
-        classroom1.createOptionMenu(rooms,"Introduccion a la Matematica",2,textArea);
+        classroom1.createOptionMenu(rooms,"Introduccion a la Matematica",2,textArea,uiStudent);
         //classroom1.addBackgroundImage(rooms,2,"main/assets/img/Mi proyecto.png");
-
         window.add(rooms.get(2));
-
     }
     private void store1(){
         UIStore uiStore = new UIStore(uiStudent,false);

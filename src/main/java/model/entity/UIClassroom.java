@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 public class UIClassroom extends JPanel {
 
+    UIStudent uistudent;
     Classroom classroom;
     UIButton exitButton;
     UIButton optionMenu;
@@ -14,8 +15,7 @@ public class UIClassroom extends JPanel {
     ImageIcon img;
 
 
-
-    public UIClassroom(ImageIcon img){
+    public UIClassroom(ImageIcon img,UIStudent uistudent){
         super();
         this.img = img;
         this.setSize(GameWindow.WIDTH,GameWindow.HEIGHT);
@@ -24,8 +24,7 @@ public class UIClassroom extends JPanel {
         this.setOpaque(true);
 
         this.classroom = new Classroom();
-
-        setTextArea();
+        this.uistudent=uistudent;
     }
 
     public void createExitButton(ArrayList<JPanel>rooms, UIStudent uiStudent, int roomID,int destinyID){
@@ -33,7 +32,7 @@ public class UIClassroom extends JPanel {
         exitButton.setAsWindowButton(rooms,uiStudent,"Salir del aula",roomID,destinyID);
     }
 
-    public void createOptionMenu(ArrayList<JPanel> rooms,String subject,int roomID,JTextArea textArea){
+    public void createOptionMenu(ArrayList<JPanel> rooms,String subject,int roomID,JTextArea textArea,UIStudent uistudent){
         this.textArea=textArea;
         optionMenu=new UIButton(500,500,500,500);
 
@@ -42,7 +41,7 @@ public class UIClassroom extends JPanel {
         ArrayList<ArrayList<String>>options=classroom.getProfessor().getOptions();
         ArrayList<String>correctOptions=classroom.getProfessor().getCorrectOptions();
 
-        optionMenu.setAsExamMenu(questions,options,correctOptions,rooms,textArea,roomID);
+        optionMenu.setAsExamMenu(questions,options,correctOptions,rooms,textArea,roomID,uistudent,this);
     }
 
     public void addBackgroundImage(ArrayList<JPanel>rooms,int roomID,String imagePath){
@@ -54,8 +53,18 @@ public class UIClassroom extends JPanel {
         rooms.get(roomID).add(label);
     }
 
-    public void setTextArea(){
-
+    public void setTextArea(JTextArea textArea,String initialText){
+        textArea.setVisible(true);
+        textArea.setBounds(1,500,450,150);
+        textArea.setBackground(Color.BLACK);
+        textArea.setForeground(Color.white);
+        textArea.setOpaque(true);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        textArea.setFont(new Font("Book Antiqua",Font.PLAIN,18));
+        textArea.setText(initialText);
+        this.textArea=textArea;
+        this.add(textArea);
     }
     public void paintComponent(Graphics g){
         g.drawImage(img.getImage(),0,0,getWidth(),getHeight(), this);

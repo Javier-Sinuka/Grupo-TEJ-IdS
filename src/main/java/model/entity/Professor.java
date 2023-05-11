@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Professor {
     private String professorName;
+
+    private String initialText;
     private ArrayList<String>questions;
     private ArrayList<ArrayList<String>> options;
     private ArrayList<String> correctOptions;
