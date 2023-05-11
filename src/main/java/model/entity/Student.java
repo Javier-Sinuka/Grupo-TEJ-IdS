@@ -18,28 +18,28 @@ import java.util.ArrayList;
  */
 public class Student {
     private String nameStudent;
-    private int lifeBar, coffeBar, walking,
+    private int lifeAmount=10, coffeeAmount, walking,
             walkingB, credits, dogeCoin;
     private ArrayList<Usable> backpack;
 
-    public Student(String nameStudent, int amountLifeBar, int amountCoffeBar, int amountToWalk, int amountOfDogueCoin) {
+    public Student(String nameStudent, int lifeAmount, int CoffeeAmount, int amountToWalk, int amountOfDogeCoin) {
         this.nameStudent = nameStudent;
-        this.lifeBar = amountLifeBar;
-        this.coffeBar = amountCoffeBar;
+        this.lifeAmount = lifeAmount;
+        this.coffeeAmount = CoffeeAmount;
         this.walking = amountToWalk;
         this.walkingB = amountToWalk;
         this.credits = 0;
-        this.dogeCoin = amountOfDogueCoin;
+        this.dogeCoin = amountOfDogeCoin;
         this.backpack = new ArrayList<>();
     }
-    public Student(int amountLifeBar, int amountCoffeBar, int amountToWalk, int amountOfDogueCoin) {
+    public Student(int amountLifeBar, int amountCoffeBar, int amountToWalk, int amountOfDogeCoin) {
         this.nameStudent = "";
-        this.lifeBar = amountLifeBar;
-        this.coffeBar = amountCoffeBar;
+        this.lifeAmount = amountLifeBar;
+        this.coffeeAmount = coffeeAmount;
         this.walking = amountToWalk;
         this.walkingB = amountToWalk;
         this.credits = 0;
-        this.dogeCoin = amountOfDogueCoin;
+        this.dogeCoin = amountOfDogeCoin;
         this.backpack = new ArrayList<>();
     }
 
@@ -51,13 +51,13 @@ public class Student {
     public String getNameStudent() {
         return this.nameStudent;
     }
-    public int getLifeBar() {
-        return this.lifeBar;
+    public int getLifeAmount() {
+        return this.lifeAmount;
     }
-    public int getCoffeBar(){
-        return this.coffeBar;
+    public int getCoffeeAmount(){
+        return this.coffeeAmount;
     }
-    public int getDogueCoinInWallet(){
+    public int getDogeCoinInWallet(){
         return this.dogeCoin;
     }
     public int getCredits(){
@@ -70,33 +70,33 @@ public class Student {
         this.nameStudent = nameStudent;
     }
     public void increseLifeBar(int lifeBar){
-        this.lifeBar += lifeBar;
+        this.lifeAmount += lifeBar;
     }
     /**
      Decrementa uno de vida.
      **/
     public void decreaseLifeBar(){
-        lifeBar--;
+        lifeAmount--;
     }
     /**
      Decrementa un valor especifico de vida
      **/
-    public void decreaseLifeBar(int valueDerement){
-        this.lifeBar -= valueDerement;
+    public void decreaseLifeBar(int DecrementValue){
+        this.lifeAmount -= DecrementValue;
     }
     public void addDogeCoin(int dogeCoin){
         this.dogeCoin += dogeCoin;
     }
-    public void decreaseDogeCoin(int amountDecrease){this.dogeCoin -= amountDecrease;}
+    public void decreaseDogeCoin(int decreaseAmount){this.dogeCoin -= decreaseAmount;}
     public void setDogeCoin(int dogeCoin){this.dogeCoin = dogeCoin;}
     /**
      Decrementa uno de cafe.
      **/
-    public void decreaseCafein(){
-        coffeBar--;
+    public void decreaseCaffeine(){
+        coffeeAmount--;
     }
     public void incrementCafein(int amountCafein){
-        coffeBar+= amountCafein;
+        coffeeAmount+= amountCafein;
     }
     public void addCredits(int credits){
         this.credits += credits;
@@ -125,10 +125,10 @@ public class Student {
         Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
         Cuando llega a 0, se le resta uno de cafeina.
      **/
-    public void modifedWalkCafein(){
+    public void modifyWalkCaffeine(){
         walking--;
         if (walking == 0){
-            decreaseCafein();
+            decreaseCaffeine();
             walking = walkingB;
         }
     }

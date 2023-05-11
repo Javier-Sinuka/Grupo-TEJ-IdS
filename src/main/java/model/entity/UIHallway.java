@@ -13,7 +13,7 @@ public class UIHallway extends JPanel {
         this.colorDeFondo = colorDeFondo;
 
        parametersHallway();
-       titleLael(this.hallwayName);
+       titleLbael(this.hallwayName);
        randomObject();
     }
     public void parametersHallway(){
@@ -35,7 +35,7 @@ public class UIHallway extends JPanel {
         object.setBackground(Color.BLACK);
         this.add(object);
     }
-    public void titleLael (String hallwayName){
+    public void titleLbael (String hallwayName){
         JLabel title = new JLabel(hallwayName);
         title.setBounds(10,630,100,50);
         this.add(title);
