@@ -1,0 +1,33 @@
+Materia: Introduccion a la Matematica
+Docente: Leonor el Terror Vega
+Cantidad de Creditos Necesarios: 2
+Nombre del Item Necesario: Tabla de Derivadas
+Preguntas:
+¿Cuanto mide la torre Eifel?
+- 1.87 cm
+- 123 km
+- 1400 dm
+- tu cola {true}
+¿Cuantas lechugas se necesitan para medir el sol?
+- 2
+- Pasa al pizzaron{true}
+- 1400
+- 3
+***
+Materia: Representacion Grafica
+Docente: Da Vinci del AUTOCAD
+Cantidad de Creditos Necesarios: 3
+Nombre del Item Necesario: Tablero de Dibujo Tecnico
+Preguntas:
+¿Cuanto miden los bordes para las entregas?
+- 1 cm {true}
+- 1 m
+- 1 km
+- tu hermana
+¿Es necesario saber dividir para hacer dibujo tecnico?
+- No {true}
+- No sabe no contesta
+- Si sabe, pero no contesta
+- tu hermana de vuelta
+***
+
