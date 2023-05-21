@@ -90,7 +90,9 @@ public class GameManager {
 
         classroom1.setTextArea(textArea,"HELLO THERE!");
         classroom1.createExitButton(rooms,uiStudent,2,1);
-        classroom1.createOptionMenu(rooms,"Introduccion a la Matematica",2,textArea,uiStudent);
+        classroom1.createExamButtons(rooms,"Introduccion a la Matematica",2,textArea,uiStudent);
+        classroom1.createExamStartButton(rooms,2);
+
         //classroom1.addBackgroundImage(rooms,2,"main/assets/img/Mi proyecto.png");
         window.add(rooms.get(2));
     }

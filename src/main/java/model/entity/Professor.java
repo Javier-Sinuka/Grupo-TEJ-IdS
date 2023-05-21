@@ -1,14 +1,20 @@
 package main.java.model.entity;
 
+import main.java.model.objects.Usable;
+
 import java.util.ArrayList;
 
 public class Professor {
     private String professorName;
 
     private String initialText;
+
+    private Usable objectNeeded;
     private ArrayList<String>questions;
     private ArrayList<ArrayList<String>> options;
     private ArrayList<String> correctOptions;
+
+    private int subjectCreditsNeeded;
 
     public Professor(){
         questions=new ArrayList<>();
@@ -29,6 +35,8 @@ public class Professor {
             case "Introduccion a la Matematica":
                 setProfessorName("Leonora el terror Vega");
                 introMateExam();
+                subjectCreditsNeeded=2;
+                objectNeeded=new Usable("Calculadora","la companera fiel del estudiante");
 
             default:
 
@@ -68,6 +76,10 @@ public class Professor {
     }
 
 
+    public int getSubjectCreditsNeeded() {
+        return subjectCreditsNeeded;
+    }
+
     public String getProfessorName() {
         return professorName;
     }
@@ -77,4 +89,8 @@ public class Professor {
     public ArrayList<ArrayList<String>> getOptions(){ return options;}
     public ArrayList<String> getCorrectOptions(){ return correctOptions;}
 
+    public  Usable getObjectNeeded() { return objectNeeded;}
 }
+
+
+

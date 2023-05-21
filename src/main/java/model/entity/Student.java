@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class Student {
     private String nameStudent;
     private int lifeAmount=10, coffeeAmount, walking,
-            walkingB, credits, dogeCoin;
+            walkingB, credits=4, dogeCoin;
     private ArrayList<Usable> backpack;
 
     public Student(String nameStudent, int lifeAmount, int CoffeeAmount, int amountToWalk, int amountOfDogeCoin) {
@@ -45,6 +45,7 @@ public class Student {
 
     public Student() {
         this.backpack = new ArrayList<>();
+        backpack.add(new Usable("Calculadora","la companera fiel del estudiante"));
     }
 
     //*************************** GETTERS *********************************
@@ -122,8 +123,8 @@ public class Student {
 
     //*************************** METODOS PROPIOS *********************************
     /**
-        Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
-        Cuando llega a 0, se le resta uno de cafeina.
+     Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
+     Cuando llega a 0, se le resta uno de cafeina.
      **/
     public void modifyWalkCaffeine(){
         walking--;
