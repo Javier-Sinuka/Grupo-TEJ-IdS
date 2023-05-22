@@ -16,7 +16,7 @@ public class Main {
 //        GameManager gm=new GameManager();
 //        gm.getWindow().revalidate();
 //        gm.getWindow().repaint();
-        DBExams dbExams = new DBExams("C:\\Users\\javie\\OneDrive\\Escritorio\\Facultad\\Ing del Soft\\TEJ - TP\\TEJ - Juego de Roll\\src\\main\\assets\\text\\professor.txt");
+        DBExams dbExams = new DBExams("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");
         for (String clave : dbExams.getKeyCourseAvailable() ){
             System.out.println("Curso Disponible: " + clave);
         }
