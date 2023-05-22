@@ -9,13 +9,11 @@ public class DBExams {
     Object[] matriz;
     private ArrayList<String> answers;
     private Map<String, Object[]> course;
-    private Map<String, ArrayList<String>> questions;
 
     public DBExams(String path) throws IOException {
         this.matriz = new Object[4];
         this.course = new HashMap<>();
         this.answers = new ArrayList<>();
-        this.questions = new HashMap<>();
 
         this.file = new File(path);
         this.scanner = new Scanner(file);
@@ -35,6 +33,7 @@ public class DBExams {
                 String lineText = scanner.nextLine();
                 if (lineText.startsWith("Materia:")){
                     storePhras = lineText.replaceAll("Materia: ", "");
+                    flagQuestions = true;
                 }
                 else if
                 (lineText.startsWith("Docente: ")){
@@ -49,6 +48,7 @@ public class DBExams {
                     matriz[2] = lineText.replaceFirst("Nombre del Item Necesario: ", "");
                 }else if
                 (lineText.startsWith("Preguntas:")){
+                    Map<String, ArrayList<String>> questions = new HashMap<>();
                     while (flagQuestions){
                         String line = scanner.nextLine();
                         if (line.startsWith("¿")){
@@ -88,16 +88,6 @@ public class DBExams {
     }
 
     /**
-     * Metodo que devuelve un arreglo de objetos en base a una llave,
-     * dicha llave tiene que ser el nombre del curso al que se desea acceder.
-     * @param key
-     * @return Matriz de objetos con la informacion del curso
-     */
-    public Object[] getInfoCourse(String key){
-        return this.course.get(key);
-    }
-
-    /**
      * Metodo que devuelve una lista de tipo Set con las llaves posibles,
      * dichas llaves son los nombres de los cursos disponibles
      * @return Nombre de cursos disponibles
@@ -132,5 +122,61 @@ public class DBExams {
      */
     public String getItemNecesary(String nameCourse){
         return this.course.get(nameCourse)[2].toString();
+    }
+
+    /**
+     * Metodo que devuelve un Mapa con las preguntas, y sus respuestas asociadas a dicha
+     * pregunta.
+     * @param nameCourse
+     * @return Mapa con Preguntas como llave y de valor un ArrayList con las respuestas asociadas
+     */
+    public Map<String, ArrayList<String>> getQuestionsMap(String nameCourse){
+        return (Map<String, ArrayList<String>>) this.course.get(nameCourse)[3];
+    }
+
+    /**
+     * Metodo que devuelve un Set de tipo String, en el cual se encuentran las preguntas
+     * asociadas a la materia en cuestion. Sirven como llave para el Mapa con las preguntas
+     * asociada a las materias.
+     * @param nameCourse
+     * @return Set con las preguntas de la materia en cuestion
+     */
+    public Set<String> getQuestionsKeys(String nameCourse){
+        Set<String> questionsKeys = this.getQuestionsMap(nameCourse).keySet();
+        return questionsKeys;
+    }
+
+    /**
+     * Metodo que devuelve las respuestas asociadas a una pregunta especifica de un curso especifico
+     * pasado como parametro
+     * @param nameCourse
+     * @param question
+     * @return ArrayList con las respuestas asociadas a la pregunta pasada como parametro
+     */
+    public ArrayList<String> getAnswers(String nameCourse, String question){
+        ArrayList<String> newArrayAnswer = new ArrayList<>();
+        for (String answer : getQuestionsMap(nameCourse).get(question)){
+            if (answer.contains("{true}")){
+            }else {
+                newArrayAnswer.add(answer);
+            }
+        }
+        return newArrayAnswer;
+    }
+
+    /**
+     * Devuelve la respuesta correcta asociada a una pregunta en cuestion sobre un curso en especifico
+     * @param nameCourse
+     * @param question
+     * @return Respuesta correccta de una pregunta especifica
+     */
+    public String getCorrectOption(String nameCourse, String question){
+        String correctOption = "";
+        for (String keyAnswer : getQuestionsMap(nameCourse).get(question)){
+            if (keyAnswer.contains("{true}")){
+                correctOption = keyAnswer.replace("{true}","");
+            }
+        }
+        return correctOption;
     }
 }

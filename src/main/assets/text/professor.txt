@@ -30,4 +30,19 @@ Preguntas:
 - Si sabe, pero no contesta
 - tu hermana de vuelta
 ***
-
+Materia: Fisica I
+Docente: Dios Alaniz
+Cantidad de Creditos Necesarios: 4
+Nombre del Item Necesario: Giroscopio
+Preguntas:
+¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+- Si {true}
+- No sabe, no contesta
+- No
+- tu hermana
+¿Es necesario tener pasion por el rock para entender a Bethoven?
+- No {true}
+- No sabe no contesta
+- Si sabe, pero no contesta
+- tu hermana de vuelta
+***

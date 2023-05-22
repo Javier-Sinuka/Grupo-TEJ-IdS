@@ -18,12 +18,18 @@ public class Main {
 //        gm.getWindow().repaint();
         DBExams dbExams = new DBExams("C:\\Users\\javie\\OneDrive\\Escritorio\\Facultad\\Ing del Soft\\TEJ - TP\\TEJ - Juego de Roll\\src\\main\\assets\\text\\professor.txt");
         for (String clave : dbExams.getKeyCourseAvailable() ){
-            System.out.println(clave);
+            System.out.println("Curso Disponible: " + clave);
         }
-        System.out.println(dbExams.getNameProfessor("Introduccion a la Matematica"));
-        System.out.println(dbExams.getCreditsNecesary("Introduccion a la Matematica"));
-        System.out.println(dbExams.getItemNecesary("Introduccion a la Matematica"));
-
-
+        String course = "Fisica I";
+        System.out.println(dbExams.getNameProfessor(course));
+        System.out.println(dbExams.getCreditsNecesary(course));
+        System.out.println(dbExams.getItemNecesary(course));
+        for (String clave : dbExams.getQuestionsKeys(course)){
+            System.out.println("Pregunta: "+ clave );
+            for (String claveRespuesta : dbExams.getAnswers(course,clave)){
+                System.out.println("- " + claveRespuesta);
+            }
+            System.out.println("Respuesta Correcta: " + dbExams.getCorrectOption(course,clave));
+        }
     }
 }
