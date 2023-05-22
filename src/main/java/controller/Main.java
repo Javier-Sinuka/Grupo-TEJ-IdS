@@ -13,23 +13,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-//        GameManager gm=new GameManager();
-//        gm.getWindow().revalidate();
-//        gm.getWindow().repaint();
-        DBExams dbExams = new DBExams("C:\\Users\\javie\\OneDrive\\Escritorio\\Facultad\\Ing del Soft\\TEJ - TP\\TEJ - Juego de Roll\\src\\main\\assets\\text\\professor.txt");
-        for (String clave : dbExams.getKeyCourseAvailable() ){
-            System.out.println("Curso Disponible: " + clave);
-        }
-        String course = "Fisica I";
-        System.out.println(dbExams.getNameProfessor(course));
-        System.out.println(dbExams.getCreditsNecesary(course));
-        System.out.println(dbExams.getItemNecesary(course));
-        for (String clave : dbExams.getQuestionsKeys(course)){
-            System.out.println("Pregunta: "+ clave );
-            for (String claveRespuesta : dbExams.getAnswers(course,clave)){
-                System.out.println("- " + claveRespuesta);
-            }
-            System.out.println("Respuesta Correcta: " + dbExams.getCorrectOption(course,clave));
-        }
+        GameManager gm=new GameManager();
+        gm.getWindow().revalidate();
+        gm.getWindow().repaint();
+        DBExams dbExams = new DBExams("src/main/assets/text/professor.txt");
     }
 }
