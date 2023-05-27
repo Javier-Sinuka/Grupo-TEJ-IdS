@@ -1,4 +1,4 @@
-package main.java.model.entity;
+package model.entity;
 
 import org.w3c.dom.html.HTMLImageElement;
 

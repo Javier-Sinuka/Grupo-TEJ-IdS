@@ -1,4 +1,4 @@
-package main.java.model.objects;
+package model.objects;
 /**
  * Clase Padre que especifica elementos de tipo Usable.
  */

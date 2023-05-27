@@ -1,6 +1,6 @@
-package main.java.model.entity;
+package model.entity;
 
-import main.java.model.objects.Usable;
+import model.objects.Usable;
 
 import java.util.ArrayList;
 
@@ -79,6 +79,8 @@ public class Professor {
     public int getSubjectCreditsNeeded() {
         return subjectCreditsNeeded;
     }
+
+    public void setSubjectCreditsNeeded(int subjectCreditsNeeded) { this.subjectCreditsNeeded=subjectCreditsNeeded; }
 
     public String getProfessorName() {
         return professorName;

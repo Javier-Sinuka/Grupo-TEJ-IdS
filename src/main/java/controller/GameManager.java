@@ -1,5 +1,5 @@
-package main.java.controller;
-import main.java.model.entity.*;
+package controller;
+import model.entity.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class GameManager {
     }
     //Menu preincipal (inicio)
     private void createMenu(){
-        ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/Facultad.png"));
+        ImageIcon img = new ImageIcon("src/main/assets/img/Facultad.png");
         MainMenu mainMenu = new MainMenu(img);
         rooms.add(mainMenu);
 
@@ -84,7 +84,7 @@ public class GameManager {
     private void classRoom1(){
 
         //Se realiza downcasting para poder setear los botones
-        ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/Facultad.png"));
+        ImageIcon img = new ImageIcon("src/main/assets/img/Facultad.png");
         UIClassroom classroom1 = new UIClassroom(img,uiStudent);
         rooms.add(classroom1);
 

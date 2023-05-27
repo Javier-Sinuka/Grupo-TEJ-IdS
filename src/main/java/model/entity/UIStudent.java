@@ -1,4 +1,4 @@
-package main.java.model.entity;
+package model.entity;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,7 +41,7 @@ public class UIStudent {
         panel.add(nameLabel);
     }
     public void dogeCoinLabel(){
-        ImageIcon imageDogecoin = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/dogecoin.png"));
+        ImageIcon imageDogecoin = new ImageIcon("src/main/assets/img/dogecoin.png");
         String coin = Integer.toString(getDogeCoin());
         JLabel dogecoinLabel = new JLabel(coin,imageDogecoin,0);
         dogecoinLabel.setBounds(915,10,300,60);
@@ -110,7 +110,7 @@ public class UIStudent {
             public void mouseExited(MouseEvent e) {}
         });
 
-        ImageIcon imgProfile = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/perfil.png"));
+        ImageIcon imgProfile = new ImageIcon("src/main/assets/img/perfil.png");
         JLabel imgProfileLabel = new JLabel();
         imgProfileLabel.setBounds(10,10,100,100);
         imgProfileLabel.setIcon(new ImageIcon(imgProfile.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));

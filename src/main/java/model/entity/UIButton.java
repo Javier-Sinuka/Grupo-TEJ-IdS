@@ -1,6 +1,6 @@
-package main.java.model.entity;
+package model.entity;
 
-import main.java.model.objects.Usable;
+import model.objects.Usable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ public class UIButton {
 
     private JButton button;
 
-    private JButton buttons[];
+    private JButton examButtons[];
     private int xpos;
     private int ypos;
     private int width;
@@ -24,7 +24,6 @@ public class UIButton {
         this.ypos=ypos;
         this.width=width;
         this.height=height;
-
     }
 
     public void setAsWindowButton(ArrayList<JPanel> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom){
@@ -56,27 +55,25 @@ public class UIButton {
     public void setAsExamButtons(ArrayList<String> questions,ArrayList<ArrayList<String>> options, ArrayList<String> correctOpt,
                                  ArrayList<JPanel> roomsPanels, JTextArea textArea,int roomID,UIStudent uistudent,UIClassroom uiclassroom ){
 
-        buttons=new JButton[3];
+        examButtons=new JButton[3];
         int xpos=500;
         int ypos=500;
 
         for(int i = 0; i<3; i++) {
-            buttons[i] = new JButton(options.get(0).get(i));
-            buttons[i].setBounds(xpos,ypos,500, 50);
-            buttons[i].setVisible(false);
-            buttons[i].setFocusable(false);
-            buttons[i].setVerticalTextPosition(JButton.TOP);
-            roomsPanels.get(roomID).add(buttons[i]);
+            examButtons[i] = new JButton(options.get(0).get(i));
+            examButtons[i].setBounds(xpos,ypos,500, 50);
+            examButtons[i].setVisible(false);
+            examButtons[i].setFocusable(false);
+            examButtons[i].setVerticalTextPosition(JButton.TOP);
+            roomsPanels.get(roomID).add(examButtons[i]);
             ypos+=50;
         }
 
 
         for(int j=0;j<3;j++){
-            buttons[j].addMouseListener(new MouseListener() {
+            examButtons[j].addMouseListener(new MouseListener() {
                 @Override
-                public void mouseClicked(MouseEvent e) {
-
-                }
+                public void mouseClicked(MouseEvent e) {}
                 @Override
                 public void mousePressed(MouseEvent e) {
                     Object source=e.getSource();
@@ -85,10 +82,10 @@ public class UIButton {
 
                     if(buttonText.equals(correctOpt.get(questionsCounter))){
                         textArea.setText("Correct!!");
-                        button.setBackground(Color.green);
+                        //button.setBackground(Color.green);
                     }
                     else {
-                        textArea.setText("Incorrect!");
+                        textArea.setText("Incorrect!!");
                         // decrease lifeAmount
                         uistudent.getStudent().decreaseLifeBar(1);
                         uistudent.getDataPanel().removeAll();
@@ -102,19 +99,16 @@ public class UIButton {
                 @Override
                 public void mouseReleased(MouseEvent e){
 
+                    if(questionsCounter==4){
+                        for(int i=0;i<3;i++){
+                            examButtons[i].setVisible(false);
+                        }
+                    }
+                    else{ setNewQuestion(examButtons,questions,options,textArea); }
+
                     try{ Thread.sleep(1000);}
                     catch(Exception E){}
 
-                    if(questionsCounter==4){
-                        for(int i=0;i<3;i++){
-                            buttons[i].setVisible(false);
-                        }
-                    }
-                    else{ setNewQuestion(buttons,questions,options,textArea); }
-
-                    Object source=e.getSource();
-                    JButton button=(JButton)source;
-                    button.setBackground(null);
                 }
                 @Override
                 public void mouseEntered(MouseEvent e) {}
@@ -142,7 +136,6 @@ public class UIButton {
         button.setBounds(xpos,ypos,width,height);
         button.setFocusable(false);
         button.setText("COMENZAR EXAMEN");
-        button.setFocusable(false);
 
         button.addMouseListener(new MouseListener() {
             @Override
@@ -151,7 +144,7 @@ public class UIButton {
                 if(hasCredits(uistudent,uiclassroom) && hasObject(uistudent,uiclassroom)){
                     textArea.setText(questions.get(0));
                     button.setVisible(false);
-                    JButton [] buttons=optionMenu.getOptionButtons();
+                    JButton [] buttons=optionMenu.getExamButtons();
                     for(int i=0;i<3;i++){
                         buttons[i].setVisible(true);
                     }
@@ -177,9 +170,7 @@ public class UIButton {
 
     }
 
-    public JButton[] getOptionButtons(){return buttons;}
-
-    private boolean hasCredits(UIStudent uistudent,UIClassroom uiclassroom){
+    public boolean hasCredits(UIStudent uistudent,UIClassroom uiclassroom){
 
         if(uistudent.getStudent().getCredits()>=uiclassroom.getClassroom().getProfessor().getSubjectCreditsNeeded()){
             return true;
@@ -187,7 +178,7 @@ public class UIButton {
         else {return false;}
     }
 
-    private boolean hasObject(UIStudent uistudent,UIClassroom uiclassroom){
+    public boolean hasObject(UIStudent uistudent,UIClassroom uiclassroom){
 
         ArrayList<Usable>objects=uistudent.getStudent().getBackpack();
 
@@ -196,6 +187,7 @@ public class UIButton {
         boolean hasObject=false;
 
         for(Usable U: objects){
+
             if(U.getName().equals(objectNeeded.getName()) && U.getDescription().equals(objectNeeded.getDescription())){
                 hasObject=true;
                 break;
@@ -203,4 +195,8 @@ public class UIButton {
         }
         return hasObject;
     }
+    public JButton getButton(){ return button;}
+
+    public JButton[] getExamButtons(){return examButtons;}
+    public int getQuestionsCounter() { return questionsCounter;}
 }
