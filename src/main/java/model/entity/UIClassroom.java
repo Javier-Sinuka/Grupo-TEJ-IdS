@@ -36,12 +36,12 @@ public class UIClassroom extends JPanel {
         this.textArea=textArea;
         optionMenu=new UIButton(500,500,500,500);
 
-        classroom.getProfessor().createExam(subject);
-        ArrayList<String>questions=classroom.getProfessor().getQuestions();
-        ArrayList<ArrayList<String>>options=classroom.getProfessor().getOptions();
-        ArrayList<String>correctOptions=classroom.getProfessor().getCorrectOptions();
-
-        optionMenu.setAsExamMenu(questions,options,correctOptions,rooms,textArea,roomID,uistudent,this);
+//        classroom.getProfessor().createExam(subject);
+//        ArrayList<String>questions=classroom.getProfessor().getQuestions();
+//        ArrayList<ArrayList<String>>options=classroom.getProfessor().getOptions();
+//        ArrayList<String>correctOptions=classroom.getProfessor().getCorrectOptions();
+//
+//        optionMenu.setAsExamMenu(questions,options,correctOptions,rooms,textArea,roomID,uistudent,this);
     }
 
     public void addBackgroundImage(ArrayList<JPanel>rooms,int roomID,String imagePath){

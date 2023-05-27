@@ -1,80 +1,113 @@
 package main.java.model.entity;
 
+import main.java.model.objects.Usable;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class Professor {
-    private String professorName;
+    private String nameCourseAsociatted;
+    private Student student;
+    private DBExams dbExams;
+    public Professor(String nameCourseAsociatted, DBExams dbExams, Student student) throws IOException{
+        this.student = student;
+        this.dbExams = dbExams;
+        this.nameCourseAsociatted = nameCourseAsociatted;
+    }
 
-    private String initialText;
-    private ArrayList<String>questions;
-    private ArrayList<ArrayList<String>> options;
-    private ArrayList<String> correctOptions;
+    /**
+     * Metodo que devuelve las preguntas asociadas a la materia en cuestion.
+     * @return Set con las preguntas del examen
+     */
+    public Set<String> getQuestionsKeysExamns(){
+        return dbExams.getQuestionsKeys(this.nameCourseAsociatted);
+    }
 
-    public Professor(){
-        questions=new ArrayList<>();
+    /**
+     * Metodo que retorna un ArrayList con las respuestas asociadas a una pregunta en cuestion.
+     * @param question
+     * @return ArrayList con las respuestas a una pregunta puntual
+     */
+    public ArrayList<String> getAnswer(String question){
+        return dbExams.getAnswers(nameCourseAsociatted, question);
+    }
 
-        options=new ArrayList<>();
-        for(int i=0;i<5;i++){
-            for(int j=0;j<3;j++){
-                ArrayList<String> newArrayList=new ArrayList<>();
-                options.add(newArrayList);
+    /**
+     * Metodo que devuelte la respuesta correcta asociada a una pregunta del examen
+     * @param question
+     * @return Respuesta correcta a la pregunta pasada
+     */
+    public String getCorrectOption(String question){
+        return dbExams.getCorrectOption(nameCourseAsociatted, question);
+    }
+
+    /**
+     * @return Nombre de la Materia asociado a este profesor
+     */
+    public String getNameCourseAsociatted(){
+        return this.nameCourseAsociatted;
+    }
+
+    /**
+     * @return Nombre del Profesor que dicta esta materia
+     */
+    public String getNameProfessor(){
+        return dbExams.getNameProfessor(nameCourseAsociatted);
+    }
+
+    /**
+     * @return Apodo asociado al Profesor que dicta esta materia
+     */
+    public String getApodoProfessor(){
+        return dbExams.getApodoProfessor(nameCourseAsociatted);
+    }
+
+    /**
+     * @return Cantidad de creditos necesarios para cursar la materia
+     */
+    public int getCreditsNecesary(){
+        return dbExams.getCreditsNecesary(nameCourseAsociatted);
+    }
+
+    /**
+     * @return Item necesario para cursar esta materia
+     */
+    public Usable getItemNecesary(){
+        return dbExams.getItemNecesary(nameCourseAsociatted);
+    }
+
+    /**
+     * Metodo que chequea si el Estudiante posee el item necesario para rendir la
+     * materia (TODO: SE VA A DEPRECAR CUANDO SE HAGA EL PdD STRATEGY)
+     * @return True si cuenta con el Item, False en caso contrario
+     */
+    public boolean checkStudentHasNecessaryItem(){
+        boolean flag = false;
+        for (Usable usable : student.getBackpack()){
+            if (usable.getName().equals(dbExams.getItemNecesary(nameCourseAsociatted).getName()) &&
+            usable.getDescription().equals(dbExams.getItemNecesary(nameCourseAsociatted).getDescription())){
+                flag = true;
             }
         }
-        correctOptions=new ArrayList<>();
+        return flag;
     }
 
-    public void createExam(String subject){
-
-        switch(subject){
-            case "Introduccion a la Matematica":
-                setProfessorName("Leonora el terror Vega");
-                introMateExam();
-
-            default:
-
-        }
-
-    }
-    public  void introMateExam(){
-        questions.add("question1");
-        options.get(0).add("OptionA");
-        options.get(0).add("OptionB");
-        options.get(0).add("OptionC");
-        correctOptions.add("OptionB");
-
-        questions.add("question2");
-        options.get(1).add("OptionD");
-        options.get(1).add("OptionE");
-        options.get(1).add("OptionF");
-        correctOptions.add("OptionE");
-
-        questions.add("question3");
-        options.get(2).add("OptionG");
-        options.get(2).add("OptionH");
-        options.get(2).add("OptionI");
-        correctOptions.add("OptionG");
-
-        questions.add("question4");
-        options.get(3).add("OptionJ");
-        options.get(3).add("OptionK");
-        options.get(3).add("OptionL");
-        correctOptions.add("OptionL");
-
-        questions.add("question5");
-        options.get(4).add("OptionM");
-        options.get(4).add("OptionN");
-        options.get(4).add("OptionO");
-        correctOptions.add("OptionM");
+    /**
+     * Metodo que comprueba que el estudiante tenga los creditos necesarios para rendir
+     * la materia en cuestion (TODO: SE VA A DEPRECAR CUANDO SE HAGA EL PdD STRATEGY)
+     * @return True si cuenta con los creditos necesarios, False en caso contrario
+     */
+    public boolean checkStudentHasNecessatyCredits(){
+        return student.getCredits() >= dbExams.getCreditsNecesary(nameCourseAsociatted);
     }
 
-
-    public String getProfessorName() {
-        return professorName;
+    /**
+     * Metodo que comprueba si puede rendir o no el examen en cuestion.
+     * @return True si puede rendir, False en caso contrario
+     */
+    public boolean canTakeTheExam(){
+        return this.checkStudentHasNecessaryItem() && this.checkStudentHasNecessatyCredits();
     }
-    public void setProfessorName(String professorName) { this.professorName = professorName;}
-
-    public ArrayList<String> getQuestions(){ return questions; }
-    public ArrayList<ArrayList<String>> getOptions(){ return options;}
-    public ArrayList<String> getCorrectOptions(){ return correctOptions;}
-
 }

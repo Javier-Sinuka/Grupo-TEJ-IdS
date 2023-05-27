@@ -1,5 +1,6 @@
 Materia: Introduccion a la Matematica
-Docente: Leonor el Terror Vega
+Docente: Leonor Vega
+Apodo: Leonor el Terror Vega
 Cantidad de Creditos Necesarios: 2
 Nombre del Item Necesario: Tabla de Derivadas
 Preguntas:
@@ -16,6 +17,7 @@ Preguntas:
 ***
 Materia: Representacion Grafica
 Docente: Da Vinci del AUTOCAD
+Apodo: Da Vinci
 Cantidad de Creditos Necesarios: 3
 Nombre del Item Necesario: Tablero de Dibujo Tecnico
 Preguntas:
@@ -31,7 +33,8 @@ Preguntas:
 - tu hermana de vuelta
 ***
 Materia: Fisica I
-Docente: Dios Alaniz
+Docente: Horacio Alaniz
+Apodo: Dios Alaniz
 Cantidad de Creditos Necesarios: 4
 Nombre del Item Necesario: Giroscopio
 Preguntas:

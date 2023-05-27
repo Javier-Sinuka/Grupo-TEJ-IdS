@@ -1,8 +1,17 @@
 package main.java.model.entity;
 
+import main.java.model.objects.Usable;
+
 import java.io.*;
 import java.util.*;
 
+/**
+ * Clase encargada de la lectura del archivo que contiene la informacion
+ * de las materias, junto con su el nombre de su profesor, el item necesario
+ * para rendir dicha materia, ademas de los creditos necesarios, tambien
+ * se encarga de proveer la manera de poder acceder a las preguntas para
+ * poder rendir el examen.
+ */
 public class DBExams {
     File file;
     Scanner scanner;
@@ -11,7 +20,7 @@ public class DBExams {
     private Map<String, Object[]> course;
 
     public DBExams(String path) throws IOException {
-        this.matriz = new Object[4];
+        this.matriz = new Object[5];
         this.course = new HashMap<>();
         this.answers = new ArrayList<>();
 
@@ -45,7 +54,13 @@ public class DBExams {
                 }
                 else if
                 (lineText.startsWith("Nombre del Item Necesario: ")){
-                    matriz[2] = lineText.replaceFirst("Nombre del Item Necesario: ", "");
+                    String name = lineText.replaceFirst("Nombre del Item Necesario: ", "");
+                    String description = "Ocupado para rendir examen en " + storePhras;
+                    Usable usable = new Usable(name,description);
+                    matriz[2] = usable;
+                }else if
+                (lineText.startsWith("Apodo: ")){
+                    matriz[3] = lineText.replaceFirst("Apodo: ", "");
                 }else if
                 (lineText.startsWith("Preguntas:")){
                     Map<String, ArrayList<String>> questions = new HashMap<>();
@@ -72,8 +87,8 @@ public class DBExams {
                             flagQuestions = false;
                         }
                     }
-                    matriz[3] = questions;
-                    Object [] newMatriz = new Object[4];
+                    matriz[4] = questions;
+                    Object [] newMatriz = new Object[5];
                     for (int i = 0; i < matriz.length; i++){
                         newMatriz[i] = matriz[i];
                     }
@@ -120,8 +135,17 @@ public class DBExams {
      * @param nameCourse
      * @return Nombre del Item necesario para el curso
      */
-    public String getItemNecesary(String nameCourse){
-        return this.course.get(nameCourse)[2].toString();
+    public Usable getItemNecesary(String nameCourse){
+        return (Usable) this.course.get(nameCourse)[2];
+    }
+
+    /**
+     * Metodo que retorna el Apodo del Profesor.
+     * @param nameCourse
+     * @return Apodo del Profesor
+     */
+    public String getApodoProfessor(String nameCourse){
+        return this.course.get(nameCourse)[3].toString();
     }
 
     /**
@@ -131,7 +155,7 @@ public class DBExams {
      * @return Mapa con Preguntas como llave y de valor un ArrayList con las respuestas asociadas
      */
     public Map<String, ArrayList<String>> getQuestionsMap(String nameCourse){
-        return (Map<String, ArrayList<String>>) this.course.get(nameCourse)[3];
+        return (Map<String, ArrayList<String>>) this.course.get(nameCourse)[4];
     }
 
     /**
