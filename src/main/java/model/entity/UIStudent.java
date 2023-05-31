@@ -1,24 +1,19 @@
 package main.java.model.entity;
-
+import main.java.model.objects.Usable;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 public class UIStudent {
     private Student student;
     private JPanel dataPanel;
-
-    public JProgressBar lifeBar;
-    public JPanel inventoryPanel;
+    public UIInventoryPanel inventoryPanel;
     public boolean inventoryPanelOpen;
-     int testDoge = 100; // DogeCoin para probar las funcionalidades del panel y tienda
-
+    int testDoge = 100; // DogeCoin para probar las funcionalidades del panel y tienda
     public UIStudent(){
         student=new Student();
         dataPanel = new JPanel();
-        inventoryPanel = new JPanel();
-        lifeBar=new JProgressBar(0,10);
+        inventoryPanel = new UIInventoryPanel(student);
 
         setDataPanel();
     }
@@ -68,7 +63,10 @@ public class UIStudent {
             @Override
             public void mouseClicked(MouseEvent e) {
                 inventoryPanel.setVisible(true);
+                inventoryPanel.revalidate();
+                inventoryPanel.repaint();
                 inventoryPanelOpen = true;
+                inventoryPanel.grillPanel.revalidate();
             }
             @Override
             public void mousePressed(MouseEvent e) {}
@@ -82,54 +80,15 @@ public class UIStudent {
 
     }
     public void setInventoryPanel(){
-        inventoryPanel.setBounds(800,100,400,500);
-        inventoryPanel.setOpaque(true);
-        inventoryPanel.setVisible(false);
-        inventoryPanel.setLayout(null);
-        inventoryPanel.setBackground(Color.lightGray);
-
-        JButton hideInventoryButton = new JButton("-");
-        hideInventoryButton.setBounds(340,470,50,20);
-        hideInventoryButton.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                inventoryPanel.setVisible(false);
-                inventoryPanelOpen = false;
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {}
-
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-
-            @Override
-            public void mouseExited(MouseEvent e) {}
-        });
-
-        ImageIcon imgProfile = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/perfil.png"));
-        JLabel imgProfileLabel = new JLabel();
-        imgProfileLabel.setBounds(10,10,100,100);
-        imgProfileLabel.setIcon(new ImageIcon(imgProfile.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));
-
+        //Name and lifebar label
         playerNameLabel(inventoryPanel,120,10,200,30);
         lifeBarLabel(inventoryPanel,120,50,210,20);
-
-        inventoryPanel.add(hideInventoryButton);
-        inventoryPanel.add(imgProfileLabel);
         dataPanel.add(inventoryPanel);
     }
     public void removeDogeCoin(int dogeCoin){
         //student.setDogeCoin(dogeCoin);
         testDoge = testDoge - dogeCoin;
     }
-   /* public void updateLife(){
-        lifeBar.setValue(student.getLifeAmount());
-        System.out.println(lifeBar.getValue());
-    } */
     public Student getStudent(){return student;}
     public JPanel getDataPanel(){
         //aumentar paso
@@ -143,6 +102,5 @@ public class UIStudent {
     public void addPurchasedItem(String itemName){
         //Agregar a la mochila del estudiante el item comprado
     }
-
-
 }
+

@@ -1,5 +1,4 @@
 package main.java.model.entity;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -24,16 +23,17 @@ public class UIStore extends JPanel {
         this.setVisible(false);
         this.setLayout(null);
         this.setBackground(Color.yellow);
+
         if (bar) {
             String cafe = "CAFE";
             String mate = "MATE";
-            buttons("COMPRAR " + cafe + "$20", 100, 100, 600, 50, cafe);
-            buttons("COMPRAR " + mate + "$20", 100, 200, 600, 50, mate);
+            buttons("COMPRAR " + cafe + "$20", 100, 100, 500, 50, cafe);
+            buttons("COMPRAR " + mate + "$20", 100, 200, 500, 50, mate);
         }else{
             String calculadora = "CALCULADORA";
             String kitElectronica = "KIT DE COMPONENTES ELECTRONICOS";
-            buttons("COMPRAR " + calculadora + "$20", 100,100,600,50, calculadora);
-            buttons("COMPRAR " + kitElectronica + "$20", 100,200,600,50, kitElectronica);
+            buttons("COMPRAR " + calculadora + "$20", 100,100,500,50, calculadora);
+            buttons("COMPRAR " + kitElectronica + "$20", 100,200,500,50, kitElectronica);
         }
     }
     public void buttons(String text,int x,int y,int width, int height, String itemName){
@@ -53,23 +53,20 @@ public class UIStore extends JPanel {
                 }
             }
             @Override
-            public void mousePressed(MouseEvent e) {
-            }
+            public void mousePressed(MouseEvent e) {}
             @Override
-            public void mouseReleased(MouseEvent e) {
-            }
+            public void mouseReleased(MouseEvent e) {}
             @Override
-            public void mouseEntered(MouseEvent e) {
-            }
+            public void mouseEntered(MouseEvent e) {}
             @Override
-            public void mouseExited(MouseEvent e) {
-            }
+            public void mouseExited(MouseEvent e) {}
         });
     }
     public void actualizar(String itemName){
         uiStudent.removeDogeCoin(20);
         uiStudent.getDataPanel().removeAll();
         uiStudent.setDataPanel();
+
         if(uiStudent.inventoryPanelOpen){
             uiStudent.inventoryPanel.setVisible(true);
         }
@@ -81,8 +78,6 @@ public class UIStore extends JPanel {
         this.repaint();
         this.revalidate();
         this.updateUI();
-
-
     }
     public void messageLabel (){
         messageLabel.setBounds(100,300,600,50);
