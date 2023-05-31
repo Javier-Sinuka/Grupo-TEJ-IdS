@@ -64,19 +64,18 @@ public class UIStore extends JPanel {
     }
     public void actualizar(String itemName){
         uiStudent.removeDogeCoin(20);
-        uiStudent.getDataPanel().removeAll();
-        uiStudent.setDataPanel();
+        uiStudent.addPurchasedItem(itemName);
+
 
         if(uiStudent.inventoryPanelOpen){
             uiStudent.inventoryPanel.setVisible(true);
         }
-        uiStudent.addPurchasedItem(itemName);
-
         messageLabel.setText("Compraste " + itemName + ":)");
         messageLabel.setVisible(true);
 
-        this.repaint();
-        this.revalidate();
+
+        uiStudent.getDataPanel().removeAll();
+        uiStudent.setDataPanel();
         this.updateUI();
     }
     public void messageLabel (){
