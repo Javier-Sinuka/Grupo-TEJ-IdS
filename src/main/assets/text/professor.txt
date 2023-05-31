@@ -1,6 +1,8 @@
 Materia: Introduccion a la Matematica
-Docente: Leonor el Terror Vega
+Docente: Leonor Vega
+Apodo: Leonor el Terror Vega
 Cantidad de Creditos Necesarios: 2
+Cantidad de Creditos a aumentar si se aprueba el curso: 3
 Nombre del Item Necesario: Tabla de Derivadas
 Preguntas:
 ¿Cuanto mide la torre Eifel?
@@ -16,7 +18,9 @@ Preguntas:
 ***
 Materia: Representacion Grafica
 Docente: Da Vinci del AUTOCAD
+Apodo: Da Vinci
 Cantidad de Creditos Necesarios: 3
+Cantidad de Creditos a aumentar si se aprueba el curso: 2
 Nombre del Item Necesario: Tablero de Dibujo Tecnico
 Preguntas:
 ¿Cuanto miden los bordes para las entregas?
@@ -31,8 +35,10 @@ Preguntas:
 - tu hermana de vuelta
 ***
 Materia: Fisica I
-Docente: Dios Alaniz
+Docente: Horacio Alaniz
+Apodo: Dios Alaniz
 Cantidad de Creditos Necesarios: 4
+Cantidad de Creditos a aumentar si se aprueba el curso: 5
 Nombre del Item Necesario: Giroscopio
 Preguntas:
 ¿Con una lapicera, es posible calcular la distancia entre tu y ella ?

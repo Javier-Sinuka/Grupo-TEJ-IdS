@@ -8,6 +8,8 @@ import main.java.model.objects.Consumable;
 import main.java.model.objects.Item;
 import main.java.model.objects.Usable;
 
+import java.io.IOException;
+
 
 
 public class Main {
@@ -15,6 +17,6 @@ public class Main {
         GameManager gm=new GameManager();
         gm.getWindow().revalidate();
         gm.getWindow().repaint();
-        DBExams dbExams = new DBExams("src/main/assets/text/professor.txt");
+
     }
 }

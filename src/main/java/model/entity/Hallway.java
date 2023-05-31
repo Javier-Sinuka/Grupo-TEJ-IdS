@@ -21,14 +21,12 @@ public class Hallway {
     private Consumable consumable;
     private Item item;
 
-    public Hallway(String type, String nameUsable, String descripcionUsable) {
+    public Hallway(String nameItem, String descripcionItem,
+                   String nameConsumable, String descriptionConsumable) {
         this.x = 0;
         this.y = 0;
-        if(type == "Consumable" || type == "consumable"){
-            this.consumable = new Consumable(nameUsable,descripcionUsable);
-        }else if (type == "Item" || type == "item"){
-            this.item = new Item(nameUsable, descripcionUsable);
-        }else{System.out.println("Tipo no aceptado");}
+        this.consumable = new Consumable(nameConsumable,descriptionConsumable);
+        this.item = new Item(nameItem, descripcionItem);
     }
     public Hallway() {
         this.x = 0;
@@ -63,7 +61,7 @@ public class Hallway {
      * objetos de dicho pasillo.
      */
     public Usable getRandomUsable(){
-        Usable usable = new Usable();
+        Usable usable = null;
         try{
             if(this.item.getIsTaken()==false || this.consumable.getIsTaken()==false){
                 Random random = new Random();

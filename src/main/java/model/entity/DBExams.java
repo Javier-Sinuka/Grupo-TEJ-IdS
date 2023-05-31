@@ -1,8 +1,18 @@
 package main.java.model.entity;
 
+import main.java.model.objects.Item;
+import main.java.model.objects.Usable;
+
 import java.io.*;
 import java.util.*;
 
+/**
+ * Clase encargada de la lectura del archivo que contiene la informacion
+ * de las materias, junto con su el nombre de su profesor, el item necesario
+ * para rendir dicha materia, ademas de los creditos necesarios, tambien
+ * se encarga de proveer la manera de poder acceder a las preguntas para
+ * poder rendir el examen.
+ */
 public class DBExams {
     File file;
     Scanner scanner;
@@ -10,12 +20,12 @@ public class DBExams {
     private ArrayList<String> answers;
     private Map<String, Object[]> course;
 
-    public DBExams(String path) throws IOException {
-        this.matriz = new Object[4];
+    public DBExams() throws IOException {
+        this.matriz = new Object[6];
         this.course = new HashMap<>();
         this.answers = new ArrayList<>();
 
-        this.file = new File(path);
+        this.file = new File("src/main/assets/text/professor.txt");
         this.scanner = new Scanner(file);
         readerFile();
     }
@@ -44,8 +54,18 @@ public class DBExams {
                     matriz[1] = lineText.replaceFirst("Cantidad de Creditos Necesarios: ", "");
                 }
                 else if
+                (lineText.startsWith("Cantidad de Creditos a aumentar si se aprueba el curso: ")){
+                    matriz[2] = lineText.replaceFirst("Cantidad de Creditos a aumentar si se aprueba el curso: ", "");
+                }
+                else if
                 (lineText.startsWith("Nombre del Item Necesario: ")){
-                    matriz[2] = lineText.replaceFirst("Nombre del Item Necesario: ", "");
+                    String name = lineText.replaceFirst("Nombre del Item Necesario: ", "");
+                    String description = "Ocupado para rendir examen en " + storePhras;
+                    Item usable = new Item(name,description);
+                    matriz[3] = usable;
+                }else if
+                (lineText.startsWith("Apodo: ")){
+                    matriz[4] = lineText.replaceFirst("Apodo: ", "");
                 }else if
                 (lineText.startsWith("Preguntas:")){
                     Map<String, ArrayList<String>> questions = new HashMap<>();
@@ -72,8 +92,8 @@ public class DBExams {
                             flagQuestions = false;
                         }
                     }
-                    matriz[3] = questions;
-                    Object [] newMatriz = new Object[4];
+                    matriz[5] = questions;
+                    Object [] newMatriz = new Object[6];
                     for (int i = 0; i < matriz.length; i++){
                         newMatriz[i] = matriz[i];
                     }
@@ -116,12 +136,30 @@ public class DBExams {
     }
 
     /**
+     * Cantidad de creditos que se ganan si se aprueba la materia en cuestion
+     * @param nameCourse
+     * @return Creditos que se ganan por aprobar la materia
+     */
+    public int getCreditsForAprove(String nameCourse){
+        return Integer.parseInt(this.course.get(nameCourse)[2].toString());
+    }
+
+    /**
      * Provee el nombre del Item que se necesita para cursar la materia
      * @param nameCourse
      * @return Nombre del Item necesario para el curso
      */
-    public String getItemNecesary(String nameCourse){
-        return this.course.get(nameCourse)[2].toString();
+    public Usable getItemNecesary(String nameCourse){
+        return (Usable) this.course.get(nameCourse)[3];
+    }
+
+    /**
+     * Metodo que retorna el Apodo del Profesor.
+     * @param nameCourse
+     * @return Apodo del Profesor
+     */
+    public String getApodoProfessor(String nameCourse){
+        return this.course.get(nameCourse)[4].toString();
     }
 
     /**
@@ -131,7 +169,7 @@ public class DBExams {
      * @return Mapa con Preguntas como llave y de valor un ArrayList con las respuestas asociadas
      */
     public Map<String, ArrayList<String>> getQuestionsMap(String nameCourse){
-        return (Map<String, ArrayList<String>>) this.course.get(nameCourse)[3];
+        return (Map<String, ArrayList<String>>) this.course.get(nameCourse)[5];
     }
 
     /**
