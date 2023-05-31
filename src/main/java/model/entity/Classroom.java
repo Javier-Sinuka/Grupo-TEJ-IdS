@@ -1,8 +1,18 @@
 package main.java.model.entity;
 
+import main.java.model.objects.Usable;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
+
+/**
+ * Las Materias posibles a ingresar actualmente son las siguientes:
+ * 1) Introduccion a la Matematica
+ * 2) Fisica I
+ * 3) Representacion Grafica
+ *
+ */
 
 public class Classroom {
     private Professor professor;
@@ -91,5 +101,21 @@ public class Classroom {
         this.professor.increaseCounterCorrectQuestions();;
     }
 
+    /**
+     * Metodo que devuelve los creditos necesarios para poder rendir la materia dictada
+     * en el aula.
+     * @return Creditos necesarios para rendir el examen
+     */
+    public int getCreditsNecesary(){
+        return this.professor.getCreditsNecesary();
+    }
+
+    /**
+     * Metodo que devuelve el item necesario para rendir el examen que se dicta en el aula
+     * @return Usable del Item necesario para rendir
+     */
+    public Usable getItemNecesary(){
+        return this.professor.getItemNecesary();
+    }
 
 }
