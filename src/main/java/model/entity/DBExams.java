@@ -1,5 +1,6 @@
 package main.java.model.entity;
 
+import main.java.model.objects.Item;
 import main.java.model.objects.Usable;
 
 import java.io.*;
@@ -20,7 +21,7 @@ public class DBExams {
     private Map<String, Object[]> course;
 
     public DBExams(String path) throws IOException {
-        this.matriz = new Object[5];
+        this.matriz = new Object[6];
         this.course = new HashMap<>();
         this.answers = new ArrayList<>();
 
@@ -53,14 +54,18 @@ public class DBExams {
                     matriz[1] = lineText.replaceFirst("Cantidad de Creditos Necesarios: ", "");
                 }
                 else if
+                (lineText.startsWith("Cantidad de Creditos a aumentar si se aprueba el curso: ")){
+                    matriz[2] = lineText.replaceFirst("Cantidad de Creditos a aumentar si se aprueba el curso: ", "");
+                }
+                else if
                 (lineText.startsWith("Nombre del Item Necesario: ")){
                     String name = lineText.replaceFirst("Nombre del Item Necesario: ", "");
                     String description = "Ocupado para rendir examen en " + storePhras;
-                    Usable usable = new Usable(name,description);
-                    matriz[2] = usable;
+                    Item usable = new Item(name,description);
+                    matriz[3] = usable;
                 }else if
                 (lineText.startsWith("Apodo: ")){
-                    matriz[3] = lineText.replaceFirst("Apodo: ", "");
+                    matriz[4] = lineText.replaceFirst("Apodo: ", "");
                 }else if
                 (lineText.startsWith("Preguntas:")){
                     Map<String, ArrayList<String>> questions = new HashMap<>();
@@ -87,8 +92,8 @@ public class DBExams {
                             flagQuestions = false;
                         }
                     }
-                    matriz[4] = questions;
-                    Object [] newMatriz = new Object[5];
+                    matriz[5] = questions;
+                    Object [] newMatriz = new Object[6];
                     for (int i = 0; i < matriz.length; i++){
                         newMatriz[i] = matriz[i];
                     }
@@ -131,12 +136,21 @@ public class DBExams {
     }
 
     /**
+     * Cantidad de creditos que se ganan si se aprueba la materia en cuestion
+     * @param nameCourse
+     * @return Creditos que se ganan por aprobar la materia
+     */
+    public int getCreditsForAprove(String nameCourse){
+        return Integer.parseInt(this.course.get(nameCourse)[2].toString());
+    }
+
+    /**
      * Provee el nombre del Item que se necesita para cursar la materia
      * @param nameCourse
      * @return Nombre del Item necesario para el curso
      */
     public Usable getItemNecesary(String nameCourse){
-        return (Usable) this.course.get(nameCourse)[2];
+        return (Usable) this.course.get(nameCourse)[3];
     }
 
     /**
@@ -145,7 +159,7 @@ public class DBExams {
      * @return Apodo del Profesor
      */
     public String getApodoProfessor(String nameCourse){
-        return this.course.get(nameCourse)[3].toString();
+        return this.course.get(nameCourse)[4].toString();
     }
 
     /**
@@ -155,7 +169,7 @@ public class DBExams {
      * @return Mapa con Preguntas como llave y de valor un ArrayList con las respuestas asociadas
      */
     public Map<String, ArrayList<String>> getQuestionsMap(String nameCourse){
-        return (Map<String, ArrayList<String>>) this.course.get(nameCourse)[4];
+        return (Map<String, ArrayList<String>>) this.course.get(nameCourse)[5];
     }
 
     /**
