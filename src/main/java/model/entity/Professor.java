@@ -90,8 +90,7 @@ public class Professor {
     public boolean checkStudentHasNecessaryItem(){
         boolean flag = false;
         for (Usable usable : student.getBackpack()){
-            if (usable.getName().equals(dbExams.getItemNecesary(nameCourseAsociatted).getName()) &&
-            usable.getDescription().equals(dbExams.getItemNecesary(nameCourseAsociatted).getDescription())){
+            if (usable.getName().equals(dbExams.getItemNecesary(nameCourseAsociatted).getName())){
                 flag = true;
             }
         }
