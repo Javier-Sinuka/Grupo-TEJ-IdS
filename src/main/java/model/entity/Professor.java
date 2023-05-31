@@ -12,9 +12,9 @@ public class Professor {
     private DBExams dbExams;
     private int counterCorrectAnswers;
     private boolean flag;
-    public Professor(String nameCourseAsociatted, DBExams dbExams, Student student) throws IOException{
+    public Professor(String nameCourseAsociatted, Student student) throws IOException{
         this.student = student;
-        this.dbExams = dbExams;
+        this.dbExams = new DBExams();
         this.nameCourseAsociatted = nameCourseAsociatted;
         this.counterCorrectAnswers = 0;
         this.flag = false;
@@ -29,9 +29,10 @@ public class Professor {
     }
 
     /**
-     * Metodo que retorna un ArrayList con las respuestas asociadas a una pregunta en cuestion.
+     * Metodo que retorna un ArrayList con las respuestas asociadas a una pregunta en cuestion,
+     * sin poseer la respuestas correcta dentro de estas.
      * @param question
-     * @return ArrayList con las respuestas a una pregunta puntual
+     * @return ArrayList con las respuestas a una pregunta puntual sin la respuesta correcta
      */
     public ArrayList<String> getAnswer(String question){
         return dbExams.getAnswers(nameCourseAsociatted, question);
@@ -186,6 +187,7 @@ public class Professor {
                         " respuestas y se restaron " + this.lifeToSubtractStudent() + " puntos de vida.\n" +
                         "Felicidades, ya puedes ir por tu birra para festejar ;) ";
             }else if (life <= 0){
+                this.student.decreaseLifeBar(lifeToSubtractStudent());
                 return "No pudiste pasar soportar el estres de ser un Semi Dios, y moriste en el intento... " +
                         "Prueba en Abogacia o Filosofia.";
             }else {

@@ -20,12 +20,12 @@ public class DBExams {
     private ArrayList<String> answers;
     private Map<String, Object[]> course;
 
-    public DBExams(String path) throws IOException {
+    public DBExams() throws IOException {
         this.matriz = new Object[6];
         this.course = new HashMap<>();
         this.answers = new ArrayList<>();
 
-        this.file = new File(path);
+        this.file = new File("src/main/assets/text/professor.txt");
         this.scanner = new Scanner(file);
         readerFile();
     }

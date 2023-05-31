@@ -12,7 +12,7 @@ public class Main {
 //        gm.getWindow().revalidate();
 //        gm.getWindow().repaint();
         String course = "Fisica I";
-        DBExams dbExams = new DBExams("src/main/assets/text/professor.txt");
+        DBExams dbExams = new DBExams();
         System.out.println(dbExams.getItemNecesary(course).getName());
         Hallway hallway = new Hallway("Tabla de Derivadas", "Para sentirte un verdadero dios",
                 "Mate", "Para que levantes ese amigo");
