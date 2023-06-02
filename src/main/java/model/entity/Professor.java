@@ -35,6 +35,7 @@ public class Professor {
      * @return ArrayList con las respuestas a una pregunta puntual sin la respuesta correcta
      */
     public ArrayList<String> getAnswer(String question){
+        this.flag = true;
         return dbExams.getAnswers(nameCourseAsociatted, question);
     }
 
@@ -119,7 +120,6 @@ public class Professor {
      */
     public void increaseCounterCorrectQuestions(){
         this.counterCorrectAnswers++;
-        this.flag = true;
     }
 
     public int getCounterCorrectAnswers(){
@@ -187,7 +187,7 @@ public class Professor {
                         "Felicidades, ya puedes ir por tu birra para festejar ;) ";
             }else if (life <= 0){
                 this.student.decreaseLifeBar(lifeToSubtractStudent());
-                return "No pudiste pasar soportar el estres de ser un Semi Dios, y moriste en el intento... " +
+                return "No pudiste soportar el estres de ser un Semi Dios, y moriste en el intento... " +
                         "Prueba en Abogacia o Filosofia.";
             }else {
                 return "No pudiste pasar el examen, por no contar con los puntos necesarios para arpobarlo" +
