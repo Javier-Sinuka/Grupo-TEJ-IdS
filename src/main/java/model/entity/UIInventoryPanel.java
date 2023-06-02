@@ -5,21 +5,32 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-
 public class UIInventoryPanel extends JPanel {
     private Student student;
-    JPanel grillPanel;
+    private JPanel gridPanel;
+    private JPanel consumablePanel;
+    private JPanel objectPanel;
+    private JButton hideInventoryButton;
+    private JLabel imgProfileLabel;
+    private JPanel confirmConsumable = new JPanel();
     public UIInventoryPanel(Student student){
         super();
         this.student = student;
-        this.grillPanel = new JPanel();
+        this.gridPanel = new JPanel();
+        this.consumablePanel = new JPanel();
+        this.objectPanel = new JPanel();
+        this.hideInventoryButton = new JButton("-");
+        this.imgProfileLabel = new JLabel();
+        this.confirmConsumable = new JPanel();
+
+        confirmConsumable.setBounds(0,0,400,500);
+        confirmConsumable.setBackground(Color.pink);
+        confirmConsumable.setVisible(false);
+        this.add(confirmConsumable);
+
         //Parameters
         parameterInventoryPanel();
-        hideButton();
-        imgProfile();
-        gridPanel();
     }
-
     public void parameterInventoryPanel(){
         //Parameters
         this.setBounds(700,100,400,500);
@@ -27,9 +38,12 @@ public class UIInventoryPanel extends JPanel {
         this.setVisible(false);
         this.setLayout(null);
         this.setBackground(Color.lightGray);
+
+        hideButton();
+        imgProfile();
+        gridPanel();
     }
     public void hideButton(){
-        JButton hideInventoryButton = new JButton("-");
         hideInventoryButton.setBounds(340,470,50,20);
         hideInventoryButton.addMouseListener(new MouseListener() {
             @Override
@@ -53,38 +67,33 @@ public class UIInventoryPanel extends JPanel {
     public void imgProfile(){
         //Img profile
         ImageIcon imgProfile = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/perfil.png"));
-        JLabel imgProfileLabel = new JLabel();
         imgProfileLabel.setBounds(10,10,100,100);
         imgProfileLabel.setIcon(new ImageIcon(imgProfile.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));
         this.add(imgProfileLabel);
     }
     public void gridPanel(){
         //Object grill
-        grillPanel.setBounds(10,130,380,320);
-        grillPanel.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
+        gridPanel.setBounds(10,130,380,320);
+        gridPanel.setLayout(new GridLayout(2,0));
 
-        Usable obj1 = new Usable("Mate","Tomando mate");
-        Usable obj2 = new Usable("Cafe","Tomando cafe");
-        student.getBackpack().add(obj2);
-        student.getBackpack().add(obj1);
-        student.getBackpack().add(obj2);
+        consumablePanel.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
+        consumablePanel.setBackground(Color.red);
+        objectPanel.setBackground(Color.white);
+
+        gridPanel.add(consumablePanel);
+        gridPanel.add(objectPanel);
 
         for(Usable usable : student.getBackpack()){
             if(usable.getName() == "Cafe"){
                 ImageIcon coffe = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/coffe.png"));
-                JLabel coffeLabel = new JLabel(coffe);
-                coffeLabel.setBounds(0,0,50,50);
-                grillPanel.add(coffeLabel);
+                JLabel coffeLabel = new JLabel();
+                coffeLabel.setIcon(new ImageIcon(coffe.getImage().getScaledInstance(45,45,Image.SCALE_SMOOTH)));
+                consumablePanel.add(coffeLabel);
 
                 coffeLabel.addMouseListener(new MouseListener() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
-                        System.out.println("Consumiste cafe");
-                        grillPanel.remove(coffeLabel);
-                        student.getBackpack().remove(usable);
-                        grillPanel.revalidate();
-                        grillPanel.repaint();
-                        printBP(student.getBackpack());
+                        consumablePanel(coffeLabel, usable);
                     }
                     @Override
                     public void mousePressed(MouseEvent e) {                    }
@@ -92,11 +101,11 @@ public class UIInventoryPanel extends JPanel {
                     public void mouseReleased(MouseEvent e) {}
                     @Override
                     public void mouseEntered(MouseEvent e) {
-                        coffeLabel.setSize(60,60);
+                        coffeLabel.setSize(50,50);
                     }
                     @Override
                     public void mouseExited(MouseEvent e) {
-                        coffeLabel.setSize(50,50);
+                        coffeLabel.setSize(45,45);
                     }
                 });
             }else {
@@ -104,18 +113,11 @@ public class UIInventoryPanel extends JPanel {
                 JLabel mateLabel = new JLabel();
                 mateLabel.setBounds(0,0,50,50);
                 mateLabel.setIcon(new ImageIcon(mate.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));
-                grillPanel.add(mateLabel);
+                consumablePanel.add(mateLabel);
 
                 mateLabel.addMouseListener(new MouseListener() {
                     @Override
-                    public void mouseClicked(MouseEvent e) {
-                        System.out.println("Consumiste mate");
-                        grillPanel.remove(mateLabel);
-                        student.getBackpack().remove(usable);
-                        grillPanel.revalidate();
-                        grillPanel.repaint();
-                        printBP(student.getBackpack());
-                    }
+                    public void mouseClicked(MouseEvent e) {consumablePanel(mateLabel,usable);}
                     @Override
                     public void mousePressed(MouseEvent e) {}
                     @Override
@@ -132,12 +134,27 @@ public class UIInventoryPanel extends JPanel {
             }
         }
 
-        this.add(grillPanel);
+        this.add(gridPanel);
     }
+    public void consumablePanel(JLabel label, Usable usable){
+        //Agregar el panel grande del consumible
 
-    public void printBP(ArrayList<Usable> bp){
-        for(Usable us : bp){
-            System.out.println(us.getName());
-        }
+        confirmConsumable.setVisible(true);
+        this.revalidate();
+        this.repaint();
+        this.updateUI();
+
+        System.out.println("Consumiste " + usable.getName());
+        consumablePanel.remove(label);
+        student.deleteUsableInBackpack(usable);
+        consumablePanel.revalidate();
+        consumablePanel.repaint();
+        student.printBP();
+    }
+    public JPanel getGridPanel(){
+        return gridPanel;
+    }
+    public JPanel getConsumablePanel(){
+        return consumablePanel;
     }
 }

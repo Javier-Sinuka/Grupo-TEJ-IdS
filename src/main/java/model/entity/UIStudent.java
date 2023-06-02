@@ -9,12 +9,12 @@ public class UIStudent {
     private JPanel dataPanel;
     public UIInventoryPanel inventoryPanel;
     public boolean inventoryPanelOpen;
-    int testDoge = 100; // DogeCoin para probar las funcionalidades del panel y tienda
+    int testDoge = 1000; // DogeCoin para probar las funcionalidades del panel y tienda
     public UIStudent(){
         student=new Student();
         dataPanel = new JPanel();
         inventoryPanel = new UIInventoryPanel(student);
-
+        inventoryPanelOpen = false;
         setDataPanel();
     }
     public void setDataPanel(){
@@ -66,7 +66,7 @@ public class UIStudent {
                 inventoryPanel.revalidate();
                 inventoryPanel.repaint();
                 inventoryPanelOpen = true;
-                inventoryPanel.grillPanel.revalidate();
+                inventoryPanel.getGridPanel().revalidate();
             }
             @Override
             public void mousePressed(MouseEvent e) {}
@@ -99,8 +99,10 @@ public class UIStudent {
         //student.getDogeCoin();
         return testDoge;
     }
-    public void addPurchasedItem(String itemName){
-        //Agregar a la mochila del estudiante el item comprado
+    public void addPurchasedItem(Usable usable){
+        student.addUsableInBackpack(usable);
+        student.printBP();
+        System.out.println("-");
     }
 }
 

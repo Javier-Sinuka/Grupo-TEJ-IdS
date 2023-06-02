@@ -1,4 +1,6 @@
 package main.java.model.entity;
+import main.java.model.objects.Usable;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -6,9 +8,9 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class UIStore extends JPanel {
-    UIStudent uiStudent;
-    Boolean bar;
-    JLabel messageLabel;
+    private UIStudent uiStudent;
+    private Boolean bar;
+    private JLabel messageLabel;
     public UIStore(UIStudent student, Boolean bar){
         super();
         this.bar = bar;
@@ -25,18 +27,18 @@ public class UIStore extends JPanel {
         this.setBackground(Color.yellow);
 
         if (bar) {
-            String cafe = "CAFE";
-            String mate = "MATE";
-            buttons("COMPRAR " + cafe + "$20", 100, 100, 500, 50, cafe);
-            buttons("COMPRAR " + mate + "$20", 100, 200, 500, 50, mate);
+            String cafe = "Cafe";
+            String mate = "Mate";
+            buttons("COMPRAR " + cafe + "$20", 100, 100, 500, 50, cafe,"Cafe rico");
+            buttons("COMPRAR " + mate + "$20", 100, 200, 500, 50, mate,"Mate amargo");
         }else{
             String calculadora = "CALCULADORA";
             String kitElectronica = "KIT DE COMPONENTES ELECTRONICOS";
-            buttons("COMPRAR " + calculadora + "$20", 100,100,500,50, calculadora);
-            buttons("COMPRAR " + kitElectronica + "$20", 100,200,500,50, kitElectronica);
+            buttons("COMPRAR " + calculadora + "$20", 100,100,500,50, calculadora,"Calculadora casio");
+            buttons("COMPRAR " + kitElectronica + "$20", 100,200,500,50, kitElectronica,"Plaqueta, resistencia y capacitor");
         }
     }
-    public void buttons(String text,int x,int y,int width, int height, String itemName){
+    public void buttons(String text,int x,int y,int width, int height, String itemName, String itemDescription){
         JButton itemButton = new JButton(text);
         itemButton.setBounds(x,y,width,height);
         this.add(itemButton);
@@ -49,7 +51,7 @@ public class UIStore extends JPanel {
                 messageLabel.setText("No tenes plata pobre :(");
             }else {
                 //Dependiendo del itemName es la cantidad de dogeCoin a restar
-                actualizar(itemName);
+                actualizar(itemName, itemDescription);
                 }
             }
             @Override
@@ -62,20 +64,34 @@ public class UIStore extends JPanel {
             public void mouseExited(MouseEvent e) {}
         });
     }
-    public void actualizar(String itemName){
-        uiStudent.removeDogeCoin(20);
-        uiStudent.addPurchasedItem(itemName);
+    public void actualizar(String itemName, String description){
+        Usable usable = new Usable(itemName,description);
+        usable.setPrice(20);
+        uiStudent.removeDogeCoin(usable.getPrice());
+        uiStudent.addPurchasedItem(usable);
 
-
+        Boolean stayOpen = false;
         if(uiStudent.inventoryPanelOpen){
-            uiStudent.inventoryPanel.setVisible(true);
+            stayOpen = true;
+        }else{
+            stayOpen = false;
         }
+
         messageLabel.setText("Compraste " + itemName + ":)");
         messageLabel.setVisible(true);
 
 
         uiStudent.getDataPanel().removeAll();
         uiStudent.setDataPanel();
+
+        uiStudent.inventoryPanel.removeAll();
+        uiStudent.inventoryPanel.getConsumablePanel().removeAll();
+        uiStudent.setInventoryPanel();
+        uiStudent.inventoryPanel.parameterInventoryPanel();
+
+        if(stayOpen){
+            uiStudent.inventoryPanel.setVisible(true);
+        }
         this.updateUI();
     }
     public void messageLabel (){
