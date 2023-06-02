@@ -2,6 +2,7 @@ package model.entity;
 
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class UIClassroom extends UIRoom {
@@ -76,26 +77,27 @@ public class UIClassroom extends UIRoom {
         rooms.get(roomID).add(label);
     }
 
-    public void setTextArea(JTextArea textArea,String initialText){
-        textArea.setVisible(true);
-        textArea.setBounds(1,500,450,150);
-        textArea.setBackground(Color.BLACK);
-        textArea.setForeground(Color.white);
-        textArea.setOpaque(true);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        textArea.setFont(new Font("Book Antiqua",Font.PLAIN,18));
-        textArea.setText(initialText);
-        this.textArea=textArea;
-        panel.add(textArea);
-    }
 
 */
+public void setTextArea(JTextArea textArea,String initialText){
+    textArea.setVisible(true);
+    textArea.setBounds(1,500,450,150);
+    textArea.setBackground(Color.BLACK);
+    textArea.setForeground(Color.white);
+    textArea.setOpaque(true);
+    textArea.setLineWrap(true);
+    textArea.setWrapStyleWord(true);
+    textArea.setFont(new Font("Book Antiqua",Font.PLAIN,18));
+    textArea.setText(initialText);
+    this.textArea=textArea;
+    this.add(textArea);
+}
     public Classroom getClassroom(){ return classroom;}
 
     @Override
     public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
 
+    wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
     }
 
     /*

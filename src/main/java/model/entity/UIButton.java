@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public interface UIButton {
 
 
+    public void configureButton();
     /** Window Buttons **/
     public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) ;
 

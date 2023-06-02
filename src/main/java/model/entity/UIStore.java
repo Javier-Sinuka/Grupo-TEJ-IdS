@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class UIStore extends JPanel {
+public class UIStore extends UIRoom {
     private UIStudent uiStudent;
     private Boolean bar;
     private JLabel messageLabel;
@@ -100,5 +100,10 @@ public class UIStore extends JPanel {
         messageLabel.setBounds(100,300,600,50);
         messageLabel.setVisible(false);
         this.add(messageLabel);
+    }
+
+    @Override
+    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
+        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
     }
 }
