@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class Student {
     private String nameStudent;
-    private int lifeAmount=10, coffeeAmount, walking,
+    private int lifeAmount = 10, coffeeAmount, walking,
             walkingB, credits, dogeCoin;
     private ArrayList<Usable> backpack;
 
@@ -32,6 +32,7 @@ public class Student {
         this.dogeCoin = amountOfDogeCoin;
         this.backpack = new ArrayList<>();
     }
+
     public Student(int amountLifeBar, int amountCoffeBar, int amountToWalk, int amountOfDogeCoin) {
         this.nameStudent = "";
         this.lifeAmount = amountLifeBar;
@@ -51,69 +52,94 @@ public class Student {
     public String getNameStudent() {
         return this.nameStudent;
     }
+
     public int getLifeAmount() {
         return this.lifeAmount;
     }
-    public int getCoffeeAmount(){
+
+    public int getCoffeeAmount() {
         return this.coffeeAmount;
     }
-    public int getDogeCoinInWallet(){
+
+    public int getDogeCoinInWallet() {
         return this.dogeCoin;
     }
-    public int getCredits(){
+
+    public int getCredits() {
         return this.credits;
     }
-    public ArrayList<Usable> getBackpack(){return this.backpack;}
+
+    public ArrayList<Usable> getBackpack() {
+        return this.backpack;
+    }
 
     //*************************** SETTERS *********************************
     public void setNameStudent(String nameStudent) {
         this.nameStudent = nameStudent;
     }
-    public void increseLifeBar(int lifeBar){
+
+    public void increseLifeBar(int lifeBar) {
         this.lifeAmount += lifeBar;
     }
+
     /**
-     Decrementa uno de vida.
+     * Decrementa uno de vida.
      **/
-    public void decreaseLifeBar(){
+    public void decreaseLifeBar() {
         lifeAmount--;
     }
+
     /**
-     Decrementa un valor especifico de vida
+     * Decrementa un valor especifico de vida
      **/
-    public void decreaseLifeBar(int DecrementValue){
+    public void decreaseLifeBar(int DecrementValue) {
         this.lifeAmount -= DecrementValue;
     }
-    public void addDogeCoin(int dogeCoin){
+
+    public void addDogeCoin(int dogeCoin) {
         this.dogeCoin += dogeCoin;
     }
-    public void decreaseDogeCoin(int decreaseAmount){this.dogeCoin -= decreaseAmount;}
-    public void setDogeCoin(int dogeCoin){this.dogeCoin = dogeCoin;}
+
+    public void decreaseDogeCoin(int decreaseAmount) {
+        this.dogeCoin -= decreaseAmount;
+    }
+
+    public void setDogeCoin(int dogeCoin) {
+        this.dogeCoin = dogeCoin;
+    }
+
     /**
-     Decrementa uno de cafe.
+     * Decrementa uno de cafe.
      **/
-    public void decreaseCaffeine(){
+    public void decreaseCaffeine() {
         coffeeAmount--;
     }
-    public void incrementCafein(int amountCafein){
-        coffeeAmount+= amountCafein;
+
+    public void incrementCafein(int amountCafein) {
+        coffeeAmount += amountCafein;
     }
-    public void addCredits(int credits){
+
+    public void addCredits(int credits) {
         this.credits += credits;
     }
-    public void setCredits(int credits){this.credits = credits;}
-    public void addUsableInBackpack(Usable usable){
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
+
+    public void addUsableInBackpack(Usable usable) {
         this.backpack.add(usable);
     }
 
     /**
      * Metodo que elimina un objeto de la mochila.
      * El objeto debe de tener el mismo nombre que el que se desea eliminar.
+     *
      * @param usable
      */
-    public void deleteUsableInBackpack(Usable usable){
-        for (int i = 0; i < backpack.size(); i++){
-            if(usable.getName().toLowerCase().equals(backpack.get(i).getName().toLowerCase())){
+    public void deleteUsableInBackpack(Usable usable) {
+        for (int i = 0; i < backpack.size(); i++) {
+            if (usable.getName().toLowerCase().equals(backpack.get(i).getName().toLowerCase())) {
                 this.backpack.remove(i);
                 break;
             }
@@ -121,15 +147,22 @@ public class Student {
     }
 
     //*************************** METODOS PROPIOS *********************************
+
     /**
-        Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
-        Cuando llega a 0, se le resta uno de cafeina.
+     * Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
+     * Cuando llega a 0, se le resta uno de cafeina.
      **/
-    public void modifyWalkCaffeine(){
+    public void modifyWalkCaffeine() {
         walking--;
-        if (walking == 0){
+        if (walking == 0) {
             decreaseCaffeine();
             walking = walkingB;
         }
     }
+    public void printBP() {
+        for (Usable us : backpack) {
+            System.out.println(us.getName());
+        }
+    }
 }
+

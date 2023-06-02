@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class GameManager {
-    private UIStudent uiStudent;
+    public UIStudent uiStudent;
     private GameWindow window;
     private ArrayList<JPanel> rooms;
     private JTextArea textArea;
@@ -35,7 +35,6 @@ public class GameManager {
         //Boton de comienzo
         UIButton obj1=new UIButton(440,360,400,100);
         obj1.setAsWindowButton(rooms,uiStudent,"START GAME",0,1);
-
         window.add(rooms.get(0));
     }
     //Primer pasillo
