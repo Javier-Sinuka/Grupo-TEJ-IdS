@@ -1,6 +1,7 @@
-package main.java.model.entity;
+package model.entity;
 
-import main.java.model.objects.Usable;
+import model.objects.Usable;
+
 
 import java.io.IOException;
 import java.util.ArrayList;

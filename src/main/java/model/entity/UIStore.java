@@ -1,6 +1,7 @@
-package main.java.model.entity;
-import main.java.model.objects.Consumable;
-import main.java.model.objects.Usable;
+
+package model.entity;
+import model.objects.Consumable;
+import model.objects.Usable;
 
 import javax.swing.*;
 import java.awt.*;

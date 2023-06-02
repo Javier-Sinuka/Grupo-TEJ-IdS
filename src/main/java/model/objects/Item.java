@@ -1,4 +1,4 @@
-package main.java.model.objects;
+package model.objects;
 
 public class Item implements Usable {
     private String name, description;

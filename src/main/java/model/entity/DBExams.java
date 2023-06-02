@@ -1,7 +1,7 @@
-package main.java.model.entity;
+package model.entity;
 
-import main.java.model.objects.Item;
-import main.java.model.objects.Usable;
+import model.objects.Item;
+import model.objects.Usable;
 
 import java.io.*;
 import java.util.*;

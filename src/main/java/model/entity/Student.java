@@ -1,6 +1,6 @@
-package main.java.model.entity;
+package model.entity;
 
-import main.java.model.objects.Usable;
+import model.objects.Usable;
 
 import java.util.ArrayList;
 
@@ -18,8 +18,10 @@ import java.util.ArrayList;
  */
 public class Student {
     private String nameStudent;
+
     private int lifeAmount = 10, coffeeAmount, walking,
             walkingB, credits, dogeCoin;
+
     private ArrayList<Usable> backpack;
 
     public Student(String nameStudent, int lifeAmount, int CoffeeAmount, int amountToWalk, int amountOfDogeCoin) {
@@ -46,6 +48,7 @@ public class Student {
 
     public Student() {
         this.backpack = new ArrayList<>();
+        //backpack.add(new Usable("Calculadora","la companera fiel del estudiante"));
     }
 
     //*************************** GETTERS *********************************
@@ -149,8 +152,13 @@ public class Student {
     //*************************** METODOS PROPIOS *********************************
 
     /**
+<<<<<<< HEAD
      * Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
      * Cuando llega a 0, se le resta uno de cafeina.
+=======
+     Corrobora los pasos hechos y va decrementando a medida que transciende entre paneles.
+     Cuando llega a 0, se le resta uno de cafeina.
+>>>>>>> feature/UIButton-UIclassroom
      **/
     public void modifyWalkCaffeine() {
         walking--;
@@ -159,10 +167,14 @@ public class Student {
             walking = walkingB;
         }
     }
+
     public void printBP() {
         for (Usable us : backpack) {
             System.out.println(us.getName());
         }
     }
 }
+
+
+
 

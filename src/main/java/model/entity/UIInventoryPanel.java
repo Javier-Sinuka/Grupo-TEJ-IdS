@@ -1,5 +1,5 @@
-package main.java.model.entity;
-import main.java.model.objects.Usable;
+package model.entity;
+import model.objects.Usable;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -66,7 +66,7 @@ public class UIInventoryPanel extends JPanel {
     }
     public void imgProfile(){
         //Img profile
-        ImageIcon imgProfile = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/perfil.png"));
+        ImageIcon imgProfile = new ImageIcon("src/main/assets/img/perfil.png");
         imgProfileLabel.setBounds(10,10,100,100);
         imgProfileLabel.setIcon(new ImageIcon(imgProfile.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));
         this.add(imgProfileLabel);
@@ -85,7 +85,7 @@ public class UIInventoryPanel extends JPanel {
 
         for(Usable usable : student.getBackpack()){
             if(usable.getName() == "Cafe"){
-                ImageIcon coffe = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/coffe.png"));
+                ImageIcon coffe = new ImageIcon("src/main/assets/img/coffe.png");
                 JLabel coffeLabel = new JLabel();
                 coffeLabel.setIcon(new ImageIcon(coffe.getImage().getScaledInstance(45,45,Image.SCALE_SMOOTH)));
                 consumablePanel.add(coffeLabel);

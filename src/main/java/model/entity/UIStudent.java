@@ -1,5 +1,9 @@
-package main.java.model.entity;
-import main.java.model.objects.Usable;
+
+package model.entity;
+import model.objects.Usable;
+
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -36,7 +40,7 @@ public class UIStudent {
         panel.add(nameLabel);
     }
     public void dogeCoinLabel(){
-        ImageIcon imageDogecoin = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/dogecoin.png"));
+        ImageIcon imageDogecoin = new ImageIcon("src/main/assets/img/dogecoin.png");
         String coin = Integer.toString(getDogeCoin());
         JLabel dogecoinLabel = new JLabel(coin,imageDogecoin,0);
         dogecoinLabel.setBounds(915,10,300,60);
@@ -80,7 +84,43 @@ public class UIStudent {
 
     }
     public void setInventoryPanel(){
+
         //Name and lifebar label
+
+        inventoryPanel.setBounds(800,100,400,500);
+        inventoryPanel.setOpaque(true);
+        inventoryPanel.setVisible(false);
+        inventoryPanel.setLayout(null);
+        inventoryPanel.setBackground(Color.lightGray);
+
+        JButton hideInventoryButton = new JButton("-");
+        hideInventoryButton.setBounds(340,470,50,20);
+        hideInventoryButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                inventoryPanel.setVisible(false);
+                inventoryPanelOpen = false;
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {}
+
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+
+            @Override
+            public void mouseExited(MouseEvent e) {}
+        });
+
+        ImageIcon imgProfile = new ImageIcon("src/main/assets/img/perfil.png");
+        JLabel imgProfileLabel = new JLabel();
+        imgProfileLabel.setBounds(10,10,100,100);
+        imgProfileLabel.setIcon(new ImageIcon(imgProfile.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));
+
+
         playerNameLabel(inventoryPanel,120,10,200,30);
         lifeBarLabel(inventoryPanel,120,50,210,20);
         dataPanel.add(inventoryPanel);

@@ -1,27 +1,21 @@
-package main.java.model.entity;
+package model.entity;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
-import static java.lang.Math.random;
-
-public class UIHallway extends JPanel {
+public class UIHallway extends UIRoom {
     private String hallwayName;
     private Color colorDeFondo;
     public UIHallway(String hallwayName, Color colorDeFondo){
+
         super();
         this.hallwayName = hallwayName;
         this.colorDeFondo = colorDeFondo;
-
-       parametersHallway();
-       titleLbael(this.hallwayName);
-       randomObject();
-    }
-    public void parametersHallway(){
-        this.setSize(GameWindow.WIDTH,GameWindow.HEIGHT);
-        this.setVisible(false);
-        this.setLayout(null);
         this.setBackground(colorDeFondo);
+        LabelTitle(this.hallwayName);
+        randomObject();
     }
+
     public void randomObject(){
         int x = (int)(Math.random()*400+150);
         int y = (int)(Math.random()*400+150);
@@ -35,9 +29,15 @@ public class UIHallway extends JPanel {
         object.setBackground(Color.BLACK);
         this.add(object);
     }
-    public void titleLbael (String hallwayName){
+    public void LabelTitle (String hallwayName){
         JLabel title = new JLabel(hallwayName);
         title.setBounds(10,630,100,50);
         this.add(title);
     }
+
+    @Override
+    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
+        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
+    }
+
 }
