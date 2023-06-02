@@ -1,17 +1,16 @@
 package model.entity;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class UIClassroom extends JPanel {
+public class UIClassroom extends UIRoom {
 
     UIStudent uistudent;
     Classroom classroom;
-    UIButton exitButton;
-    UIButton optionButtons;
-    UIButton examStartButton;
+    WindowButton exitButton;
+
+    ExamStartButton examStartButton ;
+   // UIButton examStartButton;
     JTextArea textArea;
     ImageIcon img;
 
@@ -26,16 +25,22 @@ public class UIClassroom extends JPanel {
 
         this.classroom = new Classroom();
         this.uistudent=uistudent;
-    }
 
+        examStartButton=new ExamStartButton(300,100,200,50);
+        exitButton=new WindowButton(50,100,150,50);
+
+
+    }
+/*
+    // change to setExitButton
     public void createExitButton(ArrayList<JPanel>rooms, UIStudent uiStudent, int roomID,int destinyID){
-        exitButton=new UIButton(50,100,150,50);
-        exitButton.setAsWindowButton(rooms,uiStudent,"Salir del aula",roomID,destinyID);
+
+        exitButton.configureButton(rooms,uiStudent,"Salir del aula",roomID,destinyID);
     }
 
     public void createExamButtons(ArrayList<JPanel> rooms,String subject,int roomID,JTextArea textArea,UIStudent uistudent){
+
         this.textArea=textArea;
-        optionButtons=new UIButton(500,500,500,500);
 
         classroom.getProfessor().createExam(subject);
         ArrayList<String>questions=classroom.getProfessor().getQuestions();
@@ -47,6 +52,7 @@ public class UIClassroom extends JPanel {
 
     public void createExamStartButton(ArrayList<JPanel> roomsPanels, int roomID){
         ArrayList<String>questions=classroom.getProfessor().getQuestions();
+
         examStartButton=new UIButton(300,100,200,50);
         examStartButton.setAsExamStartButton(roomsPanels,roomID,questions,optionButtons,uistudent,textArea,this);
     }
@@ -71,12 +77,22 @@ public class UIClassroom extends JPanel {
         textArea.setFont(new Font("Book Antiqua",Font.PLAIN,18));
         textArea.setText(initialText);
         this.textArea=textArea;
-        this.add(textArea);
+        panel.add(textArea);
     }
 
-
+*/
     public Classroom getClassroom(){ return classroom;}
+
+    @Override
+    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
+
+    }
+
+    /*
     public void paintComponent(Graphics g){
         g.drawImage(img.getImage(),0,0,getWidth(),getHeight(), this);
-    }
+    } */
+
+
+
 }
