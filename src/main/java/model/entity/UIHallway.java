@@ -9,15 +9,17 @@ import java.util.ArrayList;
 
 public class UIHallway extends UIRoom {
     private Hallway hallway;
+    private String path;
     public UIHallway(String hallwayName, Color colorDeFondo, String nameItem, String descripcionItem,
-                     String nameConsumable, String descriptionConsumable ){
+                     String nameConsumable, String descriptionConsumable, String path){
         super();
+        this.path = path;
         this.hallway = new Hallway(hallwayName,nameItem,descripcionItem,nameConsumable,descriptionConsumable);
         this.setBackground(colorDeFondo);
         LabelTitle(hallway.getNameHallway());
         randomObject();
+        mapLabel();
     }
-
     public void randomObject(){
         Usable usable = hallway.getRandomUsable();
 
@@ -61,7 +63,13 @@ public class UIHallway extends UIRoom {
         title.setBounds(10,630,100,50);
         this.add(title);
     }
-
+    public void mapLabel(){
+        ImageIcon mapImg = new ImageIcon(path);
+        JLabel mapLable = new JLabel();
+        mapLable.setBounds(1050,470,200,200);
+        mapLable.setIcon(new ImageIcon(mapImg.getImage().getScaledInstance(mapLable.getWidth(),mapLable.getHeight(),Image.SCALE_SMOOTH)));
+        this.add(mapLable);
+    }
     @Override
     public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
         wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);

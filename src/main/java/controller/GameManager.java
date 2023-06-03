@@ -52,7 +52,8 @@ public class GameManager {
     }
     public void hallway1(){
 
-        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE,"Tablero de dibujo","Tablero que te ayudara a rendir dibujo","Cafe","Cafe rico");
+        String path = "src/main/assets/img/map/Lobby_Central.png";
+        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE,"Tablero de dibujo","Tablero que te ayudara a rendir dibujo","Cafe","Cafe rico",path);
         rooms.add(hallway1);
 
         WindowButton wb1=new WindowButton(500,0,150,50);
@@ -98,8 +99,8 @@ public class GameManager {
         window.add(rooms.get(3));
     }
     private void hallway2() {
-
-        UIHallway newHallway= new UIHallway("Hallway 2",Color.blue, "Tabla periodica", "Tabla que te ayudara a rendir quimica", "Mate","Mate amargo");
+        String path = "src/main/assets/img/map/Playa_estacionamiento.png";
+        UIHallway newHallway= new UIHallway("Hallway 2",Color.blue, "Tabla periodica", "Tabla que te ayudara a rendir quimica", "Mate","Mate amargo",path);
         rooms.add(newHallway);
 
         //Boton para ir al store
