@@ -75,15 +75,15 @@ public class ExamButtons implements UIButton{
                 @Override
                 public void mouseReleased(MouseEvent e){
 
-                    if(questionsCounter==4){
-                        for(int i=0;i<3;i++){
-                            buttons[i].setVisible(false);
-                        }
-                    }
-                    else{ setNewQuestion(buttons,questions,options,textArea); }
-
-                    try{ Thread.sleep(1000);}
-                    catch(Exception E){}
+//                    if(questionsCounter==4){
+//                        for(int i=0;i<3;i++){
+//                            buttons[i].setVisible(false);
+//                        }
+//                    }
+//                    else{ setNewQuestion(buttons,questions,options,textArea); }
+//
+//                    try{ Thread.sleep(1000);}
+//                    catch(Exception E){}
 
                 }
                 @Override
