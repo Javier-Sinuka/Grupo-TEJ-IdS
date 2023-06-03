@@ -22,12 +22,11 @@ public class Hallway {
     private Consumable consumable;
     private Item item;
 
-    public Hallway(String nameHallway, String nameItem, String descripcionItem,
-                   String nameConsumable, String descriptionConsumable) {
+    public Hallway(Consumable consumable, Item item) {
         this.x = 0;
         this.y = 0;
-        this.consumable = new Consumable(nameConsumable,descriptionConsumable);
-        this.item = new Item(nameItem, descripcionItem);
+        this.consumable = consumable;
+        this.item = item;
         this.nameHallway = nameHallway;
     }
     public Hallway() {
