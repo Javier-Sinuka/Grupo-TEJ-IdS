@@ -72,9 +72,10 @@ public class ExamButtons implements UIButton{
                     }
 
                 }
+
                 @Override
                 public void mouseReleased(MouseEvent e){
-
+/*
                     if(questionsCounter==4){
                         for(int i=0;i<3;i++){
                             buttons[i].setVisible(false);
@@ -85,7 +86,11 @@ public class ExamButtons implements UIButton{
                     try{ Thread.sleep(1000);}
                     catch(Exception E){}
 
+
+ */
                 }
+
+
                 @Override
                 public void mouseEntered(MouseEvent e) {}
                 @Override
