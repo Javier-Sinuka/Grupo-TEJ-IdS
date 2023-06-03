@@ -110,7 +110,7 @@ public class UIInventoryPanel extends JPanel {
                     }
                 });
             }else {
-                ImageIcon mate = new ImageIcon(getClass().getClassLoader().getResource("main/assets/img/mate.png"));
+                ImageIcon mate = new ImageIcon("src/main/assets/img/mate.png");
                 JLabel mateLabel = new JLabel();
                 mateLabel.setBounds(0,0,50,50);
                 mateLabel.setIcon(new ImageIcon(mate.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));

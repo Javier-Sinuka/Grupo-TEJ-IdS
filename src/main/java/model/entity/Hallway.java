@@ -3,7 +3,6 @@ package model.entity;
 import model.objects.Consumable;
 import model.objects.Item;
 import model.objects.Usable;
-import model.objects.Consumable;
 
 import java.util.Random;
 
@@ -18,16 +17,18 @@ import java.util.Random;
  * PARA PODER INGRESAR MAS DE UNO Y CON LOS VALORES SETEADOS POR NOSOTROS.
  */
 public class Hallway {
+    private String nameHallway;
     private int x,y;
     private Consumable consumable;
     private Item item;
 
-    public Hallway(String nameItem, String descripcionItem,
+    public Hallway(String nameHallway, String nameItem, String descripcionItem,
                    String nameConsumable, String descriptionConsumable) {
         this.x = 0;
         this.y = 0;
         this.consumable = new Consumable(nameConsumable,descriptionConsumable);
         this.item = new Item(nameItem, descripcionItem);
+        this.nameHallway = nameHallway;
     }
     public Hallway() {
         this.x = 0;
@@ -83,5 +84,11 @@ public class Hallway {
         return usable;
     }
 
+    public String getNameHallway() {
+        return nameHallway;
+    }
 
+    public void setNameHallway(String nameHallway) {
+        this.nameHallway = nameHallway;
+    }
 }

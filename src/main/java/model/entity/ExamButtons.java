@@ -72,6 +72,7 @@ public class ExamButtons implements UIButton{
                     }
 
                 }
+
                 @Override
                 public void mouseReleased(MouseEvent e){
 
@@ -85,7 +86,12 @@ public class ExamButtons implements UIButton{
 //                    try{ Thread.sleep(1000);}
 //                    catch(Exception E){}
 
+
+
+
                 }
+
+
                 @Override
                 public void mouseEntered(MouseEvent e) {}
                 @Override
