@@ -197,10 +197,7 @@ public class DBExams {
     public ArrayList<String> getAnswers(String nameCourse, String question){
         ArrayList<String> newArrayAnswer = new ArrayList<>();
         for (String answer : getQuestionsMap(nameCourse).get(question)){
-            if (answer.contains("{true}")){
-            }else {
-                newArrayAnswer.add(answer);
-            }
+            newArrayAnswer.add(answer);
         }
         return newArrayAnswer;
     }

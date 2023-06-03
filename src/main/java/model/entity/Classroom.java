@@ -46,7 +46,7 @@ public class Classroom {
 
     /**
      * Metodo que devuelve un ArrayList con las respuestas asociadas a una pregunta en especifico,
-     * sin tener estas dentro la respuesta correcta.
+     * inclusyendo tambien la respuesta correcta la respuesta correcta.
      * @param question
      * @return Respuestas asociadas a una pregunta, sin la respuesta correcta
      */

@@ -33,7 +33,7 @@ public class Professor {
 
     /**
      * Metodo que retorna un ArrayList con las respuestas asociadas a una pregunta en cuestion,
-     * sin poseer la respuestas correcta dentro de estas.
+     * inclyendo tambien la respuesta correcta.
      *
      * @param question
      * @return ArrayList con las respuestas a una pregunta puntual sin la respuesta correcta
