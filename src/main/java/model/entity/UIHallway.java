@@ -29,6 +29,7 @@ public class UIHallway extends UIRoom {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     System.out.println("Encontraste " + usable.getName() + usable.getDescription());
+                    object.setVisible(false);
                 }
 
                 @Override
