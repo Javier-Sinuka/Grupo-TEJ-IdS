@@ -12,6 +12,10 @@ public abstract class UIRoom extends JPanel {
         this.setVisible(false);
     }
 
-   public abstract void setButton(WindowButton wb,ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom);
+    public abstract void setButton(WindowButton windowBt,ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom);
+    public abstract void setButton(ExamStartButton startBt,ArrayList<UIRoom> rooms, int roomID,
+                                   UIStudent uistudent, JTextArea textArea);
+
+
 
 }

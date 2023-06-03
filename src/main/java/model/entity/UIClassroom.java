@@ -10,9 +10,10 @@ public class UIClassroom extends UIRoom {
     UIStudent uistudent;
     Classroom classroom;
     WindowButton exitButton;
-
     ExamStartButton examStartButton ;
-   // UIButton examStartButton;
+
+    ExamButtons examButtons;
+
     JTextArea textArea;
     ImageIcon img;
 
@@ -30,6 +31,7 @@ public class UIClassroom extends UIRoom {
 
         examStartButton=new ExamStartButton(300,100,200,50);
         exitButton=new WindowButton(50,100,150,50);
+        examButtons=new ExamButtons();
 
 
     }
@@ -94,11 +96,22 @@ public void setTextArea(JTextArea textArea,String initialText){
 }
     public Classroom getClassroom(){ return classroom;}
 
-    @Override
-    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
+    public ExamButtons getExamButtons() { return examButtons;}
 
-    wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
+    @Override
+    public void setButton(WindowButton windowBt, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
+
+        windowBt.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
     }
+
+
+    @Override
+    public void setButton(ExamStartButton examBt,ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea){
+        examBt.configureButton(rooms, roomID, uistudent, textArea, this);
+    }
+
+
+
 
     /*
     public void paintComponent(Graphics g){

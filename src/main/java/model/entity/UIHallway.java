@@ -40,4 +40,9 @@ public class UIHallway extends UIRoom {
         wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
     }
 
+    @Override
+    public void setButton(ExamStartButton startBt, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
+
 }

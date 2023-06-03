@@ -51,4 +51,9 @@ public class UIMainMenu extends UIRoom {
 
         wb.configureButton(rooms,uiStudent,"START GAME",0,1);
     }
+
+    @Override
+    public void setButton(ExamStartButton startBt, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
 }
