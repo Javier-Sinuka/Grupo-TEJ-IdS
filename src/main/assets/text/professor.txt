@@ -8,12 +8,10 @@ Preguntas:
 ¿Cuanto mide la torre Eifel?
 - 1.87 cm
 - 123 km
-- 1400 dm
 - tu cola {true}
 ¿Cuantas lechugas se necesitan para medir el sol?
 - 2
 - Pasa al pizzaron{true}
-- 1400
 - 3
 ***
 Materia: Representacion Grafica
@@ -25,12 +23,10 @@ Nombre del Item Necesario: Tablero de Dibujo Tecnico
 Preguntas:
 ¿Cuanto miden los bordes para las entregas?
 - 1 cm {true}
-- 1 m
 - 1 km
 - tu hermana
 ¿Es necesario saber dividir para hacer dibujo tecnico?
 - No {true}
-- No sabe no contesta
 - Si sabe, pero no contesta
 - tu hermana de vuelta
 ***
@@ -45,10 +41,8 @@ Preguntas:
 - Si {true}
 - No sabe, no contesta
 - No
-- tu hermana
 ¿Es necesario tener pasion por el rock para entender a Bethoven?
 - No {true}
 - No sabe no contesta
 - Si sabe, pero no contesta
-- tu hermana de vuelta
 ***
