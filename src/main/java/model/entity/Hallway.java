@@ -67,13 +67,15 @@ public class Hallway {
         try{
             if(this.item.getIsTaken()==false || this.consumable.getIsTaken()==false){
                 Random random = new Random();
-                int randomNumber = random.nextInt((1 - 0) + 1) +0;
-                if(randomNumber==1 && this.item.getIsTaken()==false){
+                int randomNumber = random.nextInt((2 - 1) + 2) +1;
+                if(randomNumber==2 && this.item.getIsTaken()==false){
                     this.item.setTaken(true);
                     usable = item;
-                }else if (randomNumber==0 && this.consumable.getIsTaken()==false){
+                }else if (randomNumber==1 && this.consumable.getIsTaken()==false){
                     this.consumable.setTaken(true);
                     usable = consumable;
+                }else if (randomNumber==0){
+                    usable = null;
                 }
             } else {
                 return null;
