@@ -30,17 +30,11 @@ public class ExamStartButton implements UIButton{
 
     @Override
     public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
-    @Override
-    public void configureButton(ArrayList<String> questions, ArrayList<ArrayList<String>> options, ArrayList<String> correctOpt, ArrayList<UIRoom> roomsPanels, JTextArea textArea, int roomID, UIStudent uistudent, UIClassroom uiclassroom) {}
+
 
     @Override
-    public void configureButton(ArrayList<UIRoom> rooms, int roomID, Set<String> questions, JButton[] buttons, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {
-
-    }
-
-    @Override
-    public void configureButton(ArrayList<UIRoom> roomsPanels, int roomID, ArrayList<String> questions, JButton [] buttons,
-                                UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {
+    public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea,
+                                UIClassroom uiclassroom) {
 
         button=new JButton();
         button.setBounds(xpos,ypos,width,height);
@@ -50,6 +44,9 @@ public class ExamStartButton implements UIButton{
         button.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+                ArrayList<String>questions=uiclassroom.getClassroom().getQuestionsKeys();
+                JButton[] buttons=uiclassroom.getExamButtons().getButtons();
 
                 if(! uiclassroom.getClassroom().getProfessor().studentHasItem()){
                     textArea.setText("Capo, te falta el objecto");
@@ -77,7 +74,7 @@ public class ExamStartButton implements UIButton{
             public void mouseExited(MouseEvent e) {}
         });
 
-        roomsPanels.get(roomID).add(button);
+        rooms.get(roomID).add(button);
 
     }
 

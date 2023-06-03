@@ -1,4 +1,3 @@
-
 package model.entity;
 import model.objects.Usable;
 

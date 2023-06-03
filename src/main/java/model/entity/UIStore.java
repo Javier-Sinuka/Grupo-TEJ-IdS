@@ -106,4 +106,9 @@ public class UIStore extends UIRoom {
     public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
         wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
     }
+
+    @Override
+    public void setButton(ExamStartButton startBt, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
 }
