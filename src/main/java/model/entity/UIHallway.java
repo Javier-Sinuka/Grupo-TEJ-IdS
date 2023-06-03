@@ -1,4 +1,6 @@
 package model.entity;
+import model.objects.Consumable;
+import model.objects.Item;
 import model.objects.Usable;
 
 import javax.swing.*;
@@ -10,11 +12,10 @@ import java.util.ArrayList;
 public class UIHallway extends UIRoom {
     private Hallway hallway;
     private String path;
-    public UIHallway(String hallwayName, Color colorDeFondo, String nameItem, String descripcionItem,
-                     String nameConsumable, String descriptionConsumable, String path){
+    public UIHallway(String hallwayName, Color colorDeFondo, Consumable consumable, Item item, String path){
         super();
         this.path = path;
-        this.hallway = new Hallway(hallwayName,nameItem,descripcionItem,nameConsumable,descriptionConsumable);
+        this.hallway = new Hallway(consumable,item);
         this.setBackground(colorDeFondo);
         LabelTitle(hallway.getNameHallway());
         randomObject();
