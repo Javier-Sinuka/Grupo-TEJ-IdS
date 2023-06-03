@@ -1,33 +1,59 @@
 package model.entity;
+import model.objects.Usable;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class UIHallway extends UIRoom {
-    private String hallwayName;
-    private Color colorDeFondo;
-    public UIHallway(String hallwayName, Color colorDeFondo){
-
+    private Hallway hallway;
+    public UIHallway(String hallwayName, Color colorDeFondo, String nameItem, String descripcionItem,
+                     String nameConsumable, String descriptionConsumable ){
         super();
-        this.hallwayName = hallwayName;
-        this.colorDeFondo = colorDeFondo;
+        this.hallway = new Hallway(hallwayName,nameItem,descripcionItem,nameConsumable,descriptionConsumable);
         this.setBackground(colorDeFondo);
-        LabelTitle(this.hallwayName);
+        LabelTitle(hallway.getNameHallway());
         randomObject();
     }
 
     public void randomObject(){
-        int x = (int)(Math.random()*400+150);
-        int y = (int)(Math.random()*400+150);
-        //Funcion valor random x
-        //Funcion valor random y
-        //Funcion valor random img
+        Usable usable = hallway.getRandomUsable();
 
-        JLabel object = new JLabel();
-        object.setBounds(x,y,100,50);
-        object.setOpaque(true);
-        object.setBackground(Color.BLACK);
-        this.add(object);
+        if(usable != null) {
+            JLabel object = new JLabel(usable.getName());
+            object.setBounds(hallway.getRandomX(), hallway.getRandomY(), 100, 50);
+
+            object.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    System.out.println("Encontraste " + usable.getName() + usable.getDescription());
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    object.setSize(120, 60);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    object.setSize(100, 50);
+                }
+            });
+
+            object.setOpaque(true);
+
+            this.add(object);
+        }
     }
     public void LabelTitle (String hallwayName){
         JLabel title = new JLabel(hallwayName);

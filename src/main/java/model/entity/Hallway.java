@@ -34,6 +34,7 @@ public class Hallway {
         this.x = 0;
         this.y = 0;
     }
+
     //*************************** METODOS PROPIOS *********************************
     public int getRandomX(){
         return (int)(Math.random()*400+150);

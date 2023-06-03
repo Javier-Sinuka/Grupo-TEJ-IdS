@@ -52,7 +52,7 @@ public class GameManager {
     }
     public void hallway1(){
 
-        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE);
+        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE,"Tablero de dibujo","Tablero que te ayudara a rendir dibujo","Cafe","Cafe rico");
         rooms.add(hallway1);
 
         WindowButton wb1=new WindowButton(500,0,150,50);
@@ -99,7 +99,7 @@ public class GameManager {
     }
     private void hallway2() {
 
-        UIHallway newHallway= new UIHallway("Hallway 2",Color.blue);
+        UIHallway newHallway= new UIHallway("Hallway 2",Color.blue, "Tabla periodica", "Tabla que te ayudara a rendir quimica", "Mate","Mate amargo");
         rooms.add(newHallway);
 
         //Boton para ir al store
