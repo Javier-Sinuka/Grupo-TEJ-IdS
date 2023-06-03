@@ -22,6 +22,11 @@ public class WindowButton implements UIButton{
     }
 
     @Override
+    public void configureButton() {
+
+    }
+
+    @Override
     public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
 
         button.setVisible(true);

@@ -1,7 +1,6 @@
 package model.entity;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class ExamButtons{
 

@@ -2,10 +2,8 @@ package model.entity;
 
 import model.objects.Usable;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Set;
 
 /**
  * Las Materias posibles a ingresar actualmente son las siguientes:
@@ -41,7 +39,7 @@ public class Classroom {
      * Metodo que retorna un Set con las preguntas para el examen.
      * @return Set de String con las preguntas de la materia
      */
-    public Set<String> getQuestionsKeys(){
+    public ArrayList<String> getQuestionsKeys(){
         return this.professor.getQuestionsKeysExamns();
     }
 

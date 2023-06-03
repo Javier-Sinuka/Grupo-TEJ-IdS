@@ -2,11 +2,8 @@ package model.entity;
 
 import model.objects.Usable;
 
-
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Set;
 
 public class Professor {
     private String nameCourseAsociatted;
@@ -29,7 +26,7 @@ public class Professor {
      *
      * @return Set con las preguntas del examen
      */
-    public Set<String> getQuestionsKeysExamns() {
+    public ArrayList<String> getQuestionsKeysExamns() {
         return dbExams.getQuestionsKeys(this.nameCourseAsociatted);
     }
 
