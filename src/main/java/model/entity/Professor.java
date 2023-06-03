@@ -2,14 +2,12 @@ package model.entity;
 
 import model.objects.Usable;
 
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
 public class Professor {
-    private String nameCourseAsociatted;
+    private String associatedSubjectName;
     private Student student;
     private DBExams dbExams;
     private int counterCorrectAnswers;
@@ -18,7 +16,7 @@ public class Professor {
     public Professor(String nameCourseAsociatted, Student student) throws IOException {
         this.student = student;
         this.dbExams = new DBExams();
-        this.nameCourseAsociatted = nameCourseAsociatted;
+        this.associatedSubjectName = nameCourseAsociatted;
         this.counterCorrectAnswers = 0;
         this.flag = false;
     }
@@ -29,8 +27,8 @@ public class Professor {
      *
      * @return Set con las preguntas del examen
      */
-    public Set<String> getQuestionsKeysExamns() {
-        return dbExams.getQuestionsKeys(this.nameCourseAsociatted);
+    public Set<String> getQuestionsKeysExams() {
+        return dbExams.getQuestionsKeys(this.associatedSubjectName);
     }
 
     /**
@@ -40,9 +38,9 @@ public class Professor {
      * @param question
      * @return ArrayList con las respuestas a una pregunta puntual sin la respuesta correcta
      */
-    public ArrayList<String> getAnswer(String question) {
+    public ArrayList<String> getAnswers(String question) {
         this.flag = true;
-        return dbExams.getAnswers(nameCourseAsociatted, question);
+        return dbExams.getAnswers(associatedSubjectName, question);
     }
 
     /**
@@ -51,42 +49,42 @@ public class Professor {
      * @return Respuesta correcta a la pregunta pasada
      */
     public String getCorrectOption (String question){
-        return dbExams.getCorrectOption(nameCourseAsociatted, question);
+        return dbExams.getCorrectOption(associatedSubjectName, question);
     }
 
     /**
      * @return Nombre de la Materia asociado a este profesor
      */
     public String getNameCourseAsociatted () {
-        return this.nameCourseAsociatted;
+        return this.associatedSubjectName;
     }
 
     /**
      * @return Nombre del Profesor que dicta esta materia
      */
     public String getNameProfessor () {
-        return dbExams.getNameProfessor(nameCourseAsociatted);
+        return dbExams.getNameProfessor(associatedSubjectName);
     }
 
     /**
      * @return Apodo asociado al Profesor que dicta esta materia
      */
     public String getApodoProfessor () {
-        return dbExams.getApodoProfessor(nameCourseAsociatted);
+        return dbExams.getApodoProfessor(associatedSubjectName);
     }
 
     /**
      * @return Cantidad de creditos necesarios para cursar la materia
      */
     public int getCreditsNecesary () {
-        return dbExams.getCreditsNecesary(nameCourseAsociatted);
+        return dbExams.getCreditsNecesary(associatedSubjectName);
     }
 
     /**
      * @return Item necesario para cursar esta materia
      */
     public Usable getItemNecesary () {
-        return dbExams.getItemNecesary(nameCourseAsociatted);
+        return dbExams.getItemNecesary(associatedSubjectName);
     }
 
     /**
@@ -94,10 +92,10 @@ public class Professor {
      * materia.
      * @return True si cuenta con el Item, False en caso contrario
      */
-    public boolean checkStudentHasNecessaryItem () {
+    public boolean studentHasItem () {
         boolean flag = false;
         for (Usable usable : student.getBackpack()) {
-            if (usable.getName().equals(dbExams.getItemNecesary(nameCourseAsociatted).getName())) {
+            if (usable.getName().equals(dbExams.getItemNecesary(associatedSubjectName).getName())) {
                 flag = true;
             }
         }
@@ -109,8 +107,8 @@ public class Professor {
      * la materia en cuestion.
      * @return True si cuenta con los creditos necesarios, False en caso contrario
      */
-    public boolean checkStudentHasNecessatyCredits () {
-        return student.getCredits() >= dbExams.getCreditsNecesary(nameCourseAsociatted);
+    public boolean studentHasCredits () {
+        return student.getCredits() >= dbExams.getCreditsNecesary(associatedSubjectName);
     }
 
 
@@ -118,8 +116,8 @@ public class Professor {
      * Metodo que comprueba si puede rendir o no el examen en cuestion.
      * @return True si puede rendir, False en caso contrario
      */
-    public boolean canTakeTheExam () {
-        return this.checkStudentHasNecessaryItem() && this.checkStudentHasNecessatyCredits();
+    public boolean canTakeExam () {
+        return this.studentHasItem() && this.studentHasCredits();
     }
 
     /**
@@ -139,7 +137,7 @@ public class Professor {
      */
     public double percentageOfCorrectAnswers () {
         if (flag) {
-            return (double) (getCounterCorrectAnswers() * 100) / this.getQuestionsKeysExamns().size();
+            return (double) (getCounterCorrectAnswers() * 100) / this.getQuestionsKeysExams().size();
         } else {
             return 0;
         }
@@ -152,7 +150,7 @@ public class Professor {
      */
     public int lifeToSubtractStudent () {
         if (flag) {
-            return (int) (Math.floor((this.getQuestionsKeysExamns().size() - this.getCounterCorrectAnswers()) * (1 / 2)));
+            return (int) (Math.floor((this.getQuestionsKeysExams().size() - this.getCounterCorrectAnswers()) * (1 / 2)));
         } else {
             return 0;
         }
@@ -164,7 +162,7 @@ public class Professor {
      * @return Creditos a aumentar por aprobar la materia
      */
     public int increaseCreditsToApprove () {
-        return this.dbExams.getCreditsForAprove(nameCourseAsociatted);
+        return this.dbExams.getCreditsForAprove(associatedSubjectName);
     }
 
     /**

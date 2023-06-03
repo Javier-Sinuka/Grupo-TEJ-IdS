@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class WindowButton implements UIButton{
 
@@ -20,6 +21,9 @@ public class WindowButton implements UIButton{
         this.height=height;
         button=new JButton();
     }
+
+    @Override
+    public void configureButton() {}
 
     @Override
     public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
@@ -52,6 +56,8 @@ public class WindowButton implements UIButton{
     public void configureButton(ArrayList<String> questions, ArrayList<ArrayList<String>> options, ArrayList<String> correctOpt, ArrayList<UIRoom> rooms, JTextArea textArea, int roomID, UIStudent uistudent, UIClassroom uiclassroom) {}
 
     @Override
-    public void configureButton(ArrayList<UIRoom> roomsPanels, int roomID,ArrayList<String>questions,JButton [] buttons,
-                                UIStudent uistudent,JTextArea textArea,UIClassroom uiclassroom){}
+    public void configureButton(ArrayList<UIRoom> rooms, int roomID, ArrayList<String> questions, JButton[] buttons, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {
+
+    }
+
 }

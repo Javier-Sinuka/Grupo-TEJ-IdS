@@ -42,7 +42,7 @@ public class Classroom {
      * @return Set de String con las preguntas de la materia
      */
     public Set<String> getQuestionsKeys(){
-        return this.professor.getQuestionsKeysExamns();
+        return this.professor.getQuestionsKeysExams();
     }
 
     /**
@@ -51,8 +51,8 @@ public class Classroom {
      * @param question
      * @return Respuestas asociadas a una pregunta, sin la respuesta correcta
      */
-    public ArrayList<String> getAnswerToTheQuestion(String question){
-        return this.professor.getAnswer(question);
+    public ArrayList<String> getAnswersToTheQuestion(String question){
+        return this.professor.getAnswers(question);
     }
 
     /**
@@ -69,7 +69,7 @@ public class Classroom {
      * @return True si puede tomar el examen, False en caso contrario
      */
     public boolean canTakeTheExamToStudent(){
-        return this.professor.canTakeTheExam();
+        return this.professor.canTakeExam();
     }
 
     /**
@@ -78,7 +78,7 @@ public class Classroom {
      * Classroom, sino, en Professor)
      * @return True si cumplio con las respuestas necesarias para aprobar, False caso contrario
      */
-    public boolean examAproved(){
+    public boolean isExamPassed(){
         return this.professor.examResult();
     }
 

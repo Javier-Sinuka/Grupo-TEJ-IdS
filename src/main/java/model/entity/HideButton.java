@@ -2,18 +2,13 @@ package model.entity;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class HideButton implements UIButton{
 
 
     @Override
     public void configureButton() {
-
-
-
-
-
-
 
     }
 
@@ -31,4 +26,7 @@ public class HideButton implements UIButton{
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, ArrayList<String> questions, JButton[] buttons, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {
 
     }
+
+
+
 }
