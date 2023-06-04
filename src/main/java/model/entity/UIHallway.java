@@ -45,4 +45,9 @@ public class UIHallway extends UIRoom {
 
     }
 
+    @Override
+    public void setButton(ExamButtons examBts, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
+
 }

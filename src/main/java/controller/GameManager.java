@@ -62,14 +62,12 @@ public class GameManager {
         hallway1.setButton(wb2,rooms,uiStudent,"Hallway 2",1,4);
 
         window.add(hallway1);
-
     }
-
 
     private void classRoom1() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/Facultad.png");
-        UIClassroom classroom1 = new UIClassroom(img,uiStudent);
+        UIClassroom classroom1 = new UIClassroom(img,uiStudent,"Introduccion a la Matematica",2);
         rooms.add(classroom1);
 
         classroom1.setTextArea(textArea,"HELLO THERE!");
@@ -80,9 +78,13 @@ public class GameManager {
        WindowButton exitButton=new WindowButton(600,100,150,50);
        classroom1.setButton(exitButton,rooms,uiStudent,"Exit",2,1);
 
+       ExamButtons examButtons=new ExamButtons();
+       classroom1.setButton(examButtons,rooms,2,uiStudent,textArea);
+
        ExamStartButton examButton=new ExamStartButton(100,100,150,50);
        classroom1.setButton(examButton,rooms,2,uiStudent,textArea);
-       //classroom1.setButton()
+
+
 
         window.add(rooms.get(2));
 

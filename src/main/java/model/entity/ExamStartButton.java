@@ -58,9 +58,8 @@ public class ExamStartButton implements UIButton{
 
                     textArea.setText(questions.get(0));
                     button.setVisible(false);
-                    JButton [] examButtons=buttons;
-                    for(int i=0;i<3;i++){
-                        examButtons[i].setVisible(true);
+                    for(int i=0;i<2;i++){
+                        buttons[i].setVisible(true);
                     }
                 }
             }

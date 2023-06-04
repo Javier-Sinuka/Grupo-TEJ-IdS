@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ExamButtons implements UIButton{
 
-    private JButton [] buttons;
+    private JButton[]buttons;
 
     private int questionsCounter=0;
 
@@ -16,6 +16,8 @@ public class ExamButtons implements UIButton{
         buttons=new JButton[3];
 
     }
+
+
     public JButton[] getButtons(){return buttons;}
 
     @Override
@@ -32,6 +34,12 @@ public class ExamButtons implements UIButton{
         int ypos=500;
 
         ArrayList<String>questions=uiclassroom.getClassroom().getQuestionsKeys();
+        ArrayList<ArrayList<String>>options=new ArrayList<>();
+
+        for(String s: questions){
+            ArrayList<String> newArrayList=new ArrayList<>();
+            options.add( uiclassroom.getClassroom().getAnswersToTheQuestion(s));
+        }
 
         for(int i = 0; i<3; i++) {
 
@@ -80,7 +88,10 @@ public class ExamButtons implements UIButton{
                             buttons[i].setVisible(false);
                         }
                     }
-                    else{ setNewQuestion(buttons,questions,options,textArea); }
+                    else{
+
+                        setNewQuestion(buttons,questions,options,textArea);
+                    }
 
                     try{ Thread.sleep(1000);}
                     catch(Exception E){}
@@ -102,6 +113,9 @@ public class ExamButtons implements UIButton{
         buttons[0].setText(options.get(questionsCounter).get(0));
         buttons[1].setText(options.get(questionsCounter).get(1));
         buttons[2].setText(options.get(questionsCounter).get(2));
-
     }
+
+    public void addButton(JButton button){}
+
+
 }
