@@ -10,14 +10,14 @@ import java.awt.event.MouseListener;
 public class UIStudent {
     private Student student;
     private JPanel dataPanel;
+    private InventoryButton inventoryButton;
     public UIInventoryPanel inventoryPanel;
-    public boolean inventoryPanelOpen;
     int testDoge = 1000; // DogeCoin para probar las funcionalidades del panel y tienda
     public UIStudent(){
         student=new Student();
         dataPanel = new JPanel();
+        inventoryButton = new InventoryButton();
         inventoryPanel = new UIInventoryPanel(student);
-        inventoryPanelOpen = false;
         setDataPanel();
     }
     public void setDataPanel(){
@@ -30,6 +30,7 @@ public class UIStudent {
         dogeCoinLabel();
         lifeBarLabel(dataPanel,10,50,210,20);
         inventoryButton();
+        //inventoryButton.configureButton();
         setInventoryPanel();
     }
     public void playerNameLabel(JPanel panel, int x,int y, int width, int height){
@@ -68,7 +69,6 @@ public class UIStudent {
                 inventoryPanel.setVisible(true);
                 inventoryPanel.revalidate();
                 inventoryPanel.repaint();
-                inventoryPanelOpen = true;
                 inventoryPanel.getGridPanel().revalidate();
             }
             @Override
@@ -98,7 +98,6 @@ public class UIStudent {
             @Override
             public void mouseClicked(MouseEvent e) {
                 inventoryPanel.setVisible(false);
-                inventoryPanelOpen = false;
             }
 
             @Override

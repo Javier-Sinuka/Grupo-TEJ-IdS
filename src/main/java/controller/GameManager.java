@@ -128,7 +128,6 @@ public class GameManager {
         window.add(rooms.get(4));
 
     }
-
     private void store2() {
 
         UIStore uiStore = new UIStore(uiStudent,true);
@@ -141,8 +140,6 @@ public class GameManager {
         window.add(rooms.get(5));
 
     }
-
-
     public GameWindow getWindow(){
         return window;
     }
