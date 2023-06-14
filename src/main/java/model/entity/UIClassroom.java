@@ -124,10 +124,6 @@ public void setTextArea(JTextArea textArea,String initialText){
     }
 
 
-
-
-
-
     /*
     public void paintComponent(Graphics g){
         g.drawImage(img.getImage(),0,0,getWidth(),getHeight(), this);

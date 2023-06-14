@@ -41,12 +41,12 @@ public class ExamStartButton implements UIButton{
         button.setFocusable(false);
         button.setText("COMENZAR EXAMEN");
 
+        ArrayList<String>questions=uiclassroom.getClassroom().getQuestionsKeys();
+        JButton[] buttons=uiclassroom.getExamButtons().getButtons();
+
         button.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                ArrayList<String>questions=uiclassroom.getClassroom().getQuestionsKeys();
-                JButton[] buttons=uiclassroom.getExamButtons().getButtons();
 
                 if(! uiclassroom.getClassroom().getProfessor().studentHasItem()){
                     textArea.setText("Capo, te falta el objecto");
@@ -58,7 +58,7 @@ public class ExamStartButton implements UIButton{
 
                     textArea.setText(questions.get(0));
                     button.setVisible(false);
-                    for(int i=0;i<2;i++){
+                    for(int i=0;i<3;i++){
                         buttons[i].setVisible(true);
                     }
                 }

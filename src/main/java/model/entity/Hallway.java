@@ -3,7 +3,6 @@ package model.entity;
 import model.objects.Consumable;
 import model.objects.Item;
 import model.objects.Usable;
-import model.objects.Consumable;
 
 import java.util.Random;
 
@@ -18,21 +17,23 @@ import java.util.Random;
  * PARA PODER INGRESAR MAS DE UNO Y CON LOS VALORES SETEADOS POR NOSOTROS.
  */
 public class Hallway {
+    private String nameHallway;
     private int x,y;
     private Consumable consumable;
     private Item item;
 
-    public Hallway(String nameItem, String descripcionItem,
-                   String nameConsumable, String descriptionConsumable) {
+    public Hallway(Consumable consumable, Item item) {
         this.x = 0;
         this.y = 0;
-        this.consumable = new Consumable(nameConsumable,descriptionConsumable);
-        this.item = new Item(nameItem, descripcionItem);
+        this.consumable = consumable;
+        this.item = item;
+        this.nameHallway = nameHallway;
     }
     public Hallway() {
         this.x = 0;
         this.y = 0;
     }
+
     //*************************** METODOS PROPIOS *********************************
     public int getRandomX(){
         return (int)(Math.random()*400+150);
@@ -66,13 +67,15 @@ public class Hallway {
         try{
             if(this.item.getIsTaken()==false || this.consumable.getIsTaken()==false){
                 Random random = new Random();
-                int randomNumber = random.nextInt((1 - 0) + 1) +0;
-                if(randomNumber==1 && this.item.getIsTaken()==false){
+                int randomNumber = random.nextInt((2 - 1) + 2) +1;
+                if(randomNumber==2 && this.item.getIsTaken()==false){
                     this.item.setTaken(true);
                     usable = item;
-                }else if (randomNumber==0 && this.consumable.getIsTaken()==false){
+                }else if (randomNumber==1 && this.consumable.getIsTaken()==false){
                     this.consumable.setTaken(true);
                     usable = consumable;
+                }else if (randomNumber==0){
+                    usable = null;
                 }
             } else {
                 return null;
@@ -83,5 +86,11 @@ public class Hallway {
         return usable;
     }
 
+    public String getNameHallway() {
+        return nameHallway;
+    }
 
+    public void setNameHallway(String nameHallway) {
+        this.nameHallway = nameHallway;
+    }
 }

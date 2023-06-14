@@ -1,6 +1,8 @@
 package controller;
 
 import model.entity.*;
+import model.objects.Consumable;
+import model.objects.Item;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,7 +54,11 @@ public class GameManager {
     }
     public void hallway1(){
 
-        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE);
+        String path = "src/main/assets/img/map/Lobby_Central.png";
+        Consumable consumable = new Consumable("Mate","Mate amargo");
+        Item item = new Item("Tablero de dibujo", "Tabala que te ayudara a rendir dibujo");
+
+        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE,consumable,item,path);
         rooms.add(hallway1);
 
         WindowButton wb1=new WindowButton(500,0,150,50);
@@ -100,8 +106,11 @@ public class GameManager {
         window.add(rooms.get(3));
     }
     private void hallway2() {
+        String path = "src/main/assets/img/map/Playa_estacionamiento.png";
+        Consumable consumable = new Consumable("Cafe","Cafe rico");
+        Item item = new Item("Tabla periodica", "Tabala que te ayudara a rendir quimica");
 
-        UIHallway newHallway= new UIHallway("Hallway 2",Color.blue);
+        UIHallway newHallway= new UIHallway("Hallway 2",Color.blue, consumable,item,path);
         rooms.add(newHallway);
 
         //Boton para ir al store

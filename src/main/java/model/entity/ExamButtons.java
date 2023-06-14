@@ -9,6 +9,8 @@ public class ExamButtons implements UIButton{
 
     private JButton[]buttons;
 
+    private int buttonCounter=0;
+
     private int questionsCounter=0;
 
     public  ExamButtons () {
@@ -48,6 +50,7 @@ public class ExamButtons implements UIButton{
             buttons[i].setVisible(false);
             buttons[i].setFocusable(false);
             buttons[i].setVerticalTextPosition(JButton.TOP);
+            uiclassroom.addExamButton(buttons[i]);
             rooms.get(roomID).add(buttons[i]);
             ypos+=50;
         }
@@ -80,8 +83,10 @@ public class ExamButtons implements UIButton{
                     }
 
                 }
+
                 @Override
                 public void mouseReleased(MouseEvent e){
+
 
                     if(questionsCounter==4){
                         for(int i=0;i<3;i++){
@@ -91,12 +96,14 @@ public class ExamButtons implements UIButton{
                     else{
 
                         setNewQuestion(buttons,questions,options,textArea);
+
+                        try{ Thread.sleep(1000);}
+                        catch(Exception E){}
                     }
 
-                    try{ Thread.sleep(1000);}
-                    catch(Exception E){}
-
                 }
+
+
                 @Override
                 public void mouseEntered(MouseEvent e) {}
                 @Override
@@ -115,7 +122,10 @@ public class ExamButtons implements UIButton{
         buttons[2].setText(options.get(questionsCounter).get(2));
     }
 
-    public void addButton(JButton button){}
+    public void addButton(JButton button){
+        buttons[buttonCounter]=button;
+        buttonCounter++;
+    }
 
 
 }
