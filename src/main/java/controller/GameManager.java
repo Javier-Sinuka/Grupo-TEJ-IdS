@@ -71,7 +71,6 @@ public class GameManager {
 
     }
 
-
     private void classRoom1() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/Facultad.png");
@@ -126,7 +125,6 @@ public class GameManager {
         window.add(rooms.get(4));
 
     }
-
     private void store2() {
 
         UIStore uiStore = new UIStore(uiStudent,true);
@@ -139,8 +137,6 @@ public class GameManager {
         window.add(rooms.get(5));
 
     }
-
-
     public GameWindow getWindow(){
         return window;
     }

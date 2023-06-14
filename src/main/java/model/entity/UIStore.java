@@ -72,13 +72,6 @@ public class UIStore extends UIRoom {
         uiStudent.removeDogeCoin(usable.getPrice());
         uiStudent.addPurchasedItem(usable);
 
-        Boolean stayOpen = false;
-        if(uiStudent.inventoryPanelOpen){
-            stayOpen = true;
-        }else{
-            stayOpen = false;
-        }
-
         messageLabel.setText("Compraste " + itemName + ":)");
         messageLabel.setVisible(true);
 
@@ -91,9 +84,6 @@ public class UIStore extends UIRoom {
         uiStudent.setInventoryPanel();
         uiStudent.inventoryPanel.parameterInventoryPanel();
 
-        if(stayOpen){
-            uiStudent.inventoryPanel.setVisible(true);
-        }
         this.updateUI();
     }
     public void messageLabel (){
