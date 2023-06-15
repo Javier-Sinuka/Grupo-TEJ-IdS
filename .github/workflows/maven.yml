@@ -32,14 +32,4 @@ jobs:
       run: mvn clean install
 
     - name: Run tests
-      run: mvn test
-
-    - name: Check for test failures
-      run: |
-        if [ ${{ job.status }} == 'failure' ]; then
-          echo "name=tests-passed=false" >> $GITHUB_OUTPUT
-          echo "There were test failures. Please fix the issues before merging."
-          exit 1
-        else
-          echo "name=tests-passed=true" >> $GITHUB_OUTPUT
-        fi
+      run: mvn -e test

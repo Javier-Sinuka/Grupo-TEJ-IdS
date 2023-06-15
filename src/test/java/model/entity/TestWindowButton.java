@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class WindowButtonTest {
+class TestWindowButton {
 
 
     private UIStudent uistudentTest;
