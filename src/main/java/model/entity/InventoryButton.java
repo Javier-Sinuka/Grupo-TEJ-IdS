@@ -9,8 +9,8 @@ import java.util.Set;
 public class InventoryButton implements UIButton{
     @Override
     public void configureButton() {}
-
-       /* public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {
+    @Override
+    public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {
         JButton inventoryButton = new JButton("-");
         inventoryButton.setBounds(170,15,50,20);
         dataPanel.add(inventoryButton);
@@ -31,16 +31,10 @@ public class InventoryButton implements UIButton{
             @Override
             public void mouseExited(MouseEvent e) {}
         });
-
-    }*/
-    @Override
-    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
-
     }
     @Override
-    public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {
-
-    }
-
+    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {}
 
 }

@@ -22,6 +22,9 @@ public class ExamButtons implements UIButton{
     public void configureButton() {}
 
     @Override
+    public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
+
+    @Override
     public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
     }
 

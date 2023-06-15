@@ -50,7 +50,6 @@ public class UIInventoryPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 setVisible(false);
-                //inventoryPanelOpen = false;
             }
             @Override
             public void mousePressed(MouseEvent e) {}
