@@ -13,6 +13,18 @@ Preguntas:
 - 2
 - Pasa al pizzaron{true}
 - 3
+¿Question 3?
+- option1
+- option2{true}
+- option3
+¿Question 4?
+- option4
+- option5
+- option6{true}
+¿Question 5?
+- option7{true}
+- option8
+- option9
 ***
 Materia: Representacion Grafica
 Docente: Da Vinci del AUTOCAD

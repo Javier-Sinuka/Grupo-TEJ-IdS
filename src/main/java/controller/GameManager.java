@@ -72,27 +72,21 @@ public class GameManager {
 
     private void classRoom1() {
 
-        ImageIcon img = new ImageIcon("src/main/assets/img/Facultad.png");
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/IMG_20230608_172253307_HDR.jpg");
         UIClassroom classroom1 = new UIClassroom(img,uiStudent,"Introduccion a la Matematica",2);
         rooms.add(classroom1);
 
-        classroom1.setTextArea(textArea,"HELLO THERE!");
-       // classroom1.createExitButton(rooms,uiStudent,2,1);
-        //classroom1.createOptionMenu(rooms,"Introduccion a la Matematica",2,textArea,uiStudent);
-        //classroom1.addBackgroundImage(rooms,2,"main/assets/img/Mi proyecto.png");
+        classroom1.setTextArea(textArea,classroom1.getClassroom().getProfessor().getProfessorNickname()+ ": Bienvenido Víctima");
 
-       WindowButton exitButton=new WindowButton(600,100,150,50);
+       WindowButton exitButton=new WindowButton(570,20,150,50);
        classroom1.setButton(exitButton,rooms,uiStudent,"Exit",2,1);
 
        ExamButtons examButtons=new ExamButtons();
        classroom1.setButton(examButtons,rooms,2,uiStudent,textArea);
 
-       ExamStartButton examButton=new ExamStartButton(100,100,150,50);
-       classroom1.setButton(examButton,rooms,2,uiStudent,textArea);
+       classroom1.setButton(new ExamStartButton(),rooms,2,uiStudent,textArea);
 
-
-
-        window.add(rooms.get(2));
+       window.add(rooms.get(2));
 
     }
     private void store1() {
@@ -108,7 +102,7 @@ public class GameManager {
     private void hallway2() {
         String path = "src/main/assets/img/map/Playa_estacionamiento.png";
         Consumable consumable = new Consumable("Cafe","Cafe rico");
-        Item item = new Item("Tabla periodica", "Tabala que te ayudara a rendir quimica");
+        Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir quimica");
 
         UIHallway newHallway= new UIHallway("Hallway 2",Color.blue, consumable,item,path);
         rooms.add(newHallway);

@@ -69,21 +69,21 @@ public class Professor {
     /**
      * @return Apodo asociado al Profesor que dicta esta materia
      */
-    public String getApodoProfessor () {
+    public String getProfessorNickname () {
         return dbExams.getApodoProfessor(associatedSubjectName);
     }
 
     /**
      * @return Cantidad de creditos necesarios para cursar la materia
      */
-    public int getCreditsNecesary () {
+    public int getNecessaryCredits () {
         return dbExams.getCreditsNecesary(associatedSubjectName);
     }
 
     /**
      * @return Item necesario para cursar esta materia
      */
-    public Usable getItemNecesary () {
+    public Usable getItemNecessary () {
         return dbExams.getItemNecesary(associatedSubjectName);
     }
 
@@ -163,7 +163,7 @@ public class Professor {
      * la materia dictada por este profesor
      * @return Creditos a aumentar por aprobar la materia
      */
-    public int increaseCreditsToApprove () {
+    public int getCreditsIfPassed () {
         return this.dbExams.getCreditsForAprove(associatedSubjectName);
     }
 
@@ -187,17 +187,18 @@ public class Professor {
             life -= this.lifeToSubtractStudent();
             if (this.examResult() && life > 0) {
                 this.student.decreaseLifeBar(lifeToSubtractStudent());
-                this.student.addCredits(this.increaseCreditsToApprove());
-                return "Examen aprobado! Se acertaron " + this.getCounterCorrectAnswers() +
-                        " respuestas y se restaron " + this.lifeToSubtractStudent() + " puntos de vida.\n" +
-                        "Felicidades, ya puedes ir por tu birra para festejar ;) ";
+                this.student.addCredits(this.getCreditsIfPassed());
+                return "APROBASTE WACHIN!! acertaste: " + this.getCounterCorrectAnswers() +
+                        " respuestas" + "\n" +
+                        "Creditos adquiridos: "+ getCreditsIfPassed()+"\n"+
+                        "Felicidades, ya podés ir por tu birra para festejar ;) ";
             } else if (life <= 0) {
                 this.student.decreaseLifeBar(lifeToSubtractStudent());
                 return "No pudiste soportar el estres de ser un Semi Dios, y moriste en el intento... " +
-                        "Prueba en Abogacia o Filosofia.";
+                        "Probá en Abogacia o Filosofia.";
+
             } else {
-                return "No pudiste pasar el examen, por no contar con los puntos necesarios para arpobarlo" +
-                        ", repasa y vuelve en otra instancia.";
+                return "Desaprobado, sos una desgracia para la ingeniería,ponete a estudiar y suerte en la próxima";
             }
         } else {
             return "El examen no ha sido rendido todavia, intente presentarse a rendir, cagon!";

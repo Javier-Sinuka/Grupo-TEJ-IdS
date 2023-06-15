@@ -12,6 +12,11 @@ import java.util.ArrayList;
 public class UIHallway extends UIRoom {
     private Hallway hallway;
     private String path;
+
+
+    public UIHallway(){
+        hallway=new Hallway(new Consumable(),new Item());
+    }
     public UIHallway(String hallwayName, Color colorDeFondo, Consumable consumable, Item item, String path){
         super();
         this.path = path;

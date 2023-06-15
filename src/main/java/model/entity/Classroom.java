@@ -107,15 +107,15 @@ public class Classroom {
      * @return Creditos necesarios para rendir el examen
      */
     public int getCreditsNecesary(){
-        return this.professor.getCreditsNecesary();
+        return this.professor.getNecessaryCredits();
     }
 
     /**
      * Metodo que devuelve el item necesario para rendir el examen que se dicta en el aula
      * @return Usable del Item necesario para rendir
      */
-    public Usable getItemNecesary(){
-        return this.professor.getItemNecesary();
+    public Usable getItemNecessary(){
+        return this.professor.getItemNecessary();
     }
 
 }

@@ -33,7 +33,7 @@ public class UIClassroom extends UIRoom {
 
         this.uistudent=uistudent;
 
-        examStartButton=new ExamStartButton(300,100,200,50);
+        examStartButton=new ExamStartButton();
         exitButton=new WindowButton(50,100,150,50);
         examButtons=new ExamButtons();
 
@@ -87,7 +87,7 @@ public class UIClassroom extends UIRoom {
 */
 public void setTextArea(JTextArea textArea,String initialText){
     textArea.setVisible(true);
-    textArea.setBounds(1,500,450,150);
+    textArea.setBounds(61,540,520,150);
     textArea.setBackground(Color.BLACK);
     textArea.setForeground(Color.white);
     textArea.setOpaque(true);
@@ -124,10 +124,9 @@ public void setTextArea(JTextArea textArea,String initialText){
     }
 
 
-    /*
     public void paintComponent(Graphics g){
         g.drawImage(img.getImage(),0,0,getWidth(),getHeight(), this);
-    } */
+    }
 
 
 

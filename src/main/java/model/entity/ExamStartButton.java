@@ -17,11 +17,11 @@ public class ExamStartButton implements UIButton{
     JButton button;
 
 
-    public ExamStartButton(int xpos, int ypos, int width, int height) {
-        this.xpos=xpos;
-        this.ypos=ypos;
-        this.width=width;
-        this.height=height;
+    public ExamStartButton() {
+        xpos=620;
+        ypos=540;
+        width=200;
+        height=50;
         button=new JButton();
     }
 

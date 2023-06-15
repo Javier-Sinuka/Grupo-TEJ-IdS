@@ -122,7 +122,7 @@ public class Student {
         coffeeAmount--;
     }
 
-    public void incrementCafein(int amountCafein) {
+    public void incrementCaffeine(int amountCafein) {
         coffeeAmount += amountCafein;
     }
 
