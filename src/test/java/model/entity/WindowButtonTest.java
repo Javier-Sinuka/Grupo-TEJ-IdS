@@ -3,14 +3,12 @@ package model.entity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WindowButtonTest {
 
@@ -59,7 +57,7 @@ class WindowButtonTest {
 
         testWB.configureButton(testPanels,uistudentTest,"HALLWAY X",roomID,destinyRoom);
 
-        assertEquals("HALLWAY X",testWB.getButton().getText());
+        assertEquals("HALLWAY Z",testWB.getButton().getText());
         assertEquals(true,testWB.getButton().isVisible());
         // add another characteristic to be evaluated
 
