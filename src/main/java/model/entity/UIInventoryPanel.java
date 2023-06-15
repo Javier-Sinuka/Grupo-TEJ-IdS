@@ -1,6 +1,7 @@
 package model.entity;
 
 import model.objects.Usable;
+import org.mockito.internal.matchers.StartsWith;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +12,7 @@ public class UIInventoryPanel extends JPanel {
     private JPanel gridPanel;
     private JPanel consumablePanel;
     private JPanel objectPanel;
-    private JButton hideInventoryButton;
+    private HideButton hideButton;
     private JLabel imgProfileLabel;
     private JPanel confirmConsumable = new JPanel();
     public UIInventoryPanel(Student student){
@@ -20,7 +21,8 @@ public class UIInventoryPanel extends JPanel {
         this.gridPanel = new JPanel();
         this.consumablePanel = new JPanel();
         this.objectPanel = new JPanel();
-        this.hideInventoryButton = new JButton("-");
+        this.hideButton = new HideButton();
+
         this.imgProfileLabel = new JLabel();
         this.confirmConsumable = new JPanel();
 
@@ -40,29 +42,9 @@ public class UIInventoryPanel extends JPanel {
         this.setLayout(null);
         this.setBackground(Color.lightGray);
 
-        hideButton();
+        hideButton.configureButton(this);
         imgProfile();
         gridPanel();
-    }
-    public void hideButton(){
-        hideInventoryButton.setBounds(340,470,50,20);
-        hideInventoryButton.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                setVisible(false);
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {}
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            @Override
-            public void mouseExited(MouseEvent e) {}
-        });
-
-        this.add(hideInventoryButton);
-
     }
     public void imgProfile(){
         //Img profile
@@ -84,56 +66,59 @@ public class UIInventoryPanel extends JPanel {
         gridPanel.add(objectPanel);
 
         for(Usable usable : student.getBackpack()){
-            if(usable.getName() == "Cafe"){
-                ImageIcon coffe = new ImageIcon("src/main/assets/img/coffe.png");
-                JLabel coffeLabel = new JLabel();
-                coffeLabel.setIcon(new ImageIcon(coffe.getImage().getScaledInstance(45,45,Image.SCALE_SMOOTH)));
-                consumablePanel.add(coffeLabel);
 
-                coffeLabel.addMouseListener(new MouseListener() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        consumablePanel(coffeLabel, usable);
-                    }
-                    @Override
-                    public void mousePressed(MouseEvent e) {                    }
-                    @Override
-                    public void mouseReleased(MouseEvent e) {}
-                    @Override
-                    public void mouseEntered(MouseEvent e) {
-                        coffeLabel.setSize(50,50);
-                    }
-                    @Override
-                    public void mouseExited(MouseEvent e) {
-                        coffeLabel.setSize(45,45);
-                    }
-                });
-            }else {
-                ImageIcon mate = new ImageIcon("src/main/assets/img/mate.png");
-                JLabel mateLabel = new JLabel();
-                mateLabel.setBounds(0,0,50,50);
-                mateLabel.setIcon(new ImageIcon(mate.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));
-                consumablePanel.add(mateLabel);
-
-                mateLabel.addMouseListener(new MouseListener() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {consumablePanel(mateLabel,usable);}
-                    @Override
-                    public void mousePressed(MouseEvent e) {}
-                    @Override
-                    public void mouseReleased(MouseEvent e) {}
-                    @Override
-                    public void mouseEntered(MouseEvent e) {
-                        mateLabel.setSize(60,60);
-                    }
-                    @Override
-                    public void mouseExited(MouseEvent e) {
-                        mateLabel.setSize(50,50);
-                    }
-                });
+            switch (usable.getName()){
+                case "Cafe":
+                    ImageIcon coffe = new ImageIcon("src/main/assets/img/coffe.png");
+                    JLabel coffeLabel = new JLabel();
+                    coffeLabel.setIcon(new ImageIcon(coffe.getImage().getScaledInstance(45,45,Image.SCALE_SMOOTH)));
+                    consumablePanel.add(coffeLabel);
+                    coffeLabel.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            consumablePanel(coffeLabel, usable);
+                        }
+                        @Override
+                        public void mousePressed(MouseEvent e) {                    }
+                        @Override
+                        public void mouseReleased(MouseEvent e) {}
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+                            coffeLabel.setSize(50,50);
+                        }
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+                            coffeLabel.setSize(45,45);
+                        }
+                    });
+                    break;
+                case "Mate":
+                    ImageIcon mate = new ImageIcon("src/main/assets/img/mate.png");
+                    JLabel mateLabel = new JLabel();
+                    mateLabel.setBounds(0,0,50,50);
+                    mateLabel.setIcon(new ImageIcon(mate.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));
+                    consumablePanel.add(mateLabel);
+                    mateLabel.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {consumablePanel(mateLabel,usable);}
+                        @Override
+                        public void mousePressed(MouseEvent e) {}
+                        @Override
+                        public void mouseReleased(MouseEvent e) {}
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+                            mateLabel.setSize(60,60);
+                        }
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+                            mateLabel.setSize(50,50);
+                        }
+                    });
+                    break;
+                default:
+                    System.out.println("No se hizo nada");
             }
         }
-
         this.add(gridPanel);
     }
     public void consumablePanel(JLabel label, Usable usable){

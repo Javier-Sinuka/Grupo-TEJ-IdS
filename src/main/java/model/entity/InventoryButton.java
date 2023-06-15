@@ -9,6 +9,9 @@ import java.util.Set;
 public class InventoryButton implements UIButton{
     @Override
     public void configureButton() {}
+
+    @Override
+    public void configureButton(JPanel inventoryPanel) {}
     @Override
     public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {
         JButton inventoryButton = new JButton("-");

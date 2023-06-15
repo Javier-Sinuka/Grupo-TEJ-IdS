@@ -32,7 +32,7 @@ public class GameManager {
     }
 
     private void createMenu(){
-        ImageIcon img = new ImageIcon("src/main/assets/img/Mi proyecto.png");
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/EntradaFacultad.png");
         UIMainMenu mainMenu = new UIMainMenu(img);
         rooms.add(mainMenu);
 

@@ -39,8 +39,9 @@ public class UIStudent {
         panel.add(nameLabel);
     }
     public void dogeCoinLabel(){
-        ImageIcon imageDogecoin = new ImageIcon("src/main/assets/img/dogecoin.png");
+        ImageIcon aux = new ImageIcon("src/main/assets/img/imgLabdogecoin.png");
         String coin = Integer.toString(getDogeCoin());
+        ImageIcon imageDogecoin = new ImageIcon(aux.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
         JLabel dogecoinLabel = new JLabel(coin,imageDogecoin,0);
         dogecoinLabel.setBounds(915,10,300,60);
         dogecoinLabel.setFont(new Font("Arial Black",Font.BOLD,50));
