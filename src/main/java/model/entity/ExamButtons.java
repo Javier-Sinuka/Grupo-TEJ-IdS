@@ -7,15 +7,18 @@ import java.util.ArrayList;
 
 public class ExamButtons implements UIButton{
 
-    private JButton [] buttons;
+    private JButton[]buttons;
+
+    private int buttonCounter=0;
 
     private int questionsCounter=0;
 
     public  ExamButtons () {
 
         buttons=new JButton[3];
-
     }
+
+
     public JButton[] getButtons(){return buttons;}
 
     @Override
@@ -28,18 +31,24 @@ public class ExamButtons implements UIButton{
     @Override
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {
 
-        int xpos=500;
-        int ypos=500;
+        int xpos=580;
+        int ypos=540;
 
         ArrayList<String>questions=uiclassroom.getClassroom().getQuestionsKeys();
+        ArrayList<ArrayList<String>>options=new ArrayList<>();
+
+        for(String s: questions){
+            options.add( uiclassroom.getClassroom().getAnswersToTheQuestion(s));
+        }
 
         for(int i = 0; i<3; i++) {
 
             buttons[i] = new JButton(uiclassroom.getClassroom().getAnswersToTheQuestion(questions.get(0)).get(i));
-            buttons[i].setBounds(xpos,ypos,500, 50);
+            buttons[i].setBounds(xpos,ypos,550, 50);
             buttons[i].setVisible(false);
             buttons[i].setFocusable(false);
             buttons[i].setVerticalTextPosition(JButton.TOP);
+            uiclassroom.addExamButton(buttons[i]);
             rooms.get(roomID).add(buttons[i]);
             ypos+=50;
         }
@@ -58,17 +67,10 @@ public class ExamButtons implements UIButton{
 
                     if(buttonText.equals(correctOpt)){
                         textArea.setText("Correct!!");
-                        //button.setBackground(Color.green);
+                        uiclassroom.getClassroom().increaseCounterCorrectOption();
                     }
                     else {
                         textArea.setText("Incorrect!!");
-                        // decrease lifeAmount
-                        uistudent.getStudent().decreaseLifeBar(1);
-                        uistudent.getDataPanel().removeAll();
-                        uistudent.setDataPanel();
-                        uiclassroom.repaint();
-                        uiclassroom.revalidate();
-                        uiclassroom.updateUI();
                     }
 
                 }
@@ -76,18 +78,33 @@ public class ExamButtons implements UIButton{
                 @Override
                 public void mouseReleased(MouseEvent e){
 
-//                    if(questionsCounter==4){
-//                        for(int i=0;i<3;i++){
-//                            buttons[i].setVisible(false);
-//                        }
-//                    }
-//                    else{ setNewQuestion(buttons,questions,options,textArea); }
-//
-//                    try{ Thread.sleep(1000);}
-//                    catch(Exception E){}
 
+                    if(questionsCounter==4){
+                        for(int i=0;i<3;i++){
+                            buttons[i].setVisible(false);
+                        }
 
+                        if (uiclassroom.getClassroom().isExamPassed()){
+                            uistudent.getStudent().addCredits(uiclassroom.getClassroom().getProfessor().getCreditsIfPassed());
+                        }
+                        else{
+                            uistudent.getStudent().decreaseLifeBar(uiclassroom.getClassroom().getProfessor().lifeToSubtractStudent());
+                            uistudent.getDataPanel().removeAll();
+                            uistudent.setDataPanel();
+                            uiclassroom.repaint();
+                            uiclassroom.revalidate();
+                            uiclassroom.updateUI();
+                        }
 
+                        textArea.setText(uiclassroom.getClassroom().getProfessor().examResultInfo());
+                    }
+
+                    else{
+                        setNewQuestion(buttons,questions,options,textArea);
+
+                        try{ Thread.sleep(1000);}
+                        catch(Exception E){}
+                    }
 
                 }
 
@@ -108,6 +125,12 @@ public class ExamButtons implements UIButton{
         buttons[0].setText(options.get(questionsCounter).get(0));
         buttons[1].setText(options.get(questionsCounter).get(1));
         buttons[2].setText(options.get(questionsCounter).get(2));
-
     }
+
+    public void addButton(JButton button){
+        buttons[buttonCounter]=button;
+        buttonCounter++;
+    }
+
+
 }

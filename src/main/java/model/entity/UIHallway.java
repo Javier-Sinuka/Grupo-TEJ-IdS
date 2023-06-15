@@ -12,6 +12,11 @@ import java.util.ArrayList;
 public class UIHallway extends UIRoom {
     private Hallway hallway;
     private String path;
+
+
+    public UIHallway(){
+        hallway=new Hallway(new Consumable(),new Item());
+    }
     public UIHallway(String hallwayName, Color colorDeFondo, Consumable consumable, Item item, String path){
         super();
         this.path = path;
@@ -78,6 +83,11 @@ public class UIHallway extends UIRoom {
 
     @Override
     public void setButton(ExamStartButton startBt, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
+
+    @Override
+    public void setButton(ExamButtons examBts, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
 
     }
 
