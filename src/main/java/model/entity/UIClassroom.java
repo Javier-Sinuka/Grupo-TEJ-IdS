@@ -18,7 +18,7 @@ public class UIClassroom extends UIRoom {
     ImageIcon img;
 
 
-    public UIClassroom(ImageIcon img,UIStudent uistudent){
+    public UIClassroom(ImageIcon img,UIStudent uistudent,String subjectName,int roomID){
         super();
         this.img = img;
         this.setSize(GameWindow.WIDTH,GameWindow.HEIGHT);
@@ -26,10 +26,14 @@ public class UIClassroom extends UIRoom {
         this.setLayout(null);
         this.setOpaque(true);
 
-        this.classroom = new Classroom();
+        try{
+            this.classroom = new Classroom(subjectName,roomID,uistudent.getStudent());
+        }
+        catch(Exception e){ System.out.println("something went wrong");}
+
         this.uistudent=uistudent;
 
-        examStartButton=new ExamStartButton(300,100,200,50);
+        examStartButton=new ExamStartButton();
         exitButton=new WindowButton(50,100,150,50);
         examButtons=new ExamButtons();
 
@@ -83,7 +87,7 @@ public class UIClassroom extends UIRoom {
 */
 public void setTextArea(JTextArea textArea,String initialText){
     textArea.setVisible(true);
-    textArea.setBounds(1,500,450,150);
+    textArea.setBounds(61,540,520,150);
     textArea.setBackground(Color.BLACK);
     textArea.setForeground(Color.white);
     textArea.setOpaque(true);
@@ -110,13 +114,19 @@ public void setTextArea(JTextArea textArea,String initialText){
         examBt.configureButton(rooms, roomID, uistudent, textArea, this);
     }
 
+    @Override
+    public void setButton(ExamButtons examBts, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+        examBts.configureButton(rooms,roomID,uistudent,textArea,this);
+    }
+
+    public void addExamButton(JButton button){
+       examButtons.addButton(button);
+    }
 
 
-
-    /*
     public void paintComponent(Graphics g){
         g.drawImage(img.getImage(),0,0,getWidth(),getHeight(), this);
-    } */
+    }
 
 
 

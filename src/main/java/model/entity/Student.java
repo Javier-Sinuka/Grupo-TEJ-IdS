@@ -1,5 +1,6 @@
 package model.entity;
 
+import model.objects.Item;
 import model.objects.Usable;
 
 import java.util.ArrayList;
@@ -48,7 +49,10 @@ public class Student {
 
     public Student() {
         this.backpack = new ArrayList<>();
-        //backpack.add(new Usable("Calculadora","la companera fiel del estudiante"));
+
+        //Test values
+        backpack.add(new Item("Tabla de Derivadas","Mas valiosa que la biblia"));
+        credits=4;
     }
 
     //*************************** GETTERS *********************************
@@ -118,7 +122,7 @@ public class Student {
         coffeeAmount--;
     }
 
-    public void incrementCafein(int amountCafein) {
+    public void incrementCaffeine(int amountCafein) {
         coffeeAmount += amountCafein;
     }
 

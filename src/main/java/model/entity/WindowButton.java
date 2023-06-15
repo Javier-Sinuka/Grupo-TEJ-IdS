@@ -61,5 +61,7 @@ public class WindowButton implements UIButton{
 
     }
 
+    public JButton getButton(){ return button;}
+
 
 }
