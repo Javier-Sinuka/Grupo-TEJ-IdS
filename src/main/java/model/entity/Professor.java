@@ -124,6 +124,7 @@ public class Professor {
      * Metodo que incrementa el contador de respuesta correcta.
      */
     public void increaseCounterCorrectQuestions () {
+        this.flag = true;
         this.counterCorrectAnswers++;
     }
 
@@ -170,7 +171,7 @@ public class Professor {
      * o False en caso contrario, es decir, se desaprobo el examen
      * @return True si aprobo el examen, False si no es asi
      */
-    public boolean examResult () {
+    public boolean examResult() {
         return (this.percentageOfCorrectAnswers() >= 60);
     }
 
