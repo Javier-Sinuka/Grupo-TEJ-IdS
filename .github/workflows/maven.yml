@@ -25,11 +25,18 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '19'
-        distribution: 'temurin'
-        cache: maven
+#        distribution: 'temurin'
+#        cache: maven
 
     - name: Build with Maven
       run: mvn clean install
 
     - name: Run tests
       run: mvn test
+
+    - name: Check for test failures
+      run: |
+        if [ ${{ job.status }} == 'failure' ]; then
+          echo "There were test failures. Please fix the issues before merging."
+          exit 1
+        fi
