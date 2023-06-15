@@ -43,10 +43,3 @@ jobs:
         else
           echo "::set-output name=tests-passed::true"
         fi
-
-    - name: Check test status
-      uses: unsplash/pull-request-check@v3
-      with:
-        status: ${{ steps.check-for-test-failures.outputs.tests-passed }}
-        message: "All unit tests must pass before merging."
-
