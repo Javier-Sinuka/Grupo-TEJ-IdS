@@ -49,6 +49,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '19'  # Ajusta la versión de Java según tus necesidades
+          distribution: 'temurin'
 
       - name: Run unit tests
         run: mvn test --quiet
