@@ -30,7 +30,6 @@ public class GameManager {
         hallway2();     //4
         store2();       //5
     }
-
     private void createMenu(){
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/EntradaFacultad.png");
         UIMainMenu mainMenu = new UIMainMenu(img);
@@ -69,7 +68,6 @@ public class GameManager {
 
         window.add(hallway1);
     }
-
     private void classRoom1() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/IMG_20230608_172253307_HDR.jpg");

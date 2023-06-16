@@ -39,7 +39,7 @@ public class UIStudent {
         panel.add(nameLabel);
     }
     public void dogeCoinLabel(){
-        ImageIcon aux = new ImageIcon("src/main/assets/img/imgLabdogecoin.png");
+        ImageIcon aux = new ImageIcon("src/main/assets/img/imgLabels/dogecoin.png");
         String coin = Integer.toString(getDogeCoin());
         ImageIcon imageDogecoin = new ImageIcon(aux.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
         JLabel dogecoinLabel = new JLabel(coin,imageDogecoin,0);

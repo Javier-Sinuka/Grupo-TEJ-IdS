@@ -48,7 +48,7 @@ public class UIInventoryPanel extends JPanel {
     }
     public void imgProfile(){
         //Img profile
-        ImageIcon imgProfile = new ImageIcon("src/main/assets/img/perfil.png");
+        ImageIcon imgProfile = new ImageIcon("src/main/assets/img/imgLabels/perfil.png");
         imgProfileLabel.setBounds(10,10,100,100);
         imgProfileLabel.setIcon(new ImageIcon(imgProfile.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));
         this.add(imgProfileLabel);
@@ -69,7 +69,7 @@ public class UIInventoryPanel extends JPanel {
 
             switch (usable.getName()){
                 case "Cafe":
-                    ImageIcon coffe = new ImageIcon("src/main/assets/img/coffe.png");
+                    ImageIcon coffe = new ImageIcon("src/main/assets/img/consumable/coffe.png");
                     JLabel coffeLabel = new JLabel();
                     coffeLabel.setIcon(new ImageIcon(coffe.getImage().getScaledInstance(45,45,Image.SCALE_SMOOTH)));
                     consumablePanel.add(coffeLabel);
@@ -93,7 +93,7 @@ public class UIInventoryPanel extends JPanel {
                     });
                     break;
                 case "Mate":
-                    ImageIcon mate = new ImageIcon("src/main/assets/img/mate.png");
+                    ImageIcon mate = new ImageIcon("src/main/assets/img/consumable/mate.png");
                     JLabel mateLabel = new JLabel();
                     mateLabel.setBounds(0,0,50,50);
                     mateLabel.setIcon(new ImageIcon(mate.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));
