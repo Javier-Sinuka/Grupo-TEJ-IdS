@@ -46,7 +46,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up JDK
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: '19'  # Ajusta la versión de Java según tus necesidades
 
