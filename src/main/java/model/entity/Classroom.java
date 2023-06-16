@@ -4,6 +4,7 @@ import model.objects.Usable;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Las Materias posibles a ingresar actualmente son las siguientes:
@@ -40,7 +41,7 @@ public class Classroom {
      * @return Set de String con las preguntas de la materia
      */
 
-    public ArrayList<String> getQuestionsKeys(){
+    public LinkedList<String> getQuestionsKeys(){
         return this.professor.getQuestionsKeysExams();
     }
 
