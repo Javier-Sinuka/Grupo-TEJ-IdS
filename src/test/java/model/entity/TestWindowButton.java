@@ -57,7 +57,7 @@ class TestWindowButton {
 
         testWB.configureButton(testPanels,uistudentTest,"HALLWAY X",roomID,destinyRoom);
 
-        assertEquals("HALLWAY Z",testWB.getButton().getText());
+        assertEquals("HALLWAY X",testWB.getButton().getText());
         assertEquals(true,testWB.getButton().isVisible());
         // add another characteristic to be evaluated
 
