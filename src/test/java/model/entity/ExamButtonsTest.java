@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +26,7 @@ class ExamButtonsTest {
 
     private JTextArea textAreaTest;
 
-    ArrayList<String> questionsTest;
+    LinkedList<String> questionsTest;
     ArrayList<ArrayList<String>> optionsTest;
     ArrayList<String> correctOptTest;
 
@@ -44,7 +45,7 @@ class ExamButtonsTest {
 
         textAreaTest = new JTextArea();
 
-        questionsTest = new ArrayList<>();
+        questionsTest = new LinkedList<>();
         optionsTest = new ArrayList<>();
         correctOptTest = new ArrayList<>();
 
