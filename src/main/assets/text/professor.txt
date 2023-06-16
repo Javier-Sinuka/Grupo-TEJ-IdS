@@ -1,0 +1,62 @@
+Materia: Introduccion a la Matematica
+Docente: Leonor Vega
+Apodo: Leonor el Terror Vega
+Cantidad de Creditos Necesarios: 2
+Cantidad de Creditos a aumentar si se aprueba el curso: 3
+Nombre del Item Necesario: Tabla de Derivadas
+Preguntas:
+¿Cuantas lechugas se necesitan para medir el sol?
+- 2
+- Pasa al pizzaron{true}
+- 3
+¿Question 5?
+- option7 {true}
+- option8
+- option9
+¿Question 4?
+- option4
+- option5
+- option6 {true}
+¿Question 3?
+- option1
+- option2 {true}
+- option3
+¿Cuanto mide la torre Eifel?
+- 1.87 cm
+- 123 km
+- tu cola {true}
+
+
+***
+Materia: Representacion Grafica
+Docente: Da Vinci del AUTOCAD
+Apodo: Da Vinci
+Cantidad de Creditos Necesarios: 3
+Cantidad de Creditos a aumentar si se aprueba el curso: 2
+Nombre del Item Necesario: Tablero de Dibujo Tecnico
+Preguntas:
+¿Cuanto miden los bordes para las entregas?
+- 1 cm {true}
+- 1 km
+- tu hermana
+¿Es necesario saber dividir para hacer dibujo tecnico?
+- No {true}
+- Si sabe, pero no contesta
+- tu hermana de vuelta
+***
+Materia: Fisica I
+Docente: Horacio Alaniz
+Apodo: Dios Alaniz
+Cantidad de Creditos Necesarios: 4
+Cantidad de Creditos a aumentar si se aprueba el curso: 5
+Nombre del Item Necesario: Giroscopio
+Preguntas:
+¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+- Si {true}
+- No sabe, no contesta
+- No
+¿Es necesario tener pasion por el rock para entender a Bethoven?
+- No {true}
+- No sabe no contesta
+- Si sabe, pero no contesta
+***
