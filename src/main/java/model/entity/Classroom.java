@@ -18,8 +18,8 @@ public class Classroom {
     private int roomNumber;
 
     public Classroom(String nameSubjectToDictate, int roomNumber, Student student) throws IOException {
-        this.professor = new Professor(nameSubjectToDictate, student);
-        this.roomNumber = roomNumber;
+        professor = new Professor(nameSubjectToDictate, student);
+        roomNumber = roomNumber;
     }
 
     /**

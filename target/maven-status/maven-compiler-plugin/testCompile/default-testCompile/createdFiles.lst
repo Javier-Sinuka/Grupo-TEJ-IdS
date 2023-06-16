@@ -1,1 +1,6 @@
+model\entity\ExamStartButtonTest.class
+model\entity\InventoryButtonTest.class
+model\entity\HideButtonTest.class
+model\entity\TestWindowButton.class
+model\entity\ExamButtonsTest.class
 model\UIClassroomTest.class

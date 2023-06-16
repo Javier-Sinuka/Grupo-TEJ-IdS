@@ -5,26 +5,28 @@ Cantidad de Creditos Necesarios: 2
 Cantidad de Creditos a aumentar si se aprueba el curso: 3
 Nombre del Item Necesario: Tabla de Derivadas
 Preguntas:
-¿Cuanto mide la torre Eifel?
-- 1.87 cm
-- 123 km
-- tu cola {true}
 ¿Cuantas lechugas se necesitan para medir el sol?
 - 2
 - Pasa al pizzaron{true}
 - 3
-¿Question 3?
-- option1
-- option2{true}
-- option3
+¿Question 5?
+- option7 {true}
+- option8
+- option9
 ¿Question 4?
 - option4
 - option5
-- option6{true}
-¿Question 5?
-- option7{true}
-- option8
-- option9
+- option6 {true}
+¿Question 3?
+- option1
+- option2 {true}
+- option3
+¿Cuanto mide la torre Eifel?
+- 1.87 cm
+- 123 km
+- tu cola {true}
+
+
 ***
 Materia: Representacion Grafica
 Docente: Da Vinci del AUTOCAD

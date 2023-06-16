@@ -26,11 +26,13 @@ class TestWindowButton {
     private JTextArea textAreaTest;
 
 
+
+
     @BeforeEach
     public void initialization() {
 
         uistudentTest = new UIStudent();
-        img = new ImageIcon("src/main/assets/img/Facultad.png");
+        img = new ImageIcon("src/main/assets/img/background-image-u/EntradaFacultad.png");
 
         testPanels = new ArrayList<>();
         uiclassroomTest = new UIClassroom(img,uistudentTest,"Introduccion a la Matematica",2);
