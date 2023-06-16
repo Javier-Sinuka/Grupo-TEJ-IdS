@@ -1,6 +1,7 @@
 
 package model.entity;
 import model.objects.Consumable;
+import model.objects.Item;
 import model.objects.Usable;
 
 import javax.swing.*;
@@ -13,14 +14,17 @@ public class UIStore extends UIRoom {
     private UIStudent uiStudent;
     private Boolean bar;
     private JLabel messageLabel;
-    public UIStore(UIStudent student, Boolean bar){
+    private StoreButton storeButton;
+    public UIStore(UIStudent uiStudent, Boolean bar){
         super();
         this.bar = bar;
-        this.uiStudent = student;
+        this.uiStudent = uiStudent;
         this.messageLabel = new JLabel();
+        this.storeButton = new StoreButton();
 
         propertiesStore();
         messageLabel();
+
     }
     public void propertiesStore(){
         this.setSize(GameWindow.WIDTH,GameWindow.HEIGHT);
@@ -29,74 +33,35 @@ public class UIStore extends UIRoom {
         this.setBackground(Color.yellow);
 
         if (bar) {
-            String cafe = "Cafe";
-            String mate = "Mate";
-            buttons("COMPRAR " + cafe + "$20", 100, 100, 500, 50, cafe,"Cafe rico");
-            buttons("COMPRAR " + mate + "$20", 100, 200, 500, 50, mate,"Mate amargo");
+            Usable cafe = new Consumable("Cafe","El cafe te aunmentara la cafeina");
+            cafe.setPrice(40);
+            Usable mate = new Consumable("Mate","El mate te despertara");
+            mate.setPrice(20);
+
+            buttons(cafe,100,bar);
+            buttons(mate,200,bar);
         }else{
-            String calculadora = "CALCULADORA";
-            String kitElectronica = "KIT DE COMPONENTES ELECTRONICOS";
-            buttons("COMPRAR " + calculadora + "$20", 100,100,500,50, calculadora,"Calculadora casio");
-            buttons("COMPRAR " + kitElectronica + "$20", 100,200,500,50, kitElectronica,"Plaqueta, resistencia y capacitor");
+            Usable calculadora = new Item("Calculadora","La calculadora te servira para rendir Fisica");
+            calculadora.setPrice(40);
+            Usable kitElectronica = new Consumable("Kit de componenetes electronicos","Este kit te ayudara para rendir Taller y Laboratorio");
+            kitElectronica.setPrice(20);
+
+            buttons(calculadora,100,bar);
+            buttons(kitElectronica,200,bar);
         }
     }
-    public void buttons(String text,int x,int y,int width, int height, String itemName, String itemDescription){
-        JButton itemButton = new JButton(text);
-        itemButton.setBounds(x,y,width,height);
-        this.add(itemButton);
-
-        itemButton.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            if(uiStudent.getDogeCoin() <= 0){
-                messageLabel.setVisible(true);
-                messageLabel.setText("No tenes plata pobre :(");
-            }else {
-                //Dependiendo del itemName es la cantidad de dogeCoin a restar
-                actualizar(itemName, itemDescription);
-                }
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {}
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            @Override
-            public void mouseExited(MouseEvent e) {}
-        });
+    public void buttons(Usable usable, int ypos, Boolean bar) {
+        storeButton.configureButton(usable,ypos,uiStudent,messageLabel,this,bar);
     }
-    public void actualizar(String itemName, String description){
-        Consumable usable = new Consumable(itemName,description);
-        usable.setPrice(20);
-        uiStudent.removeDogeCoin(usable.getPrice());
-        uiStudent.addPurchasedItem(usable);
-
-        messageLabel.setText("Compraste " + itemName + ":)");
-        messageLabel.setVisible(true);
-
-
-        uiStudent.getDataPanel().removeAll();
-        uiStudent.setDataPanel();
-
-        uiStudent.inventoryPanel.removeAll();
-        uiStudent.inventoryPanel.getConsumablePanel().removeAll();
-        uiStudent.setInventoryPanel();
-        uiStudent.inventoryPanel.parameterInventoryPanel();
-
-        this.updateUI();
-    }
-    public void messageLabel (){
+    public void messageLabel(){
         messageLabel.setBounds(100,300,600,50);
         messageLabel.setVisible(false);
         this.add(messageLabel);
     }
-
     @Override
     public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
         wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
     }
-
     @Override
     public void setButton(ExamStartButton startBt, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
 

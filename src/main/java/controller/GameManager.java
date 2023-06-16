@@ -30,7 +30,6 @@ public class GameManager {
         hallway2();     //4
         store2();       //5
     }
-
     private void createMenu(){
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/EntradaFacultad.png");
         UIMainMenu mainMenu = new UIMainMenu(img);
@@ -69,11 +68,10 @@ public class GameManager {
 
         window.add(hallway1);
     }
-
     private void classRoom1() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/IMG_20230608_172253307_HDR.jpg");
-        UIClassroom classroom1 = new UIClassroom(img,uiStudent,"Introduccion a la Matematica",2);
+        UIClassroom classroom1 = new UIClassroom(img,uiStudent,"Fisica I",2);
         rooms.add(classroom1);
 
         classroom1.setTextArea(textArea,classroom1.getClassroom().getProfessor().getProfessorNickname()+ ": Bienvenido Víctima");
