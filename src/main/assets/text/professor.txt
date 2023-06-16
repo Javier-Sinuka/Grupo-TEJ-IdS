@@ -9,10 +9,6 @@ Preguntas:
 - 2
 - Pasa al pizzaron{true}
 - 3
-¿Question 5?
-- option7 {true}
-- option8
-- option9
 ¿Question 4?
 - option4
 - option5
@@ -21,12 +17,14 @@ Preguntas:
 - option1
 - option2 {true}
 - option3
+¿Question 5?
+- option7 {true}
+- option8
+- option9
 ¿Cuanto mide la torre Eifel?
 - 1.87 cm
 - 123 km
 - tu cola {true}
-
-
 ***
 Materia: Representacion Grafica
 Docente: Da Vinci del AUTOCAD
