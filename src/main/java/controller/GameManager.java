@@ -81,8 +81,7 @@ public class GameManager {
        WindowButton exitButton=new WindowButton(570,20,150,50);
        classroom1.setButton(exitButton,rooms,uiStudent,"Exit",2,1);
 
-       ExamButtons examButtons=new ExamButtons();
-       classroom1.setButton(examButtons,rooms,2,uiStudent,textArea);
+       classroom1.setButton(new ExamButtons(),rooms,2,uiStudent,textArea);
 
        classroom1.setButton(new ExamStartButton(),rooms,2,uiStudent,textArea);
 

@@ -29,9 +29,7 @@ public class ExamStartButton implements UIButton{
     public void configureButton() {}
 
     @Override
-    public void configureButton(JPanel inventoryPanel) {
-
-    }
+    public void configureButton(JPanel inventoryPanel) {}
 
     @Override
     public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
@@ -81,10 +79,12 @@ public class ExamStartButton implements UIButton{
             public void mouseExited(MouseEvent e) {}
         });
 
+
+        uiclassroom.addExamStartButton(this);
         rooms.get(roomID).add(button);
 
     }
 
 
-
+    public JButton getButton() { return button;}
 }

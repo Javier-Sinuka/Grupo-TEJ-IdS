@@ -128,6 +128,8 @@ public class Professor {
         this.counterCorrectAnswers++;
     }
 
+    public void resetCounterCorrectQuestions(){ counterCorrectAnswers=0;}
+
     public int getCounterCorrectAnswers(){return counterCorrectAnswers;}
 
     /**

@@ -8,13 +8,14 @@ import java.util.Set;
 
 public class HideButton implements UIButton{
 
+    private JButton hideInventoryButton;
 
     @Override
     public void configureButton() {}
 
     @Override
     public void configureButton(JPanel inventoryPanel) {
-        JButton hideInventoryButton = new JButton("-");
+        hideInventoryButton = new JButton("-");
         hideInventoryButton.setBounds(340,470,50,20);
         hideInventoryButton.addMouseListener(new MouseListener() {
             @Override
@@ -47,7 +48,7 @@ public class HideButton implements UIButton{
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {}
 
 
-
-
-
+    public JButton getButton() {
+        return hideInventoryButton;
+    }
 }

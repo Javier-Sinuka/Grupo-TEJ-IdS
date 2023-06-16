@@ -27,7 +27,7 @@ public class UIClassroom extends UIRoom {
         this.setOpaque(true);
 
         try{
-            this.classroom = new Classroom(subjectName,roomID,uistudent.getStudent());
+            classroom = new Classroom(subjectName,roomID,uistudent.getStudent());
         }
         catch(Exception e){ System.out.println("something went wrong");}
 
@@ -36,8 +36,6 @@ public class UIClassroom extends UIRoom {
         examStartButton=new ExamStartButton();
         exitButton=new WindowButton(50,100,150,50);
         examButtons=new ExamButtons();
-
-
     }
 /*
     // change to setExitButton
@@ -123,11 +121,10 @@ public void setTextArea(JTextArea textArea,String initialText){
        examButtons.addButton(button);
     }
 
+    public void addExamStartButton(ExamStartButton examStartButton){ this.examStartButton=examStartButton;}
+    public ExamStartButton getExamStartButton() { return examStartButton;}
 
     public void paintComponent(Graphics g){
         g.drawImage(img.getImage(),0,0,getWidth(),getHeight(), this);
     }
-
-
-
 }
