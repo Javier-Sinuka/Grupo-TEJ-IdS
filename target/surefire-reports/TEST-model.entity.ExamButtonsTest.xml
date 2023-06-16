@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="model.entity.ExamButtonsTest" time="2.999" tests="2" errors="0" skipped="0" failures="0">
+=======
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="model.entity.ExamButtonsTest" time="1.332" tests="2" errors="0" skipped="0" failures="0">
+>>>>>>> a9320c64c9cbe582128a514b8eea20b4f7be9583
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -13,9 +17,15 @@
     <property name="os.name" value="Windows 10"/>
     <property name="java.vm.specification.version" value="19"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+<<<<<<< HEAD
     <property name="user.country" value="AR"/>
     <property name="sun.boot.library.path" value="C:\Users\Tomas\.jdks\corretto-19.0.2\bin"/>
     <property name="sun.java.command" value="C:\Users\Tomas\AppData\Local\Temp\surefire11725713552137796975\surefirebooter7641302497863643057.jar C:\Users\Tomas\AppData\Local\Temp\surefire11725713552137796975 2023-06-16T19-40-01_865-jvmRun1 surefire18426603576095654302tmp surefire_03435484132346535088tmp"/>
+=======
+    <property name="user.country" value="ES"/>
+    <property name="sun.boot.library.path" value="C:\Users\javie\.jdks\corretto-19.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\javie\AppData\Local\Temp\surefire9245750330600072754\surefirebooter9465954028974471333.jar C:\Users\javie\AppData\Local\Temp\surefire9245750330600072754 2023-06-16T18-41-18_781-jvmRun1 surefire254624085469633322tmp surefire_08693379287853999203tmp"/>
+>>>>>>> a9320c64c9cbe582128a514b8eea20b4f7be9583
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Tomas\Documents\Facultad\ingSoftware\Grupo-TEJ-IdS\target\test-classes;C:\Users\Tomas\Documents\Facultad\ingSoftware\Grupo-TEJ-IdS\target\classes;C:\Users\Tomas\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\Tomas\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Tomas\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\Tomas\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Tomas\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\Tomas\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +40,11 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
+<<<<<<< HEAD
     <property name="surefire.real.class.path" value="C:\Users\Tomas\AppData\Local\Temp\surefire11725713552137796975\surefirebooter7641302497863643057.jar"/>
+=======
+    <property name="surefire.real.class.path" value="C:\Users\javie\AppData\Local\Temp\surefire9245750330600072754\surefirebooter9465954028974471333.jar"/>
+>>>>>>> a9320c64c9cbe582128a514b8eea20b4f7be9583
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="19.0.2+7-FR"/>
@@ -60,6 +74,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="63.0"/>
   </properties>
+<<<<<<< HEAD
   <testcase name="setNewQuestionTest" classname="model.entity.ExamButtonsTest" time="1.409"/>
   <testcase name="configureButtonTest" classname="model.entity.ExamButtonsTest" time="1.584"/>
+=======
+  <testcase name="setNewQuestionTest" classname="model.entity.ExamButtonsTest" time="0.315"/>
+  <testcase name="configureButtonTest" classname="model.entity.ExamButtonsTest" time="1.01"/>
+>>>>>>> a9320c64c9cbe582128a514b8eea20b4f7be9583
 </testsuite>

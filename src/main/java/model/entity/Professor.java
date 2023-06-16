@@ -4,6 +4,7 @@ import model.objects.Usable;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Professor {
     private String associatedSubjectName;
@@ -27,7 +28,7 @@ public class Professor {
      * @return Set con las preguntas del examen
      */
 
-    public ArrayList<String> getQuestionsKeysExams() {
+    public LinkedList<String> getQuestionsKeysExams() {
         return dbExams.getQuestionsKeys(this.associatedSubjectName);
     }
 
