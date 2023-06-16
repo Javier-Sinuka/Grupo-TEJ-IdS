@@ -1,33 +1,3 @@
-<<<<<<< HEAD
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\UIHallway.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\directives\Routing.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\UIMainMenu.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\Student.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\ExamStartButton.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\DBExams.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\UIInventoryPanel.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\ExamButtons.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\objects\Consumable.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\UIClassroom.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\objects\Usable.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\UIRoom.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\controller\Main.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\GameWindow.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\Classroom.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\WindowButton.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\Hallway.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\UIStudent.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\objects\Item.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\helpers\Helpers.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\UIStore.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\InventoryButton.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\config\Setting.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\UIButton.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\Store.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\controller\GameManager.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\HideButton.java
-C:\Users\DELL\Desktop\Computer Engineering\Ingenieria del Software\Grupo-TEJ-IdS\src\main\java\model\entity\Professor.java
-=======
 C:\Users\javie\OneDrive\Escritorio\Facultad\Ing del Soft\TEJ - TP\TEJ - Juego de Roll\src\main\java\model\entity\ExamStartButton.java
 C:\Users\javie\OneDrive\Escritorio\Facultad\Ing del Soft\TEJ - TP\TEJ - Juego de Roll\src\main\java\model\entity\UIStudent.java
 C:\Users\javie\OneDrive\Escritorio\Facultad\Ing del Soft\TEJ - TP\TEJ - Juego de Roll\src\main\java\model\entity\Professor.java
@@ -56,4 +26,3 @@ C:\Users\javie\OneDrive\Escritorio\Facultad\Ing del Soft\TEJ - TP\TEJ - Juego de
 C:\Users\javie\OneDrive\Escritorio\Facultad\Ing del Soft\TEJ - TP\TEJ - Juego de Roll\src\main\java\model\entity\UIInventoryPanel.java
 C:\Users\javie\OneDrive\Escritorio\Facultad\Ing del Soft\TEJ - TP\TEJ - Juego de Roll\src\main\java\controller\Main.java
 C:\Users\javie\OneDrive\Escritorio\Facultad\Ing del Soft\TEJ - TP\TEJ - Juego de Roll\src\main\java\config\Setting.java
->>>>>>> master
