@@ -9,17 +9,15 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class StoreButton implements UIButton{
+
     public StoreButton (){
 
     }
+    @Override
+    public void configureButton() {}
 
     @Override
-    public void configureButton() {
-
-    }
-
-    @Override
-    public void configureButton(Usable usable, int ypos, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom){
+    public void configureButton(Usable usable, int ypos, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom, Boolean bar){
 
         JButton itemButton = new JButton("COMPRAR " + usable.getName() + " " + usable.getPrice() + "$");
         itemButton.setBounds(100, ypos, 500, 70);
@@ -29,13 +27,23 @@ public class StoreButton implements UIButton{
         itemButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-            if(uiStudent.getDogeCoin() <= 0){
-                messageLabel.setVisible(true);
-                messageLabel.setText("No tenes plata pobre :(");
-            }else {
-                //Dependiendo del itemName es la cantidad de dogeCoin a restar
-                actualizar(usable, uiStudent, messageLabel, storeRoom);
+
+                if(uiStudent.getDogeCoin() <= 0){
+                    messageLabel.setVisible(true);
+                    messageLabel.setText("No tenes plata pobre :(");
+                }else if(usable.getIsTaken() == false || bar) {
+                    usable.setTaken(true);
+                    actualizar(usable, uiStudent, messageLabel, storeRoom, bar);
+                    }else {
+                    messageLabel.setVisible(true);
+                    messageLabel.setText("No podes comprar mas " + usable.getName() + " goloso :0");
                 }
+
+                if(usable.getIsTaken() == true && !bar){
+                    itemButton.setEnabled(false);
+                }
+
+                uiStudent.getInventoryPanel().setVisible(true);
             }
             @Override
             public void mousePressed(MouseEvent e) {}
@@ -47,31 +55,30 @@ public class StoreButton implements UIButton{
             public void mouseExited(MouseEvent e) {}
         });
     }
-    public void actualizar(Usable usable, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom){
+    public void actualizar(Usable usable, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom, Boolean bar){
 
-        uiStudent.removeDogeCoin(usable.getPrice());
-        uiStudent.addPurchasedItem(usable);
+        uiStudent.getStudent().decreaseDogeCoin(usable.getPrice());
+        uiStudent.getStudent().addUsableInBackpack(usable);
 
         messageLabel.setText("Compraste " + usable.getName() + ":)");
         messageLabel.setVisible(true);
 
-
-        uiStudent.getDataPanel().removeAll();
-        uiStudent.setDataPanel();
-
-        uiStudent.inventoryPanel.removeAll();
-        uiStudent.inventoryPanel.getConsumablePanel().removeAll();
+        uiStudent.getInventoryPanel().removeAll();
+        uiStudent.getInventoryPanel().getConsumablePanel().removeAll();
+        uiStudent.getInventoryPanel().getObjectPanel().removeAll();
         uiStudent.setInventoryPanel();
-        uiStudent.inventoryPanel.parameterInventoryPanel();
+        uiStudent.getInventoryPanel().parameterInventoryPanel();
 
         storeRoom.updateUI();
+
+
     }
 
     @Override
     public void configureButton(JPanel inventoryPanel) {}
 
     @Override
-    public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
+    public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
 
     @Override
     public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
