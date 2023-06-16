@@ -13,7 +13,8 @@ public class UIInventoryPanel extends JPanel {
     private JPanel objectPanel;
     private HideButton hideButton;
     private JLabel imgProfileLabel;
-    private JPanel confirmConsumable = new JPanel();
+    private JProgressBar caffeineBar;
+    private JProgressBar creditBar;
     public UIInventoryPanel(Student student){
         super();
         this.student = student;
@@ -21,15 +22,9 @@ public class UIInventoryPanel extends JPanel {
         this.consumablePanel = new JPanel();
         this.objectPanel = new JPanel();
         this.hideButton = new HideButton();
-
         this.imgProfileLabel = new JLabel();
-        this.confirmConsumable = new JPanel();
-
-        confirmConsumable.setBounds(0,0,400,500);
-        confirmConsumable.setBackground(Color.pink);
-        confirmConsumable.setVisible(false);
-        this.add(confirmConsumable);
-
+        this.caffeineBar = new JProgressBar(0,100);
+        this.creditBar = new JProgressBar(0,100);
         //Parameters
         parameterInventoryPanel();
     }
@@ -44,21 +39,43 @@ public class UIInventoryPanel extends JPanel {
         hideButton.configureButton(this);
         imgProfile();
         gridPanel();
+        caffeineBar();
+        creditBar();
+        dogecoin();
+        nameLabel();
     }
     public void imgProfile(){
         //Img profile
-        ImageIcon imgProfile = new ImageIcon("src/main/assets/img/perfil.png");
+        ImageIcon imgProfile = new ImageIcon("src/main/assets/img/imgLabels/perfil.png");
         imgProfileLabel.setBounds(10,10,100,100);
         imgProfileLabel.setIcon(new ImageIcon(imgProfile.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));
         this.add(imgProfileLabel);
     }
+    public void caffeineBar(){
+        caffeineBar.setBounds(120,50,250,20);
+        caffeineBar.setForeground(Color.ORANGE);
+        caffeineBar.setValue(student.getCoffeeAmount());
+        caffeineBar.setStringPainted(true);
+        caffeineBar.setString("Cafeina " + caffeineBar.getValue() + "%");
+        this.add(caffeineBar);
+    }
+    public void creditBar(){
+        creditBar.setBounds(120,80,250,20);
+        creditBar.setForeground(Color.GRAY);
+        creditBar.setValue(student.getCredits());
+        creditBar.setStringPainted(true);
+        creditBar.setString("Creditos " + creditBar.getValue() + "%");
+        this.add(creditBar);
+    }
     public void gridPanel(){
         //Object grill
-        gridPanel.setBounds(10,130,380,320);
+        gridPanel.setBounds(10,140,380,320);
         gridPanel.setLayout(new GridLayout(2,0));
 
-        consumablePanel.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
+        consumablePanel.setLayout(new FlowLayout(FlowLayout.LEFT,15,15));
         consumablePanel.setBackground(Color.red);
+
+        objectPanel.setLayout(new FlowLayout(FlowLayout.LEFT,15,15));
         objectPanel.setBackground(Color.white);
 
         gridPanel.add(consumablePanel);
@@ -68,77 +85,99 @@ public class UIInventoryPanel extends JPanel {
 
             switch (usable.getName()){
                 case "Cafe":
-                    ImageIcon coffe = new ImageIcon("src/main/assets/img/coffe.png");
-                    JLabel coffeLabel = new JLabel();
-                    coffeLabel.setIcon(new ImageIcon(coffe.getImage().getScaledInstance(45,45,Image.SCALE_SMOOTH)));
-                    consumablePanel.add(coffeLabel);
-                    coffeLabel.addMouseListener(new MouseListener() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-                            consumablePanel(coffeLabel, usable);
-                        }
-                        @Override
-                        public void mousePressed(MouseEvent e) {                    }
-                        @Override
-                        public void mouseReleased(MouseEvent e) {}
-                        @Override
-                        public void mouseEntered(MouseEvent e) {
-                            coffeLabel.setSize(50,50);
-                        }
-                        @Override
-                        public void mouseExited(MouseEvent e) {
-                            coffeLabel.setSize(45,45);
-                        }
-                    });
+                    addLabelInGridPanel(consumablePanel,usable,"src/main/assets/img/consumable/coffe.png");
                     break;
                 case "Mate":
-                    ImageIcon mate = new ImageIcon("src/main/assets/img/mate.png");
-                    JLabel mateLabel = new JLabel();
-                    mateLabel.setBounds(0,0,50,50);
-                    mateLabel.setIcon(new ImageIcon(mate.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));
-                    consumablePanel.add(mateLabel);
-                    mateLabel.addMouseListener(new MouseListener() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {consumablePanel(mateLabel,usable);}
-                        @Override
-                        public void mousePressed(MouseEvent e) {}
-                        @Override
-                        public void mouseReleased(MouseEvent e) {}
-                        @Override
-                        public void mouseEntered(MouseEvent e) {
-                            mateLabel.setSize(60,60);
-                        }
-                        @Override
-                        public void mouseExited(MouseEvent e) {
-                            mateLabel.setSize(50,50);
-                        }
-                    });
+                    addLabelInGridPanel(consumablePanel,usable, "src/main/assets/img/consumable/mate.png");
                     break;
+                case "Calculadora":
+                    addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/calculator.png");
+                    break;
+                case "Kit de componenetes electronicos":
+                    addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/KitComponentes.png");
                 default:
-                    System.out.println("No se hizo nada");
+
             }
         }
         this.add(gridPanel);
     }
-    public void consumablePanel(JLabel label, Usable usable){
-        //Agregar el panel grande del consumible
+    public void addLabelInGridPanel(JPanel panel,Usable usable, String path){
+        ImageIcon img = new ImageIcon(path);
+        JLabel usabbleLabel = new JLabel();
+        usabbleLabel.setBounds(0,0,50,50);
+        usabbleLabel.setIcon(new ImageIcon(img.getImage().getScaledInstance(45,45,Image.SCALE_SMOOTH)));
+        panel.add(usabbleLabel);
+        usabbleLabel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
 
-        confirmConsumable.setVisible(true);
+                updateConsumablePanel(usabbleLabel, usable, panel);
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {                    }
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                usabbleLabel.setSize(50,50);
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                usabbleLabel.setSize(45,45);
+            }
+        });
+    }
+    public void updateConsumablePanel(JLabel label, Usable usable, JPanel panel){
+
         this.revalidate();
         this.repaint();
         this.updateUI();
+        if(usable.getName() == "Cafe" || usable.getName() == "Mate"){
 
-        System.out.println("Consumiste " + usable.getName());
-        consumablePanel.remove(label);
-        student.deleteUsableInBackpack(usable);
-        consumablePanel.revalidate();
-        consumablePanel.repaint();
+            student.deleteUsableInBackpack(usable);
+            panel.remove(label);
+            panel.revalidate();
+            panel.repaint();
+
+            if(usable.getName() == "Cafe") {
+                int newValue = caffeineBar.getValue() + 40;
+                student.incrementCaffeine(40);
+                caffeineBar.setValue(newValue);
+                caffeineBar.setString("Cafeina " + newValue + "%");
+            }else{
+                int newValue = caffeineBar.getValue() + 20;
+                student.incrementCaffeine(20);
+                caffeineBar.setValue(newValue);
+                caffeineBar.setString("Cafeina " + newValue + "%");
+            }
+            System.out.println("Consumiste " + usable.getName());
+        }
+
         student.printBP();
+    }
+    public void dogecoin(){
+        //Dogecoin label
+        ImageIcon aux = new ImageIcon("src/main/assets/img/imgLabels/dogecoin.png");
+        String coin = Integer.toString(student.getDogeCoinInWallet());
+        ImageIcon imageDogecoin = new ImageIcon(aux.getImage().getScaledInstance(30,30,Image.SCALE_SMOOTH));
+        JLabel dogecoinLabel = new JLabel(coin,imageDogecoin,0);
+        dogecoinLabel.setBounds(220,7,200,30);
+        dogecoinLabel.setFont(new Font("Arial Black",Font.BOLD,30));
+        this.add(dogecoinLabel);
+    }
+    public void nameLabel(){
+        JLabel nameLabel = new JLabel(student.getNameStudent());
+        nameLabel.setBounds(120,5,130,30);
+        nameLabel.setFont(new Font("Arial Black", Font.BOLD,20)); //(tipo de letra, estilo, tamaño)
+        this.add(nameLabel);
     }
     public JPanel getGridPanel(){
         return gridPanel;
     }
     public JPanel getConsumablePanel(){
         return consumablePanel;
+    }
+    public JPanel getObjectPanel(){
+        return objectPanel;
     }
 }

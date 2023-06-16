@@ -1,5 +1,7 @@
 package model.entity;
 
+import model.objects.Usable;
+
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -27,10 +29,13 @@ public class ExamButtons implements UIButton{
     public void configureButton() {}
 
     @Override
+
     public void configureButton(JPanel inventoryPanel) {}
 
+    public void configureButton(Usable usable, int ypos, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom, Boolean bar) {
+    }
     @Override
-    public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
+    public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
 
     @Override
     public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}

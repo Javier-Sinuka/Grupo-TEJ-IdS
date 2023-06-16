@@ -1,5 +1,7 @@
 package model.entity;
 
+import model.objects.Usable;
+
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -8,10 +10,19 @@ import java.util.Set;
 
 public class HideButton implements UIButton{
 
+
     private JButton hideInventoryButton;
 
+    public HideButton(){
+
+    }
     @Override
     public void configureButton() {}
+
+    @Override
+    public void configureButton(Usable usable, int ypos, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom, Boolean bar) {
+
+    }
 
     @Override
     public void configureButton(JPanel inventoryPanel) {
@@ -37,7 +48,7 @@ public class HideButton implements UIButton{
     }
 
     @Override
-    public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
+    public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
 
     @Override
     public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
