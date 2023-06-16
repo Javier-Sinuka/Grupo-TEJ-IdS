@@ -179,8 +179,8 @@ public class DBExams {
      * @param nameCourse
      * @return Set con las preguntas de la materia en cuestion
      */
-    public ArrayList<String> getQuestionsKeys(String nameCourse){
-        ArrayList<String> questionsKeys = new ArrayList<>();
+    public LinkedList<String> getQuestionsKeys(String nameCourse){
+        LinkedList<String> questionsKeys = new LinkedList<>();
         for(String key : this.getQuestionsMap(nameCourse).keySet()){
             questionsKeys.add(key);
         }
