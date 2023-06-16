@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class ExamButtons implements UIButton{
 
@@ -46,7 +47,7 @@ public class ExamButtons implements UIButton{
         int xpos=580;
         int ypos=540;
 
-        ArrayList<String>questions=uiclassroom.getClassroom().getQuestionsKeys();
+        LinkedList<String> questions=uiclassroom.getClassroom().getQuestionsKeys();
         ArrayList<ArrayList<String>>options=new ArrayList<>();
 
         for(String s: questions){

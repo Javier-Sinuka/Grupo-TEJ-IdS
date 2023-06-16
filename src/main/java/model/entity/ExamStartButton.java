@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Set;
 
 public class ExamStartButton implements UIButton{
@@ -50,7 +51,7 @@ public class ExamStartButton implements UIButton{
         button.setFocusable(false);
         button.setText("COMENZAR EXAMEN");
 
-        ArrayList<String>questions=uiclassroom.getClassroom().getQuestionsKeys();
+        LinkedList<String> questions=uiclassroom.getClassroom().getQuestionsKeys();
         JButton[] buttons=uiclassroom.getExamButtons().getButtons();
 
         button.addMouseListener(new MouseListener() {
