@@ -49,7 +49,7 @@ public class Student {
 
     public Student() {
         this.backpack = new ArrayList<>();
-
+        dogeCoin = 1000;
         //Test values
         backpack.add(new Item("Tabla de Derivadas","Mas valiosa que la biblia"));
         credits=4;

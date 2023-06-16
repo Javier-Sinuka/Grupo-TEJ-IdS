@@ -45,9 +45,9 @@ Preguntas:
 Materia: Fisica I
 Docente: Horacio Alaniz
 Apodo: Dios Alaniz
-Cantidad de Creditos Necesarios: 4
+Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 5
-Nombre del Item Necesario: Giroscopio
+Nombre del Item Necesario: Calculadora
 Preguntas:
 ¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
 - Si {true}
