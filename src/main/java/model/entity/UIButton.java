@@ -7,8 +7,9 @@ import java.util.Set;
 public interface UIButton {
 
 
-    //public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel);
     public void configureButton();
+    public void configureButton(JPanel inventoryPanel);
+    public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel);
     /** Window Buttons **/
     public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) ;
 

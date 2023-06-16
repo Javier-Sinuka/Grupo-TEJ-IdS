@@ -18,6 +18,8 @@ public class ExamButtons implements UIButton{
         buttons=new JButton[3];
     }
 
+    public int getQuestionsCounter() { return questionsCounter;}
+
 
     public JButton[] getButtons(){return buttons;}
 
@@ -25,8 +27,13 @@ public class ExamButtons implements UIButton{
     public void configureButton() {}
 
     @Override
-    public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
-    }
+    public void configureButton(JPanel inventoryPanel) {}
+
+    @Override
+    public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
+
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
 
     @Override
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {
@@ -48,6 +55,7 @@ public class ExamButtons implements UIButton{
             buttons[i].setVisible(false);
             buttons[i].setFocusable(false);
             buttons[i].setVerticalTextPosition(JButton.TOP);
+
             uiclassroom.addExamButton(buttons[i]);
             rooms.get(roomID).add(buttons[i]);
             ypos+=50;
@@ -78,7 +86,6 @@ public class ExamButtons implements UIButton{
                 @Override
                 public void mouseReleased(MouseEvent e){
 
-
                     if(questionsCounter==4){
                         for(int i=0;i<3;i++){
                             buttons[i].setVisible(false);
@@ -94,6 +101,12 @@ public class ExamButtons implements UIButton{
                             uiclassroom.repaint();
                             uiclassroom.revalidate();
                             uiclassroom.updateUI();
+                            questionsCounter=0;
+                            for(int i=0;i<3;i++){
+                                buttons[i].setText(uiclassroom.getClassroom().getAnswersToTheQuestion(questions.get(0)).get(i));
+                            }
+                            uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
+                            uiclassroom.getExamStartButton().getButton().setVisible(true);
                         }
 
                         textArea.setText(uiclassroom.getClassroom().getProfessor().examResultInfo());
@@ -107,7 +120,6 @@ public class ExamButtons implements UIButton{
                     }
 
                 }
-
 
                 @Override
                 public void mouseEntered(MouseEvent e) {}

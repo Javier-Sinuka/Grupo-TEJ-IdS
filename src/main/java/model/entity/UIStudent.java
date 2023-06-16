@@ -29,8 +29,7 @@ public class UIStudent {
         playerNameLabel(dataPanel,10,10,200,30);
         dogeCoinLabel();
         lifeBarLabel(dataPanel,10,50,210,20);
-        inventoryButton();
-        //inventoryButton.configureButton();
+        inventoryButton.configureButton(dataPanel,inventoryPanel);
         setInventoryPanel();
     }
     public void playerNameLabel(JPanel panel, int x,int y, int width, int height){
@@ -40,8 +39,9 @@ public class UIStudent {
         panel.add(nameLabel);
     }
     public void dogeCoinLabel(){
-        ImageIcon imageDogecoin = new ImageIcon("src/main/assets/img/dogecoin.png");
+        ImageIcon aux = new ImageIcon("src/main/assets/img/imgLabdogecoin.png");
         String coin = Integer.toString(getDogeCoin());
+        ImageIcon imageDogecoin = new ImageIcon(aux.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
         JLabel dogecoinLabel = new JLabel(coin,imageDogecoin,0);
         dogecoinLabel.setBounds(915,10,300,60);
         dogecoinLabel.setFont(new Font("Arial Black",Font.BOLD,50));
@@ -57,29 +57,6 @@ public class UIStudent {
         lifeBar.setValue(student.getLifeAmount());
         panel.add(lifeBar);
 
-
-    }
-    public void inventoryButton(){
-        JButton inventoryButton = new JButton("-");
-        inventoryButton.setBounds(170,15,50,20);
-        dataPanel.add(inventoryButton);
-        inventoryButton.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                inventoryPanel.setVisible(true);
-                inventoryPanel.revalidate();
-                inventoryPanel.repaint();
-                inventoryPanel.getGridPanel().revalidate();
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {}
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            @Override
-            public void mouseExited(MouseEvent e) {}
-        });
 
     }
     public void setInventoryPanel(){
