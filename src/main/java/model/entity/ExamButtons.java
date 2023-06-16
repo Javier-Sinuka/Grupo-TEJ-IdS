@@ -137,7 +137,7 @@ public class ExamButtons implements UIButton{
 
     }
 
-    public void setNewQuestion(JButton[] buttons,ArrayList<String>questions,ArrayList<ArrayList<String>>options,JTextArea textArea){
+    public void setNewQuestion(JButton[] buttons,LinkedList<String>questions,ArrayList<ArrayList<String>>options,JTextArea textArea){
         questionsCounter++;
         textArea.setText(questions.get(questionsCounter));
         buttons[0].setText(options.get(questionsCounter).get(0));
