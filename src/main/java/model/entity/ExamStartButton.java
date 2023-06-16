@@ -47,7 +47,6 @@ public class ExamStartButton implements UIButton{
 
         LinkedList<String> questions=uiclassroom.getClassroom().getQuestionsKeys();
         JButton[] buttons=uiclassroom.getExamButtons().getButtons();
-
         button.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
