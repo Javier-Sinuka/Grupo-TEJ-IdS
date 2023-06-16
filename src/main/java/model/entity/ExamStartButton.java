@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Set;
 
 public class ExamStartButton implements UIButton{
 
@@ -30,11 +29,14 @@ public class ExamStartButton implements UIButton{
     public void configureButton() {}
 
     @Override
+    public void configureButton(Usable usable, int ypos, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom, Boolean bar) {
+
+    }
+
+    @Override
 
     public void configureButton(JPanel inventoryPanel) {}
 
-    public void configureButton(Usable usable, int ypos, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom, Boolean bar) {
-    }
     @Override
     public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
 
@@ -53,7 +55,6 @@ public class ExamStartButton implements UIButton{
 
         LinkedList<String> questions=uiclassroom.getClassroom().getQuestionsKeys();
         JButton[] buttons=uiclassroom.getExamButtons().getButtons();
-
         button.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {

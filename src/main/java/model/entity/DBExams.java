@@ -68,7 +68,7 @@ public class DBExams {
                     matriz[4] = lineText.replaceFirst("Apodo: ", "");
                 }else if
                 (lineText.startsWith("Preguntas:")){
-                    Map<String, ArrayList<String>> questions = new HashMap<>();
+                    LinkedHashMap<String, ArrayList<String>> questions = new LinkedHashMap<>();
                     while (flagQuestions){
                         String line = scanner.nextLine();
                         if (line.startsWith("¿")){
@@ -168,8 +168,8 @@ public class DBExams {
      * @param nameCourse
      * @return Mapa con Preguntas como llave y de valor un ArrayList con las respuestas asociadas
      */
-    public Map<String, ArrayList<String>> getQuestionsMap(String nameCourse){
-        return (Map<String, ArrayList<String>>) this.course.get(nameCourse)[5];
+    public LinkedHashMap<String, ArrayList<String>> getQuestionsMap(String nameCourse){
+        return (LinkedHashMap<String, ArrayList<String>>)  this.course.get(nameCourse)[5];
     }
 
     /**
@@ -196,7 +196,7 @@ public class DBExams {
      */
     public ArrayList<String> getAnswers(String nameCourse, String question){
         ArrayList<String> newArrayAnswer = new ArrayList<>();
-        for (String answer : getQuestionsMap(nameCourse).get(question)){
+        for (String answer : this.getQuestionsMap(nameCourse).get(question)){
             if (answer.contains("{true}")){
                 newArrayAnswer.add(answer.replace("{true}",""));
             }else{
