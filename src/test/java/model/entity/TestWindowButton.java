@@ -42,7 +42,7 @@ class TestWindowButton {
     }
 
     @Test
-    public void configureButtonTest(){
+    public void testConfigureButton(){
 
         WindowButton testWB=new WindowButton(50,100,150,50);
 
@@ -68,15 +68,5 @@ class TestWindowButton {
 
         assertEquals(false,testPanels.get(0).isVisible());
         assertEquals(true,testPanels.get(1).isVisible());
-
     }
-
-
-
-
-
-
-
-
-
 }
