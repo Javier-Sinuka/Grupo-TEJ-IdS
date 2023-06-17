@@ -98,7 +98,13 @@ public class ExamButtons implements UIButton{
                         }
 
                         if (uiclassroom.getClassroom().isExamPassed()){
+
                             uistudent.getStudent().addCredits(uiclassroom.getClassroom().getProfessor().getCreditsIfPassed());
+                            uistudent.getInventoryPanel().getGridPanel().removeAll();
+                            uistudent.getInventoryPanel().getObjectPanel().removeAll();
+                            uistudent.getInventoryPanel().removeAll();
+                            uistudent.getInventoryPanel().parameterInventoryPanel();
+
                         }
                         else{
                             uistudent.getStudent().decreaseLifeBar(uiclassroom.getClassroom().getProfessor().lifeToSubtractStudent());

@@ -23,6 +23,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+<<<<<<< HEAD
+    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
+    - name: Update dependency graph
+      uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+=======
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
@@ -31,3 +36,4 @@ jobs:
 
       - name: Run unit tests
         run: mvn test --quiet
+>>>>>>> 767e3337a20cd72c68b29f4eff47ca2e5d73842f
