@@ -20,7 +20,7 @@ public class Classroom {
 
     public Classroom(String nameSubjectToDictate, int roomNumber, Student student) throws IOException {
         professor = new Professor(nameSubjectToDictate, student);
-        roomNumber = roomNumber;
+        this.roomNumber = roomNumber;
     }
 
     /**

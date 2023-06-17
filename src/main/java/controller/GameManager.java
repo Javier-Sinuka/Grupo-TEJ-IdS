@@ -85,6 +85,8 @@ public class GameManager {
 
        window.add(rooms.get(2));
 
+       classroom1.addProfessorImage(640,150,230,330,"src/main/assets/img/ProfessorsImages/Vega.png");
+
     }
     private void store1() {
         UIStore uiStore = new UIStore(uiStudent,false);
