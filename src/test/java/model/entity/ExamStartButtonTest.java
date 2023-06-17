@@ -1,5 +1,6 @@
 package model.entity;
 
+import model.objects.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +33,7 @@ class ExamStartButtonTest {
         img = new ImageIcon("src/main/assets/img/background-image-u/EntradaFacultad.png");
 
         testRooms = new ArrayList<>();
-        uiclassroomTest = new UIClassroom(img, uistudentTest, "Introduccion a la Matematica", 1);
+        uiclassroomTest = new UIClassroom(img, uistudentTest, "Fisica I", 1);
         uihallwayTest = new UIHallway();
         testRooms.add(uihallwayTest);
         testRooms.add(uiclassroomTest);
@@ -45,6 +46,7 @@ class ExamStartButtonTest {
 
         uiclassroomTest.setButton(new ExamButtons(),testRooms,1,uistudentTest,textAreaTest);
         uiclassroomTest.setButton(new ExamStartButton(),testRooms,1,uistudentTest,textAreaTest);
+        uistudentTest.getStudent().addUsableInBackpack(new Item("Calculadora","Mas valiosa que la biblia"));
 
         JButton startButton=uiclassroomTest.getExamStartButton().getButton();
 

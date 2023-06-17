@@ -2,9 +2,9 @@ package model.entity;
 
 public interface Subject {
 
-    public void registerObserver();
+    public void registerObserver(Observer O);
 
-    public void removeObserver();
+    public void removeObserver(Observer O);
 
     public void notifyObservers();
 

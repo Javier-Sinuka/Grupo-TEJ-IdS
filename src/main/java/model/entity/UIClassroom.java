@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class UIClassroom extends UIRoom {
+public class UIClassroom extends UIRoom implements Observer {
 
     UIStudent uistudent;
     Classroom classroom;
@@ -103,4 +103,9 @@ public void setTextArea(JTextArea textArea,String initialText){
     public void paintComponent(Graphics g){
         g.drawImage(img.getImage(),0,0,getWidth(),getHeight(), this);
     }
+
+
+    @Override
+    public void update() {}
+
 }

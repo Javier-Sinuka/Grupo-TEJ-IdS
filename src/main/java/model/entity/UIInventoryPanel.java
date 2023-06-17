@@ -6,7 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-public class UIInventoryPanel extends JPanel {
+import java.util.ArrayList;
+
+public class UIInventoryPanel extends JPanel implements Subject{
     private Student student;
     private JPanel gridPanel;
     private JPanel consumablePanel;
@@ -15,6 +17,8 @@ public class UIInventoryPanel extends JPanel {
     private JLabel imgProfileLabel;
     private JProgressBar caffeineBar;
     private JProgressBar creditBar;
+
+    private ArrayList<Observer> observers;
     public UIInventoryPanel(Student student){
         super();
         this.student = student;
@@ -25,6 +29,7 @@ public class UIInventoryPanel extends JPanel {
         this.imgProfileLabel = new JLabel();
         this.caffeineBar = new JProgressBar(0,100);
         this.creditBar = new JProgressBar(0,100);
+        observers=new ArrayList<>();
         //Parameters
         parameterInventoryPanel();
     }
@@ -180,4 +185,16 @@ public class UIInventoryPanel extends JPanel {
     public JPanel getObjectPanel(){
         return objectPanel;
     }
+
+    @Override
+    public void registerObserver(Observer O) { }
+
+    @Override
+    public void removeObserver(Observer O) {}
+
+    @Override
+    public void notifyObservers() {}
+
+
+
 }
