@@ -33,7 +33,7 @@ public class StoreButton implements UIButton{
                     messageLabel.setText("No tenes plata pobre :(");
                 }else if(usable.getIsTaken() == false || bar) {
                     usable.setTaken(true);
-                    actualizar(usable, uiStudent, messageLabel, storeRoom, bar);
+                    actualizar(usable, uiStudent, messageLabel, storeRoom);
                     }else {
                     messageLabel.setVisible(true);
                     messageLabel.setText("No podes comprar mas " + usable.getName() + " goloso :0");
@@ -55,7 +55,7 @@ public class StoreButton implements UIButton{
             public void mouseExited(MouseEvent e) {}
         });
     }
-    public void actualizar(Usable usable, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom, Boolean bar){
+    public void actualizar(Usable usable, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom){
 
         uiStudent.getStudent().decreaseDogeCoin(usable.getPrice());
         uiStudent.getStudent().addUsableInBackpack(usable);
