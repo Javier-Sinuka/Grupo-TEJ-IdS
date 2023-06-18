@@ -67,6 +67,8 @@ public class GameManager {
         hallway1.setButton(wb2,rooms,uiStudent,"Hallway 2",1,4);
 
         window.add(hallway1);
+
+        //hallway1.add(uiStudent.getDataPanel());
     }
     private void classRoom1() {
 
@@ -83,52 +85,62 @@ public class GameManager {
 
        classroom1.setButton(new ExamStartButton(),rooms,2,uiStudent,textArea);
 
+
        window.add(rooms.get(2));
+
+
+       classroom1.addProfessorImage(640,150,230,330,"src/main/assets/img/ProfessorsImages/Vega.png");
 
     }
     private void store1() {
-        UIStore uiStore = new UIStore(uiStudent,false);
-        rooms.add(uiStore);
+        UIStore store1 = new UIStore(uiStudent,false);
+        rooms.add(store1);
 
         //Boton para salir de la tienda
         WindowButton exitButton=new WindowButton(1100,620,150,50);
-        uiStore.setButton(exitButton,rooms,uiStudent,"Exit",3,4);
+        store1.setButton(exitButton,rooms,uiStudent,"Exit",3,4);
 
         window.add(rooms.get(3));
+
+       // store1.add(uiStudent.getDataPanel());
     }
     private void hallway2() {
         String path = "src/main/assets/img/map/Playa_estacionamiento.png";
         Consumable consumable = new Consumable("Cafe","Cafe rico");
         Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir quimica");
 
-        UIHallway newHallway= new UIHallway("Hallway 2",Color.blue, consumable,item,path);
-        rooms.add(newHallway);
+        UIHallway hallway2= new UIHallway("Hallway 2",Color.blue, consumable,item,path);
+        rooms.add(hallway2);
 
         //Boton para ir al store
         WindowButton storeButton=new WindowButton(500,0,150,50);
-        newHallway.setButton(storeButton,rooms,uiStudent,"Store",4,3);
+        hallway2.setButton(storeButton,rooms,uiStudent,"Store",4,3);
 
         //Boton para ir al store2
         WindowButton storeButton2 = new WindowButton(0,300,150,50);
-        newHallway.setButton(storeButton2,rooms,uiStudent,"Store2",4,5);
+        hallway2.setButton(storeButton2,rooms,uiStudent,"Store2",4,5);
 
         //Boton para ir al hallway1
         WindowButton hallway1Button = new WindowButton(500,630,150,50);
-        newHallway.setButton(hallway1Button,rooms,uiStudent,"Hallway 1",4,1);
+        hallway2.setButton(hallway1Button,rooms,uiStudent,"Hallway 1",4,1);
 
         window.add(rooms.get(4));
+
+        //hallway2.add(uiStudent.getDataPanel());
 
     }
     private void store2() {
 
-        UIStore uiStore = new UIStore(uiStudent,true);
-        rooms.add(uiStore);
+        UIStore store2 = new UIStore(uiStudent,true);
+        rooms.add(store2);
 
         //Boton para salir de la tienda
         WindowButton exitButton = new WindowButton(1100,620,150,50);
-        uiStore.setButton(exitButton,rooms,uiStudent,"Exit",5,4);
+        store2.setButton(exitButton,rooms,uiStudent,"Exit",5,4);
 
         window.add(rooms.get(5));
+
+        //store2.add(uiStudent.getDataPanel());
 
     }
     public GameWindow getWindow(){
