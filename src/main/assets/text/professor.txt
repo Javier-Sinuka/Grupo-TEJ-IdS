@@ -38,23 +38,23 @@ Preguntas:
 ¿Cuanto miden los bordes para las entregas?
 - 1 cm {true}
 - 1 km
-- tu hermana
+- 1 Dona de la serie "Los Simpsons"
 ¿Es necesario saber dividir para hacer dibujo tecnico?
 - No {true}
 - Si sabe, pero no contesta
-- tu hermana de vuelta
-¿Question 3?
-- option1
-- option2 {true}
-- option3
-¿Question 4?
-- option4
-- option5
-- option6 {true}
-¿Questions 2?
-- 1.87 cm
-- 123 km
-- tu cola {true}
+- 2 Donas de la serie "Los Simpsons"
+¿Es mejor una Birome o Portaminas para dibujar?
+- Si es un retrato, si a las dos
+- Portaminas {true}
+- No soy la opcion Portaminas
+¿Se ocupan reglas para dibujar?
+- No, yo no dibujo
+- No, ocupo AutoCAD, soy re pro
+- Si, como seria sino {true}
+¿Cuantas hojas se dibujan en la materia en total?
+- No se, tengo fulbo
+- Una
+- Muchas {true}
 ***
 Materia: Introduccion a la Ingenieria
 Docente: Litvack Federico Julio
@@ -64,26 +64,26 @@ Cantidad de Creditos a aumentar si se aprueba el curso: 2
 Nombre del Item Necesario: Monografia de la UNC
 Lugar donde conseguir el Item necesario:
 Preguntas:
-¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+¿FCEFyN pertenece a la UNC?
 - Si {true}
 - No sabe, no contesta
 - No
-¿Es necesario tener pasion por el rock para entender a Bethoven?
+¿Es necesario conocer sobre Rock para cursar esta materia?
 - No {true}
-- No sabe no contesta
 - Si sabe, pero no contesta
-¿Question 3?
-- option1
-- option2 {true}
-- option3
-¿Question 4?
-- option4
-- option5
-- option6 {true}
-¿Questions 2?
-- 1.87 cm
-- 123 km
-- tu cola {true}
+- No sabe, pero tampoco contesta
+¿Frase de Socrates?
+- Dale Profe, apruebenos
+- Solo se que no se nada{true}
+- Muchaaaaachos... Ahora nos volvimo a Ilusiona
+¿Cuantas Carreras tiene la FCEFyN?
+- 1314
+- 5000
+- 11 {true}
+¿Cuantas materias tiene primer año de ICOMP y IE?
+- Unas pocas, o tal vez muchas
+- Unas cuantas
+- 9 {true}
 ***
 Materia: Quimica Aplicada
 Docente: Mario Leandro Aimar
@@ -93,26 +93,26 @@ Cantidad de Creditos a aumentar si se aprueba el curso: 3
 Nombre del Item Necesario: Guardapolvo
 Lugar donde conseguir el Item necesario:
 Preguntas:
-¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
-- Si {true}
-- No sabe, no contesta
-- No
-¿Es necesario tener pasion por el rock para entender a Bethoven?
+¿Es necesario ver Breacking Bad para aprobar quimica?
 - No {true}
-- No sabe no contesta
-- Si sabe, pero no contesta
-¿Question 3?
-- option1
-- option2 {true}
-- option3
-¿Question 4?
-- option4
-- option5
-- option6 {true}
-¿Questions 2?
-- 1.87 cm
-- 123 km
-- tu cola {true}
+- Si, alta serie papa
+- Queseso? Se come?
+¿Como se escribe "Sal de Mesa"?
+- Sal de Mesa {true}
+- La la la
+- La opcion que nos es "La la la"
+¿Cuantos moles hay entre tu y ella/el?
+- Unos pocos
+- Muchos, estudio Ingenieria, eso no existe para mi {true}
+- Unos pocos, me tengo fe
+¿Necesito el Guardapolvo para rendir este examen?
+- No, un pebete
+- No, una Notebook, para mas placer
+- Si {true}
+¿Se puede pesar el vacio?
+- Si, porque no esta vacio
+- Pesa mucho
+- No, no se puede todavia {true}
 ***
 Materia: Taller y Laboratorio
 Docente: Pablo Ernesto Enrico
@@ -122,26 +122,26 @@ Cantidad de Creditos a aumentar si se aprueba el curso: 3
 Nombre del Item Necesario: Kit de Componentes Electronicos
 Lugar donde conseguir el Item necesario:
 Preguntas:
-¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+¿Es resistente una resitencia?
 - Si {true}
 - No sabe, no contesta
-- No
-¿Es necesario tener pasion por el rock para entender a Bethoven?
-- No {true}
-- No sabe no contesta
-- Si sabe, pero no contesta
-¿Question 3?
-- option1
-- option2 {true}
-- option3
-¿Question 4?
-- option4
-- option5
-- option6 {true}
-¿Questions 2?
-- 1.87 cm
-- 123 km
-- tu cola {true}
+- No, no se resiste
+¿Que Capacidad tenemos de aprobar este examen?
+- Mucha capacidad {true}
+- Incapasmente incapas
+- No tenemos nada, ni capacidad
+¿Se explotan Capacitores en esta materia?
+- No somos terroristas
+- Si, si tu profesor es buena onda {true}
+- Quesesoooo?
+¿La materia esta buena?
+- No soy la correcta
+- No, nada esta bueno
+- Si {true}
+¿Un circuito, tiene cables?
+- No, tiene gomitas
+- Las gomitas son ricas
+- Si, pero no necesariamente {true}
 ***
 Materia: Informatica
 Docente: Jorge Manuel Finochietto
@@ -207,6 +207,35 @@ Apodo: Az de las Matematicas
 Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 4
 Nombre del Item Necesario: Tabla de Integrales
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+- Si {true}
+- No sabe, no contesta
+- No
+¿Es necesario tener pasion por el rock para entender a Bethoven?
+- No {true}
+- No sabe no contesta
+- Si sabe, pero no contesta
+¿Question 3?
+- option1
+- option2 {true}
+- option3
+¿Question 4?
+- option4
+- option5
+- option6 {true}
+¿Questions 2?
+- 1.87 cm
+- 123 km
+- tu cola {true}
+***
+Materia: Algebra Lineal
+Docente: Magdalena Dimitroff
+Apodo: San Dimitroff
+Cantidad de Creditos Necesarios: 10
+Cantidad de Creditos a aumentar si se aprueba el curso: 4
+Nombre del Item Necesario: Libro de Algebra
 Lugar donde conseguir el Item necesario:
 Preguntas:
 ¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
