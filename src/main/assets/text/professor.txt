@@ -1,19 +1,48 @@
 Materia: Introduccion a la Matematica
 Docente: Leonor Vega
 Apodo: Leonor el Terror Vega
-Cantidad de Creditos Necesarios: 2
+Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 3
 Nombre del Item Necesario: Tabla de Derivadas
-Lugar donde conseguir el Item necesario: Tu cola
+Lugar donde conseguir el Item necesario:
 Preguntas:
-¿Question 5?
-- option7 {true}
-- option8
-- option9
-¿Questions 1?
-- 2
-- Pasa al pizzaron{true}
-- 3
+¿Es mas facil calcular la Hipotenusa de un triangulo, que conseguir el amor de ella/el?
+- Si {true}
+- Muchaaaaachos
+- Solo se que no se nada
+¿Para siguiente ecuacion x=x^2+x+2, es posible aplicar Bhaskara?
+- Dependiendo de la masa del sol
+- Si, las raices son -2 y 1{true}
+- Quien es Bhaskara?
+¿Si tengo el sen(x) y aplico limite, que obtengo?
+- Un abrazo de ella/el
+- Soy la respuesta correcta, tu decide {true}
+- Un desaprobado porque no seleccionaste la que dice ser correcta
+¿Es posible calcular la masa del sol con una lechuga?
+- Si, por el Teorema de No Se Si Esta Bien
+- Dependiendo de la lechuga
+- No, y si es posible, no sabemos, vos seleccioname {true}
+¿Cuando ingresaste, tenias la Tabla de Derivadas?
+- No, tenia la de Integrales
+- No, no me acuerdo, fue hace mucho
+- Si {true}
+***
+Materia: Representacion Grafica
+Docente: Victor Ezequiel Escribano
+Apodo: Da Vinci del Portaminas
+Cantidad de Creditos Necesarios: 0
+Cantidad de Creditos a aumentar si se aprueba el curso: 2
+Nombre del Item Necesario: Tablero de Dibujo Tecnico
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿Cuanto miden los bordes para las entregas?
+- 1 cm {true}
+- 1 km
+- tu hermana
+¿Es necesario saber dividir para hacer dibujo tecnico?
+- No {true}
+- Si sabe, pero no contesta
+- tu hermana de vuelta
 ¿Question 3?
 - option1
 - option2 {true}
@@ -27,30 +56,158 @@ Preguntas:
 - 123 km
 - tu cola {true}
 ***
-Materia: Representacion Grafica
-Docente: Da Vinci del AUTOCAD
-Apodo: Da Vinci
-Cantidad de Creditos Necesarios: 3
+Materia: Introduccion a la Ingenieria
+Docente: Litvack Federico Julio
+Apodo: Filosofo de Medio Tiempo
+Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 2
-Nombre del Item Necesario: Tablero de Dibujo Tecnico
-Lugar donde conseguir el Item necesario: Tu cola
+Nombre del Item Necesario: Monografia de la UNC
+Lugar donde conseguir el Item necesario:
 Preguntas:
-¿Cuanto miden los bordes para las entregas?
-- 1 cm {true}
-- 1 km
-- tu hermana
-¿Es necesario saber dividir para hacer dibujo tecnico?
+¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+- Si {true}
+- No sabe, no contesta
+- No
+¿Es necesario tener pasion por el rock para entender a Bethoven?
 - No {true}
+- No sabe no contesta
 - Si sabe, pero no contesta
-- tu hermana de vuelta
+¿Question 3?
+- option1
+- option2 {true}
+- option3
+¿Question 4?
+- option4
+- option5
+- option6 {true}
+¿Questions 2?
+- 1.87 cm
+- 123 km
+- tu cola {true}
+***
+Materia: Quimica Aplicada
+Docente: Mario Leandro Aimar
+Apodo: Heisenberg de la FCEFyN
+Cantidad de Creditos Necesarios: 0
+Cantidad de Creditos a aumentar si se aprueba el curso: 3
+Nombre del Item Necesario: Guardapolvo
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+- Si {true}
+- No sabe, no contesta
+- No
+¿Es necesario tener pasion por el rock para entender a Bethoven?
+- No {true}
+- No sabe no contesta
+- Si sabe, pero no contesta
+¿Question 3?
+- option1
+- option2 {true}
+- option3
+¿Question 4?
+- option4
+- option5
+- option6 {true}
+¿Questions 2?
+- 1.87 cm
+- 123 km
+- tu cola {true}
+***
+Materia: Taller y Laboratorio
+Docente: Pablo Ernesto Enrico
+Apodo: Maestro de la Resistencia
+Cantidad de Creditos Necesarios: 10
+Cantidad de Creditos a aumentar si se aprueba el curso: 3
+Nombre del Item Necesario: Kit de Componentes Electronicos
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+- Si {true}
+- No sabe, no contesta
+- No
+¿Es necesario tener pasion por el rock para entender a Bethoven?
+- No {true}
+- No sabe no contesta
+- Si sabe, pero no contesta
+¿Question 3?
+- option1
+- option2 {true}
+- option3
+¿Question 4?
+- option4
+- option5
+- option6 {true}
+¿Questions 2?
+- 1.87 cm
+- 123 km
+- tu cola {true}
+***
+Materia: Informatica
+Docente: Jorge Manuel Finochietto
+Apodo: Bill Gates de la FCEFyN
+Cantidad de Creditos Necesarios: 10
+Cantidad de Creditos a aumentar si se aprueba el curso: 4
+Nombre del Item Necesario: Notebook
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+- Si {true}
+- No sabe, no contesta
+- No
+¿Es necesario tener pasion por el rock para entender a Bethoven?
+- No {true}
+- No sabe no contesta
+- Si sabe, pero no contesta
+¿Question 3?
+- option1
+- option2 {true}
+- option3
+¿Question 4?
+- option4
+- option5
+- option6 {true}
+¿Questions 2?
+- 1.87 cm
+- 123 km
+- tu cola {true}
 ***
 Materia: Fisica I
 Docente: Horacio Alaniz
-Apodo: Dios Alaniz
-Cantidad de Creditos Necesarios: 0
+Apodo: ALA-GOD
+Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 5
-Nombre del Item Necesario: Calculadora
-Lugar donde conseguir el Item necesario: Tu cola
+Nombre del Item Necesario: Calculadora Casio FX
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+- Si {true}
+- No sabe, no contesta
+- No
+¿Es necesario tener pasion por el rock para entender a Bethoven?
+- No {true}
+- No sabe no contesta
+- Si sabe, pero no contesta
+¿Question 3?
+- option1
+- option2 {true}
+- option3
+¿Question 4?
+- option4
+- option5
+- option6 {true}
+¿Questions 2?
+- 1.87 cm
+- 123 km
+- tu cola {true}
+***
+Materia: Analisis Matematico I
+Docente: Liliana Beatriz Pastore
+Apodo: Az de las Matematicas
+Cantidad de Creditos Necesarios: 10
+Cantidad de Creditos a aumentar si se aprueba el curso: 4
+Nombre del Item Necesario: Tabla de Integrales
+Lugar donde conseguir el Item necesario:
 Preguntas:
 ¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
 - Si {true}
