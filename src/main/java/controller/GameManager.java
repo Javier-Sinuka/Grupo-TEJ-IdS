@@ -3,6 +3,7 @@ package controller;
 import model.entity.*;
 import model.objects.Consumable;
 import model.objects.Item;
+import model.objects.Usable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,13 +14,16 @@ public class GameManager {
     private GameWindow window;
     private ArrayList<UIRoom> rooms;
     private JTextArea textArea;
+    private ArrayList<Usable> usables;
 
     public GameManager(){
         uiStudent = new UIStudent();
         window=new GameWindow();
         rooms=new ArrayList<>(10);
         textArea=new JTextArea();
+        usables = new ArrayList<Usable>();
 
+        setUpUsables();
         setUpRooms();
     }
     public void setUpRooms(){
@@ -57,7 +61,7 @@ public class GameManager {
         Consumable consumable = new Consumable("Mate","Mate amargo");
         Item item = new Item("Tablero de dibujo", "Tabala que te ayudara a rendir dibujo");
 
-        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE,consumable,item,path);
+        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE,null,null,path);
         rooms.add(hallway1);
 
         WindowButton wb1=new WindowButton(500,0,150,50);
@@ -142,6 +146,20 @@ public class GameManager {
 
         //store2.add(uiStudent.getDataPanel());
 
+    }
+
+    public void setUpUsables(){
+        Usable drawingBoar = new Item("Tablero de dibujo", "Este tablero te ayudara a rendir Representacion Grafica");
+        Usable notebook = new Item("Notebook", "Esta notebook te ayudara a rendir Informatica");
+        Usable periodicTable = new Item("Tabla periodica", "Esta tabla te ayudara a rendir Quimica");
+        Usable algebraBook = new Item("Libro de algebra", "Este libro te ayudara a rendir Algebra");
+        Usable ieBook = new Item("Libro de introduccion a la ingenieria", "Este libro te ayudara a rendir Introduccion a la Ingenieria");
+
+        usables.add(drawingBoar);
+        usables.add(notebook);
+        usables.add(periodicTable);
+        usables.add(algebraBook);
+        usables.add(ieBook);
     }
     public GameWindow getWindow(){
         return window;
