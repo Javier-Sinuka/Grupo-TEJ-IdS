@@ -12,7 +12,7 @@ esquematizacion de examen para poder seguir avanzando en la decision tomada sobr
   Nuestro objetivo es que cualquier persona que se encuentre interesada en conocer dicha experiencia
 pueda hacerlo mediante este Video Juego.
 
-(Actualmente solo se encuentra la posibilidad de seleccionar la opcion de Estudiante de Ingenieria en Computacion, 
+(Actualmente solo se encuentra implementado la carrera Estudiante de Ingenieria en Computacion, 
 teniendo en vista el objetivo de representar las 11 carreras que probee la FCEFyN - UNC)
   
 
