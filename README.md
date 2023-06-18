@@ -1,7 +1,7 @@
 # Juego de Roll - Grupo TEJ (Alpha)
 
   En el presente repositorio se encuentra el Proyecto Final para la materia
-Ingenieria en Software, dictado en la carrera de Ingenieria en Computacion, el cual busca
+Ingenieria del Software, dictado en la carrera de Ingenieria en Computacion, el cual busca
 implementar los conocimientos dictados en un proyecto concreto y real, en este caso, en el desarrollo
 del presente Juego.
   Esperamos que el mismo sea de su agrado, ya que fue realizado con la intencion de poder
