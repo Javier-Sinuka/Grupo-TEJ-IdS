@@ -85,4 +85,9 @@ public class StoreButton implements UIButton{
 
     @Override
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {}
+
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms) {
+
+    }
 }

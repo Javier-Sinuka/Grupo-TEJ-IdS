@@ -18,6 +18,7 @@ public abstract class UIRoom extends JPanel {
                                    UIStudent uistudent, JTextArea textArea);
     public abstract void setButton(ExamButtons examBts,ArrayList<UIRoom> rooms, int roomID,
                                    UIStudent uistudent, JTextArea textArea);
+    public abstract void setButton(RestartButton restartBt,ArrayList<UIRoom>rooms);
 
 
 

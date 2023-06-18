@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class UIInventoryPanel extends JPanel implements Subject{
+public class UIInventoryPanel extends UIRoom implements Subject{
     private Student student;
     private JPanel gridPanel;
     private JPanel consumablePanel;
@@ -196,5 +196,23 @@ public class UIInventoryPanel extends JPanel implements Subject{
     public void notifyObservers() {}
 
 
+    @Override
+    public void setButton(WindowButton windowBt, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
 
+    }
+
+    @Override
+    public void setButton(ExamStartButton startBt, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
+
+    @Override
+    public void setButton(ExamButtons examBts, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
+
+    @Override
+    public void setButton(RestartButton restartBt, ArrayList<UIRoom> rooms) {
+
+    }
 }

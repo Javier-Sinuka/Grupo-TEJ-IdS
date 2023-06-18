@@ -8,10 +8,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class GameManager {
+public class GameManager implements Subject{
+
     public UIStudent uiStudent;
     private GameWindow window;
     private ArrayList<UIRoom> rooms;
+
+    private ArrayList<Observer>observers;
+
     private JTextArea textArea;
 
     public GameManager(){
@@ -19,6 +23,7 @@ public class GameManager {
         window=new GameWindow();
         rooms=new ArrayList<>(10);
         textArea=new JTextArea();
+        observers=new ArrayList<>();
 
         setUpRooms();
     }
@@ -29,6 +34,7 @@ public class GameManager {
         store1();       //3
         hallway2();     //4
         store2();       //5
+        gameOver();
     }
     private void createMenu(){
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/EntradaFacultad.png");
@@ -85,9 +91,9 @@ public class GameManager {
 
        classroom1.setButton(new ExamStartButton(),rooms,2,uiStudent,textArea);
 
-
        window.add(rooms.get(2));
 
+       registerObserver(classroom1);
 
        classroom1.addProfessorImage(640,150,230,330,"src/main/assets/img/ProfessorsImages/Vega.png");
 
@@ -143,9 +149,46 @@ public class GameManager {
         //store2.add(uiStudent.getDataPanel());
 
     }
+
+    public void gameOver(){
+
+        ImageIcon img = new ImageIcon("src/main/assets/img/ProfessorsImages/SadMan1.jpg");
+
+        UIGameOver gameOverPanel=new UIGameOver(img,this,new JTextArea());
+
+        rooms.add(gameOverPanel);
+
+        gameOverPanel.setButton(new RestartButton(this),rooms);
+
+        window.add(gameOverPanel);
+
+    }
+
+
     public GameWindow getWindow(){
         return window;
     }
 
 
+    @Override
+    public void registerObserver(Observer O) { observers.add(O); }
+
+    @Override
+    public void removeObserver(Observer O) {
+        int index= observers.indexOf(O);
+
+        if(index>=0){
+            observers.remove(index);
+        }
+    }
+
+    @Override
+    public void notifyObservers() {
+
+        for(int i=0;i< observers.size();i++){
+
+            observers.get(i).update();
+        }
+
+    }
 }

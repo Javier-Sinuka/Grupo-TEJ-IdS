@@ -20,6 +20,7 @@ public interface UIButton {
     /** Exam Start Button and Exam Buttons**/
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea,
                                 UIClassroom uiclassroom);
+    public void configureButton(ArrayList<UIRoom>rooms);
 
 }
 

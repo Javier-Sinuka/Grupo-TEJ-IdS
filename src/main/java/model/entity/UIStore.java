@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class UIStore extends UIRoom {
+public class UIStore extends UIRoom implements Observer {
     private UIStudent uiStudent;
     private Boolean bar;
     private JLabel messageLabel;
@@ -69,6 +69,19 @@ public class UIStore extends UIRoom {
 
     @Override
     public void setButton(ExamButtons examBts, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
+
+    @Override
+    public void setButton(RestartButton restartBt, ArrayList<UIRoom> rooms) {
+
+    }
+
+    @Override
+    public void update() {
+
+
+
 
     }
 }

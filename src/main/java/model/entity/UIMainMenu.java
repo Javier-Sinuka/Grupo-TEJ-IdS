@@ -61,4 +61,9 @@ public class UIMainMenu extends UIRoom {
     public void setButton(ExamButtons examBts, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
 
     }
+
+    @Override
+    public void setButton(RestartButton restartBt, ArrayList<UIRoom> rooms) {
+
+    }
 }

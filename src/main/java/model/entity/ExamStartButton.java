@@ -90,6 +90,11 @@ public class ExamStartButton implements UIButton{
 
     }
 
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms) {
+
+    }
+
 
     public JButton getButton() { return button;}
 }

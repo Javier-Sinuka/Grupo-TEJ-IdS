@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class UIHallway extends UIRoom {
+public class UIHallway extends UIRoom implements Observer{
     private Hallway hallway;
     private String path;
 
@@ -91,4 +91,15 @@ public class UIHallway extends UIRoom {
 
     }
 
+    @Override
+    public void setButton(RestartButton restartBt, ArrayList<UIRoom> rooms) {
+
+    }
+
+    @Override
+    public void update() {
+
+
+
+    }
 }

@@ -73,6 +73,11 @@ public class WindowButton implements UIButton{
 
     }
 
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms) {
+
+    }
+
     public JButton getButton(){ return button;}
 
 
