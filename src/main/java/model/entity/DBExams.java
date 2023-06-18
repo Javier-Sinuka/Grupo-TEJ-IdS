@@ -21,7 +21,7 @@ public class DBExams {
     private Map<String, Object[]> course;
 
     public DBExams() throws IOException {
-        this.matriz = new Object[6];
+        this.matriz = new Object[7];
         this.course = new HashMap<>();
         this.answers = new ArrayList<>();
 
@@ -67,6 +67,9 @@ public class DBExams {
                 (lineText.startsWith("Apodo: ")){
                     matriz[4] = lineText.replaceFirst("Apodo: ", "");
                 }else if
+                (lineText.startsWith("Lugar donde conseguir el Item necesario: ")){
+                    matriz[5] = lineText.replaceFirst("Lugar donde conseguir el Item necesario: ", "");
+                }else if
                 (lineText.startsWith("Preguntas:")){
                     LinkedHashMap<String, ArrayList<String>> questions = new LinkedHashMap<>();
                     while (flagQuestions){
@@ -92,8 +95,8 @@ public class DBExams {
                             flagQuestions = false;
                         }
                     }
-                    matriz[5] = questions;
-                    Object [] newMatriz = new Object[6];
+                    matriz[6] = questions;
+                    Object [] newMatriz = new Object[7];
                     for (int i = 0; i < matriz.length; i++){
                         newMatriz[i] = matriz[i];
                     }
@@ -103,7 +106,7 @@ public class DBExams {
         }catch (Exception e){}
     }
 
-    public Map<String, Object[]> getCourse(){
+    public Map<String,Object[]> getCourse(){
         return course;
     }
 
@@ -163,13 +166,23 @@ public class DBExams {
     }
 
     /**
+     * Metodo que devuelve un texto que indica donde se puede econtrar el item necesario
+     * para ingresar a rendir el examen.
+     * @param nameCourse
+     * @return Lugar donde encontrar el item necesario para el examen
+     */
+    public String getItemUbication(String nameCourse){
+        return this.course.get(nameCourse)[5].toString();
+    }
+
+    /**
      * Metodo que devuelve un Mapa con las preguntas, y sus respuestas asociadas a dicha
      * pregunta.
      * @param nameCourse
      * @return Mapa con Preguntas como llave y de valor un ArrayList con las respuestas asociadas
      */
     public LinkedHashMap<String, ArrayList<String>> getQuestionsMap(String nameCourse){
-        return (LinkedHashMap<String, ArrayList<String>>)  this.course.get(nameCourse)[5];
+        return (LinkedHashMap<String, ArrayList<String>>)  this.course.get(nameCourse)[6];
     }
 
     /**
