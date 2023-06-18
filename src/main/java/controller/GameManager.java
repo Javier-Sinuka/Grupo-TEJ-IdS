@@ -29,10 +29,11 @@ public class GameManager {
     public void setUpRooms(){
         createMenu();   //0
         hallway1();     //1
-        classRoom1();   //2
-        store1();       //3
-        hallway2();     //4
-        store2();       //5
+        hallway2();     //2
+        hallway3();     //3
+        //classRoom1();   //4
+        store1();       //5
+        store2();       //6
     }
     private void createMenu(){
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/EntradaFacultad.png");
@@ -56,23 +57,69 @@ public class GameManager {
 
     }
     public void hallway1(){
-
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/lobbyDeIngreso.jpg");
         String path = "src/main/assets/img/map/Lobby_Central.png";
-        Consumable consumable = new Consumable("Mate","Mate amargo");
-        Item item = new Item("Tablero de dibujo", "Tabala que te ayudara a rendir dibujo");
+        Consumable consumable = new Consumable("Mate","El mate te despertara");
 
-        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE,null,null,path);
+        UIHallway hallway1= new UIHallway(uiStudent, consumable, usables, path,true,img);
+
         rooms.add(hallway1);
 
         WindowButton wb1=new WindowButton(500,0,150,50);
-        hallway1.setButton(wb1,rooms,uiStudent,"Classroom 1",1,2);
+        hallway1.setButton(wb1,rooms,uiStudent,"Pasillo 4",1,4);
 
         WindowButton wb2=new WindowButton(0,300,150,50);
-        hallway1.setButton(wb2,rooms,uiStudent,"Hallway 2",1,4);
+        hallway1.setButton(wb2,rooms,uiStudent,"Pasillo 2",1,2);
 
+        WindowButton wb3=new WindowButton(1000,300,150,50);
+        hallway1.setButton(wb3,rooms,uiStudent,"Pasillo 3",1,3);
+
+        WindowButton wb4=new WindowButton(500,300,150,50);
+        hallway1.setButton(wb4,rooms,uiStudent,"Pasillo 8",1,8);
         window.add(hallway1);
 
-        //hallway1.add(uiStudent.getDataPanel());
+    }
+    private void hallway2() {
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo2.jpg");
+        String mapPath = "src/main/assets/img/map/Playa_estacionamiento.png";
+        Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
+
+
+        UIHallway hallway2= new UIHallway(uiStudent, consumable, usables,mapPath,false,img);
+        rooms.add(hallway2);
+
+        //Boton para ir al
+        WindowButton storeButton=new WindowButton(1000,300,150,50);
+        hallway2.setButton(storeButton,rooms,uiStudent,"Pasillo 1",2,1);
+
+        //Boton para ir al store2
+        WindowButton storeButton2 = new WindowButton(0,300,150,50);
+        hallway2.setButton(storeButton2,rooms,uiStudent,"Patio",2,6);
+
+        //Boton para ir al hallway1
+        WindowButton hallway1Button = new WindowButton(500,630,150,50);
+        hallway2.setButton(hallway1Button,rooms,uiStudent,"Aula 214",2,11);
+
+        window.add(hallway2);
+    }
+    private void hallway3() {
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo3.jpg");
+        String mapPath = "src/main/assets/img/map/Playa_estacionamiento.png";
+        Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
+
+
+        UIHallway hallway2= new UIHallway(uiStudent, consumable, usables,mapPath,false,img);
+        rooms.add(hallway2);
+
+        //Boton para ir al
+        WindowButton storeButton=new WindowButton(1000,300,150,50);
+        hallway2.setButton(storeButton,rooms,uiStudent,"Pasillo 1",3,1);
+
+        //Boton para ir al store2
+        WindowButton storeButton2 = new WindowButton(0,300,150,50);
+        hallway2.setButton(storeButton2,rooms,uiStudent,"Aula 200",3,9);
+
+        window.add(hallway2);
     }
     private void classRoom1() {
 
@@ -107,31 +154,6 @@ public class GameManager {
         window.add(rooms.get(3));
 
        // store1.add(uiStudent.getDataPanel());
-    }
-    private void hallway2() {
-        String path = "src/main/assets/img/map/Playa_estacionamiento.png";
-        Consumable consumable = new Consumable("Cafe","Cafe rico");
-        Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir quimica");
-
-        UIHallway hallway2= new UIHallway("Hallway 2",Color.blue, consumable,item,path);
-        rooms.add(hallway2);
-
-        //Boton para ir al store
-        WindowButton storeButton=new WindowButton(500,0,150,50);
-        hallway2.setButton(storeButton,rooms,uiStudent,"Store",4,3);
-
-        //Boton para ir al store2
-        WindowButton storeButton2 = new WindowButton(0,300,150,50);
-        hallway2.setButton(storeButton2,rooms,uiStudent,"Store2",4,5);
-
-        //Boton para ir al hallway1
-        WindowButton hallway1Button = new WindowButton(500,630,150,50);
-        hallway2.setButton(hallway1Button,rooms,uiStudent,"Hallway 1",4,1);
-
-        window.add(rooms.get(4));
-
-        //hallway2.add(uiStudent.getDataPanel());
-
     }
     private void store2() {
 

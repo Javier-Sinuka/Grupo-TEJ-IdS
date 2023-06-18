@@ -100,6 +100,15 @@ public class UIInventoryPanel extends JPanel implements Subject{
                     break;
                 case "Kit de componenetes electronicos":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/KitComponentes.png");
+                break;
+                case "Tabla de integrales":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/tablaDeIntegrales.png");
+                    System.out.println("Etiqueta de tabla de integrales");
+                    break;
+                case "Tabla de derivadas":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/tablaDeDerivadas.png");
+                    System.out.println("Etiqueta de tabla de derivadas");
+                    break;
                 default:
 
             }

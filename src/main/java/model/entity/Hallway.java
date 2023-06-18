@@ -4,6 +4,8 @@ import model.objects.Consumable;
 import model.objects.Item;
 import model.objects.Usable;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -22,11 +24,11 @@ public class Hallway {
     private Consumable consumable;
     private Item item;
 
-    public Hallway(Consumable consumable, Item item) {
+    public Hallway(Consumable consumable, ArrayList<Usable> usables) {
         this.x = 0;
         this.y = 0;
         this.consumable = consumable;
-        this.item = item;
+        //this.item = item;
         this.nameHallway = nameHallway;
     }
     public Hallway() {

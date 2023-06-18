@@ -25,7 +25,6 @@ public class UIMainMenu extends UIRoom {
     }
 
     public void addBackgroundImage(ImageIcon backgroundImage){
-
         JLabel label=new JLabel();
         label.setBounds(0,0,GameWindow.WIDTH,GameWindow.HEIGHT);
         label.setIcon(backgroundImage);
@@ -42,9 +41,11 @@ public class UIMainMenu extends UIRoom {
 
 
 
-   public void paintComponent(Graphics g){
+   /*public void paintComponent(Graphics g){
         g.drawImage(backgroundImage.getImage(),0,0,GameWindow.WIDTH,GameWindow.HEIGHT, this);
     }
+
+    */
 
     @Override
     public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
