@@ -11,21 +11,114 @@ import java.util.ArrayList;
 
 public class UIHallway extends UIRoom implements Observer{
     private Hallway hallway;
-    private String path;
+    private String mapPath;
+
+    private UIStudent uiStudent;
+
+    private boolean isLobyCentral;
 
 
     public UIHallway(){
         hallway=new Hallway(new Consumable(),new Item());
     }
-    public UIHallway(String hallwayName, Color colorDeFondo, Consumable consumable, Item item, String path){
+    public UIHallway(UIStudent uiStudent,Consumable consumable,Item item, String mapPath, boolean isLobyCentral, ImageIcon backgroundImage){
         super();
-        this.path = path;
+        this.mapPath = mapPath;
         this.hallway = new Hallway(consumable,item);
-        this.setBackground(colorDeFondo);
+        this.isLobyCentral = isLobyCentral;
+        this.uiStudent = uiStudent;
+        this.backgroundImage =  new ImageIcon(backgroundImage.getImage().getScaledInstance(GameWindow.WIDTH,GameWindow.HEIGHT,Image.SCALE_SMOOTH));
+
+        if(isLobyCentral){
+            ceuAndAbmLabel();
+        }
+
         LabelTitle(hallway.getNameHallway());
         randomObject();
         mapLabel();
     }
+
+    public void ceuAndAbmLabel(){
+
+        Usable derivateTalbe = new Item("Tabla de derivadas", "Esta tabla te ayudara a rendir Introduccion a la Matematica");
+        Usable integralTable = new Item("Tabla de integrales", "Esta tabla de ayudara a rendir Analisis Matematico I");
+
+        JLabel ceuLabel = new JLabel();
+        ImageIcon ceuIcon = new ImageIcon("src/main/assets/img/imgLabels/CEU.png");
+        ceuLabel.setBounds(300,50,100,100);
+        ceuLabel.setIcon(new ImageIcon(ceuIcon.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));
+
+        ceuLabel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                if(!derivateTalbe.getIsTaken()) {
+                    derivateTalbe.setTaken(true);
+                    uiStudent.getStudent().addUsableInBackpack(derivateTalbe);
+                    uiStudent.getInventoryPanel().getObjectPanel().removeAll();
+                    uiStudent.getInventoryPanel().parameterInventoryPanel();
+
+                }
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                ceuLabel.setSize(100,100);
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                ceuLabel.setSize(120,120);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                ceuLabel.setSize(120,120);
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                ceuLabel.setSize(100,100);
+            }
+        });
+
+        JLabel abmLabel = new JLabel();
+        ImageIcon abmIcon = new ImageIcon("src/main/assets/img/imgLabels/ABM.png");
+        abmLabel.setBounds(900,50,100,100);
+        abmLabel.setIcon(new ImageIcon(abmIcon.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));
+
+        abmLabel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                if(!integralTable.getIsTaken()) {
+                    uiStudent.getStudent().addUsableInBackpack(integralTable);
+                    uiStudent.getInventoryPanel().getObjectPanel().removeAll();
+                    uiStudent.getInventoryPanel().parameterInventoryPanel();
+
+                    integralTable.setTaken(true);
+                }
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                abmLabel.setSize(100,100);
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                abmLabel.setSize(120,120);
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                abmLabel.setSize(120,120);
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                abmLabel.setSize(100,100);
+            }
+        });
+
+        this.add(abmLabel);
+        this.add(ceuLabel);
+    }
+
+
+
     public void randomObject(){
         Usable usable = hallway.getRandomUsable();
 
@@ -70,7 +163,7 @@ public class UIHallway extends UIRoom implements Observer{
         this.add(title);
     }
     public void mapLabel(){
-        ImageIcon mapImg = new ImageIcon(path);
+        ImageIcon mapImg = new ImageIcon(mapPath);
         JLabel mapLable = new JLabel();
         mapLable.setBounds(1050,470,200,200);
         mapLable.setIcon(new ImageIcon(mapImg.getImage().getScaledInstance(mapLable.getWidth(),mapLable.getHeight(),Image.SCALE_SMOOTH)));
@@ -99,7 +192,11 @@ public class UIHallway extends UIRoom implements Observer{
     @Override
     public void update() {
 
-
-
     }
+
+    public void paintComponent(Graphics g){
+        g.drawImage(backgroundImage.getImage(),0,0,GameWindow.WIDTH,GameWindow.HEIGHT, this);
+    }
+
+
 }
