@@ -56,9 +56,9 @@ public void setTextArea(JTextArea textArea,String initialText){
     public ExamButtons getExamButtons() { return examButtons;}
 
     @Override
-    public void setButton(WindowButton windowBt, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
+    public void setButton(WindowButton windowBt, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
 
-        windowBt.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
+        windowBt.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom,start);
     }
 
     @Override

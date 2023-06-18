@@ -3,6 +3,7 @@ package controller;
 import model.entity.*;
 import model.objects.Consumable;
 import model.objects.Item;
+import model.objects.Usable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,7 @@ public class GameManager implements Subject{
     private ArrayList<Observer>observers;
 
     private JTextArea textArea;
+
 
     public GameManager(){
         uiStudent = new UIStudent();
@@ -34,6 +36,8 @@ public class GameManager implements Subject{
         store1();       //3
         hallway2();     //4
         store2();       //5
+
+
         gameOver();
     }
     private void createMenu(){
@@ -41,16 +45,11 @@ public class GameManager implements Subject{
         UIMainMenu mainMenu = new UIMainMenu(img);
         rooms.add(mainMenu);
 
-
         //Boton de comienzo
+        WindowButton WB1=new WindowButton(440,420,400,100);
 
-        WindowButton WB1=new WindowButton(440,360,400,100);
-
-        mainMenu.setButton(WB1,rooms,uiStudent,"START GAME",0,1);
+        mainMenu.setButton(WB1,rooms,uiStudent,"START GAME",0,1,true);
         window.add(rooms.get(0));
-
-        WindowButton wb1=new WindowButton(440,360,400,100);
-        mainMenu.setButton(wb1,rooms,uiStudent,"START GAME",0,1);
 
         mainMenu.addBackgroundImage(img);
 
@@ -63,14 +62,14 @@ public class GameManager implements Subject{
         Consumable consumable = new Consumable("Mate","Mate amargo");
         Item item = new Item("Tablero de dibujo", "Tabala que te ayudara a rendir dibujo");
 
-        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE,consumable,item,path);
+        UIHallway hallway1= new UIHallway("Hallway 1 ",Color.BLUE,null,null,path);
         rooms.add(hallway1);
 
         WindowButton wb1=new WindowButton(500,0,150,50);
-        hallway1.setButton(wb1,rooms,uiStudent,"Classroom 1",1,2);
+        hallway1.setButton(wb1,rooms,uiStudent,"Classroom 1",1,2,false);
 
         WindowButton wb2=new WindowButton(0,300,150,50);
-        hallway1.setButton(wb2,rooms,uiStudent,"Hallway 2",1,4);
+        hallway1.setButton(wb2,rooms,uiStudent,"Hallway 2",1,4,false);
 
         window.add(hallway1);
 
@@ -85,7 +84,7 @@ public class GameManager implements Subject{
         classroom1.setTextArea(textArea,classroom1.getClassroom().getProfessor().getProfessorNickname()+ ": Bienvenido Víctima");
 
        WindowButton exitButton=new WindowButton(570,20,150,50);
-       classroom1.setButton(exitButton,rooms,uiStudent,"Exit",2,1);
+       classroom1.setButton(exitButton,rooms,uiStudent,"Exit",2,1,false);
 
        classroom1.setButton(new ExamButtons(),rooms,2,uiStudent,textArea);
 
@@ -104,7 +103,7 @@ public class GameManager implements Subject{
 
         //Boton para salir de la tienda
         WindowButton exitButton=new WindowButton(1100,620,150,50);
-        store1.setButton(exitButton,rooms,uiStudent,"Exit",3,4);
+        store1.setButton(exitButton,rooms,uiStudent,"Exit",3,4,false);
 
         window.add(rooms.get(3));
 
@@ -120,15 +119,15 @@ public class GameManager implements Subject{
 
         //Boton para ir al store
         WindowButton storeButton=new WindowButton(500,0,150,50);
-        hallway2.setButton(storeButton,rooms,uiStudent,"Store",4,3);
+        hallway2.setButton(storeButton,rooms,uiStudent,"Store",4,3,false);
 
         //Boton para ir al store2
         WindowButton storeButton2 = new WindowButton(0,300,150,50);
-        hallway2.setButton(storeButton2,rooms,uiStudent,"Store2",4,5);
+        hallway2.setButton(storeButton2,rooms,uiStudent,"Store2",4,5,false);
 
         //Boton para ir al hallway1
         WindowButton hallway1Button = new WindowButton(500,630,150,50);
-        hallway2.setButton(hallway1Button,rooms,uiStudent,"Hallway 1",4,1);
+        hallway2.setButton(hallway1Button,rooms,uiStudent,"Hallway 1",4,1,false);
 
         window.add(rooms.get(4));
 
@@ -142,13 +141,14 @@ public class GameManager implements Subject{
 
         //Boton para salir de la tienda
         WindowButton exitButton = new WindowButton(1100,620,150,50);
-        store2.setButton(exitButton,rooms,uiStudent,"Exit",5,4);
+        store2.setButton(exitButton,rooms,uiStudent,"Exit",5,4,false);
 
         window.add(rooms.get(5));
 
         //store2.add(uiStudent.getDataPanel());
 
     }
+
 
     public void gameOver(){
 
@@ -163,6 +163,7 @@ public class GameManager implements Subject{
         window.add(gameOverPanel);
 
     }
+
 
 
     public GameWindow getWindow(){

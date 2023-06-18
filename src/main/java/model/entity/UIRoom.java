@@ -13,7 +13,7 @@ public abstract class UIRoom extends JPanel {
     }
 
     public abstract void setButton(WindowButton windowBt,ArrayList<UIRoom> rooms, UIStudent uiStudent,
-                                   String buttonText, int roomID, int destinyRoom);
+                                   String buttonText, int roomID, int destinyRoom,boolean start);
     public abstract void setButton(ExamStartButton startBt,ArrayList<UIRoom> rooms, int roomID,
                                    UIStudent uistudent, JTextArea textArea);
     public abstract void setButton(ExamButtons examBts,ArrayList<UIRoom> rooms, int roomID,

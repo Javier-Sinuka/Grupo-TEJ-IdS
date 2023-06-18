@@ -197,7 +197,7 @@ public class UIInventoryPanel extends UIRoom implements Subject{
 
 
     @Override
-    public void setButton(WindowButton windowBt, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
+    public void setButton(WindowButton windowBt, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
 
     }
 

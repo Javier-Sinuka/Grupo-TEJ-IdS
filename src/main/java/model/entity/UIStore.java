@@ -59,8 +59,9 @@ public class UIStore extends UIRoom implements Observer {
         this.add(messageLabel);
     }
     @Override
-    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
-        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
+    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
+
+        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom,start);
     }
     @Override
     public void setButton(ExamStartButton startBt, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {

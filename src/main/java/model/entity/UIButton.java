@@ -16,7 +16,7 @@ public interface UIButton {
     /** Inventory Panel Show Button **/
     public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel);
     /** Window Buttons **/
-    public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) ;
+    public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start);
     /** Exam Start Button and Exam Buttons**/
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea,
                                 UIClassroom uiclassroom);

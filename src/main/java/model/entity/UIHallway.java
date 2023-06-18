@@ -77,8 +77,8 @@ public class UIHallway extends UIRoom implements Observer{
         this.add(mapLable);
     }
     @Override
-    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
-        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
+    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
+        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom,start);
     }
 
     @Override

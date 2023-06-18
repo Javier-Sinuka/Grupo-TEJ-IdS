@@ -4,6 +4,7 @@ Apodo: Leonor el Terror Vega
 Cantidad de Creditos Necesarios: 2
 Cantidad de Creditos a aumentar si se aprueba el curso: 3
 Nombre del Item Necesario: Tabla de Derivadas
+Lugar donde conseguir el Item necesario: Tu cola
 Preguntas:
 ¿Question 5?
 - option7 {true}
@@ -32,6 +33,7 @@ Apodo: Da Vinci
 Cantidad de Creditos Necesarios: 3
 Cantidad de Creditos a aumentar si se aprueba el curso: 2
 Nombre del Item Necesario: Tablero de Dibujo Tecnico
+Lugar donde conseguir el Item necesario: Tu cola
 Preguntas:
 ¿Cuanto miden los bordes para las entregas?
 - 1 cm {true}
@@ -48,6 +50,7 @@ Apodo: Dios Alaniz
 Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 5
 Nombre del Item Necesario: Calculadora
+Lugar donde conseguir el Item necesario: Tu cola
 Preguntas:
 ¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
 - Si {true}
