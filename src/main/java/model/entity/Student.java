@@ -31,7 +31,7 @@ public class Student {
         this.coffeeAmount = CoffeeAmount;
         this.walking = amountToWalk;
         this.walkingB = amountToWalk;
-        this.credits = 0;
+        this.credits = 50;
         this.dogeCoin = amountOfDogeCoin;
         this.backpack = new ArrayList<>();
     }

@@ -11,12 +11,8 @@ public class UIClassroom extends UIRoom implements Observer {
     Classroom classroom;
     WindowButton exitButton;
     ExamStartButton examStartButton ;
-
     ExamButtons examButtons;
-
     JTextArea textArea;
-
-
 
     public UIClassroom(ImageIcon img,UIStudent uistudent,String subjectName,int roomID){
         super();
@@ -37,8 +33,7 @@ public class UIClassroom extends UIRoom implements Observer {
         exitButton=new WindowButton(50,100,150,50);
         examButtons=new ExamButtons();
     }
-
-public void setTextArea(JTextArea textArea,String initialText){
+    public void setTextArea(JTextArea textArea,String initialText){
     textArea.setVisible(true);
     textArea.setBounds(61,525,520,150);
     textArea.setBackground(Color.BLACK);

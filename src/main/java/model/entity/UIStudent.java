@@ -72,18 +72,18 @@ public class UIStudent implements Observer{
     public void setInventoryPanelOpen(boolean inventoryPanelOpen) {
         this.inventoryPanelOpen = inventoryPanelOpen;
     }
-
     @Override
     public void update() {
 
+        //Metodo para resetear los datos del student
+        //studen.resetValues();
+
         this.getDataPanel().removeAll();
+        inventoryPanel.removeAll();
+        inventoryPanel.getGridPanel().removeAll();
+        inventoryPanel.parameterInventoryPanel();
+
         this.setDataPanel();
-
-        // Ask tom for help
-
-        //uiclassroom.repaint();
-        //uiclassroom.revalidate();
-        //uiclassroom.updateUI();
 
     }
 }

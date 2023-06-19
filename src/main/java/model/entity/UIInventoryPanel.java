@@ -95,7 +95,7 @@ public class UIInventoryPanel extends UIRoom implements Subject{
                 case "Mate":
                     addLabelInGridPanel(consumablePanel,usable, "src/main/assets/img/consumable/mate.png");
                     break;
-                case "Calculadora":
+                case "Calculadora Casio FX":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/calculator.png");
                     break;
                 case "Kit de componenetes electronicos":
@@ -195,7 +195,7 @@ public class UIInventoryPanel extends UIRoom implements Subject{
     }
 
     @Override
-    public void registerObserver(Observer O) { }
+    public void registerObserver(Observer O) {}
 
     @Override
     public void removeObserver(Observer O) {}

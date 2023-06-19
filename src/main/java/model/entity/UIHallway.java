@@ -12,11 +12,8 @@ import java.util.ArrayList;
 public class UIHallway extends UIRoom implements Observer{
     private Hallway hallway;
     private String mapPath;
-
     private UIStudent uiStudent;
-
     private boolean isLobyCentral;
-
 
     public UIHallway(){
         hallway=new Hallway(new Consumable(),new Item());
@@ -37,7 +34,6 @@ public class UIHallway extends UIRoom implements Observer{
         randomObject();
         mapLabel();
     }
-
     public void ceuAndAbmLabel(){
 
         Usable derivateTalbe = new Item("Tabla de derivadas", "Esta tabla te ayudara a rendir Introduccion a la Matematica");
@@ -116,9 +112,6 @@ public class UIHallway extends UIRoom implements Observer{
         this.add(abmLabel);
         this.add(ceuLabel);
     }
-
-
-
     public void randomObject(){
         Usable usable = hallway.getRandomUsable();
 
@@ -169,6 +162,7 @@ public class UIHallway extends UIRoom implements Observer{
         mapLable.setIcon(new ImageIcon(mapImg.getImage().getScaledInstance(mapLable.getWidth(),mapLable.getHeight(),Image.SCALE_SMOOTH)));
         this.add(mapLable);
     }
+
     @Override
     public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
         wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom,start);
