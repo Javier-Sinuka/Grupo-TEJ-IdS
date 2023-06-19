@@ -193,7 +193,6 @@ public class Professor {
     public String examResultInfo () {
         if (flag) {
             int life = this.student.getLifeAmount();
-            life -= this.lifeToSubtractStudent();
             if (this.examResult() && life > 0) {
                 this.student.decreaseLifeBar(lifeToSubtractStudent());
                 this.student.addCredits(this.getCreditsIfPassed());
