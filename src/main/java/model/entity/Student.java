@@ -177,6 +177,10 @@ public class Student {
             System.out.println(us.getName());
         }
     }
+
+    public void setLifeAmount(int i) {
+        lifeAmount=i;
+    }
 }
 
 

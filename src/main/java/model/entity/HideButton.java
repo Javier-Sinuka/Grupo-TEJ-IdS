@@ -51,12 +51,17 @@ public class HideButton implements UIButton{
     public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
 
     @Override
-    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
+    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {}
 
 
 
     @Override
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {}
+
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms) {
+
+    }
 
 
     public JButton getButton() {

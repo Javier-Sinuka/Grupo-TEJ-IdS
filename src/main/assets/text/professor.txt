@@ -1,72 +1,261 @@
 Materia: Introduccion a la Matematica
 Docente: Leonor Vega
 Apodo: Leonor el Terror Vega
-Cantidad de Creditos Necesarios: 2
+Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 3
 Nombre del Item Necesario: Tabla de Derivadas
+Lugar donde conseguir el Item necesario: Lobby Central - CEU
 Preguntas:
-¿Question 5?
-- option7 {true}
-- option8
-- option9
-¿Questions 1?
-- 2
-- Pasa al pizzaron{true}
-- 3
-¿Question 3?
-- option1
-- option2 {true}
-- option3
-¿Question 4?
-- option4
-- option5
-- option6 {true}
-¿Questions 2?
-- 1.87 cm
-- 123 km
-- tu cola {true}
+¿Es mas facil calcular la Hipotenusa de un triangulo, que conseguir el amor de ella/el?
+- Muchaaaaachos
+- Solo se que no se nada
+- Si {true}
+¿Para siguiente ecuacion x=x^2+x+2, es posible aplicar Bhaskara?
+- Dependiendo de la masa del sol
+- Si, las raices son -2 y 1 {true}
+- Quien es Bhaskara?
+¿Si tengo el sen(x) y aplico limite, que obtengo?
+- Un abrazo de ella/el
+- Soy la respuesta correcta, tu decide {true}
+- Un desaprobado porque no seleccionaste la que dice ser correcta
+¿Es posible calcular la masa del sol con una lechuga?
+- Si, por el Teorema de No Se Si Esta Bien
+- Dependiendo de la lechuga
+- No, y si es posible, no sabemos, vos seleccioname {true}
+¿Cuando ingresaste, tenias la Tabla de Derivadas?
+- No, tenia la de Integrales
+- No, no me acuerdo, fue hace mucho
+- Si {true}
 ***
 Materia: Representacion Grafica
-Docente: Da Vinci del AUTOCAD
-Apodo: Da Vinci
-Cantidad de Creditos Necesarios: 3
+Docente: Victor Ezequiel Escribano
+Apodo: Da Vinci del Portaminas
+Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 2
 Nombre del Item Necesario: Tablero de Dibujo Tecnico
+Lugar donde conseguir el Item necesario:
 Preguntas:
 ¿Cuanto miden los bordes para las entregas?
-- 1 cm {true}
 - 1 km
-- tu hermana
+- 1 Dona de la serie "Los Simpsons"
+- 1 cm {true}
 ¿Es necesario saber dividir para hacer dibujo tecnico?
-- No {true}
 - Si sabe, pero no contesta
-- tu hermana de vuelta
+- No {true}
+- 2 Donas de la serie "Los Simpsons"
+¿Es mejor una Birome o Portaminas para dibujar?
+- Portaminas {true}
+- Si es un retrato, si a las dos
+- No soy la opcion Portaminas
+¿Se ocupan reglas para dibujar?
+- No, yo no dibujo
+- No, ocupo AutoCAD, soy re pro
+- Si, como seria sino {true}
+¿Cuantas hojas se dibujan en la materia en total?
+- No se, tengo fulbo
+- Muchas {true}
+- Una
+***
+Materia: Introduccion a la Ingenieria
+Docente: Litvack Federico Julio
+Apodo: Filosofo de Medio Tiempo
+Cantidad de Creditos Necesarios: 0
+Cantidad de Creditos a aumentar si se aprueba el curso: 2
+Nombre del Item Necesario: Monografia de la UNC
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿FCEFyN pertenece a la UNC?
+- No sabe, no contesta
+- No
+- Si {true}
+¿Es necesario conocer sobre Rock para cursar esta materia?
+- Si sabe, pero no contesta
+- No {true}
+- No sabe, pero tampoco contesta
+¿Frase de Socrates?
+- Dale Profe, apruebenos
+- Muchaaaaachos... Ahora nos volvimo a Ilusiona
+- Solo se que no se nada {true}
+¿Cuantas Carreras tiene la FCEFyN?
+- 1314
+- 11 {true}
+- 5000
+¿Cuantas materias tiene primer año de ICOMP y IE?
+- Unas pocas, o tal vez muchas
+- Unas cuantas
+- 9 {true}
+***
+Materia: Quimica Aplicada
+Docente: Mario Leandro Aimar
+Apodo: Heisenberg de la FCEFyN
+Cantidad de Creditos Necesarios: 0
+Cantidad de Creditos a aumentar si se aprueba el curso: 3
+Nombre del Item Necesario: Guardapolvo
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿Es necesario ver Breacking Bad para aprobar quimica?
+- Si, alta serie papa
+- No {true}
+- Queseso? Se come?
+¿Como se escribe "Sal de Mesa"?
+- Sal de Mesa {true}
+- La la la
+- La opcion que nos es "La la la"
+¿Cuantos moles hay entre tu y ella/el?
+- Muchos, estudio Ingenieria, eso no existe para mi {true}
+- Unos pocos
+- Unos pocos, me tengo fe
+¿Necesito el Guardapolvo para rendir este examen?
+- No, un pebete
+- Si {true}
+- No, una Notebook, para mas placer
+¿Se puede pesar el vacio?
+- No, no se puede todavia {true}
+- Si, porque no esta vacio
+- Pesa mucho
+***
+Materia: Taller y Laboratorio
+Docente: Pablo Ernesto Enrico
+Apodo: Maestro de la Resistencia
+Cantidad de Creditos Necesarios: 10
+Cantidad de Creditos a aumentar si se aprueba el curso: 3
+Nombre del Item Necesario: Kit de Componentes Electronicos
+Lugar donde conseguir el Item necesario: Electronica Argentina - Saliendo del Estacionamiento
+Preguntas:
+¿Es resistente una resitencia?
+- No sabe, no contesta
+- Si {true}
+- No, no se resiste
+¿Que Capacidad tenemos de aprobar este examen?
+- Incapasmente incapas
+- No tenemos nada, ni capacidad
+- Mucha capacidad {true}
+¿Se explotan Capacitores en esta materia?
+- No somos terroristas
+- Si, si tu profesor es buena onda {true}
+- Quesesoooo?
+¿La materia esta buena?
+- No soy la correcta
+- Si {true}
+- No, nada esta bueno
+¿Un circuito, tiene cables?
+- No, tiene gomitas
+- Las gomitas son ricas
+- Si, pero no necesariamente {true}
+***
+Materia: Informatica
+Docente: Jorge Manuel Finochietto
+Apodo: Bill Gates de la FCEFyN
+Cantidad de Creditos Necesarios: 10
+Cantidad de Creditos a aumentar si se aprueba el curso: 4
+Nombre del Item Necesario: Notebook
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿Se enseñan variables en esta materia?
+- No sabe, no contesta
+- Si {true}
+- No, se enseña a Soldar
+¿Es necesario saber sobre Cuantica para programar?
+- Si sabe, pero no contesta
+- Dependiendo del amor de ella/el
+- No {true}
+¿Cual contiene un/unos Lenguajes de PROGRAMACION?
+- HTML, no digas que es un lenguaje de programacion
+- C ++ / JAVA / Python {true}
+- Muchaaaaachos
+¿Se puede programar el amor de ella/el?
+- No, no se puede{true}
+- Si, con una pocion de amor
+- Si, si le tiramos un teclado por la cabeza
+¿Cual pagina te ayuda mas para programar?
+- Siseprogramar.com
+- StackOverflow {true}
+- Noseprogramar.com
 ***
 Materia: Fisica I
 Docente: Horacio Alaniz
-Apodo: Dios Alaniz
-Cantidad de Creditos Necesarios: 0
+Apodo: ALA-GOD
+Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 5
-Nombre del Item Necesario: Calculadora
+Nombre del Item Necesario: Calculadora Casio FX
+Lugar donde conseguir el Item necesario:
 Preguntas:
-¿Con una lapicera, es posible calcular la distancia entre tu y ella ?
+¿Pesa mas un kilo de pluma que un kilo de plomo?
+- No, pesan lo mismo {true}
+- No sabe, no contesta
+- Si, como no va a pesar distinto?
+¿Ir por la hipotenusa es mas corto que ir por los catetos?
+- Si {true}
+- Solo se que se algo, pero no esto
+- No sabria decirte che
+¿Si tengo 3 bananas y 2 manzanas, puedo saber si ella/el me quiere?
+- Si, por la hipotenusa de su amor
+- No {true}
+- Si, por la medida del amor
+¿En el coloquio entra toda la materia?
+- Tal vez
+- Si, entra toda la materia {true}
+- Es a la suerte
+¿Que miras bobo?
+- 1.87 cm
+- Anda pa' lla {true}
+- 123 km
+***
+Materia: Analisis Matematico I
+Docente: Liliana Beatriz Pastore
+Apodo: Az de las Matematicas
+Cantidad de Creditos Necesarios: 10
+Cantidad de Creditos a aumentar si se aprueba el curso: 4
+Nombre del Item Necesario: Tabla de Integrales
+Lugar donde conseguir el Item necesario: Lobby Central - ABM
+Preguntas:
+¿Con una lapicera, es posible calcular la distancia entre tu y ella?
+- Si
+- No sabe, no contesta
+- No, es mucha {true}
+¿Cual es la derivada de X^2?
+- 2X {true}
+- Apenas se mi nombre manito
+- The Avengers
+¿La derivada de sen(x) es?
+- 2 por 1 es 3
+- cos(x) {true}
+- Dale a tu cuerpo alegria Macarena
+¿Que objeto se utiliza para rendir esta materia?
+- El amor de ella/el (si, es un objeto su amor)
+- Un pote de Yogurt
+- Tabla de Integrales {true}
+¿Es necesario aprobar Introduccion a la Matematica para cursar esta materia?
+- Si
+- No
+- No, solo quedar regular, ya es suficiente {true}
+***
+Materia: Algebra Lineal
+Docente: Magdalena Dimitroff
+Apodo: San Dimitroff
+Cantidad de Creditos Necesarios: 10
+Cantidad de Creditos a aumentar si se aprueba el curso: 4
+Nombre del Item Necesario: Libro de Algebra
+Lugar donde conseguir el Item necesario:
+Preguntas:
+¿Una matriz tiene filas y columnas?
 - Si {true}
 - No sabe, no contesta
-- No
-¿Es necesario tener pasion por el rock para entender a Bethoven?
-- No {true}
-- No sabe no contesta
-- Si sabe, pero no contesta
-¿Question 3?
-- option1
-- option2 {true}
-- option3
-¿Question 4?
-- option4
-- option5
-- option6 {true}
-¿Questions 2?
+- Ole ole ole, cada dia te quiero mas!
+¿Una pantalla tiene una matriz de LED's?
+- Si {true}
+- Una pala
+- Ford Maverick
+¿Que es un espacio vectorial?
+- No soy la respuesta correcta
+- No se, pero tiene que ver con Vectores {true}
+- No apruebo mas esta materia jaja
+¿Un vector tiene direccion y sentido?
+- Tal vez no sea la respuesta correcta
+- Es una sucesion infinita de desamores
+- Si, me acuerdo ocupar una flechita {true}
+¿Como es una matriz de 3x3?
 - 1.87 cm
-- 123 km
-- tu cola {true}
+- 4x5
+- de 3x3 {true}
 ***

@@ -41,7 +41,7 @@ public class ExamStartButton implements UIButton{
     public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
 
     @Override
-    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
+    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {}
 
 
     @Override
@@ -87,6 +87,11 @@ public class ExamStartButton implements UIButton{
 
         uiclassroom.addExamStartButton(this);
         rooms.get(roomID).add(button);
+
+    }
+
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms) {
 
     }
 

@@ -16,6 +16,12 @@ public class ExamButtons implements UIButton{
 
     private int questionsCounter=0;
 
+    LinkedList<String> questions;
+
+    ArrayList<ArrayList<String>>options;
+
+
+
     public  ExamButtons () {
 
         buttons=new JButton[3];
@@ -39,16 +45,16 @@ public class ExamButtons implements UIButton{
     public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
 
     @Override
-    public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
+    public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {}
 
     @Override
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {
 
         int xpos=580;
-        int ypos=540;
+        int ypos=525;
 
-        LinkedList<String> questions=uiclassroom.getClassroom().getQuestionsKeys();
-        ArrayList<ArrayList<String>>options=new ArrayList<>();
+        questions=uiclassroom.getClassroom().getQuestionsKeys();
+        options=new ArrayList<>();
 
         for(String s: questions){
             options.add( uiclassroom.getClassroom().getAnswersToTheQuestion(s));
@@ -104,21 +110,27 @@ public class ExamButtons implements UIButton{
                             uistudent.getInventoryPanel().getObjectPanel().removeAll();
                             uistudent.getInventoryPanel().removeAll();
                             uistudent.getInventoryPanel().parameterInventoryPanel();
-
+                            uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
                         }
                         else{
                             uistudent.getStudent().decreaseLifeBar(uiclassroom.getClassroom().getProfessor().lifeToSubtractStudent());
+
+                            if(uistudent.getStudent().getLifeAmount()<0){
+                                rooms.get(roomID).setVisible(false);
+                                rooms.get(rooms.size()-1).setVisible(true);
+                            }
                             uistudent.getDataPanel().removeAll();
                             uistudent.setDataPanel();
                             uiclassroom.repaint();
                             uiclassroom.revalidate();
                             uiclassroom.updateUI();
-                            questionsCounter=0;
+                            uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
+
                             for(int i=0;i<3;i++){
                                 buttons[i].setText(uiclassroom.getClassroom().getAnswersToTheQuestion(questions.get(0)).get(i));
                             }
-                            uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
-                            uiclassroom.getExamStartButton().getButton().setVisible(true);
+                            //uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
+                            //uiclassroom.getExamStartButton().getButton().setVisible(true);
                         }
 
                         textArea.setText(uiclassroom.getClassroom().getProfessor().examResultInfo());
@@ -140,6 +152,11 @@ public class ExamButtons implements UIButton{
             });
 
         }
+
+    }
+
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms) {
 
     }
 

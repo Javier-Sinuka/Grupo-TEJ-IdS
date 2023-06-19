@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-public class UIStudent {
+public class UIStudent implements Observer{
     private Student student;
     private JPanel dataPanel;
     private JProgressBar lifeBar;
@@ -17,7 +17,7 @@ public class UIStudent {
     private boolean inventoryPanelOpen;
     public UIStudent(){
         this.inventoryPanelOpen = false;
-        this.student=new Student("Tomas Brigido",80,20,20,500);
+        this.student=new Student("Tomas Brigido",1,20,20,500);
         this.dataPanel = new JPanel();
         this.lifeBar = new JProgressBar(0,100);
         this.inventoryButton = new InventoryButton();
@@ -71,6 +71,20 @@ public class UIStudent {
     }
     public void setInventoryPanelOpen(boolean inventoryPanelOpen) {
         this.inventoryPanelOpen = inventoryPanelOpen;
+    }
+
+    @Override
+    public void update() {
+
+        this.getDataPanel().removeAll();
+        this.setDataPanel();
+
+        // Ask tom for help
+
+        //uiclassroom.repaint();
+        //uiclassroom.revalidate();
+        //uiclassroom.updateUI();
+
     }
 }
 

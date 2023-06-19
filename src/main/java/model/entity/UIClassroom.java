@@ -15,12 +15,12 @@ public class UIClassroom extends UIRoom implements Observer {
     ExamButtons examButtons;
 
     JTextArea textArea;
-    ImageIcon img;
+
 
 
     public UIClassroom(ImageIcon img,UIStudent uistudent,String subjectName,int roomID){
         super();
-        this.img = img;
+        backgroundImage = img;
         this.setSize(GameWindow.WIDTH,GameWindow.HEIGHT);
         this.setVisible(false);
         this.setLayout(null);
@@ -40,7 +40,7 @@ public class UIClassroom extends UIRoom implements Observer {
 
 public void setTextArea(JTextArea textArea,String initialText){
     textArea.setVisible(true);
-    textArea.setBounds(61,540,520,150);
+    textArea.setBounds(61,525,520,150);
     textArea.setBackground(Color.BLACK);
     textArea.setForeground(Color.white);
     textArea.setOpaque(true);
@@ -56,11 +56,10 @@ public void setTextArea(JTextArea textArea,String initialText){
     public ExamButtons getExamButtons() { return examButtons;}
 
     @Override
-    public void setButton(WindowButton windowBt, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
+    public void setButton(WindowButton windowBt, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
 
-        windowBt.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
+        windowBt.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom,start);
     }
-
 
     @Override
     public void setButton(ExamStartButton examBt,ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea){
@@ -70,6 +69,11 @@ public void setTextArea(JTextArea textArea,String initialText){
     @Override
     public void setButton(ExamButtons examBts, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
         examBts.configureButton(rooms,roomID,uistudent,textArea,this);
+    }
+
+    @Override
+    public void setButton(RestartButton restartBt, ArrayList<UIRoom> rooms) {
+
     }
 
     public void addExamButton(JButton button){
@@ -101,11 +105,19 @@ public void setTextArea(JTextArea textArea,String initialText){
     }
 
     public void paintComponent(Graphics g){
-        g.drawImage(img.getImage(),0,0,getWidth(),getHeight(), this);
+        g.drawImage(backgroundImage.getImage(),0,0,getWidth(),getHeight(), this);
     }
 
 
+    /**
+     Este método resetea el UIClassroom a sus valores iniciales una vez termina el juego
+
+     */
     @Override
-    public void update() {}
+    public void update() {
+
+        this.setTextArea(textArea,this.getClassroom().getProfessor().getProfessorNickname()+ ": Bienvenido Víctima");
+        examStartButton.getButton().setVisible(true);
+    }
 
 }

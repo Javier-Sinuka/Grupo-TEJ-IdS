@@ -44,8 +44,13 @@ public class InventoryButton implements UIButton{
         });
     }
     @Override
-    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
+    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {}
     @Override
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {}
+
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms) {
+
+    }
 
 }

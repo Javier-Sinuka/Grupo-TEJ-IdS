@@ -41,7 +41,7 @@ public class WindowButton implements UIButton{
 
 
     @Override
-    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
+    public void configureButton(ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
 
         button.setVisible(true);
         button.setBounds(xpos,ypos,width,height);
@@ -51,9 +51,22 @@ public class WindowButton implements UIButton{
         button.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                roomsPanels.get(roomID).setVisible(false);
-                roomsPanels.get(destinyRoom).setVisible(true);
-                roomsPanels.get(destinyRoom).add(uiStudent.getDataPanel());
+
+
+                if(start){
+                    UIMainMenu mainMenu= (UIMainMenu) rooms.get(0);
+                    System.out.println(mainMenu.getTextArea().getText());
+                    uiStudent.getStudent().setNameStudent(mainMenu.getTextArea().getText());
+                    uiStudent.getDataPanel().removeAll();
+                    uiStudent.setDataPanel();
+                    uiStudent.getInventoryPanel().removeAll();
+                    uiStudent.getInventoryPanel().parameterInventoryPanel();
+                    System.out.println(uiStudent.getStudent().getNameStudent());
+                }
+
+                rooms.get(roomID).setVisible(false);
+                rooms.get(destinyRoom).setVisible(true);
+                rooms.get(destinyRoom).add(uiStudent.getDataPanel());
                 uiStudent.getInventoryPanel().setVisible(false);
             }
             @Override
@@ -65,11 +78,16 @@ public class WindowButton implements UIButton{
             @Override
             public void mouseExited(MouseEvent e) {}
         });
-        roomsPanels.get(roomID).add(button);
+        rooms.get(roomID).add(button);
     }
 
     @Override
     public void configureButton(ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea, UIClassroom uiclassroom) {
+
+    }
+
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms) {
 
     }
 

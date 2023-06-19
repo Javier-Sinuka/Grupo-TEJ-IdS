@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class UIStore extends UIRoom {
+public class UIStore extends UIRoom implements Observer {
     private UIStudent uiStudent;
     private Boolean bar;
     private JLabel messageLabel;
@@ -59,8 +59,9 @@ public class UIStore extends UIRoom {
         this.add(messageLabel);
     }
     @Override
-    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
-        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
+    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
+
+        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom,start);
     }
     @Override
     public void setButton(ExamStartButton startBt, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
@@ -69,6 +70,19 @@ public class UIStore extends UIRoom {
 
     @Override
     public void setButton(ExamButtons examBts, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
+
+    @Override
+    public void setButton(RestartButton restartBt, ArrayList<UIRoom> rooms) {
+
+    }
+
+    @Override
+    public void update() {
+
+
+
 
     }
 }
