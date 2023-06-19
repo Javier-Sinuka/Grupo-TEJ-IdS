@@ -185,7 +185,7 @@ public class Student {
     }
 
     public void setLifeAmount(int i) {
-        lifeAmount=i;
+        this.lifeAmount=i;
     }
 }
 
