@@ -90,6 +90,8 @@ public class GameManager implements Subject{
         hallway1.setButton(wb4,rooms,uiStudent,"Estacionamiento",1,8,false);
 
         window.add(hallway1);
+
+        registerObserver(hallway1);
     }
     private void hallway2() {
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo2.jpg");

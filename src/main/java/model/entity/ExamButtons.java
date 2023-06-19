@@ -116,7 +116,7 @@ public class ExamButtons implements UIButton{
                         else{
                             uistudent.getStudent().decreaseLifeBar(uiclassroom.getClassroom().getProfessor().lifeToSubtractStudent());
 
-                            if(uistudent.getStudent().getLifeAmount()<0){
+                            if(uistudent.getStudent().getLifeAmount()<=0){
                                 questionsCounter=0;
                                 uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
                                 rooms.get(roomID).setVisible(false);

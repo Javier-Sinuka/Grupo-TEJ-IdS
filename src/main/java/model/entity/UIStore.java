@@ -26,7 +26,7 @@ public class UIStore extends UIRoom implements Observer {
         this.storeButton1 = new StoreButton();
         this.storeButton2 = new StoreButton();
         this.calculadora = new Item("Calculadora Casio FX","La calculadora te servira para rendir Fisica");
-        this.kitElectronica = new Item("Kit de componenetes electronicos","Este kit te ayudara para rendir Taller y Laboratorio");
+        this.kitElectronica = new Item("Kit de Componenetes Electronicos","Este kit te ayudara para rendir Taller y Laboratorio");
 
         propertiesStore();
         messageLabel();

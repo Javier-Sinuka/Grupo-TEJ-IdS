@@ -115,6 +115,7 @@ public class UIClassroom extends UIRoom implements Observer {
     public void update() {
 
         this.setTextArea(this.getClassroom().getProfessor().getProfessorNickname()+ ": Bienvenido Víctima");
+
         examStartButton.getButton().setVisible(true);
     }
 

@@ -98,7 +98,7 @@ public class UIInventoryPanel extends UIRoom implements Subject{
                 case "Calculadora Casio FX":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/calculator.png");
                     break;
-                case "Kit de componenetes electronicos":
+                case "Kit de Componenetes Electronicos":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/KitComponentes.png");
                     break;
                 case "Tabla de Integrales":

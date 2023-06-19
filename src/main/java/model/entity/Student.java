@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class Student {
     private String nameStudent;
-    private int lifeAmount = 10, coffeeAmount, walking,
+    private int lifeAmount, coffeeAmount, walking,
             walkingB, credits, dogeCoin;
     private ArrayList<Usable> backpack;
 
