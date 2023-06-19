@@ -99,6 +99,7 @@ public class ExamButtons implements UIButton{
                 public void mouseReleased(MouseEvent e){
 
                     if(questionsCounter==4){
+
                         for(int i=0;i<3;i++){
                             buttons[i].setVisible(false);
                         }
@@ -116,6 +117,8 @@ public class ExamButtons implements UIButton{
                             uistudent.getStudent().decreaseLifeBar(uiclassroom.getClassroom().getProfessor().lifeToSubtractStudent());
 
                             if(uistudent.getStudent().getLifeAmount()<0){
+                                questionsCounter=0;
+                                uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
                                 rooms.get(roomID).setVisible(false);
                                 rooms.get(rooms.size()-1).setVisible(true);
                             }
@@ -129,8 +132,7 @@ public class ExamButtons implements UIButton{
                             for(int i=0;i<3;i++){
                                 buttons[i].setText(uiclassroom.getClassroom().getAnswersToTheQuestion(questions.get(0)).get(i));
                             }
-                            //uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
-                            //uiclassroom.getExamStartButton().getButton().setVisible(true);
+
                         }
 
                         textArea.setText(uiclassroom.getClassroom().getProfessor().examResultInfo());

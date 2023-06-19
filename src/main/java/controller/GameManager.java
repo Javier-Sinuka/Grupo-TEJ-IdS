@@ -206,7 +206,7 @@ public class GameManager implements Subject{
         hallway3.setButton(wb3,rooms,uiStudent,"Pasillo 7",6,7,false);
 
         WindowButton wb4=new WindowButton(600,20,150,50);
-        hallway3.setButton(wb4,rooms,uiStudent,"Aula 254",6,1,false);
+        hallway3.setButton(wb4,rooms,uiStudent,"Aula 254",6,14,false);
 
         window.add(hallway3);
 

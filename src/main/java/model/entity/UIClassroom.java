@@ -107,7 +107,6 @@ public class UIClassroom extends UIRoom implements Observer {
         g.drawImage(backgroundImage.getImage(),0,0,getWidth(),getHeight(), this);
     }
 
-
     /**
      Este método resetea el UIClassroom a sus valores iniciales una vez termina el juego
 
