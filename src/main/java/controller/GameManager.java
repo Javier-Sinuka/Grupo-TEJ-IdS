@@ -71,7 +71,6 @@ public class GameManager {
         hallway1.setButton(wb2,rooms,uiStudent,"Hallway 2",1,4);
 
         window.add(hallway1);
-
         //hallway1.add(uiStudent.getDataPanel());
     }
     private void classRoom1() {
