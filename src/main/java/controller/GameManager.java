@@ -94,7 +94,7 @@ public class GameManager implements Subject{
 
     private void hallway2() {
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo2.jpg");
-        String path = "src/main/assets/img/map/Pasillo_Aula_4.png";
+        String path = "src/main/assets/img/map/Pasilla_Aula_214.png";
         Consumable consumable = new Consumable("Cafe","Cafe rico");
         Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir quimica");
 
@@ -122,7 +122,7 @@ public class GameManager implements Subject{
     private void hallway3() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo3.jpg");
-        String mapPath = "src/main/assets/img/map/Pasillo_Aula_3.png";
+        String mapPath = "src/main/assets/img/map/Pasillo_Aula_200.png";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
         Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir Quimica");

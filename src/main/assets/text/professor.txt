@@ -12,7 +12,7 @@ Preguntas:
 - Si {true}
 ¿Para siguiente ecuacion x=x^2+x+2, es posible aplicar Bhaskara?
 - Dependiendo de la masa del sol
-- Si, las raices son -2 y 1{true}
+- Si, las raices son -2 y 1 {true}
 - Quien es Bhaskara?
 ¿Si tengo el sen(x) y aplico limite, que obtengo?
 - Un abrazo de ella/el
