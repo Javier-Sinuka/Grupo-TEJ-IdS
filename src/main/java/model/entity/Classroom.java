@@ -99,7 +99,7 @@ public class Classroom {
      * asi la logica de examen funciona correctamente.
      */
     public void increaseCounterCorrectOption(){
-        this.professor.increaseCounterCorrectQuestions();;
+        this.professor.increaseCounterCorrectQuestions();
     }
 
     /**
