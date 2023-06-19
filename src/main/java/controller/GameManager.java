@@ -281,7 +281,7 @@ public class GameManager implements Subject{
 
        registerObserver(classroom200);
 
-      // classroom1.addProfessorImage(640,150,230,330,"src/main/assets/img/ProfessorsImages/Vega.png");
+      classroom200.addProfessorImage(640,150,230,330,"src/main/assets/img/ProfessorsImages/pastore.png");
 
     }
     private void classRoom104(){
@@ -326,6 +326,8 @@ public class GameManager implements Subject{
         window.add(rooms.get(11));
 
         registerObserver(classroom214);
+
+        classroom214.addProfessorImage(750,240,330,300,"src/main/assets/img/ProfessorsImages/representacion grafica.png");
 
     }
     private void classRoom107(){
