@@ -14,7 +14,6 @@ pueda hacerlo mediante este Video Juego.
 
 (Actualmente solo se encuentra implementado la carrera Estudiante de Ingenieria en Computacion, 
 teniendo en vista el objetivo de representar las 11 carreras que probee la FCEFyN - UNC)
-  
 
 ## Características y Funcionalidades
 
@@ -23,13 +22,19 @@ teniendo en vista el objetivo de representar las 11 carreras que probee la FCEFy
 - Poder Realizar compras en un Store con una Criptomoneda.
 - Incrementar y Decrementar Vida y Cafeina, a medida que se avanza en el juego.
 
+## Requisitos Necesarios
+
+- Contar con Java 19 o posterior.
+- Disponibilidad de 100mb o mas en almacenamiento.
+- Pantalla igual o superior a 1280x720 px.
+
 ## Instalación
 
-1. Clona el repositorio: `git clone https://github.com/tu-usuario/tu-repositorio.git`
-2. Navega al directorio del proyecto: `cd tu-repositorio`
+1. Descargar el proyecto en formato ZIP desde: `https://github.com/Javier-Sinuka/Grupo-TEJ-IdS`
+2. Descomprima el archivo en una carpeta de tu computadora, en donde desees que se guarde.
 3. Instala las dependencias: `npm install`
 
-## Uso
+## Uso del VideoJuego
 
 Explica cómo usar o ejecutar el proyecto.
 
@@ -41,6 +46,7 @@ Indica cómo otros desarrolladores pueden contribuir al proyecto. Puedes mencion
 - Cómo proponer nuevas características o mejoras.
 - Cómo enviar pull requests.
 
-## Licencia
+## Derechos Reservados
 
-Indica la licencia bajo la cual se distribuye el proyecto. Por ejemplo, puedes utilizar la Licencia MIT.
+El presente VideoJuego, realizado por el Grupo TEJ, se reserva derechos de autor. 
+Esta obra está protegida por las leyes de derechos de autor y tratados internacionales correspondientes.
