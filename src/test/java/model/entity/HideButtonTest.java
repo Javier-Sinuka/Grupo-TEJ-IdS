@@ -38,14 +38,4 @@ class HideButtonTest {
 
         assertFalse(inventoryPanelTest.isVisible());
     }
-
-
-
-
-
-
-
-
-
-
 }
