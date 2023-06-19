@@ -148,7 +148,8 @@ public class Professor {
      */
     public double percentageOfCorrectAnswers () {
         if (flag) {
-            return (double) (getCounterCorrectAnswers() * 100) / this.getQuestionsKeysExams().size();
+            double t = (getCounterCorrectAnswers() * 100) / this.getQuestionsKeysExams().size();
+            return t;
         } else {
             return 0;
         }
@@ -160,7 +161,8 @@ public class Professor {
      */
     public int lifeToSubtractStudent () {
         if (flag) {
-            int perccentage = (int) Math.ceil((this.getQuestionsKeysExams().size() - this.getCounterCorrectAnswers()) * (0.5));
+            int value = this.getQuestionsKeysExams().size() - this.getCounterCorrectAnswers();
+            int perccentage = (int) Math.round(value * (0.5));
             return perccentage;
         } else {
             return 0;
@@ -182,7 +184,7 @@ public class Professor {
      * @return True si aprobo el examen, False si no es asi
      */
     public boolean examResult() {
-        return (this.percentageOfCorrectAnswers() >= 60);
+        return (this.percentageOfCorrectAnswers() >= 60.00);
     }
 
     /**
@@ -193,8 +195,8 @@ public class Professor {
     public String examResultInfo () {
         if (flag) {
             int life = this.student.getLifeAmount();
-            if (this.examResult() && life > 0) {
-                this.student.decreaseLifeBar(lifeToSubtractStudent());
+            life -= this.lifeToSubtractStudent();
+            if (this.examResult()){
                 this.student.addCredits(this.getCreditsIfPassed());
                 return "APROBASTE WACHIN!! acertaste: " + this.getCounterCorrectAnswers() +
                         " respuestas" + "\n" +
