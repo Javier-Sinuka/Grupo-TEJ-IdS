@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 public class UIStudent implements Observer{
     private Student student;
+    private Student safeStudent;
     private JPanel dataPanel;
     private JProgressBar lifeBar;
     private InventoryButton inventoryButton;
@@ -17,7 +18,8 @@ public class UIStudent implements Observer{
     private boolean inventoryPanelOpen;
     public UIStudent(){
         this.inventoryPanelOpen = false;
-        this.student=new Student("Tomas Brigido",1,20,20,500);
+        this.student=new Student("Player Name",1,20,20,500);
+        this.safeStudent = new Student("Player Name",1,20,20,500);
         this.dataPanel = new JPanel();
         this.lifeBar = new JProgressBar(0,100);
         this.inventoryButton = new InventoryButton();
@@ -75,12 +77,19 @@ public class UIStudent implements Observer{
     @Override
     public void update() {
 
-        //Metodo para resetear los datos del student
-        //studen.resetValues();
+        student.setNameStudent(safeStudent.getNameStudent());
+        student.setCredits(safeStudent.getCredits());
+        student.setLifeAmount(safeStudent.getLifeAmount());
+        student.setDogeCoin(safeStudent.getDogeCoinInWallet());
+        student.setCoffeeAmount(safeStudent.getCoffeeAmount());
+
+        student.deleteAllItemBackpack();
 
         this.getDataPanel().removeAll();
         inventoryPanel.removeAll();
         inventoryPanel.getGridPanel().removeAll();
+        inventoryPanel.getObjectPanel().removeAll();
+        inventoryPanel.getConsumablePanel().removeAll();
         inventoryPanel.parameterInventoryPanel();
 
         this.setDataPanel();

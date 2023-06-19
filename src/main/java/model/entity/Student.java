@@ -19,10 +19,8 @@ import java.util.ArrayList;
  */
 public class Student {
     private String nameStudent;
-
     private int lifeAmount = 10, coffeeAmount, walking,
             walkingB, credits, dogeCoin;
-
     private ArrayList<Usable> backpack;
 
     public Student(String nameStudent, int lifeAmount, int CoffeeAmount, int amountToWalk, int amountOfDogeCoin) {
@@ -151,6 +149,14 @@ public class Student {
                 break;
             }
         }
+    }
+
+    public void deleteAllItemBackpack(){
+        this.backpack.clear();
+    }
+
+    public void setCoffeeAmount (int coffeeAmount){
+        this.coffeeAmount = coffeeAmount;
     }
 
     //*************************** METODOS PROPIOS *********************************
