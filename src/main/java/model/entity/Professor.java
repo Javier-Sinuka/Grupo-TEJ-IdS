@@ -63,7 +63,7 @@ public class Professor {
     /**
      * @return Nombre del Profesor que dicta esta materia
      */
-    public String getNameProfessor () {
+    public String getProfessorName () {
         return dbExams.getNameProfessor(associatedSubjectName);
     }
 
@@ -84,7 +84,7 @@ public class Professor {
     /**
      * @return Item necesario para cursar esta materia
      */
-    public Usable getItemNecessary () {
+    public Usable getNecessaryItem () {
         return dbExams.getItemNecesary(associatedSubjectName);
     }
 
@@ -92,7 +92,7 @@ public class Professor {
      * Metodo que devuelve la ubicacion del Item necesario para rendir el examen
      * @return Ubicacion del Item necesario para rendir el examen
      */
-    public String getItemUbication(){
+    public String getItemLocation(){
         return dbExams.getItemUbication(associatedSubjectName);
     }
 

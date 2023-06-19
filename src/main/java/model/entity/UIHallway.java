@@ -36,8 +36,8 @@ public class UIHallway extends UIRoom implements Observer{
     }
     public void ceuAndAbmLabel(){
 
-        Usable derivateTalbe = new Item("Tabla de derivadas", "Esta tabla te ayudara a rendir Introduccion a la Matematica");
-        Usable integralTable = new Item("Tabla de integrales", "Esta tabla de ayudara a rendir Analisis Matematico I");
+        Usable derivateTalbe = new Item("Tabla de Derivadas", "Esta tabla te ayudara a rendir Introduccion a la Matematica");
+        Usable integralTable = new Item("Tabla de Integrales", "Esta tabla te ayudara a rendir Analisis Matematico I");
 
         JLabel ceuLabel = new JLabel();
         ImageIcon ceuIcon = new ImageIcon("src/main/assets/img/imgLabels/CEU.png");

@@ -116,7 +116,7 @@ public class Classroom {
      * @return Usable del Item necesario para rendir
      */
     public Usable getItemNecessary(){
-        return this.professor.getItemNecessary();
+        return this.professor.getNecessaryItem();
     }
 
 }

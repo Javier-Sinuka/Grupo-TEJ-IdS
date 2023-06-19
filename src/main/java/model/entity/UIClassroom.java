@@ -32,8 +32,12 @@ public class UIClassroom extends UIRoom implements Observer {
         examStartButton=new ExamStartButton();
         exitButton=new WindowButton(50,100,150,50);
         examButtons=new ExamButtons();
+
+        textArea=new JTextArea();
+
     }
-    public void setTextArea(JTextArea textArea,String initialText){
+    public void setTextArea(String initialText){
+
     textArea.setVisible(true);
     textArea.setBounds(61,525,520,150);
     textArea.setBackground(Color.BLACK);
@@ -111,8 +115,9 @@ public class UIClassroom extends UIRoom implements Observer {
     @Override
     public void update() {
 
-        this.setTextArea(textArea,this.getClassroom().getProfessor().getProfessorNickname()+ ": Bienvenido Víctima");
+        this.setTextArea(this.getClassroom().getProfessor().getProfessorNickname()+ ": Bienvenido Víctima");
         examStartButton.getButton().setVisible(true);
     }
 
+    public JTextArea getTextArea() { return textArea;}
 }

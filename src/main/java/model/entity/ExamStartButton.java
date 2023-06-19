@@ -60,10 +60,11 @@ public class ExamStartButton implements UIButton{
             public void mouseClicked(MouseEvent e) {
 
                 if(! uiclassroom.getClassroom().getProfessor().studentHasItem()){
-                    textArea.setText("Capo, te falta el objecto");
+                    textArea.setText("Capo, te falta: "+ uiclassroom.getClassroom().getProfessor().getNecessaryItem().getName());
                 }
                 else if(! uiclassroom.getClassroom().getProfessor().studentHasCredits()){
-                    textArea.setText("Capo, te faltan creditos");
+                    textArea.setText("Capo, necesitas "+ uiclassroom.getClassroom().getProfessor().getNecessaryCredits() +
+                                    "para rendir");
                 }
                 else{
 

@@ -15,13 +15,11 @@ public class GameManager implements Subject{
     private GameWindow window;
     private ArrayList<UIRoom> rooms;
     private ArrayList<Observer>observers;
-    private JTextArea textArea;
 
     public GameManager(){
         uiStudent = new UIStudent();
         window=new GameWindow();
         rooms=new ArrayList<>(10);
-        textArea=new JTextArea();
         observers=new ArrayList<>();
 
         setUpRooms();
@@ -30,26 +28,26 @@ public class GameManager implements Subject{
 
         registerObserver(uiStudent);
 
-        createMenu();   //0
-        hallway1();     //1
-        hallway2();     //2
-        hallway3();     //3
-        hallway4();     //4
-        hallway5();     //5
-        hallway6();     //6
-        hallway7();     //7
-        hallway8();     //8
-        classRoom1();   //9
-        classRoom2();   //10
-        classRoom3();   //11
-        classRoom4();   //12
-        classRoom5();   //13
-        classRoom6();   //14
-        classRoom7();   //15
-        classRoom8();   //16
-        classRoom9();   //17
-        store1();       //18
-        store2();       //19
+        createMenu();     //0
+        hallway1();       //1
+        hallway2();       //2
+        hallway3();       //3
+        hallway4();       //4
+        hallway5();       //5
+        hallway6();       //6
+        hallway7();       //7
+        hallway8();       //8
+        classRoom200();   //9
+        classRoom104();   //10
+        classRoom214();   //11
+        classRoom107();   //12
+        classRoom115();   //13
+        classRoom254();   //14
+        classRoom218();   //15
+        classRoom219();   //16
+        classRoom225();     //17
+        store1();         //18
+        store2();         //19
 
         gameOver();
     }
@@ -108,7 +106,7 @@ public class GameManager implements Subject{
 
         //Boton para ir al store2
         WindowButton wb2 = new WindowButton(20,350,150,50);
-        hallway2.setButton(wb2,rooms,uiStudent,"Aula 214",2,1,false);
+        hallway2.setButton(wb2,rooms,uiStudent,"Aula 214",2,11,false);
 
         //Boton para ir al hallway1
         WindowButton wb3 = new WindowButton(600,610,150,50);
@@ -153,7 +151,7 @@ public class GameManager implements Subject{
         rooms.add(hallway3);
 
         WindowButton wb1 = new WindowButton(1100,300,150,50);
-        hallway3.setButton(wb1,rooms,uiStudent,"Aula 104",4,1,false);
+        hallway3.setButton(wb1,rooms,uiStudent,"Aula 104",4,10,false);
 
         WindowButton wb2 = new WindowButton(20,300,150,50);
         hallway3.setButton(wb2,rooms,uiStudent,"Pasillo 5",4,5,false);
@@ -179,10 +177,10 @@ public class GameManager implements Subject{
         hallway3.setButton(wb1,rooms,uiStudent,"Pasillo 4",5,4,false);
 
         WindowButton wb2 = new WindowButton(1100,250,150,50);
-        hallway3.setButton(wb2,rooms,uiStudent,"Aula 114",5,1,false);
+        hallway3.setButton(wb2,rooms,uiStudent,"Aula 115",5,13,false);
 
         WindowButton wb3=new WindowButton(20,250,150,50);
-        hallway3.setButton(wb3,rooms,uiStudent,"Aula 107",5,1,false);
+        hallway3.setButton(wb3,rooms,uiStudent,"Aula 107",5,12,false);
 
         window.add(hallway3);
 
@@ -225,13 +223,13 @@ public class GameManager implements Subject{
         rooms.add(hallway3);
 
         WindowButton wb1 = new WindowButton(1100,300,150,50);
-        hallway3.setButton(wb1,rooms,uiStudent,"Aula 219",7,6,false);
+        hallway3.setButton(wb1,rooms,uiStudent,"Aula 219",7,16,false);
 
         WindowButton wb2 = new WindowButton(600,600,150,50);
-        hallway3.setButton(wb2,rooms,uiStudent,"Aula 225",7,2,false);
+        hallway3.setButton(wb2,rooms,uiStudent,"Aula 225",7,17,false);
 
         WindowButton wb3=new WindowButton(1100,150,150,50);
-        hallway3.setButton(wb3,rooms,uiStudent,"Aula 218",7,1,false);
+        hallway3.setButton(wb3,rooms,uiStudent,"Aula 218",7,15,false);
 
         WindowButton wb4=new WindowButton(600,20,150,50);
         hallway3.setButton(wb4,rooms,uiStudent,"Patio Central",7,6,false);
@@ -244,7 +242,7 @@ public class GameManager implements Subject{
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo8.jpg");
         String mapPath = "src/main/assets/img/map/Pasillo_Aula_2.png";
 
-        Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
+        Consumable consumable = new Consumable("Cafe","El cafe te aumenta la cafeina");
         Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir Quimica");
 
         UIHallway hallway3 = new UIHallway(uiStudent, consumable, item,mapPath,false,img);
@@ -259,61 +257,207 @@ public class GameManager implements Subject{
         window.add(hallway3);
 
     }
-    private void classRoom1() {
+    private void classRoom200() {
 
         //Aula 200 --> Analisis matematico I [Tabla de Integrales]
 
-        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/IMG_20230608_172253307_HDR.jpg");
-        UIClassroom classroom1 = new UIClassroom(img,uiStudent,"Fisica I",2);
-        rooms.add(classroom1);
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula219.jpg");
+        UIClassroom classroom200 = new UIClassroom(img,uiStudent,"Analisis Matematico I",9);
+        rooms.add(classroom200);
 
-        classroom1.setTextArea(textArea,classroom1.getClassroom().getProfessor().getProfessorNickname()+ ": Bienvenido Víctima");
+        classroom200.setTextArea(classroom200.getClassroom().getProfessor().getProfessorName()+
+                "("+ classroom200.getClassroom().getProfessor().getProfessorNickname()+")"+": Bienvenido Víctima");
 
        WindowButton exitButton=new WindowButton(570,20,150,50);
-       classroom1.setButton(exitButton,rooms,uiStudent,"Exit",9,3,false);
+       classroom200.setButton(exitButton,rooms,uiStudent,"Exit",9,3,false);
 
-       classroom1.setButton(new ExamButtons(),rooms,9,uiStudent,textArea);
+       classroom200.setButton(new ExamButtons(),rooms,9,uiStudent,classroom200.getTextArea());
 
-       classroom1.setButton(new ExamStartButton(),rooms,9,uiStudent,textArea);
+       classroom200.setButton(new ExamStartButton(),rooms,9,uiStudent,classroom200.getTextArea());
 
        window.add(rooms.get(9));
 
-       registerObserver(classroom1);
+       registerObserver(classroom200);
 
-       classroom1.addProfessorImage(640,150,230,330,"src/main/assets/img/ProfessorsImages/Vega.png");
+      // classroom1.addProfessorImage(640,150,230,330,"src/main/assets/img/ProfessorsImages/Vega.png");
 
     }
-    private void classRoom2(){
+    private void classRoom104(){
         //Aula 104 --> Algebra [Libro de Algebra]
-        rooms.add(null);
+
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula104.jpg");
+        UIClassroom classroom104 = new UIClassroom(img,uiStudent,"Algebra Lineal",10);
+        rooms.add(classroom104);
+
+        classroom104.setTextArea(classroom104.getClassroom().getProfessor().getProfessorName()+
+                "("+ classroom104.getClassroom().getProfessor().getProfessorNickname()+")"+": Bienvenido Víctima");
+
+        WindowButton exitButton=new WindowButton(570,20,150,50);
+        classroom104.setButton(exitButton,rooms,uiStudent,"Exit",10,4,false);
+
+        classroom104.setButton(new ExamButtons(),rooms,10,uiStudent,classroom104.getTextArea());
+
+        classroom104.setButton(new ExamStartButton(),rooms,10,uiStudent,classroom104.getTextArea());
+
+        window.add(rooms.get(10));
+
+        registerObserver(classroom104);
+
     }
-    private void classRoom3(){
+    private void classRoom214(){
         //Aula 214 --> Representacion Grafica [Tablero de dibujo]
-        rooms.add(null);
+
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula214.jpg");
+        UIClassroom classroom214 = new UIClassroom(img,uiStudent,"Representacion Grafica",11);
+        rooms.add(classroom214);
+
+        classroom214.setTextArea(classroom214.getClassroom().getProfessor().getProfessorName()+
+                "("+ classroom214.getClassroom().getProfessor().getProfessorNickname()+")"+": Bienvenido Víctima");
+
+        WindowButton exitButton=new WindowButton(570,20,150,50);
+        classroom214.setButton(exitButton,rooms,uiStudent,"Exit",11,2,false);
+
+        classroom214.setButton(new ExamButtons(),rooms,11,uiStudent,classroom214.getTextArea());
+
+        classroom214.setButton(new ExamStartButton(),rooms,11,uiStudent,classroom214.getTextArea());
+
+        window.add(rooms.get(11));
+
+        registerObserver(classroom214);
+
     }
-    private void classRoom4(){
+    private void classRoom107(){
         //Aula 107 --> Informatica [Notebook]
-        rooms.add(null);
+
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula107.jpg");
+        UIClassroom classroom107 = new UIClassroom(img,uiStudent,"Informatica",12);
+        rooms.add(classroom107);
+
+        classroom107.setTextArea(classroom107.getClassroom().getProfessor().getProfessorName()+
+                "("+ classroom107.getClassroom().getProfessor().getProfessorNickname()+")"+": System.out println" +
+                "(Hola alumno!)");
+
+        WindowButton exitButton=new WindowButton(570,20,150,50);
+        classroom107.setButton(exitButton,rooms,uiStudent,"Exit",12,5,false);
+
+        classroom107.setButton(new ExamButtons(),rooms,12,uiStudent,classroom107.getTextArea());
+
+        classroom107.setButton(new ExamStartButton(),rooms,12,uiStudent,classroom107.getTextArea());
+
+        window.add(rooms.get(12));
+
+        registerObserver(classroom107);
     }
-    private void classRoom5(){
-        //Aula 114 --> Taller y Laboratorio [Kit de electronicos.. algo asi se llamaba jaja]
-        rooms.add(null);
+    private void classRoom115(){
+        //Aula 115 --> Taller y Laboratorio [Kit de electronicos.. algo asi se llamaba jaja]
+
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula115.jpg");
+        UIClassroom classroom115 = new UIClassroom(img,uiStudent,"Taller y Laboratorio",13);
+        rooms.add(classroom115);
+
+        classroom115.setTextArea(classroom115.getClassroom().getProfessor().getProfessorName()+
+                "("+ classroom115.getClassroom().getProfessor().getProfessorNickname()+")"+ "pase alumno, cuidado con los" +
+                "cables");
+
+        WindowButton exitButton=new WindowButton(570,20,150,50);
+        classroom115.setButton(exitButton,rooms,uiStudent,"Exit",13,5,false);
+
+        classroom115.setButton(new ExamButtons(),rooms,13,uiStudent,classroom115.getTextArea());
+
+        classroom115.setButton(new ExamStartButton(),rooms,13,uiStudent,classroom115.getTextArea());
+
+        window.add(rooms.get(13));
+
+        registerObserver(classroom115);
+
+
     }
-    private void classRoom6(){
+    private void classRoom254(){
         //Aula 254 --> Fisica I [Calculadora]
-        rooms.add(null);
+
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula115.jpg");
+        UIClassroom classroom254 = new UIClassroom(img,uiStudent,"Fisica I",14);
+        rooms.add(classroom254);
+
+        classroom254.setTextArea(classroom254.getClassroom().getProfessor().getProfessorName()+
+                "("+ classroom254.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno");
+
+        WindowButton exitButton=new WindowButton(570,20,150,50);
+        classroom254.setButton(exitButton,rooms,uiStudent,"Exit",14,5,false);
+
+        classroom254.setButton(new ExamButtons(),rooms,14,uiStudent,classroom254.getTextArea());
+
+        classroom254.setButton(new ExamStartButton(),rooms,14,uiStudent,classroom254.getTextArea());
+
+        window.add(rooms.get(14));
+
+        registerObserver(classroom254);
+
     }
-    private void classRoom7(){
+    private void classRoom218(){
         //Aula 218 --> Introduccion a la Ingenieria [Libro de Intro]
-        rooms.add(null);
+
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula218.jpg");
+        UIClassroom classroom218 = new UIClassroom(img,uiStudent,"Introduccion a la Ingenieria",15);
+        rooms.add(classroom218);
+
+        classroom218.setTextArea(classroom218.getClassroom().getProfessor().getProfessorName()+
+                "("+ classroom218.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno");
+
+        WindowButton exitButton=new WindowButton(570,20,150,50);
+        classroom218.setButton(exitButton,rooms,uiStudent,"Exit",15,7,false);
+
+        classroom218.setButton(new ExamButtons(),rooms,15,uiStudent,classroom218.getTextArea());
+
+        classroom218.setButton(new ExamStartButton(),rooms,15,uiStudent,classroom218.getTextArea());
+
+        window.add(rooms.get(15));
+
+        registerObserver(classroom218);
+
     }
-    private void classRoom8(){
+    private void classRoom219(){
         //Aula 219 --> Intro a la mate [Tabla de derivadas]
-        rooms.add(null);
+
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula219.jpg");
+        UIClassroom classroom219 = new UIClassroom(img,uiStudent,"Introduccion a la Matematica",16);
+        rooms.add(classroom219);
+
+        classroom219.setTextArea(classroom219.getClassroom().getProfessor().getProfessorName()+
+                "("+ classroom219.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno");
+
+        WindowButton exitButton=new WindowButton(570,20,150,50);
+        classroom219.setButton(exitButton,rooms,uiStudent,"Exit",16,7,false);
+
+        classroom219.setButton(new ExamButtons(),rooms,16,uiStudent,classroom219.getTextArea());
+
+        classroom219.setButton(new ExamStartButton(),rooms,16,uiStudent,classroom219.getTextArea());
+
+        window.add(rooms.get(16));
+
+        registerObserver(classroom219);
+
     }
-    private void classRoom9(){
-        //Aula 225 --> Quimica [Tabla periodica]
-        rooms.add(null);
+    private void classRoom225(){
+
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula219.jpg");
+        UIClassroom classroom225 = new UIClassroom(img,uiStudent,"Quimica Aplicada",17);
+        rooms.add(classroom225);
+
+        classroom225.setTextArea(classroom225.getClassroom().getProfessor().getProfessorName()+
+                "("+ classroom225.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno");
+
+        WindowButton exitButton=new WindowButton(570,20,150,50);
+        classroom225.setButton(exitButton,rooms,uiStudent,"Exit",17,7,false);
+
+        classroom225.setButton(new ExamButtons(),rooms,17,uiStudent,classroom225.getTextArea());
+
+        classroom225.setButton(new ExamStartButton(),rooms,17,uiStudent,classroom225.getTextArea());
+
+        window.add(rooms.get(17));
+
+        registerObserver(classroom225);
+
     }
     private void store1() {
 
