@@ -13,6 +13,8 @@ public class UIHallway extends UIRoom implements Observer{
     private Hallway hallway;
     private String mapPath;
     private UIStudent uiStudent;
+    private Usable derivateTable;
+    private Usable integralTable;
     private boolean isLobyCentral;
 
     public UIHallway(){
@@ -25,6 +27,8 @@ public class UIHallway extends UIRoom implements Observer{
         this.isLobyCentral = isLobyCentral;
         this.uiStudent = uiStudent;
         this.backgroundImage =  new ImageIcon(backgroundImage.getImage().getScaledInstance(GameWindow.WIDTH,GameWindow.HEIGHT,Image.SCALE_SMOOTH));
+        this.derivateTable = new Item("Tabla de Derivadas", "Esta tabla te ayudara a rendir Introduccion a la Matematica");
+        this.integralTable = new Item("Tabla de Integrales", "Esta tabla de ayudara a rendir Analisis Matematico I");
 
         if(isLobyCentral){
             ceuAndAbmLabel();
@@ -36,9 +40,6 @@ public class UIHallway extends UIRoom implements Observer{
     }
     public void ceuAndAbmLabel(){
 
-        Usable derivateTalbe = new Item("Tabla de derivadas", "Esta tabla te ayudara a rendir Introduccion a la Matematica");
-        Usable integralTable = new Item("Tabla de integrales", "Esta tabla de ayudara a rendir Analisis Matematico I");
-
         JLabel ceuLabel = new JLabel();
         ImageIcon ceuIcon = new ImageIcon("src/main/assets/img/imgLabels/CEU.png");
         ceuLabel.setBounds(300,50,100,100);
@@ -48,9 +49,9 @@ public class UIHallway extends UIRoom implements Observer{
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if(!derivateTalbe.getIsTaken()) {
-                    derivateTalbe.setTaken(true);
-                    uiStudent.getStudent().addUsableInBackpack(derivateTalbe);
+                if(!derivateTable.getIsTaken()) {
+                    derivateTable.setTaken(true);
+                    uiStudent.getStudent().addUsableInBackpack(derivateTable);
                     uiStudent.getInventoryPanel().getObjectPanel().removeAll();
                     uiStudent.getInventoryPanel().parameterInventoryPanel();
 
@@ -84,11 +85,10 @@ public class UIHallway extends UIRoom implements Observer{
             public void mouseClicked(MouseEvent e) {
 
                 if(!integralTable.getIsTaken()) {
+                    integralTable.setTaken(true);
                     uiStudent.getStudent().addUsableInBackpack(integralTable);
                     uiStudent.getInventoryPanel().getObjectPanel().removeAll();
                     uiStudent.getInventoryPanel().parameterInventoryPanel();
-
-                    integralTable.setTaken(true);
                 }
             }
             @Override
@@ -162,7 +162,6 @@ public class UIHallway extends UIRoom implements Observer{
         mapLable.setIcon(new ImageIcon(mapImg.getImage().getScaledInstance(mapLable.getWidth(),mapLable.getHeight(),Image.SCALE_SMOOTH)));
         this.add(mapLable);
     }
-
     @Override
     public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
         wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom,start);
@@ -185,7 +184,8 @@ public class UIHallway extends UIRoom implements Observer{
 
     @Override
     public void update() {
-
+        derivateTable.setTaken(false);
+        integralTable.setTaken(false);
     }
 
     public void paintComponent(Graphics g){

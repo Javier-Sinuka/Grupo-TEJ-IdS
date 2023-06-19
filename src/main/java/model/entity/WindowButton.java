@@ -55,13 +55,11 @@ public class WindowButton implements UIButton{
 
                 if(start){
                     UIMainMenu mainMenu= (UIMainMenu) rooms.get(0);
-                    System.out.println(mainMenu.getTextArea().getText());
                     uiStudent.getStudent().setNameStudent(mainMenu.getTextArea().getText());
                     uiStudent.getDataPanel().removeAll();
                     uiStudent.setDataPanel();
                     uiStudent.getInventoryPanel().removeAll();
                     uiStudent.getInventoryPanel().parameterInventoryPanel();
-                    System.out.println(uiStudent.getStudent().getNameStudent());
                 }
 
                 rooms.get(roomID).setVisible(false);

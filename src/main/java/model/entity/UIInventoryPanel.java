@@ -98,14 +98,14 @@ public class UIInventoryPanel extends UIRoom implements Subject{
                 case "Calculadora Casio FX":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/calculator.png");
                     break;
-                case "Kit de componenetes electronicos":
+                case "Kit de Componenetes Electronicos":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/KitComponentes.png");
                     break;
-                case "Tabla de integrales":
+                case "Tabla de Integrales":
                     addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/tablaDeIntegrales.png");
                     System.out.println("Etiqueta de tabla de integrales");
                     break;
-                case "Tabla de derivadas":
+                case "Tabla de Derivadas":
                     addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/tablaDeDerivadas.png");
                     System.out.println("Etiqueta de tabla de derivadas");
                     break;
