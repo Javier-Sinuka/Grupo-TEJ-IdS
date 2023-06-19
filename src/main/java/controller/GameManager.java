@@ -387,7 +387,7 @@ public class GameManager implements Subject{
                 "("+ classroom254.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno");
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
-        classroom254.setButton(exitButton,rooms,uiStudent,"Exit",14,5,false);
+        classroom254.setButton(exitButton,rooms,uiStudent,"Exit",14,6,false);
 
         classroom254.setButton(new ExamButtons(),rooms,14,uiStudent,classroom254.getTextArea());
 
