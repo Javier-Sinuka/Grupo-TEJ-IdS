@@ -155,6 +155,10 @@ public class Student {
         this.backpack.clear();
     }
 
+    public void setCoffeeAmount (int coffeeAmount){
+        this.coffeeAmount = coffeeAmount;
+    }
+
     //*************************** METODOS PROPIOS *********************************
 
     /**
