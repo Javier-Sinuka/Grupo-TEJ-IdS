@@ -4,6 +4,7 @@ import model.objects.Usable;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Professor {
     private String associatedSubjectName;
@@ -27,7 +28,7 @@ public class Professor {
      * @return Set con las preguntas del examen
      */
 
-    public ArrayList<String> getQuestionsKeysExams() {
+    public LinkedList<String> getQuestionsKeysExams() {
         return dbExams.getQuestionsKeys(this.associatedSubjectName);
     }
 
@@ -88,6 +89,14 @@ public class Professor {
     }
 
     /**
+     * Metodo que devuelve la ubicacion del Item necesario para rendir el examen
+     * @return Ubicacion del Item necesario para rendir el examen
+     */
+    public String getItemUbication(){
+        return dbExams.getItemUbication(associatedSubjectName);
+    }
+
+    /**
      * Metodo que chequea si el Estudiante posee el item necesario para rendir la
      * materia.
      * @return True si cuenta con el Item, False en caso contrario
@@ -110,7 +119,6 @@ public class Professor {
     public boolean studentHasCredits () {
         return student.getCredits() >= dbExams.getCreditsNecesary(associatedSubjectName);
     }
-
 
     /**
      * Metodo que comprueba si puede rendir o no el examen en cuestion.
@@ -145,7 +153,6 @@ public class Professor {
             return 0;
         }
     }
-
 
     /**
      * Metodo que devuelve la cantidad de vida a restar, dependiendo del resultado del examen.

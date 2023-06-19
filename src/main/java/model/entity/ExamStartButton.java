@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.LinkedList;
 
 public class ExamStartButton implements UIButton{
 
@@ -29,13 +29,19 @@ public class ExamStartButton implements UIButton{
     public void configureButton() {}
 
     @Override
+    public void configureButton(Usable usable, int ypos, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom, Boolean bar) {
+
+    }
+
+    @Override
+
     public void configureButton(JPanel inventoryPanel) {}
 
     @Override
-    public void configureButton(JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
+    public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel) {}
 
     @Override
-    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {}
+    public void configureButton(ArrayList<UIRoom> roomsPanels, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {}
 
 
     @Override
@@ -47,9 +53,8 @@ public class ExamStartButton implements UIButton{
         button.setFocusable(false);
         button.setText("COMENZAR EXAMEN");
 
-        ArrayList<String>questions=uiclassroom.getClassroom().getQuestionsKeys();
+        LinkedList<String> questions=uiclassroom.getClassroom().getQuestionsKeys();
         JButton[] buttons=uiclassroom.getExamButtons().getButtons();
-
         button.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -82,6 +87,11 @@ public class ExamStartButton implements UIButton{
 
         uiclassroom.addExamStartButton(this);
         rooms.get(roomID).add(button);
+
+    }
+
+    @Override
+    public void configureButton(ArrayList<UIRoom> rooms) {
 
     }
 

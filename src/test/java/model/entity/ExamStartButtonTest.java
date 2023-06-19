@@ -1,5 +1,6 @@
 package model.entity;
 
+import model.objects.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -45,6 +46,7 @@ class ExamStartButtonTest {
 
         uiclassroomTest.setButton(new ExamButtons(),testRooms,1,uistudentTest,textAreaTest);
         uiclassroomTest.setButton(new ExamStartButton(),testRooms,1,uistudentTest,textAreaTest);
+        uistudentTest.getStudent().addUsableInBackpack(new Item("Tabla de Derivadas","Mas valiosa que la biblia"));
 
         JButton startButton=uiclassroomTest.getExamStartButton().getButton();
 

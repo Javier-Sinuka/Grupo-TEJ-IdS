@@ -7,17 +7,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-public class UIStudent {
+public class UIStudent implements Observer{
     private Student student;
     private JPanel dataPanel;
+    private JProgressBar lifeBar;
     private InventoryButton inventoryButton;
-    public UIInventoryPanel inventoryPanel;
-    int testDoge = 1000; // DogeCoin para probar las funcionalidades del panel y tienda
+    private UIInventoryPanel inventoryPanel;
+    private HideButton hideButton;
+    private boolean inventoryPanelOpen;
     public UIStudent(){
-        student=new Student();
-        dataPanel = new JPanel();
-        inventoryButton = new InventoryButton();
-        inventoryPanel = new UIInventoryPanel(student);
+        this.inventoryPanelOpen = false;
+        this.student=new Student("Tomas Brigido",1,20,20,500);
+        this.dataPanel = new JPanel();
+        this.lifeBar = new JProgressBar(0,100);
+        this.inventoryButton = new InventoryButton();
+        this.inventoryPanel = new UIInventoryPanel(student);
+        this.hideButton = new HideButton();
         setDataPanel();
     }
     public void setDataPanel(){
@@ -25,84 +30,29 @@ public class UIStudent {
         dataPanel.setOpaque(false);
         dataPanel.setVisible(true);
         dataPanel.setLayout(null);
+        inventoryButton.configureButton(this,dataPanel,inventoryPanel);
 
-        playerNameLabel(dataPanel,10,10,200,30);
-        dogeCoinLabel();
-        lifeBarLabel(dataPanel,10,50,210,20);
-        inventoryButton.configureButton(dataPanel,inventoryPanel);
+        playerNameLabel();
+        lifeBarLabel();
         setInventoryPanel();
     }
-    public void playerNameLabel(JPanel panel, int x,int y, int width, int height){
-        JLabel nameLabel = new JLabel("Player Name");
-        nameLabel.setBounds(x,y,width,height);
+    public void playerNameLabel(){
+        JLabel nameLabel = new JLabel(student.getNameStudent());
+        nameLabel.setBounds(10,10,130,30);
         nameLabel.setFont(new Font("Arial Black", Font.BOLD,20)); //(tipo de letra, estilo, tamaño)
-        panel.add(nameLabel);
+        dataPanel.add(nameLabel);
     }
-    public void dogeCoinLabel(){
-        ImageIcon aux = new ImageIcon("src/main/assets/img/imgLabdogecoin.png");
-        String coin = Integer.toString(getDogeCoin());
-        ImageIcon imageDogecoin = new ImageIcon(aux.getImage().getScaledInstance(60,60,Image.SCALE_SMOOTH));
-        JLabel dogecoinLabel = new JLabel(coin,imageDogecoin,0);
-        dogecoinLabel.setBounds(915,10,300,60);
-        dogecoinLabel.setFont(new Font("Arial Black",Font.BOLD,50));
-        dataPanel.add(dogecoinLabel);
-    }
-    public void lifeBarLabel(JPanel panel, int x, int y, int width, int height){
-        //Metodo con valor max
-        //Metodo con valor min
-        //Metodo con valor start
-        JProgressBar lifeBar = new JProgressBar(0,10);
-        lifeBar.setBounds(x,y,width,height);
-        lifeBar.setForeground(Color.red);
-        lifeBar.setValue(student.getLifeAmount());
-        panel.add(lifeBar);
-
-
+    public void lifeBarLabel(){
+        this.lifeBar.setBounds(10,50,210,20);
+        this.lifeBar.setForeground(Color.red);
+        this.lifeBar.setValue(student.getLifeAmount());
+        this.lifeBar.setStringPainted(true);
+        this.lifeBar.setString("Vida " + lifeBar.getValue() + "%");
+        dataPanel.add(this.lifeBar);
     }
     public void setInventoryPanel(){
-
-        //Name and lifebar label
-
-        inventoryPanel.setBounds(800,100,400,500);
-        inventoryPanel.setOpaque(true);
-        inventoryPanel.setVisible(false);
-        inventoryPanel.setLayout(null);
-        inventoryPanel.setBackground(Color.lightGray);
-
-        JButton hideInventoryButton = new JButton("-");
-        hideInventoryButton.setBounds(340,470,50,20);
-        hideInventoryButton.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                inventoryPanel.setVisible(false);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {}
-
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-
-            @Override
-            public void mouseExited(MouseEvent e) {}
-        });
-
-        ImageIcon imgProfile = new ImageIcon("src/main/assets/img/perfil.png");
-        JLabel imgProfileLabel = new JLabel();
-        imgProfileLabel.setBounds(10,10,100,100);
-        imgProfileLabel.setIcon(new ImageIcon(imgProfile.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH)));
-
-
-        playerNameLabel(inventoryPanel,120,10,200,30);
-        lifeBarLabel(inventoryPanel,120,50,210,20);
+        hideButton.configureButton(inventoryPanel);
         dataPanel.add(inventoryPanel);
-    }
-    public void removeDogeCoin(int dogeCoin){
-        //student.setDogeCoin(dogeCoin);
-        testDoge = testDoge - dogeCoin;
     }
     public Student getStudent(){return student;}
     public JPanel getDataPanel(){
@@ -111,13 +61,30 @@ public class UIStudent {
         return dataPanel;
     }
     public int getDogeCoin(){
-        //student.getDogeCoin();
-        return testDoge;
+        return student.getDogeCoinInWallet();
     }
-    public void addPurchasedItem(Usable usable){
-        student.addUsableInBackpack(usable);
-        student.printBP();
-        System.out.println("-");
+    public UIInventoryPanel getInventoryPanel() {
+        return inventoryPanel;
+    }
+    public boolean isInventoryPanelOpen() {
+        return inventoryPanelOpen;
+    }
+    public void setInventoryPanelOpen(boolean inventoryPanelOpen) {
+        this.inventoryPanelOpen = inventoryPanelOpen;
+    }
+
+    @Override
+    public void update() {
+
+        this.getDataPanel().removeAll();
+        this.setDataPanel();
+
+        // Ask tom for help
+
+        //uiclassroom.repaint();
+        //uiclassroom.revalidate();
+        //uiclassroom.updateUI();
+
     }
 }
 

@@ -49,9 +49,9 @@ public class Student {
 
     public Student() {
         this.backpack = new ArrayList<>();
-
+        dogeCoin = 1000;
         //Test values
-        backpack.add(new Item("Tabla de Derivadas","Mas valiosa que la biblia"));
+        backpack.add(new Item("Calculadora","Mas valiosa que la biblia"));
         credits=4;
     }
 
@@ -176,6 +176,10 @@ public class Student {
         for (Usable us : backpack) {
             System.out.println(us.getName());
         }
+    }
+
+    public void setLifeAmount(int i) {
+        lifeAmount=i;
     }
 }
 
