@@ -59,7 +59,7 @@ public class UIInventoryPanel extends UIRoom implements Subject{
     public void caffeineBar(){
         caffeineBar.setBounds(120,50,250,20);
         caffeineBar.setForeground(Color.ORANGE);
-        caffeineBar.setValue(student.getCoffeeAmount());
+        caffeineBar.setValue(student.getCaffeineAmount());
         caffeineBar.setStringPainted(true);
         caffeineBar.setString("Cafeina " + caffeineBar.getValue() + "%");
         this.add(caffeineBar);
@@ -95,21 +95,34 @@ public class UIInventoryPanel extends UIRoom implements Subject{
                 case "Mate":
                     addLabelInGridPanel(consumablePanel,usable, "src/main/assets/img/consumable/mate.png");
                     break;
-                case "Calculadora":
+                case "Calculadora Casio FX":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/calculator.png");
                     break;
-                case "Kit de componenetes electronicos":
+                case "Kit de Componentes Electronicos":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/KitComponentes.png");
                     break;
-                case "Tabla de integrales":
+                case "Tabla de Integrales":
                     addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/tablaDeIntegrales.png");
-                    System.out.println("Etiqueta de tabla de integrales");
                     break;
-                case "Tabla de derivadas":
+                case "Tabla de Derivadas":
                     addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/tablaDeDerivadas.png");
-                    System.out.println("Etiqueta de tabla de derivadas");
                     break;
-                default:
+                case "Tabla Periodica":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/TablaPeriodica.png");
+                    break;
+                case "Notebook":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/laptop.png");
+                    break;
+                case "Tablero de Dibujo Tecnico":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/board.png");
+                    break;
+                case "Libro de Algebra":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/algebraLibro.png");
+                    break;
+                case "Monografia de la UNC":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/monografia.png");
+                    break;
+                    default:
             }
         }
         this.add(gridPanel);
@@ -142,31 +155,79 @@ public class UIInventoryPanel extends UIRoom implements Subject{
     }
     public void updateConsumablePanel(JLabel label, Usable usable, JPanel panel){
 
-        this.revalidate();
-        this.repaint();
-        this.updateUI();
+        //this.revalidate();
+        //this.repaint();
+        //this.updateUI();
+
         if(usable.getName() == "Cafe" || usable.getName() == "Mate"){
 
-            student.deleteUsableInBackpack(usable);
-            panel.remove(label);
-            panel.revalidate();
-            panel.repaint();
 
             if(usable.getName() == "Cafe") {
-                int newValue = caffeineBar.getValue() + 40;
-                student.incrementCaffeine(40);
-                caffeineBar.setValue(newValue);
-                caffeineBar.setString("Cafeina " + newValue + "%");
-            }else{
-                int newValue = caffeineBar.getValue() + 20;
-                student.incrementCaffeine(20);
-                caffeineBar.setValue(newValue);
-                caffeineBar.setString("Cafeina " + newValue + "%");
-            }
-            System.out.println("Consumiste " + usable.getName());
-        }
 
-        student.printBP();
+                if(student.getCaffeineAmount()==100){
+
+                    // no se consume etiqueta de café
+                }
+
+                else if(student.getCaffeineAmount()+40>100){
+
+                    int amountToAdd=0;
+                    amountToAdd=100-student.getCaffeineAmount();
+                    student.incrementCaffeine(amountToAdd);
+
+                    caffeineBar.setValue(student.getCaffeineAmount());
+                    caffeineBar.setString("Cafeina " + student.getCaffeineAmount() + "%");
+
+                    student.deleteUsableInBackpack(usable);
+                    panel.remove(label);
+                    panel.revalidate();
+                    panel.repaint();
+                }
+
+                else{
+                    student.incrementCaffeine(40);
+                    caffeineBar.setValue(student.getCaffeineAmount());
+                    caffeineBar.setString("Cafeina " + student.getCaffeineAmount() + "%");
+
+                    student.deleteUsableInBackpack(usable);
+                    panel.remove(label);
+                    panel.revalidate();
+                    panel.repaint();
+                }
+            }
+            else{
+
+                if(student.getCaffeineAmount()==100){
+
+                    // no se consume etiqueta de mate
+                }
+
+                else if(student.getCaffeineAmount()+20>100){
+
+                    int amountToAdd=0;
+                    amountToAdd=100-student.getCaffeineAmount();
+                    student.incrementCaffeine(amountToAdd);
+
+                    caffeineBar.setValue(student.getCaffeineAmount());
+                    caffeineBar.setString("Cafeina " + student.getCaffeineAmount() + "%");
+
+                    student.deleteUsableInBackpack(usable);
+                    panel.remove(label);
+                    panel.revalidate();
+                    panel.repaint();
+                }
+                else{
+                    student.incrementCaffeine(20);
+                    caffeineBar.setValue(student.getCaffeineAmount());
+                    caffeineBar.setString("Cafeina " + student.getCaffeineAmount() + "%");
+
+                    student.deleteUsableInBackpack(usable);
+                    panel.remove(label);
+                    panel.revalidate();
+                    panel.repaint();
+                }
+            }
+        }
     }
     public void dogecoin(){
         //Dogecoin label
@@ -195,7 +256,7 @@ public class UIInventoryPanel extends UIRoom implements Subject{
     }
 
     @Override
-    public void registerObserver(Observer O) { }
+    public void registerObserver(Observer O) {}
 
     @Override
     public void removeObserver(Observer O) {}

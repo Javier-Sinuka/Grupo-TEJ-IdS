@@ -23,11 +23,6 @@ public class Classroom {
         this.roomNumber = roomNumber;
     }
 
-    /**
-     * Contructor deprecado.
-     */
-    public Classroom(){}
-
     public Professor getProfessor(){
         return professor;
     }
@@ -99,7 +94,7 @@ public class Classroom {
      * asi la logica de examen funciona correctamente.
      */
     public void increaseCounterCorrectOption(){
-        this.professor.increaseCounterCorrectQuestions();;
+        this.professor.increaseCounterCorrectQuestions();
     }
 
     /**
@@ -116,7 +111,7 @@ public class Classroom {
      * @return Usable del Item necesario para rendir
      */
     public Usable getItemNecessary(){
-        return this.professor.getItemNecessary();
+        return this.professor.getNecessaryItem();
     }
 
 }

@@ -9,9 +9,10 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class StoreButton implements UIButton{
+    private JButton itemButton;
 
     public StoreButton (){
-
+        this.itemButton = new JButton();
     }
     @Override
     public void configureButton() {}
@@ -19,7 +20,7 @@ public class StoreButton implements UIButton{
     @Override
     public void configureButton(Usable usable, int ypos, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom, Boolean bar){
 
-        JButton itemButton = new JButton("COMPRAR " + usable.getName() + " " + usable.getPrice() + "$");
+        itemButton.setText("COMPRAR " + usable.getName() + " " + usable.getPrice() + "$");
         itemButton.setBounds(100, ypos, 500, 70);
 
         storeRoom.add(itemButton);
@@ -32,7 +33,6 @@ public class StoreButton implements UIButton{
                     messageLabel.setVisible(true);
                     messageLabel.setText("No tenes plata pobre :(");
                 }else if(usable.getIsTaken() == false || bar) {
-                    usable.setTaken(true);
                     actualizar(usable, uiStudent, messageLabel, storeRoom);
                     }else {
                     messageLabel.setVisible(true);
@@ -56,6 +56,7 @@ public class StoreButton implements UIButton{
         });
     }
     public void actualizar(Usable usable, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom){
+        usable.setTaken(true);
 
         uiStudent.getStudent().decreaseDogeCoin(usable.getPrice());
         uiStudent.getStudent().addUsableInBackpack(usable);
@@ -89,5 +90,9 @@ public class StoreButton implements UIButton{
     @Override
     public void configureButton(ArrayList<UIRoom> rooms) {
 
+    }
+
+    public JButton getItemButton() {
+        return itemButton;
     }
 }

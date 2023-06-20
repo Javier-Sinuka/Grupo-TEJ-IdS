@@ -12,36 +12,38 @@ import java.util.ArrayList;
 public class UIHallway extends UIRoom implements Observer{
     private Hallway hallway;
     private String mapPath;
-
     private UIStudent uiStudent;
-
-    private boolean isLobyCentral;
-
+    private Usable derivateTable;
+    private Usable integralTable;
+    private boolean hasItem;
+    private String itemPath;
+    private JLabel usableLabel;
 
     public UIHallway(){
         hallway=new Hallway(new Consumable(),new Item());
     }
-    public UIHallway(UIStudent uiStudent,Consumable consumable,Item item, String mapPath, boolean isLobyCentral, ImageIcon backgroundImage){
+    public UIHallway(UIStudent uiStudent,Consumable consumable,Item item, String mapPath, boolean isLobyCentral, ImageIcon backgroundImage, boolean hasItem, String itemPath){
         super();
         this.mapPath = mapPath;
         this.hallway = new Hallway(consumable,item);
-        this.isLobyCentral = isLobyCentral;
         this.uiStudent = uiStudent;
+        this.hasItem = hasItem;
+        this.itemPath = itemPath;
         this.backgroundImage =  new ImageIcon(backgroundImage.getImage().getScaledInstance(GameWindow.WIDTH,GameWindow.HEIGHT,Image.SCALE_SMOOTH));
+        this.derivateTable = new Item("Tabla de Derivadas", "Esta tabla te ayudara a rendir Introduccion a la Matematica");
+        this.integralTable = new Item("Tabla de Integrales", "Esta tabla de ayudara a rendir Analisis Matematico I");
+        this.usableLabel = new JLabel();
 
         if(isLobyCentral){
             ceuAndAbmLabel();
         }
 
-        LabelTitle(hallway.getNameHallway());
+
         randomObject();
         mapLabel();
     }
-
     public void ceuAndAbmLabel(){
 
-        Usable derivateTalbe = new Item("Tabla de derivadas", "Esta tabla te ayudara a rendir Introduccion a la Matematica");
-        Usable integralTable = new Item("Tabla de integrales", "Esta tabla de ayudara a rendir Analisis Matematico I");
 
         JLabel ceuLabel = new JLabel();
         ImageIcon ceuIcon = new ImageIcon("src/main/assets/img/imgLabels/CEU.png");
@@ -52,9 +54,9 @@ public class UIHallway extends UIRoom implements Observer{
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if(!derivateTalbe.getIsTaken()) {
-                    derivateTalbe.setTaken(true);
-                    uiStudent.getStudent().addUsableInBackpack(derivateTalbe);
+                if(!derivateTable.getIsTaken()) {
+                    derivateTable.setTaken(true);
+                    uiStudent.getStudent().addUsableInBackpack(derivateTable);
                     uiStudent.getInventoryPanel().getObjectPanel().removeAll();
                     uiStudent.getInventoryPanel().parameterInventoryPanel();
 
@@ -88,11 +90,10 @@ public class UIHallway extends UIRoom implements Observer{
             public void mouseClicked(MouseEvent e) {
 
                 if(!integralTable.getIsTaken()) {
+                    integralTable.setTaken(true);
                     uiStudent.getStudent().addUsableInBackpack(integralTable);
                     uiStudent.getInventoryPanel().getObjectPanel().removeAll();
                     uiStudent.getInventoryPanel().parameterInventoryPanel();
-
-                    integralTable.setTaken(true);
                 }
             }
             @Override
@@ -116,46 +117,50 @@ public class UIHallway extends UIRoom implements Observer{
         this.add(abmLabel);
         this.add(ceuLabel);
     }
-
-
-
     public void randomObject(){
-        Usable usable = hallway.getRandomUsable();
 
-        if(usable != null) {
-            JLabel object = new JLabel(usable.getName());
-            object.setBounds(hallway.getRandomX(), hallway.getRandomY(), 100, 50);
-
-            object.addMouseListener(new MouseListener() {
+        ImageIcon img = new ImageIcon(itemPath);
+        usableLabel.setBounds(hallway.getRandomX(), hallway.getRandomY(),50,50);
+        usableLabel.setIcon(new ImageIcon(img.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));
+        usableLabel.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    System.out.println("Encontraste " + usable.getName() + usable.getDescription());
-                    object.setVisible(false);
+                    usableLabel.setVisible(false);
+                    if(hasItem) {
+                        uiStudent.getStudent().addUsableInBackpack(hallway.getItem());
+                    }else {
+                        uiStudent.getStudent().addUsableInBackpack(hallway.getConsumable());
+                    }
+
+                    uiStudent.getInventoryPanel().getConsumablePanel().removeAll();
+                    uiStudent.getInventoryPanel().getObjectPanel().removeAll();
+                    uiStudent.getInventoryPanel().parameterInventoryPanel();
                 }
 
                 @Override
                 public void mousePressed(MouseEvent e) {
+                    usableLabel.setSize(50,50);
+
                 }
 
                 @Override
                 public void mouseReleased(MouseEvent e) {
+
                 }
 
                 @Override
                 public void mouseEntered(MouseEvent e) {
-                    object.setSize(120, 60);
+                    usableLabel.setSize(60,60);
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-                    object.setSize(100, 50);
+                    usableLabel.setSize(50,50);
+
                 }
             });
 
-            object.setOpaque(true);
-
-            this.add(object);
-        }
+            this.add(usableLabel);
     }
     public void LabelTitle (String hallwayName){
         JLabel title = new JLabel(hallwayName);
@@ -191,7 +196,11 @@ public class UIHallway extends UIRoom implements Observer{
 
     @Override
     public void update() {
+        derivateTable.setTaken(false);
+        integralTable.setTaken(false);
+        usableLabel.setVisible(true);
 
+        
     }
 
     public void paintComponent(Graphics g){

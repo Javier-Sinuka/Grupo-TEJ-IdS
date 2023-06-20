@@ -1,6 +1,6 @@
 Materia: Introduccion a la Matematica
 Docente: Leonor Vega
-Apodo: Leonor el Terror Vega
+Apodo: El Terror
 Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 3
 Nombre del Item Necesario: Tabla de Derivadas
@@ -14,7 +14,7 @@ Preguntas:
 - Dependiendo de la masa del sol
 - Si, las raices son -2 y 1 {true}
 - Quien es Bhaskara?
-¿Si tengo el sen(x) y aplico limite, que obtengo?
+¿Si tengo el sen(x) y aplico limite x->INF, que obtengo?
 - Un abrazo de ella/el
 - Soy la respuesta correcta, tu decide {true}
 - Un desaprobado porque no seleccionaste la que dice ser correcta
@@ -33,7 +33,7 @@ Apodo: Da Vinci del Portaminas
 Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 2
 Nombre del Item Necesario: Tablero de Dibujo Tecnico
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Pasillo 7
 Preguntas:
 ¿Cuanto miden los bordes para las entregas?
 - 1 km
@@ -62,7 +62,7 @@ Apodo: Filosofo de Medio Tiempo
 Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 2
 Nombre del Item Necesario: Monografia de la UNC
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Pasillo 5
 Preguntas:
 ¿FCEFyN pertenece a la UNC?
 - No sabe, no contesta
@@ -90,22 +90,22 @@ Docente: Mario Leandro Aimar
 Apodo: Heisenberg de la FCEFyN
 Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 3
-Nombre del Item Necesario: Guardapolvo
-Lugar donde conseguir el Item necesario:
+Nombre del Item Necesario: Tabla Periodica
+Lugar donde conseguir el Item necesario: Pasillo 4 (ir a lobby central)
 Preguntas:
-¿Es necesario ver Breacking Bad para aprobar quimica?
+¿Es necesario ver Breaking Bad para aprobar quimica?
 - Si, alta serie papa
 - No {true}
 - Queseso? Se come?
-¿Como se escribe "Sal de Mesa"?
-- Sal de Mesa {true}
-- La la la
-- La opcion que nos es "La la la"
+¿Cual es el nombre quimico de la "Sal de Mesa"?
+- Cloruro de sodio {true}
+- Acido desoxirribonucleico
+- oxido clorhidrico
 ¿Cuantos moles hay entre tu y ella/el?
 - Muchos, estudio Ingenieria, eso no existe para mi {true}
 - Unos pocos
 - Unos pocos, me tengo fe
-¿Necesito el Guardapolvo para rendir este examen?
+¿Necesito la tabla periodica para rendir este examen?
 - No, un pebete
 - Si {true}
 - No, una Notebook, para mas placer
@@ -116,7 +116,7 @@ Preguntas:
 ***
 Materia: Taller y Laboratorio
 Docente: Pablo Ernesto Enrico
-Apodo: Maestro de la Resistencia
+Apodo: El detonador de capacitores
 Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 3
 Nombre del Item Necesario: Kit de Componentes Electronicos
@@ -149,7 +149,7 @@ Apodo: Bill Gates de la FCEFyN
 Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 4
 Nombre del Item Necesario: Notebook
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Patio Central
 Preguntas:
 ¿Se enseñan variables en esta materia?
 - No sabe, no contesta
@@ -178,7 +178,7 @@ Apodo: ALA-GOD
 Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 5
 Nombre del Item Necesario: Calculadora Casio FX
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Electronica Argentina
 Preguntas:
 ¿Pesa mas un kilo de pluma que un kilo de plomo?
 - No, pesan lo mismo {true}
@@ -216,7 +216,7 @@ Preguntas:
 ¿Cual es la derivada de X^2?
 - 2X {true}
 - Apenas se mi nombre manito
-- The Avengers
+- 4X
 ¿La derivada de sen(x) es?
 - 2 por 1 es 3
 - cos(x) {true}
@@ -236,7 +236,7 @@ Apodo: San Dimitroff
 Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 4
 Nombre del Item Necesario: Libro de Algebra
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Estacionamiento
 Preguntas:
 ¿Una matriz tiene filas y columnas?
 - Si {true}

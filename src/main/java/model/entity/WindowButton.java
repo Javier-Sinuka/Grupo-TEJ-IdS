@@ -52,21 +52,26 @@ public class WindowButton implements UIButton{
             @Override
             public void mouseClicked(MouseEvent e) {
 
+                if( uiStudent.getStudent().getCaffeineAmount()>=5){
+                    uiStudent.getStudent().decreaseCaffeine();
+                }
 
                 if(start){
                     UIMainMenu mainMenu= (UIMainMenu) rooms.get(0);
-                    System.out.println(mainMenu.getTextArea().getText());
                     uiStudent.getStudent().setNameStudent(mainMenu.getTextArea().getText());
                     uiStudent.getDataPanel().removeAll();
                     uiStudent.setDataPanel();
                     uiStudent.getInventoryPanel().removeAll();
                     uiStudent.getInventoryPanel().parameterInventoryPanel();
-                    System.out.println(uiStudent.getStudent().getNameStudent());
                 }
 
                 rooms.get(roomID).setVisible(false);
                 rooms.get(destinyRoom).setVisible(true);
                 rooms.get(destinyRoom).add(uiStudent.getDataPanel());
+                uiStudent.getInventoryPanel().removeAll();
+                uiStudent.getInventoryPanel().getConsumablePanel().removeAll();
+                uiStudent.getInventoryPanel().getObjectPanel().removeAll();
+                uiStudent.getInventoryPanel().parameterInventoryPanel();
                 uiStudent.getInventoryPanel().setVisible(false);
             }
             @Override

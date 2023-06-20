@@ -71,9 +71,6 @@ public class UIMainMenu extends UIRoom {
     public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
 
         wb.configureButton(rooms,uiStudent,"START GAME",0,1,start);
-
-
-        System.out.println("JAVI TROLO");
     }
 
     @Override
