@@ -457,6 +457,8 @@ public class GameManager implements Subject{
         UIClassroom classroom219 = new UIClassroom(img,uiStudent,"Introduccion a la Matematica",16);
         rooms.add(classroom219);
 
+        String extraString= " bienvenido víctima, esto es";
+
         classroom219.setTextArea(classroom219.getClassroom().getProfessor().getProfessorName()+
                 "("+ classroom219.getClassroom().getProfessor().getProfessorNickname()+"):"+ " bienvenido víctima, esto es"+
                 classroom219.getClassroom().getProfessor().getAssociatedSubject());

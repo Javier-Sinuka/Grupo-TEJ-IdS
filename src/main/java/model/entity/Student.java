@@ -62,7 +62,7 @@ public class Student {
         return this.lifeAmount;
     }
 
-    public int getCoffeeAmount() {
+    public int getCaffeineAmount() {
         return this.coffeeAmount;
     }
 

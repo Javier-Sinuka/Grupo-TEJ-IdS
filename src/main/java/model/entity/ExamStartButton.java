@@ -68,6 +68,12 @@ public class ExamStartButton implements UIButton{
                     textArea.setText("Capo, necesitas "+ uiclassroom.getClassroom().getProfessor().getNecessaryCredits() +
                                     "para rendir");
                 }
+                else if(uistudent.getStudent().getCaffeineAmount()<20){
+
+                    textArea.setText("Capo, necesitas al menos 50 de cafeína, te vas a dormir en el examen sino," +
+                                    "tomate un matesuli o un coffee" );
+                }
+
                 else{
 
                     textArea.setText(questions.get(0));

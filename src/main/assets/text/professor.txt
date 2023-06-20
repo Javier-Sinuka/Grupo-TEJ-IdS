@@ -33,7 +33,7 @@ Apodo: Da Vinci del Portaminas
 Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 2
 Nombre del Item Necesario: Tablero de Dibujo Tecnico
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Pasillo 7
 Preguntas:
 ¿Cuanto miden los bordes para las entregas?
 - 1 km
@@ -62,7 +62,7 @@ Apodo: Filosofo de Medio Tiempo
 Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 2
 Nombre del Item Necesario: Monografia de la UNC
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Pasillo 5
 Preguntas:
 ¿FCEFyN pertenece a la UNC?
 - No sabe, no contesta
@@ -90,10 +90,10 @@ Docente: Mario Leandro Aimar
 Apodo: Heisenberg de la FCEFyN
 Cantidad de Creditos Necesarios: 0
 Cantidad de Creditos a aumentar si se aprueba el curso: 3
-Nombre del Item Necesario: Guardapolvo
-Lugar donde conseguir el Item necesario:
+Nombre del Item Necesario: Tabla Periodica
+Lugar donde conseguir el Item necesario: Pasillo 4 (ir a lobby central)
 Preguntas:
-¿Es necesario ver Breacking Bad para aprobar quimica?
+¿Es necesario ver Breaking Bad para aprobar quimica?
 - Si, alta serie papa
 - No {true}
 - Queseso? Se come?
@@ -149,7 +149,7 @@ Apodo: Bill Gates de la FCEFyN
 Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 4
 Nombre del Item Necesario: Notebook
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Patio Central
 Preguntas:
 ¿Se enseñan variables en esta materia?
 - No sabe, no contesta
@@ -178,7 +178,7 @@ Apodo: ALA-GOD
 Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 5
 Nombre del Item Necesario: Calculadora Casio FX
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Electronica Argentina
 Preguntas:
 ¿Pesa mas un kilo de pluma que un kilo de plomo?
 - No, pesan lo mismo {true}
@@ -236,7 +236,7 @@ Apodo: San Dimitroff
 Cantidad de Creditos Necesarios: 10
 Cantidad de Creditos a aumentar si se aprueba el curso: 4
 Nombre del Item Necesario: Libro de Algebra
-Lugar donde conseguir el Item necesario:
+Lugar donde conseguir el Item necesario: Estacionamiento
 Preguntas:
 ¿Una matriz tiene filas y columnas?
 - Si {true}

@@ -81,7 +81,7 @@ public class UIStudent implements Observer{
         student.setCredits(safeStudent.getCredits());
         student.setLifeAmount(safeStudent.getLifeAmount());
         student.setDogeCoin(safeStudent.getDogeCoinInWallet());
-        student.setCoffeeAmount(safeStudent.getCoffeeAmount());
+        student.setCoffeeAmount(safeStudent.getCaffeineAmount());
 
         student.deleteAllItemBackpack();
 

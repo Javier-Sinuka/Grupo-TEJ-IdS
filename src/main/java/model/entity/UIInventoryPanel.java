@@ -59,7 +59,7 @@ public class UIInventoryPanel extends UIRoom implements Subject{
     public void caffeineBar(){
         caffeineBar.setBounds(120,50,250,20);
         caffeineBar.setForeground(Color.ORANGE);
-        caffeineBar.setValue(student.getCoffeeAmount());
+        caffeineBar.setValue(student.getCaffeineAmount());
         caffeineBar.setStringPainted(true);
         caffeineBar.setString("Cafeina " + caffeineBar.getValue() + "%");
         this.add(caffeineBar);
@@ -98,7 +98,7 @@ public class UIInventoryPanel extends UIRoom implements Subject{
                 case "Calculadora Casio FX":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/calculator.png");
                     break;
-                case "Kit de Componenetes Electronicos":
+                case "Kit de Componentes Electronicos":
                     addLabelInGridPanel(objectPanel,usable, "src/main/assets/img/item/KitComponentes.png");
                     break;
                 case "Tabla de Integrales":
