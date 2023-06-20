@@ -171,7 +171,7 @@ public class GameManager implements Subject{
     private void hallway5() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo5.jpg");
-        String mapPath = "src/main/assets/img/map/Pasillo_Aula_2.png";
+        String mapPath = "src/main/assets/img/map/Pasillo_Aula_107.jpg";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
         Item item = new Item("Monografia de la UNC", "Libro que te ayudara a rendir Introduccion a la Ingenieria");
@@ -197,7 +197,7 @@ public class GameManager implements Subject{
     private void hallway6() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/patioCentral.jpg");
-        String mapPath = "src/main/assets/img/map/Pasillo_Aula_2.png";
+        String mapPath = "src/main/assets/img/map/Patio_Central.png";
         String itemPath = "src/main/assets/img/item/laptop.png";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
@@ -226,7 +226,7 @@ public class GameManager implements Subject{
     private void hallway7() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo7.jpg");
-        String mapPath = "src/main/assets/img/map/Pasillo_Aula_2.png";
+        String mapPath = "src/main/assets/img/map/Pasillo_Aula_219.png";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
         Item item = new Item("Tablero de Dibujo Tecnico", "Tablero que te ayudara a rendir Representacion Grafica");
@@ -255,7 +255,7 @@ public class GameManager implements Subject{
     private void hallway8() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo8.jpg");
-        String mapPath = "src/main/assets/img/map/Pasillo_Aula_2.png";
+        String mapPath = "src/main/assets/img/map/Electronica_Argentina.png";
         String itemPath = "src/main/assets/img/item/algebraLibro.png";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumenta la cafeina");
@@ -447,7 +447,7 @@ public class GameManager implements Subject{
 
         registerObserver(classroom218);
 
-
+        classroom218.addProfessorImage(400,190,280,320,"src/main/assets/img/ProfessorsImages/Litvack.png");
 
     }
     private void classRoom219(){
