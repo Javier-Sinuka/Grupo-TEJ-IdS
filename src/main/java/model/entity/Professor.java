@@ -208,6 +208,7 @@ public class Professor {
                         "Probá en Abogacia o Filosofia.";
 
             } else {
+                this.student.decreaseLifeBar(25);
                 return "Desaprobado, sos una desgracia para la ingeniería,ponete a estudiar y suerte en la próxima";
             }
         } else {

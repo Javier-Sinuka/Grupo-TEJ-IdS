@@ -178,8 +178,6 @@ public class UIInventoryPanel extends UIRoom implements Subject{
             }
             System.out.println("Consumiste " + usable.getName());
         }
-
-        student.printBP();
     }
     public void dogecoin(){
         //Dogecoin label

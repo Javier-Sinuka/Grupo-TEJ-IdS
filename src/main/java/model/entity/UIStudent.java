@@ -18,8 +18,8 @@ public class UIStudent implements Observer{
     private boolean inventoryPanelOpen;
     public UIStudent(){
         this.inventoryPanelOpen = false;
-        this.student=new Student("Player Name",1,20,20,500);
-        this.safeStudent = new Student("Player Name",1,20,20,500);
+        this.student=new Student("Player Name",100,100,20,500);
+        this.safeStudent = new Student("Player Name",100,100,20,500);
         this.dataPanel = new JPanel();
         this.lifeBar = new JProgressBar(0,100);
         this.inventoryButton = new InventoryButton();

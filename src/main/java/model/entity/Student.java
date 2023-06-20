@@ -29,7 +29,7 @@ public class Student {
         this.coffeeAmount = CoffeeAmount;
         this.walking = amountToWalk;
         this.walkingB = amountToWalk;
-        this.credits = 50;
+        this.credits = 0;
         this.dogeCoin = amountOfDogeCoin;
         this.backpack = new ArrayList<>();
     }
@@ -117,7 +117,7 @@ public class Student {
      * Decrementa uno de cafe.
      **/
     public void decreaseCaffeine() {
-        coffeeAmount--;
+        coffeeAmount -= 5;
     }
 
     public void incrementCaffeine(int amountCafein) {

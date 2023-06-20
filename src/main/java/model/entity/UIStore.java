@@ -64,7 +64,10 @@ public class UIStore extends UIRoom implements Observer {
         storeButton2.configureButton(usable,ypos,uiStudent,messageLabel,this,bar);
     }
     public void messageLabel(){
-        messageLabel.setBounds(100,300,600,50);
+
+        messageLabel.setBounds(100,180,600,300);
+        messageLabel.setFont(new Font("Arial Black", Font.BOLD,15));
+        messageLabel.setForeground(Color.white);
         messageLabel.setVisible(false);
         this.add(messageLabel);
     }
