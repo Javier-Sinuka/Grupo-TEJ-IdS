@@ -23,11 +23,6 @@ public class Classroom {
         this.roomNumber = roomNumber;
     }
 
-    /**
-     * Contructor deprecado.
-     */
-    public Classroom(){}
-
     public Professor getProfessor(){
         return professor;
     }
