@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class InventoryButton implements UIButton{
-
+    private JButton inventoryButton;
     public InventoryButton(){
     }
     @Override
@@ -21,7 +21,7 @@ public class InventoryButton implements UIButton{
     public void configureButton(JPanel inventoryPanel) {}
     @Override
     public void configureButton(UIStudent uiStudent, JPanel dataPanel, UIInventoryPanel inventoryPanel) {
-        JButton inventoryButton = new JButton("-");
+        inventoryButton = new JButton("-");
         inventoryButton.setBounds(170,15,50,20);
         dataPanel.add(inventoryButton);
         inventoryButton.addMouseListener(new MouseListener() {
@@ -53,4 +53,7 @@ public class InventoryButton implements UIButton{
 
     }
 
+    public JButton getInventoryButton() {
+        return inventoryButton;
+    }
 }

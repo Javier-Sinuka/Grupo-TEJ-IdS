@@ -77,11 +77,9 @@ public class UIStudent implements Observer{
     @Override
     public void update() {
 
-        System.out.println(student.getLifeAmount());
         student.setNameStudent(safeStudent.getNameStudent());
         student.setCredits(safeStudent.getCredits());
         student.setLifeAmount(safeStudent.getLifeAmount());
-        System.out.println(student.getLifeAmount());
         student.setDogeCoin(safeStudent.getDogeCoinInWallet());
         student.setCoffeeAmount(safeStudent.getCoffeeAmount());
 

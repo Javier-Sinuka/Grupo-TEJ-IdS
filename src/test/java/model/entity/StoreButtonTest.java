@@ -1,6 +1,7 @@
 package model.entity;
 
 import model.objects.Consumable;
+import model.objects.Item;
 import model.objects.Usable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,10 +22,9 @@ class StoreButtonTest {
         storeButtonTest = new StoreButton();
         dogecoinTest = 100;
         uiStudent = new UIStudent();
-        usableTest = new Consumable("Cafe","Descripcion");
+        usableTest = new Item("Tabla Periodica","Descripcion");
 
     }
-
     @Test
     void actualizarTest(){
         usableTest.setPrice(100);
@@ -32,9 +32,10 @@ class StoreButtonTest {
 
         Boolean cond1 = false;
         Boolean cond2 = false;
+        Boolean cond3 = false;
 
         for(Usable us : uiStudent.getStudent().getBackpack()){
-            if(us.getName() == "Cafe"){
+            if(us.getName() == "Tabla Periodica"){
                 cond1 = true;
             }
         }
@@ -43,8 +44,13 @@ class StoreButtonTest {
             cond2 = true;
         }
 
+        if(usableTest.getIsTaken()){
+            cond3 = true;
+        }
+
         assertTrue(cond1, "No se agrego correctamente un Usable a la mochila");
         assertTrue(cond2, "No se resto correctamente los Dogecoin al estudiante");
+        assertTrue(cond3, "El usable esta con taken en false");
 
     }
 }

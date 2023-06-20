@@ -18,13 +18,16 @@ public class UIStore extends UIRoom implements Observer {
     private StoreButton storeButton2;
     private Usable calculadora;
     private Usable kitElectronica;
-    public UIStore(UIStudent uiStudent, Boolean bar){
+    private ImageIcon backgroundImage;
+
+    public UIStore(UIStudent uiStudent, Boolean bar, ImageIcon backgroundImage){
         super();
         this.bar = bar;
         this.uiStudent = uiStudent;
         this.messageLabel = new JLabel();
         this.storeButton1 = new StoreButton();
         this.storeButton2 = new StoreButton();
+        this.backgroundImage = new ImageIcon(backgroundImage.getImage().getScaledInstance(GameWindow.WIDTH,GameWindow.HEIGHT,Image.SCALE_SMOOTH));
         this.calculadora = new Item("Calculadora Casio FX","La calculadora te servira para rendir Fisica");
         this.kitElectronica = new Item("Kit de Componenetes Electronicos","Este kit te ayudara para rendir Taller y Laboratorio");
 
@@ -83,6 +86,9 @@ public class UIStore extends UIRoom implements Observer {
     @Override
     public void setButton(RestartButton restartBt, ArrayList<UIRoom> rooms) {
 
+    }
+    public void paintComponent(Graphics g){
+        g.drawImage(backgroundImage.getImage(),0,0,GameWindow.WIDTH,GameWindow.HEIGHT, this);
     }
 
     @Override
