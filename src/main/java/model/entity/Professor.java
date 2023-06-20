@@ -161,9 +161,9 @@ public class Professor {
      */
     public int lifeToSubtractStudent () {
         if (flag) {
-            int value = this.getQuestionsKeysExams().size() - this.getCounterCorrectAnswers();
-            int perccentage = (int) Math.round(value * (0.5));
-            return perccentage;
+//            int value = this.getQuestionsKeysExams().size() - this.getCounterCorrectAnswers();
+//            int perccentage = (int) Math.round(value * (0.5));
+            return 25;
         } else {
             return 0;
         }

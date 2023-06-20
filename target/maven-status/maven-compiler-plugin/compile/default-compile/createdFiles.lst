@@ -4,8 +4,6 @@ model\objects\Item.class
 model\entity\Hallway.class
 model\entity\WindowButton.class
 model\entity\ExamStartButton.class
-main\java\helpers\Helpers.class
-main\java\directives\Routing.class
 model\entity\DBExams.class
 model\entity\ExamButtons.class
 model\entity\InventoryButton$1.class
@@ -23,7 +21,6 @@ model\entity\HideButton.class
 model\entity\UIRoom.class
 model\entity\UIStudent.class
 controller\GameManager.class
-main\java\config\Setting.class
 model\entity\WindowButton$1.class
 model\entity\ExamButtons$1.class
 model\entity\Student.class
