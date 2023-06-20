@@ -66,16 +66,14 @@ public class ExamStartButton implements UIButton{
                 }
                 else if(! uiclassroom.getClassroom().getProfessor().studentHasCredits()){
                     textArea.setText("Capo, necesitas "+ uiclassroom.getClassroom().getProfessor().getNecessaryCredits() +
-                                    "para rendir");
+                                    " creditos para rendir");
                 }
                 else if(uistudent.getStudent().getCaffeineAmount()<20){
 
-                    textArea.setText("Capo, necesitas al menos 50 de cafeína, te vas a dormir en el examen sino," +
+                    textArea.setText("Capo, necesitas al menos 50 de cafeína, te vas a dormir en el examen, " +
                                     "tomate un matesuli o un coffee" );
                 }
-
                 else{
-
                     textArea.setText(questions.get(0));
                     button.setVisible(false);
                     for(int i=0;i<3;i++){

@@ -105,7 +105,7 @@ Preguntas:
 - Muchos, estudio Ingenieria, eso no existe para mi {true}
 - Unos pocos
 - Unos pocos, me tengo fe
-¿Necesito el Guardapolvo para rendir este examen?
+¿Necesito la tabla periodica para rendir este examen?
 - No, un pebete
 - Si {true}
 - No, una Notebook, para mas placer

@@ -155,28 +155,78 @@ public class UIInventoryPanel extends UIRoom implements Subject{
     }
     public void updateConsumablePanel(JLabel label, Usable usable, JPanel panel){
 
-        this.revalidate();
-        this.repaint();
-        this.updateUI();
+        //this.revalidate();
+        //this.repaint();
+        //this.updateUI();
+
         if(usable.getName() == "Cafe" || usable.getName() == "Mate"){
 
-            student.deleteUsableInBackpack(usable);
-            panel.remove(label);
-            panel.revalidate();
-            panel.repaint();
 
             if(usable.getName() == "Cafe") {
-                int newValue = caffeineBar.getValue() + 40;
-                student.incrementCaffeine(40);
-                caffeineBar.setValue(newValue);
-                caffeineBar.setString("Cafeina " + newValue + "%");
-            }else{
-                int newValue = caffeineBar.getValue() + 20;
-                student.incrementCaffeine(20);
-                caffeineBar.setValue(newValue);
-                caffeineBar.setString("Cafeina " + newValue + "%");
+
+                if(student.getCaffeineAmount()==100){
+
+                    // no se consume etiqueta de café
+                }
+
+                else if(student.getCaffeineAmount()+40>100){
+
+                    int amountToAdd=0;
+                    amountToAdd=100-student.getCaffeineAmount();
+                    student.incrementCaffeine(amountToAdd);
+
+                    caffeineBar.setValue(student.getCaffeineAmount());
+                    caffeineBar.setString("Cafeina " + student.getCaffeineAmount() + "%");
+
+                    student.deleteUsableInBackpack(usable);
+                    panel.remove(label);
+                    panel.revalidate();
+                    panel.repaint();
+                }
+
+                else{
+                    student.incrementCaffeine(40);
+                    caffeineBar.setValue(student.getCaffeineAmount());
+                    caffeineBar.setString("Cafeina " + student.getCaffeineAmount() + "%");
+
+                    student.deleteUsableInBackpack(usable);
+                    panel.remove(label);
+                    panel.revalidate();
+                    panel.repaint();
+                }
             }
-            System.out.println("Consumiste " + usable.getName());
+            else{
+
+                if(student.getCaffeineAmount()==100){
+
+                    // no se consume etiqueta de mate
+                }
+
+                else if(student.getCaffeineAmount()+20>100){
+
+                    int amountToAdd=0;
+                    amountToAdd=100-student.getCaffeineAmount();
+                    student.incrementCaffeine(amountToAdd);
+
+                    caffeineBar.setValue(student.getCaffeineAmount());
+                    caffeineBar.setString("Cafeina " + student.getCaffeineAmount() + "%");
+
+                    student.deleteUsableInBackpack(usable);
+                    panel.remove(label);
+                    panel.revalidate();
+                    panel.repaint();
+                }
+                else{
+                    student.incrementCaffeine(20);
+                    caffeineBar.setValue(student.getCaffeineAmount());
+                    caffeineBar.setString("Cafeina " + student.getCaffeineAmount() + "%");
+
+                    student.deleteUsableInBackpack(usable);
+                    panel.remove(label);
+                    panel.revalidate();
+                    panel.repaint();
+                }
+            }
         }
     }
     public void dogecoin(){

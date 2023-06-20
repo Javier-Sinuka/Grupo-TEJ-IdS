@@ -460,7 +460,7 @@ public class GameManager implements Subject{
         String extraString= " bienvenido víctima, esto es";
 
         classroom219.setTextArea(classroom219.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom219.getClassroom().getProfessor().getProfessorNickname()+"):"+ " bienvenido víctima, esto es"+
+                "("+ classroom219.getClassroom().getProfessor().getProfessorNickname()+"):"+ " bienvenido víctima, esto es "+
                 classroom219.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);

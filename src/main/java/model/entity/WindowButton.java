@@ -51,7 +51,10 @@ public class WindowButton implements UIButton{
         button.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                uiStudent.getStudent().decreaseCaffeine();
+
+                if( uiStudent.getStudent().getCaffeineAmount()>=5){
+                    uiStudent.getStudent().decreaseCaffeine();
+                }
 
                 if(start){
                     UIMainMenu mainMenu= (UIMainMenu) rooms.get(0);
