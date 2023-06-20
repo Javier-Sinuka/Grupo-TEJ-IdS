@@ -1,15 +1,13 @@
 package model.entity;
 
-import model.objects.Consumable;
 import model.objects.Item;
 import model.objects.Usable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class StoreButtonTest {
     private StoreButton storeButtonTest;
@@ -40,7 +38,7 @@ class StoreButtonTest {
             }
         }
 
-        if(uiStudent.getStudent().getDogeCoinInWallet() == 400){
+        if(uiStudent.getStudent().getDogeCoinInWallet() == 500){
             cond2 = true;
         }
 
