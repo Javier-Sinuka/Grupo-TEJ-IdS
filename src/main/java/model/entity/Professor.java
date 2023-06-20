@@ -56,7 +56,7 @@ public class Professor {
     /**
      * @return Nombre de la Materia asociado a este profesor
      */
-    public String getNameCourseAsociatted () {
+    public String getAssociatedSubject () {
         return this.associatedSubjectName;
     }
 

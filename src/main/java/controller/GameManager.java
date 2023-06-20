@@ -268,7 +268,8 @@ public class GameManager implements Subject{
         rooms.add(classroom200);
 
         classroom200.setTextArea(classroom200.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom200.getClassroom().getProfessor().getProfessorNickname()+")"+": Bienvenido Víctima");
+                "("+ classroom200.getClassroom().getProfessor().getProfessorNickname()+")"+": Bienvenido Víctima "+
+                "esto es "+ classroom200.getClassroom().getProfessor().getAssociatedSubject());
 
        WindowButton exitButton=new WindowButton(570,20,150,50);
        classroom200.setButton(exitButton,rooms,uiStudent,"Exit",9,3,false);
@@ -281,7 +282,7 @@ public class GameManager implements Subject{
 
        registerObserver(classroom200);
 
-      classroom200.addProfessorImage(640,150,230,330,"src/main/assets/img/ProfessorsImages/pastore.png");
+      classroom200.addProfessorImage(640,90,300,330,"src/main/assets/img/ProfessorsImages/pastore.png");
 
     }
     private void classRoom104(){
@@ -292,7 +293,8 @@ public class GameManager implements Subject{
         rooms.add(classroom104);
 
         classroom104.setTextArea(classroom104.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom104.getClassroom().getProfessor().getProfessorNickname()+")"+": Bienvenido Víctima");
+                "("+ classroom104.getClassroom().getProfessor().getProfessorNickname()+")"+": hola corazon,tome un cafecito "+
+                "bienvenido sea a "+ classroom104.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
         classroom104.setButton(exitButton,rooms,uiStudent,"Exit",10,4,false);
@@ -305,6 +307,8 @@ public class GameManager implements Subject{
 
         registerObserver(classroom104);
 
+        classroom104.addProfessorImage(600,220,180,300,"src/main/assets/img/ProfessorsImages/dimitroff.png");
+
     }
     private void classRoom214(){
         //Aula 214 --> Representacion Grafica [Tablero de dibujo]
@@ -314,7 +318,8 @@ public class GameManager implements Subject{
         rooms.add(classroom214);
 
         classroom214.setTextArea(classroom214.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom214.getClassroom().getProfessor().getProfessorNickname()+")"+": Bienvenido Víctima");
+                "("+ classroom214.getClassroom().getProfessor().getProfessorNickname()+"): "+
+                "bienvenido alumno, saque su tablero, esto es "+ classroom214.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
         classroom214.setButton(exitButton,rooms,uiStudent,"Exit",11,2,false);
@@ -339,7 +344,7 @@ public class GameManager implements Subject{
 
         classroom107.setTextArea(classroom107.getClassroom().getProfessor().getProfessorName()+
                 "("+ classroom107.getClassroom().getProfessor().getProfessorNickname()+")"+": System.out println" +
-                "(Hola alumno!)");
+                "(Hola alumno!) "+"bienvenido a "+ classroom107.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
         classroom107.setButton(exitButton,rooms,uiStudent,"Exit",12,5,false);
@@ -351,6 +356,8 @@ public class GameManager implements Subject{
         window.add(rooms.get(12));
 
         registerObserver(classroom107);
+
+        classroom107.addProfessorImage(980,220,140,250,"src/main/assets/img/ProfessorsImages/finochietto.png");
     }
     private void classRoom115(){
         //Aula 115 --> Taller y Laboratorio [Kit de electronicos.. algo asi se llamaba jaja]
@@ -360,8 +367,8 @@ public class GameManager implements Subject{
         rooms.add(classroom115);
 
         classroom115.setTextArea(classroom115.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom115.getClassroom().getProfessor().getProfessorNickname()+")"+ "pase alumno, cuidado con los" +
-                "cables");
+                "("+ classroom115.getClassroom().getProfessor().getProfessorNickname()+")"+ "pase alumno, cuidado con los " +
+                "cables, "+ "bienvenido a "+ classroom115.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
         classroom115.setButton(exitButton,rooms,uiStudent,"Exit",13,5,false);
@@ -374,17 +381,19 @@ public class GameManager implements Subject{
 
         registerObserver(classroom115);
 
+        classroom115.addProfessorImage(680,210,230,300,"src/main/assets/img/ProfessorsImages/Enrico.png");
 
     }
     private void classRoom254(){
         //Aula 254 --> Fisica I [Calculadora]
 
-        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula115.jpg");
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula 254.png");
         UIClassroom classroom254 = new UIClassroom(img,uiStudent,"Fisica I",14);
         rooms.add(classroom254);
 
         classroom254.setTextArea(classroom254.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom254.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno");
+                "("+ classroom254.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno, "+
+                "bienvenido a "+ classroom254.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
         classroom254.setButton(exitButton,rooms,uiStudent,"Exit",14,6,false);
@@ -397,6 +406,8 @@ public class GameManager implements Subject{
 
         registerObserver(classroom254);
 
+        classroom254.addProfessorImage(200,0,400,570,"src/main/assets/img/ProfessorsImages/albert-einstein-g56a210277_640.png");
+
     }
     private void classRoom218(){
         //Aula 218 --> Introduccion a la Ingenieria [Libro de Intro]
@@ -406,7 +417,8 @@ public class GameManager implements Subject{
         rooms.add(classroom218);
 
         classroom218.setTextArea(classroom218.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom218.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno");
+                "("+ classroom218.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno, "+
+                "bienvenido a "+ classroom218.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
         classroom218.setButton(exitButton,rooms,uiStudent,"Exit",15,7,false);
@@ -419,6 +431,8 @@ public class GameManager implements Subject{
 
         registerObserver(classroom218);
 
+
+
     }
     private void classRoom219(){
         //Aula 219 --> Intro a la mate [Tabla de derivadas]
@@ -428,7 +442,8 @@ public class GameManager implements Subject{
         rooms.add(classroom219);
 
         classroom219.setTextArea(classroom219.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom219.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno");
+                "("+ classroom219.getClassroom().getProfessor().getProfessorNickname()+"):"+ " bienvenido víctima, esto es"+
+                classroom219.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
         classroom219.setButton(exitButton,rooms,uiStudent,"Exit",16,7,false);
@@ -441,15 +456,18 @@ public class GameManager implements Subject{
 
         registerObserver(classroom219);
 
+        classroom219.addProfessorImage(600,150,280,320,"src/main/assets/img/ProfessorsImages/Vega.png");
+
     }
     private void classRoom225(){
 
-        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula219.jpg");
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/aula225.jpg");
         UIClassroom classroom225 = new UIClassroom(img,uiStudent,"Quimica Aplicada",17);
         rooms.add(classroom225);
 
         classroom225.setTextArea(classroom225.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom225.getClassroom().getProfessor().getProfessorNickname()+")"+ " Adelante alumno");
+                "("+ classroom225.getClassroom().getProfessor().getProfessorNickname()+")"+ " bienvenido forma de vida a"+
+                "base de carbono, esto es "+ classroom225.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
         classroom225.setButton(exitButton,rooms,uiStudent,"Exit",17,7,false);
@@ -461,6 +479,8 @@ public class GameManager implements Subject{
         window.add(rooms.get(17));
 
         registerObserver(classroom225);
+
+        classroom225.addProfessorImage(410,170,380,350,"src/main/assets/img/ProfessorsImages/aimarQuimica.png");
 
     }
     private void store1() {
