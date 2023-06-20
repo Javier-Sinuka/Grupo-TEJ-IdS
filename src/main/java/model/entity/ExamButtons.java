@@ -111,7 +111,7 @@ public class ExamButtons implements UIButton{
                             uistudent.getInventoryPanel().getObjectPanel().removeAll();
                             uistudent.getInventoryPanel().removeAll();
                             uistudent.getInventoryPanel().parameterInventoryPanel();
-                            uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
+
                         }
                         else{
                             uistudent.getStudent().decreaseLifeBar(uiclassroom.getClassroom().getProfessor().lifeToSubtractStudent());
@@ -134,8 +134,8 @@ public class ExamButtons implements UIButton{
                             }
 
                         }
-
                         textArea.setText(uiclassroom.getClassroom().getProfessor().examResultInfo());
+                        uiclassroom.getClassroom().getProfessor().resetCounterCorrectQuestions();
                     }
 
                     else{
