@@ -1,12 +1,7 @@
 package model.entity;
-import model.objects.Usable;
-
-
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 public class UIStudent implements Observer{
     private Student student;
     private Student safeStudent;
@@ -18,8 +13,8 @@ public class UIStudent implements Observer{
     private boolean inventoryPanelOpen;
     public UIStudent(){
         this.inventoryPanelOpen = false;
-        this.student=new Student("Player Name",1,100,20,500);
-        this.safeStudent = new Student("Player Name",1,100,20,500);
+        this.student=new Student("Player Name",100,100,20,600);
+        this.safeStudent = new Student("Player Name",100,100,20,600);
         this.dataPanel = new JPanel();
         this.lifeBar = new JProgressBar(0,100);
         this.inventoryButton = new InventoryButton();
