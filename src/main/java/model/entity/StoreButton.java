@@ -33,7 +33,6 @@ public class StoreButton implements UIButton{
                     messageLabel.setVisible(true);
                     messageLabel.setText("No tenes plata pobre :(");
                 }else if(usable.getIsTaken() == false || bar) {
-                    usable.setTaken(true);
                     actualizar(usable, uiStudent, messageLabel, storeRoom);
                     }else {
                     messageLabel.setVisible(true);
@@ -57,6 +56,7 @@ public class StoreButton implements UIButton{
         });
     }
     public void actualizar(Usable usable, UIStudent uiStudent, JLabel messageLabel, JPanel storeRoom){
+        usable.setTaken(true);
 
         uiStudent.getStudent().decreaseDogeCoin(usable.getPrice());
         uiStudent.getStudent().addUsableInBackpack(usable);

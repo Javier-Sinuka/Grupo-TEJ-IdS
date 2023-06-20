@@ -103,13 +103,26 @@ public class UIInventoryPanel extends UIRoom implements Subject{
                     break;
                 case "Tabla de Integrales":
                     addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/tablaDeIntegrales.png");
-                    System.out.println("Etiqueta de tabla de integrales");
                     break;
                 case "Tabla de Derivadas":
                     addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/tablaDeDerivadas.png");
-                    System.out.println("Etiqueta de tabla de derivadas");
                     break;
-                default:
+                case "Tabla Periodica":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/TablaPeriodica.png");
+                    break;
+                case "Notebook":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/laptop.png");
+                    break;
+                case "Tablero de Dibujo Tecnico":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/board.png");
+                    break;
+                case "Libro de Algebra":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/algebraLibro.png");
+                    break;
+                case "Monografia de la UNC":
+                    addLabelInGridPanel(objectPanel,usable,"src/main/assets/img/item/monografia.png");
+                    break;
+                    default:
             }
         }
         this.add(gridPanel);

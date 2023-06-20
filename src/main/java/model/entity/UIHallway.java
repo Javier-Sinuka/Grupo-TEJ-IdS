@@ -15,26 +15,30 @@ public class UIHallway extends UIRoom implements Observer{
     private UIStudent uiStudent;
     private Usable derivateTable;
     private Usable integralTable;
-    private boolean isLobyCentral;
+    private boolean hasItem;
+    private String itemPath;
+    private JLabel usableLabel;
 
     public UIHallway(){
         hallway=new Hallway(new Consumable(),new Item());
     }
-    public UIHallway(UIStudent uiStudent,Consumable consumable,Item item, String mapPath, boolean isLobyCentral, ImageIcon backgroundImage){
+    public UIHallway(UIStudent uiStudent,Consumable consumable,Item item, String mapPath, boolean isLobyCentral, ImageIcon backgroundImage, boolean hasItem, String itemPath){
         super();
         this.mapPath = mapPath;
         this.hallway = new Hallway(consumable,item);
-        this.isLobyCentral = isLobyCentral;
         this.uiStudent = uiStudent;
+        this.hasItem = hasItem;
+        this.itemPath = itemPath;
         this.backgroundImage =  new ImageIcon(backgroundImage.getImage().getScaledInstance(GameWindow.WIDTH,GameWindow.HEIGHT,Image.SCALE_SMOOTH));
         this.derivateTable = new Item("Tabla de Derivadas", "Esta tabla te ayudara a rendir Introduccion a la Matematica");
         this.integralTable = new Item("Tabla de Integrales", "Esta tabla de ayudara a rendir Analisis Matematico I");
+        this.usableLabel = new JLabel();
 
         if(isLobyCentral){
             ceuAndAbmLabel();
         }
 
-        LabelTitle(hallway.getNameHallway());
+
         randomObject();
         mapLabel();
     }
@@ -114,42 +118,49 @@ public class UIHallway extends UIRoom implements Observer{
         this.add(ceuLabel);
     }
     public void randomObject(){
-        Usable usable = hallway.getRandomUsable();
 
-        if(usable != null) {
-            JLabel object = new JLabel(usable.getName());
-            object.setBounds(hallway.getRandomX(), hallway.getRandomY(), 100, 50);
-
-            object.addMouseListener(new MouseListener() {
+        ImageIcon img = new ImageIcon(itemPath);
+        usableLabel.setBounds(hallway.getRandomX(), hallway.getRandomY(),50,50);
+        usableLabel.setIcon(new ImageIcon(img.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH)));
+        usableLabel.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    System.out.println("Encontraste " + usable.getName() + usable.getDescription());
-                    object.setVisible(false);
+                    usableLabel.setVisible(false);
+                    if(hasItem) {
+                        uiStudent.getStudent().addUsableInBackpack(hallway.getItem());
+                    }else {
+                        uiStudent.getStudent().addUsableInBackpack(hallway.getConsumable());
+                    }
+
+                    uiStudent.getInventoryPanel().getConsumablePanel().removeAll();
+                    uiStudent.getInventoryPanel().getObjectPanel().removeAll();
+                    uiStudent.getInventoryPanel().parameterInventoryPanel();
                 }
 
                 @Override
                 public void mousePressed(MouseEvent e) {
+                    usableLabel.setSize(50,50);
+
                 }
 
                 @Override
                 public void mouseReleased(MouseEvent e) {
+
                 }
 
                 @Override
                 public void mouseEntered(MouseEvent e) {
-                    object.setSize(120, 60);
+                    usableLabel.setSize(60,60);
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-                    object.setSize(100, 50);
+                    usableLabel.setSize(50,50);
+
                 }
             });
 
-            object.setOpaque(true);
-
-            this.add(object);
-        }
+            this.add(usableLabel);
     }
     public void LabelTitle (String hallwayName){
         JLabel title = new JLabel(hallwayName);
@@ -187,6 +198,9 @@ public class UIHallway extends UIRoom implements Observer{
     public void update() {
         derivateTable.setTaken(false);
         integralTable.setTaken(false);
+        usableLabel.setVisible(true);
+
+        
     }
 
     public void paintComponent(Graphics g){

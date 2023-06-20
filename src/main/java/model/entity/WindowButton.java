@@ -51,7 +51,7 @@ public class WindowButton implements UIButton{
         button.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                uiStudent.getStudent().decreaseCaffeine();
 
                 if(start){
                     UIMainMenu mainMenu= (UIMainMenu) rooms.get(0);
@@ -65,6 +65,10 @@ public class WindowButton implements UIButton{
                 rooms.get(roomID).setVisible(false);
                 rooms.get(destinyRoom).setVisible(true);
                 rooms.get(destinyRoom).add(uiStudent.getDataPanel());
+                uiStudent.getInventoryPanel().removeAll();
+                uiStudent.getInventoryPanel().getConsumablePanel().removeAll();
+                uiStudent.getInventoryPanel().getObjectPanel().removeAll();
+                uiStudent.getInventoryPanel().parameterInventoryPanel();
                 uiStudent.getInventoryPanel().setVisible(false);
             }
             @Override

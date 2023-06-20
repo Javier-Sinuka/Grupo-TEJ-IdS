@@ -71,10 +71,8 @@ public class GameManager implements Subject{
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/lobbyDeIngreso.jpg");
         String path = "src/main/assets/img/map/Lobby_Central.png";
-        Consumable consumable = new Consumable("Mate","Mate amargo");
-        Item item = new Item("Tablero de dibujo", "Tabala que te ayudara a rendir dibujo");
 
-        UIHallway hallway1= new UIHallway(uiStudent, null, null, path,true,img);
+        UIHallway hallway1= new UIHallway(uiStudent, null, null, path,true,img,false,"");
         rooms.add(hallway1);
 
         WindowButton wb1=new WindowButton(550,20,150,50);
@@ -96,10 +94,11 @@ public class GameManager implements Subject{
     private void hallway2() {
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo2.jpg");
         String path = "src/main/assets/img/map/Pasilla_Aula_214.png";
-        Consumable consumable = new Consumable("Cafe","Cafe rico");
+
+        Consumable consumable = new Consumable("Cafe","El cafe te aumenta la cafeina");
         Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir quimica");
 
-        UIHallway hallway2= new UIHallway(uiStudent, consumable, item,path,false,img);
+        UIHallway hallway2= new UIHallway(uiStudent, consumable, item,path,false,img,false,"src/main/assets/img/consumable/coffe.png");
         rooms.add(hallway2);
 
         //Boton para ir al store
@@ -116,7 +115,7 @@ public class GameManager implements Subject{
 
         window.add(rooms.get(2));
 
-        //hallway2.add(uiStudent.getDataPanel());
+        registerObserver(hallway2);
 
     }
     private void hallway3() {
@@ -124,10 +123,10 @@ public class GameManager implements Subject{
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo3.jpg");
         String mapPath = "src/main/assets/img/map/Pasillo_Aula_200.png";
 
-        Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
+        Consumable consumable = new Consumable("Mate","El cafe te aumentara la cafeina");
         Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir Quimica");
 
-        UIHallway hallway3= new UIHallway(uiStudent, consumable, item,mapPath,false,img);
+        UIHallway hallway3= new UIHallway(uiStudent, consumable, item,mapPath,false,img,false,"src/main/assets/img/consumable/mate.png");
         rooms.add(hallway3);
 
         //Boton para ir al
@@ -140,6 +139,8 @@ public class GameManager implements Subject{
 
         window.add(hallway3);
 
+        registerObserver(hallway3);
+
     }
     private void hallway4() {
 
@@ -147,9 +148,10 @@ public class GameManager implements Subject{
         String mapPath = "src/main/assets/img/map/Pasillo_Aula_1.png";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
-        Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir Quimica");
+        Item item = new Item("Tabla Periodica", "Tabla que te ayudara a rendir Quimica");
+        String itemPath = "src/main/assets/img/item/TablaPeriodica.png";
 
-        UIHallway hallway3= new UIHallway(uiStudent, consumable, item,mapPath,false,img);
+        UIHallway hallway3= new UIHallway(uiStudent, consumable, item,mapPath,false,img,true,itemPath);
         rooms.add(hallway3);
 
         WindowButton wb1 = new WindowButton(1100,300,150,50);
@@ -163,6 +165,8 @@ public class GameManager implements Subject{
 
         window.add(hallway3);
 
+        registerObserver(hallway3);
+
     }
     private void hallway5() {
 
@@ -170,9 +174,10 @@ public class GameManager implements Subject{
         String mapPath = "src/main/assets/img/map/Pasillo_Aula_2.png";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
-        Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir Quimica");
+        Item item = new Item("Monografia de la UNC", "Libro que te ayudara a rendir Introduccion a la Ingenieria");
+        String itemPath = "src/main/assets/img/item/monografia.png";
 
-        UIHallway hallway3 = new UIHallway(uiStudent, consumable, item,mapPath,false,img);
+        UIHallway hallway3 = new UIHallway(uiStudent, consumable, item,mapPath,false,img,true,itemPath);
         rooms.add(hallway3);
 
         WindowButton wb1 = new WindowButton(550,600,150,50);
@@ -186,16 +191,19 @@ public class GameManager implements Subject{
 
         window.add(hallway3);
 
+        registerObserver(hallway3);
+
     }
     private void hallway6() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/patioCentral.jpg");
         String mapPath = "src/main/assets/img/map/Pasillo_Aula_2.png";
+        String itemPath = "src/main/assets/img/item/laptop.png";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
-        Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir Quimica");
+        Item item = new Item("Notebook", "Notebook que te ayudarar a rendir Informatica");
 
-        UIHallway hallway3 = new UIHallway(uiStudent, consumable, item,mapPath,false,img);
+        UIHallway hallway3 = new UIHallway(uiStudent, consumable, item,mapPath,false,img,true,itemPath);
         rooms.add(hallway3);
 
         WindowButton wb1 = new WindowButton(1100,300,150,50);
@@ -212,6 +220,8 @@ public class GameManager implements Subject{
 
         window.add(hallway3);
 
+        registerObserver(hallway3);
+
     }
     private void hallway7() {
 
@@ -219,9 +229,10 @@ public class GameManager implements Subject{
         String mapPath = "src/main/assets/img/map/Pasillo_Aula_2.png";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumentara la cafeina");
-        Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir Quimica");
+        Item item = new Item("Tablero de Dibujo Tecnico", "Tablero que te ayudara a rendir Representacion Grafica");
+        String itemPath = "src/main/assets/img/item/board.png";
 
-        UIHallway hallway3 = new UIHallway(uiStudent, consumable, item,mapPath,false,img);
+        UIHallway hallway3 = new UIHallway(uiStudent, consumable, item,mapPath,false,img,true,itemPath);
         rooms.add(hallway3);
 
         WindowButton wb1 = new WindowButton(1100,300,150,50);
@@ -238,16 +249,19 @@ public class GameManager implements Subject{
 
         window.add(hallway3);
 
+        registerObserver(hallway3);
+
     }
     private void hallway8() {
 
         ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/pasillo8.jpg");
         String mapPath = "src/main/assets/img/map/Pasillo_Aula_2.png";
+        String itemPath = "src/main/assets/img/item/algebraLibro.png";
 
         Consumable consumable = new Consumable("Cafe","El cafe te aumenta la cafeina");
-        Item item = new Item("Tabla periodica", "Tabla que te ayudara a rendir Quimica");
+        Item item = new Item("Libro de Algebra", "Libro que te ayudara a rendir Algebra");
 
-        UIHallway hallway3 = new UIHallway(uiStudent, consumable, item,mapPath,false,img);
+        UIHallway hallway3 = new UIHallway(uiStudent, consumable, item,mapPath,false,img,true,itemPath);
         rooms.add(hallway3);
 
         WindowButton wb1 = new WindowButton(550,610,150,50);
@@ -257,6 +271,8 @@ public class GameManager implements Subject{
         hallway3.setButton(wb2,rooms,uiStudent,"Electronica Argentina",8,19,false);
 
         window.add(hallway3);
+
+        registerObserver(hallway3);
 
     }
     private void classRoom200() {
@@ -462,9 +478,10 @@ public class GameManager implements Subject{
 
     }
     private void store1() {
-
         //Bar
-        UIStore store2 = new UIStore(uiStudent,true);
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/bar.jpg");
+
+        UIStore store2 = new UIStore(uiStudent,true,img);
         rooms.add(store2);
 
         //Boton para salir de la tienda
@@ -476,7 +493,8 @@ public class GameManager implements Subject{
     private void store2() {
 
         //Electronica Argentica
-        UIStore store2 = new UIStore(uiStudent,false);
+        ImageIcon img = new ImageIcon("src/main/assets/img/background-image-u/electronicaArg2.jpg");
+        UIStore store2 = new UIStore(uiStudent,false,img);
         rooms.add(store2);
 
         //Boton para salir de la tienda
