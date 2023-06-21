@@ -195,7 +195,7 @@ public class Professor {
     public String examResultInfo () {
         if (flag) {
             int life = this.student.getLifeAmount();
-            life -= this.lifeToSubtractStudent();
+//            life -= this.lifeToSubtractStudent();
             if (this.examResult()){
                 this.student.addCredits(this.getCreditsIfPassed());
                 return "APROBASTE WACHIN!! acertaste: " + this.getCounterCorrectAnswers() +
