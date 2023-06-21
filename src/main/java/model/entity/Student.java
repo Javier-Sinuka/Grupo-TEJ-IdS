@@ -19,10 +19,8 @@ import java.util.ArrayList;
  */
 public class Student {
     private String nameStudent;
-
-    private int lifeAmount = 10, coffeeAmount, walking,
+    private int lifeAmount, coffeeAmount, walking,
             walkingB, credits, dogeCoin;
-
     private ArrayList<Usable> backpack;
 
     public Student(String nameStudent, int lifeAmount, int CoffeeAmount, int amountToWalk, int amountOfDogeCoin) {
@@ -49,9 +47,9 @@ public class Student {
 
     public Student() {
         this.backpack = new ArrayList<>();
-
+        dogeCoin = 1000;
         //Test values
-        backpack.add(new Item("Tabla de Derivadas","Mas valiosa que la biblia"));
+        backpack.add(new Item("Calculadora","Mas valiosa que la biblia"));
         credits=4;
     }
 
@@ -64,7 +62,7 @@ public class Student {
         return this.lifeAmount;
     }
 
-    public int getCoffeeAmount() {
+    public int getCaffeineAmount() {
         return this.coffeeAmount;
     }
 
@@ -119,7 +117,7 @@ public class Student {
      * Decrementa uno de cafe.
      **/
     public void decreaseCaffeine() {
-        coffeeAmount--;
+        coffeeAmount -= 5;
     }
 
     public void incrementCaffeine(int amountCafein) {
@@ -153,6 +151,14 @@ public class Student {
         }
     }
 
+    public void deleteAllItemBackpack(){
+        this.backpack.clear();
+    }
+
+    public void setCoffeeAmount (int coffeeAmount){
+        this.coffeeAmount = coffeeAmount;
+    }
+
     //*************************** METODOS PROPIOS *********************************
 
     /**
@@ -176,6 +182,10 @@ public class Student {
         for (Usable us : backpack) {
             System.out.println(us.getName());
         }
+    }
+
+    public void setLifeAmount(int i) {
+        this.lifeAmount=i;
     }
 }
 

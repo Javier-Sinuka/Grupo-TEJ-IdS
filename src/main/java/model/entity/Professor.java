@@ -4,6 +4,7 @@ import model.objects.Usable;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Professor {
     private String associatedSubjectName;
@@ -27,7 +28,7 @@ public class Professor {
      * @return Set con las preguntas del examen
      */
 
-    public ArrayList<String> getQuestionsKeysExams() {
+    public LinkedList<String> getQuestionsKeysExams() {
         return dbExams.getQuestionsKeys(this.associatedSubjectName);
     }
 
@@ -55,14 +56,14 @@ public class Professor {
     /**
      * @return Nombre de la Materia asociado a este profesor
      */
-    public String getNameCourseAsociatted () {
+    public String getAssociatedSubject () {
         return this.associatedSubjectName;
     }
 
     /**
      * @return Nombre del Profesor que dicta esta materia
      */
-    public String getNameProfessor () {
+    public String getProfessorName () {
         return dbExams.getNameProfessor(associatedSubjectName);
     }
 
@@ -83,8 +84,16 @@ public class Professor {
     /**
      * @return Item necesario para cursar esta materia
      */
-    public Usable getItemNecessary () {
+    public Usable getNecessaryItem () {
         return dbExams.getItemNecesary(associatedSubjectName);
+    }
+
+    /**
+     * Metodo que devuelve la ubicacion del Item necesario para rendir el examen
+     * @return Ubicacion del Item necesario para rendir el examen
+     */
+    public String getItemLocation(){
+        return dbExams.getItemUbication(associatedSubjectName);
     }
 
     /**
@@ -110,7 +119,6 @@ public class Professor {
     public boolean studentHasCredits () {
         return student.getCredits() >= dbExams.getCreditsNecesary(associatedSubjectName);
     }
-
 
     /**
      * Metodo que comprueba si puede rendir o no el examen en cuestion.
@@ -140,12 +148,12 @@ public class Professor {
      */
     public double percentageOfCorrectAnswers () {
         if (flag) {
-            return (double) (getCounterCorrectAnswers() * 100) / this.getQuestionsKeysExams().size();
+            double t = (getCounterCorrectAnswers() * 100) / this.getQuestionsKeysExams().size();
+            return t;
         } else {
             return 0;
         }
     }
-
 
     /**
      * Metodo que devuelve la cantidad de vida a restar, dependiendo del resultado del examen.
@@ -153,8 +161,9 @@ public class Professor {
      */
     public int lifeToSubtractStudent () {
         if (flag) {
-            int perccentage = (int) Math.ceil((this.getQuestionsKeysExams().size() - this.getCounterCorrectAnswers()) * (0.5));
-            return perccentage;
+//            int value = this.getQuestionsKeysExams().size() - this.getCounterCorrectAnswers();
+//            int perccentage = (int) Math.round(value * (0.5));
+            return 25;
         } else {
             return 0;
         }
@@ -175,7 +184,7 @@ public class Professor {
      * @return True si aprobo el examen, False si no es asi
      */
     public boolean examResult() {
-        return (this.percentageOfCorrectAnswers() >= 60);
+        return (this.percentageOfCorrectAnswers() >= 60.00);
     }
 
     /**
@@ -187,19 +196,19 @@ public class Professor {
         if (flag) {
             int life = this.student.getLifeAmount();
             life -= this.lifeToSubtractStudent();
-            if (this.examResult() && life > 0) {
-                this.student.decreaseLifeBar(lifeToSubtractStudent());
+            if (this.examResult()){
                 this.student.addCredits(this.getCreditsIfPassed());
                 return "APROBASTE WACHIN!! acertaste: " + this.getCounterCorrectAnswers() +
                         " respuestas" + "\n" +
                         "Creditos adquiridos: "+ getCreditsIfPassed()+"\n"+
                         "Felicidades, ya podés ir por tu birra para festejar ;) ";
             } else if (life <= 0) {
-                this.student.decreaseLifeBar(lifeToSubtractStudent());
+                //this.student.decreaseLifeBar(lifeToSubtractStudent());
                 return "No pudiste soportar el estres de ser un Semi Dios, y moriste en el intento... " +
                         "Probá en Abogacia o Filosofia.";
 
             } else {
+                //this.student.decreaseLifeBar(25);
                 return "Desaprobado, sos una desgracia para la ingeniería,ponete a estudiar y suerte en la próxima";
             }
         } else {

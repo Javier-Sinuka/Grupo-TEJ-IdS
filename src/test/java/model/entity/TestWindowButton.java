@@ -57,7 +57,7 @@ class TestWindowButton {
         int roomID=0;
         int destinyRoom=1;
 
-        testWB.configureButton(testPanels,uistudentTest,"HALLWAY X",roomID,destinyRoom);
+        testWB.configureButton(testPanels,uistudentTest,"HALLWAY X",roomID,destinyRoom,false);
 
         assertEquals("HALLWAY X",testWB.getButton().getText());
         assertEquals(true,testWB.getButton().isVisible());

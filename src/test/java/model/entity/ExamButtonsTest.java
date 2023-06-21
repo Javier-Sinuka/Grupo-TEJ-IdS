@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +26,7 @@ class ExamButtonsTest {
 
     private JTextArea textAreaTest;
 
-    ArrayList<String> questionsTest;
+    LinkedList<String> questionsTest;
     ArrayList<ArrayList<String>> optionsTest;
     ArrayList<String> correctOptTest;
 
@@ -44,7 +45,7 @@ class ExamButtonsTest {
 
         textAreaTest = new JTextArea();
 
-        questionsTest = new ArrayList<>();
+        questionsTest = new LinkedList<>();
         optionsTest = new ArrayList<>();
         correctOptTest = new ArrayList<>();
 
@@ -75,7 +76,7 @@ class ExamButtonsTest {
 
         JButton examButtons[]= EBTest.getButtons();
 
-        MouseEvent ME1= new MouseEvent(examButtons[1],MouseEvent.MOUSE_PRESSED,
+        MouseEvent ME1= new MouseEvent(examButtons[2],MouseEvent.MOUSE_PRESSED,
                 System.currentTimeMillis(), 0, 0, 0, 1, false);
 
         MouseEvent ME2= new MouseEvent(examButtons[1],MouseEvent.MOUSE_RELEASED,
@@ -85,7 +86,7 @@ class ExamButtonsTest {
                 System.currentTimeMillis(), 0, 0, 0, 1, false);
 
 
-        for(MouseListener ML: examButtons[1].getMouseListeners()){ ML.mousePressed(ME1); }
+        for(MouseListener ML: examButtons[2].getMouseListeners()){ ML.mousePressed(ME1); }
         assertEquals("Correct!!",textAreaTest.getText());
 
         for(MouseListener ML: examButtons[1].getMouseListeners()){ ML.mouseReleased(ME2); }

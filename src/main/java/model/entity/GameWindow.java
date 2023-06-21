@@ -9,7 +9,7 @@ public class GameWindow extends JFrame {
 
     public GameWindow(){
 
-        this.setTitle("La Facultad");
+        this.setTitle("FCEFyN MADNESS");
         this.setSize(WIDTH,HEIGHT);//ancho,largo
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -18,12 +18,5 @@ public class GameWindow extends JFrame {
         this.setLayout(null);
     }
 
-    public int getWIDTH() {
-        return WIDTH;
-    }
-
-    public int getHEIGHT() {
-        return HEIGHT;
-    }
 
 }

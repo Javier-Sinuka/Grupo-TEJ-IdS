@@ -4,6 +4,7 @@ import model.objects.Usable;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Las Materias posibles a ingresar actualmente son las siguientes:
@@ -19,13 +20,8 @@ public class Classroom {
 
     public Classroom(String nameSubjectToDictate, int roomNumber, Student student) throws IOException {
         professor = new Professor(nameSubjectToDictate, student);
-        roomNumber = roomNumber;
+        this.roomNumber = roomNumber;
     }
-
-    /**
-     * Contructor deprecado.
-     */
-    public Classroom(){}
 
     public Professor getProfessor(){
         return professor;
@@ -40,7 +36,7 @@ public class Classroom {
      * @return Set de String con las preguntas de la materia
      */
 
-    public ArrayList<String> getQuestionsKeys(){
+    public LinkedList<String> getQuestionsKeys(){
         return this.professor.getQuestionsKeysExams();
     }
 
@@ -98,7 +94,7 @@ public class Classroom {
      * asi la logica de examen funciona correctamente.
      */
     public void increaseCounterCorrectOption(){
-        this.professor.increaseCounterCorrectQuestions();;
+        this.professor.increaseCounterCorrectQuestions();
     }
 
     /**
@@ -115,7 +111,7 @@ public class Classroom {
      * @return Usable del Item necesario para rendir
      */
     public Usable getItemNecessary(){
-        return this.professor.getItemNecessary();
+        return this.professor.getNecessaryItem();
     }
 
 }

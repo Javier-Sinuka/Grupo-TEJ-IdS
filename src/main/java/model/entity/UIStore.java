@@ -1,6 +1,7 @@
 
 package model.entity;
 import model.objects.Consumable;
+import model.objects.Item;
 import model.objects.Usable;
 
 import javax.swing.*;
@@ -9,18 +10,30 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class UIStore extends UIRoom {
+public class UIStore extends UIRoom implements Observer {
     private UIStudent uiStudent;
     private Boolean bar;
     private JLabel messageLabel;
-    public UIStore(UIStudent student, Boolean bar){
+    private StoreButton storeButton1;
+    private StoreButton storeButton2;
+    private Usable calculadora;
+    private Usable kitElectronica;
+    private ImageIcon backgroundImage;
+
+    public UIStore(UIStudent uiStudent, Boolean bar, ImageIcon backgroundImage){
         super();
         this.bar = bar;
-        this.uiStudent = student;
+        this.uiStudent = uiStudent;
         this.messageLabel = new JLabel();
+        this.storeButton1 = new StoreButton();
+        this.storeButton2 = new StoreButton();
+        this.backgroundImage = new ImageIcon(backgroundImage.getImage().getScaledInstance(GameWindow.WIDTH,GameWindow.HEIGHT,Image.SCALE_SMOOTH));
+        this.calculadora = new Item("Calculadora Casio FX","La calculadora te servira para rendir Fisica");
+        this.kitElectronica = new Item("Kit de Componentes Electronicos","Este kit te ayudara para rendir Taller y Laboratorio");
 
         propertiesStore();
         messageLabel();
+
     }
     public void propertiesStore(){
         this.setSize(GameWindow.WIDTH,GameWindow.HEIGHT);
@@ -29,74 +42,40 @@ public class UIStore extends UIRoom {
         this.setBackground(Color.yellow);
 
         if (bar) {
-            String cafe = "Cafe";
-            String mate = "Mate";
-            buttons("COMPRAR " + cafe + "$20", 100, 100, 500, 50, cafe,"Cafe rico");
-            buttons("COMPRAR " + mate + "$20", 100, 200, 500, 50, mate,"Mate amargo");
+            Usable cafe = new Consumable("Cafe","El cafe te aumentara la cafeina");
+            cafe.setPrice(40);
+            Usable mate = new Consumable("Mate","El mate te despertara");
+            mate.setPrice(20);
+
+            buttons1(cafe,100,bar);
+            buttons2(mate,200,bar);
         }else{
-            String calculadora = "CALCULADORA";
-            String kitElectronica = "KIT DE COMPONENTES ELECTRONICOS";
-            buttons("COMPRAR " + calculadora + "$20", 100,100,500,50, calculadora,"Calculadora casio");
-            buttons("COMPRAR " + kitElectronica + "$20", 100,200,500,50, kitElectronica,"Plaqueta, resistencia y capacitor");
+            calculadora.setPrice(40);
+            kitElectronica.setPrice(20);
+
+            buttons1(calculadora,100,bar);
+            buttons2(kitElectronica,200,bar);
         }
     }
-    public void buttons(String text,int x,int y,int width, int height, String itemName, String itemDescription){
-        JButton itemButton = new JButton(text);
-        itemButton.setBounds(x,y,width,height);
-        this.add(itemButton);
-
-        itemButton.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            if(uiStudent.getDogeCoin() <= 0){
-                messageLabel.setVisible(true);
-                messageLabel.setText("No tenes plata pobre :(");
-            }else {
-                //Dependiendo del itemName es la cantidad de dogeCoin a restar
-                actualizar(itemName, itemDescription);
-                }
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {}
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            @Override
-            public void mouseExited(MouseEvent e) {}
-        });
+    public void buttons1(Usable usable, int ypos, Boolean bar) {
+        storeButton1.configureButton(usable,ypos,uiStudent,messageLabel,this,bar);
     }
-    public void actualizar(String itemName, String description){
-        Consumable usable = new Consumable(itemName,description);
-        usable.setPrice(20);
-        uiStudent.removeDogeCoin(usable.getPrice());
-        uiStudent.addPurchasedItem(usable);
-
-        messageLabel.setText("Compraste " + itemName + ":)");
-        messageLabel.setVisible(true);
-
-
-        uiStudent.getDataPanel().removeAll();
-        uiStudent.setDataPanel();
-
-        uiStudent.inventoryPanel.removeAll();
-        uiStudent.inventoryPanel.getConsumablePanel().removeAll();
-        uiStudent.setInventoryPanel();
-        uiStudent.inventoryPanel.parameterInventoryPanel();
-
-        this.updateUI();
+    public void buttons2(Usable usable, int ypos, Boolean bar) {
+        storeButton2.configureButton(usable,ypos,uiStudent,messageLabel,this,bar);
     }
-    public void messageLabel (){
-        messageLabel.setBounds(100,300,600,50);
+    public void messageLabel(){
+
+        messageLabel.setBounds(100,180,600,300);
+        messageLabel.setFont(new Font("Arial Black", Font.BOLD,15));
+        messageLabel.setForeground(Color.white);
         messageLabel.setVisible(false);
         this.add(messageLabel);
     }
-
     @Override
-    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom) {
-        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom);
-    }
+    public void setButton(WindowButton wb, ArrayList<UIRoom> rooms, UIStudent uiStudent, String buttonText, int roomID, int destinyRoom,boolean start) {
 
+        wb.configureButton(rooms,uiStudent,buttonText,roomID,destinyRoom,start);
+    }
     @Override
     public void setButton(ExamStartButton startBt, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
 
@@ -104,6 +83,25 @@ public class UIStore extends UIRoom {
 
     @Override
     public void setButton(ExamButtons examBts, ArrayList<UIRoom> rooms, int roomID, UIStudent uistudent, JTextArea textArea) {
+
+    }
+
+    @Override
+    public void setButton(RestartButton restartBt, ArrayList<UIRoom> rooms) {
+
+    }
+    public void paintComponent(Graphics g){
+        g.drawImage(backgroundImage.getImage(),0,0,GameWindow.WIDTH,GameWindow.HEIGHT, this);
+    }
+
+    @Override
+    public void update() {
+
+        storeButton1.getItemButton().setEnabled(true);
+        storeButton2.getItemButton().setEnabled(true);
+        calculadora.setTaken(false);
+        kitElectronica.setTaken(false);
+        propertiesStore();
 
     }
 }

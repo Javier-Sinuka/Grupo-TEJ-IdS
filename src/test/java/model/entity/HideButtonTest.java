@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -17,8 +20,7 @@ class HideButtonTest {
     void initialization(){
 
         inventoryPanelTest=new JPanel();
-        inventoryPanelTest.setVisible(false);
-
+        inventoryPanelTest.setVisible(true);
         hideButtonTest=new HideButton();
 
     }
@@ -26,16 +28,14 @@ class HideButtonTest {
     @Test
     void configureButtonTest(){
         hideButtonTest.configureButton(inventoryPanelTest);
-        assertTrue(hideButtonTest.getButton().isVisible());
+
+        JButton hideButton=hideButtonTest.getButton();
+
+        MouseEvent ME1= new MouseEvent(hideButton,MouseEvent.MOUSE_CLICKED,
+                System.currentTimeMillis(), 0, 0, 0, 1, false);
+
+        for(MouseListener ML: hideButton.getMouseListeners()){ ML.mouseClicked(ME1); }
+
+        assertFalse(inventoryPanelTest.isVisible());
     }
-
-
-
-
-
-
-
-
-
-
 }
