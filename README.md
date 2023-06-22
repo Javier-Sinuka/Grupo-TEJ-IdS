@@ -25,6 +25,7 @@ teniendo en vista el objetivo de representar las 11 carreras que probee la FCEFy
 ## Requisitos Necesarios
 
 - Contar con Java 19 o posterior.
+- Contar con IDE para correr el programa.
 - Disponibilidad de 100mb o mas en almacenamiento.
 - Pantalla igual o superior a 1280x720 px.
 
@@ -32,19 +33,23 @@ teniendo en vista el objetivo de representar las 11 carreras que probee la FCEFy
 
 1. Descargar el proyecto en formato ZIP desde: `https://github.com/Javier-Sinuka/Grupo-TEJ-IdS`
 2. Descomprima el archivo en una carpeta de tu computadora, en donde desees que se guarde.
-3. Instala las dependencias: `npm install`
+3. Posteriormente, agregar la carpeta al IDE donde desees correrlo.
+4. Una vez instanciado el proyecto dentro del IDE, dirigirse a la carpeta src/main/java/controller
+5. Seleccionar el archivo Main como principal para ejecutar al proyecto.
 
 ## Uso del VideoJuego
 
-Explica cómo usar o ejecutar el proyecto.
+Una vez que el juego se encuentre instalado, se puede seleccionar el boton que provee su IDE 
+seleccionado y comenzar el juego.
+* Primeramente aparecera un cuadro de texto, en el cual tendra que colocar un nombre para su Avatar, el cual
+sera necesario para poder correr el juego de manera dinamica y entretenida.
+* Una vez creado su nombre, procesa a darle click al boton que dice START GAME.
+* Posteriormente, se encontrara con un panel en el cual podra navegar de forma dinamica entre los distintos pasillos
+realizando clicks en los botones laterales.
+* Cabe destacar que tambien se posee un boton en la parte superior izquierda que despliega la mochila
+del alumno y muestra los items que se almacenan dentro de ella, como asi tambien una barra que representa 
+los Creditos que se poseen y otra con el nivel de Cafeina.
 
-## Contribución
-
-Indica cómo otros desarrolladores pueden contribuir al proyecto. Puedes mencionar cosas como:
-
-- Cómo reportar problemas o errores.
-- Cómo proponer nuevas características o mejoras.
-- Cómo enviar pull requests.
 
 ## Derechos Reservados
 

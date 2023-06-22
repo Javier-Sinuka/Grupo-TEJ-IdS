@@ -3,10 +3,8 @@ package controller;
 import model.entity.*;
 import model.objects.Consumable;
 import model.objects.Item;
-import model.objects.Usable;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 
 public class GameManager implements Subject{
@@ -358,9 +356,9 @@ public class GameManager implements Subject{
         UIClassroom classroom107 = new UIClassroom(img,uiStudent,"Informatica",12);
         rooms.add(classroom107);
 
-        classroom107.setTextArea(classroom107.getClassroom().getProfessor().getProfessorName()+
-                "("+ classroom107.getClassroom().getProfessor().getProfessorNickname()+")"+": System.out println" +
-                "(Hola alumno!) "+"bienvenido a "+ classroom107.getClassroom().getProfessor().getAssociatedSubject());
+        classroom107.setTextArea(classroom107.getClassroom().getProfessor().getProfessorName() + " "+
+                "("+ classroom107.getClassroom().getProfessor().getProfessorNickname()+")"+": " + "bienvenido a "
+                + classroom107.getClassroom().getProfessor().getAssociatedSubject());
 
         WindowButton exitButton=new WindowButton(570,20,150,50);
         classroom107.setButton(exitButton,rooms,uiStudent,"Exit",12,5,false);
