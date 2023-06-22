@@ -48,10 +48,10 @@ public class RestartButton implements UIButton{
     @Override
     public void configureButton(ArrayList<UIRoom> rooms) {
 
-        xpos=150;
-        ypos=150;
+        xpos=470;
+        ypos=350;
         width=300;
-        height=150;
+        height=50;
 
         restartButton.setBounds(xpos,ypos,width,height);
         restartButton.setFocusable(false);

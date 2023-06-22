@@ -31,7 +31,7 @@ public class UIGameOver extends UIRoom {
     private void setTextArea() {
         textArea.setText("No pudiste soportar el estres de ser un Semi Dios y moriste en el intento... " +
                 "Probá en Abogacia o Filosofia.");
-        textArea.setBounds(420,520,520,150);
+        textArea.setBounds(390,520,520,150);
         textArea.setBackground(Color.BLACK);
         textArea.setForeground(Color.white);
         textArea.setOpaque(true);
